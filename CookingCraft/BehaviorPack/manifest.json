@@ -1,0 +1,17 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "HammerWorkshop's CookingCraft",
+      "type": "data",
+      "uuid": "d3e70e1e-7fdf-40c1-aed7-ea3862e56a54",
+      "version": [0, 0, 1]
+    }
+  ],
+  "header": {
+    "description": "锤子工坊的烹饪工艺",
+    "name": "烹饪工艺",
+    "uuid": "19c1f13e-8dcd-4189-a8a5-2c7cf2568254",
+    "version": [0, 0, 1]
+  }
+}

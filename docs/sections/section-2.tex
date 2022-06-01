@@ -1,0 +1,124 @@
+\section{总体设计}
+
+\subsection{设计结构}
+
+在现版本中，设计结构十分简单。即通过小麦合成面粉，再将面粉与其它食物在烘焙台上合成其他食物。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[recipe]
+        \node (1) [item] at (0,0) {小麦};
+        \node (2) [block] at (3,0) {合成台};
+        \node (3) [item] at (6,0) {面粉};
+        \node (4) [block] at (9,0) {厨务台};
+        \node (5) [block] at (12,0) {烘焙炉};
+        \node (6) [item] at (15,0) {烘焙食物};
+        \draw (1) -- (2);
+        \draw (2) -- (3);
+        \draw (3) -- (4);
+        \draw (4) -- (5);
+        \draw (5) -- (6);
+    \end{tikzpicture}
+    \caption{烘焙步骤}
+    % \label{fig:烘焙步骤}
+\end{figure}
+
+在后续版本中，会加入新的植物，如香草，辣椒等等等。
+
+\subsection{版本内容}
+\subsubsection{版本更新计划}
+
+模组计划每 3 个版本一次大更新，并确定对应的版本更新内容。在测试版(v0.1 - v0.3)开发过程中，预计实现以下主要内容:
+\begin{itemize}
+    \item \textbf{v0.1}: 实现工作台底层脚本构建，实装厨务台与烘焙炉两个工作台，并实现派类食物的制作。
+    \item \textbf{v0.2}: 增加新工作台：研磨机，试验几个自定义植被。实现烧烤架与烧烤类食物的制作，发布 beta 测试版本。
+    \item \textbf{v0.3}: 完善 beta 测试版本，新增自定义动物(肉类来源)，发布 gamma 测试版本。
+    \item \textbf{v1.0}: 在不改变机制的情况下，大量增加游戏内容(食物，植被，动物，工作台)，发布收费正式版。
+\end{itemize}
+
+\subsubsection{版本内容}
+
+\begin{table}[H]
+    \centering
+    \caption{block 方块}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{方块名} & 英文           & \textbf{方块类型} & \textbf{说明}              & \textbf{实装版本} \\
+        \midrule
+        厨务台          & cooking\_table & 合成台            & 大部分食物加工处           & v0.1              \\
+        烘焙炉          & baking\_furnace   & 熔炉              & 制作烘焙食物               & v0.1              \\
+        研磨机          & mill       & 熔炉            & 对原材料进行研磨，需要时间 & v0.2              \\
+        烧烤架          & grill          & 响应方块      & 制作烧烤                   & v0.2              \\
+        压榨机          & squeezer       & 熔炉              & 压制奶酪，油               & v0.2              \\
+        锅              & pot            & 熔炉              & 制作汤类食物               & v1.0              \\
+        炸锅            & fryer          & 熔炉              & 制作油炸类食物             & v1.0              \\
+        \midrule
+        盐块            & salt\_block     & 矿物             & 熔炼为盐                   & v1.0              \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{食物与相关材料}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cccc}
+        \toprule
+        \textbf{物品名} & 英文              & \textbf{物品类型} & \textbf{说明/食物品质}                & \textbf{实装版本} \\
+        \midrule
+        面粉            & flour             & 材料            & 材料   & v0.1              \\
+        香料            & condiment         & 材料            & 材料  & v0.2    \\
+        辣椒            & pepper            & 材料            & 材料  & v0.2    \\
+        洋葱            & onion             & 材料            & 材料  & v0.2    \\
+        黄油            & butter            & 材料            & 材料  & v1.0    \\
+        \midrule
+        番茄            & tomato            & 水果            & $\bigstar$ & v0.2 \\
+        \midrule
+        生派            &                   & 生食              & $\bigstar$                            & v0.1              \\
+        苹果派          & apple\_pie        & 派类食物           & $\bigstar \bigstar \bigstar$         & v0.1              \\
+        浆果派          & berry\_pie        & 派类食物           & $\bigstar \bigstar \bigstar$         & v0.1              \\
+        胡萝卜派        & carrot\_pie       & 派类食物           & $\bigstar \bigstar \bigstar$         & v0.1              \\
+        乳蛋饼          & quiche\_pie       & 派类食物           & $\bigstar \bigstar \bigstar$         & v0.1              \\
+        \midrule
+        奶酪            & cheese            & 食物/材料         & $\bigstar \bigstar$                  & v1.0               \\
+        南瓜饼干        & pumpkin\_fritters & 食物              & $\bigstar \bigstar$                   & v1.0              \\
+        煎蛋            & fired\_eggs       & 食物              & $\bigstar \bigstar$                & v1.0              \\
+        \midrule
+        披萨            & pizza             & 食物              & $\bigstar \bigstar \bigstar \bigstar$ & v1.0              \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{植物}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc|cc}
+        \toprule
+        \textbf{植物名} & \textbf{英文} & \textbf{植物类型} & \textbf{土地} & \textbf{备注} & \textbf{实装版本} \\
+        \midrule
+        番茄            & tomato        & 食物              & 泥土          & 需要攀藤      & 未定              \\
+        辣椒            & pepper        & 食物/材料         & 泥土          & 直接种植      & v0.2              \\
+        香草            & vanilla       & 材料              & 泥土          & 直接种植      & v0.2              \\
+        洋葱            & onion         & 材料              & 泥土          & 直接种植      & v0.2              \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{动物}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc|cc}
+        \toprule
+        \textbf{动物名} & \textbf{英文} & \textbf{攻击类型} & \textbf{生态} & \textbf{备注} & \textbf{实装版本} \\
+        \midrule
+        鹿              & deer          & 友好              & 森林，草原    & 被打后逃跑    & v0.3              \\
+        鹅              & goose         & 友好              & 森林，草原    & 被打后逃跑    & v0.3              \\
+        核牛            & nucleus\_cow  & 敌对              & 森林，草原    & 攻击带毒      & v0.3              \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage

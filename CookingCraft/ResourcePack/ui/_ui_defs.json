@@ -1,0 +1,9 @@
+{
+    "ui_defs": [
+        "ui/baking_furnace_screen.json",
+        "ui/cooking_table_screen.json",
+        "ui/hammerCommonUI.json",
+        "ui/hammerPanelUI.json",
+        "ui/neteaseCommonUI.json"
+    ]
+}

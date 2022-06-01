@@ -1,0 +1,54 @@
+\section{模组概要}
+\subsection{主要玩法}
+
+烘焙工艺模组被设计为\textbf{生存向，休闲向}模组，通过拓展原版食物系统，给予玩家更多的\textbf{食物合成配方}以及\textbf{附带各种 buff 的烹饪食物}。
+
+\subsection{版本说明}
+
+模组三个版本号，以 1.2.3 为例，大版本为 1，
+
+现版本为 0.2.0 ，beta 测试开发版本。在这个版本下，需要完成的开发工作有:
+
+\begin{itemize}
+    \item 方块(block): UI 工作台底层代码重构，新增几种工作台。
+    \item 物品(item): 添加烧烤类食物。
+    \item 植被: 学习制备分布特性并新增制备。
+\end{itemize}
+
+预计在 v0.2.1 完成植被内容，在 v0.2.2 重构工作台底层代码，并新增几种工作台。在 v0.2.3 完成该版本的所有内存，并发布 beta 测试版。后续版本进行维护，同时进入 v0.3 版本的开发。
+
+\subsection{标准化}
+
+为了保证各类资源能正常使用，采用如下统一标准:
+\begin{itemize}
+    \item 贴图: 32x32 .png RGB
+\end{itemize}
+
+\subsection{文章术语}
+
+\begin{center}
+    \setlength{\tabcolsep}{4mm}
+    \begin{longtable}{c|ccc}
+        \caption{本文的一些术语} \\
+        \toprule
+        \textbf{符号} & \textbf{术语} & \textbf{意义} \\
+        \midrule
+        $H$ & 饥饿值 & 准确表述为食材补充的饥饿值 \\
+        $S$ & 饱食值 & 隐藏的食物补充的饱食值 \\
+        $Nv$ & 营养值 & 饱食值与饥饿值的比值 \\
+        $En$ & 能量 & 对饥饿值和饱食值的统称 \\
+        $ER$ & 能量转换比 & 合成后食物与原材料携带饥饿度比 \\
+        $Ex$ & 经验 & 食材制作过程中获得的经验 \\
+        $pf$ & 单位燃料 & 原版烧制食材所需要的燃料量，为 1/8 煤炭 \\
+        $NPB$ & 单位区块物品数量 & 一般描述特征中的矿物，植物等生成数量 \\
+        & 调料 & 参与合成但不提供能量的原材料 \\
+        & 生食 & 需要进一步加工的食物，但可以食用 \\
+        \bottomrule
+    \end{longtable}
+\end{center}
+
+\subsection{参考}
+
+环世界 Medieval Overhaul 模组 \footnote{\url{https://github.com/SirLalaPyon/MedievalOverhaul/tree/master}，该模组开源，未使用任何协议。}
+
+\newpage

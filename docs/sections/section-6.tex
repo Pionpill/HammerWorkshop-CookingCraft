@@ -1,0 +1,320 @@
+\section{物品设计}
+\subsection{烹饪材料}
+
+\subsubsection{面粉}
+
+面粉，现阶段\footnote{后续使用风车/研磨台合成}直接合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/wheat.png}};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/wheat.png}};
+        \node (6) at (2.5,1.5) {};
+        \node (7) at (0.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/wheat.png}};
+        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/wheat.png}};
+        \node (9) at (2.5,0.5) {};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10)  at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{面粉}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{面粉配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        面粉 & 6 & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{派类食物}
+
+派类食物营养值设定为 1.2。制作难度适中，一般为极佳($\bigstar \bigstar \bigstar$)食物。派类食物需要在烹饪桌(cooking\_table)上合成生食，再放入烘焙炉进行烘焙。面粉是所有派类食物必须的原材料。
+
+\subsubsection{苹果派}
+
+苹果派设计为精致食物，合成表如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \begin{scope}
+            \node (1) at (0.5,2.5) {};
+            \node (2) at (1.5,2.5) {};
+            \node (3) at (2.5,2.5) {};
+            \node (4) at (0.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/apple.png}};
+            \node (5) at (1.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/sugar.png}};
+            \node (6) at (2.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/apple.png}};
+            \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+            \node (8) at (1.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+            \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+            \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/raw_apple_pie.png}};
+            \node (11) at (10.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/apple_pie.png}};
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (5sub) at (1.5,1.5) [font=\scriptsize] {3};
+            \node (10sub)  at (6.5,1.5) [font=\scriptsize] {3};
+            \node (11sub)  at (10.5,1.5) [font=\scriptsize] {3};
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \draw [-{Stealth},thick] (7.5,1.5) -- (9.5,1.5);
+            \draw [recipe grid] (6,1) grid (7,2);
+            \draw [recipe grid] (10,1) grid (11,2);
+            \node (text) [font=\small] at (8.5,1.8) {3pf};
+            \node (text) [font=\small] at (4.5,1.2) {厨务台};
+            \node (text) [font=\small] at (8.5,1.2) {烘焙炉};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{苹果派}
+\end{figure}
+
+苹果派数值设计：
+
+由下列公式计算得出平均每个苹果派原材料携带饥饿值:
+\begin{equation}
+    \frac{6 \times 3 + 4 \times 2 + 1.5 \times 3}{3} = 10 \nonumber
+\end{equation}
+
+经过加工与烘焙，可确定生成物携带的饥饿值与营养值。
+\begin{equation}
+    \begin{aligned}
+        H_{\text{生苹果派}} & = 10 \times 0.4 = 4 \\
+        H_{\text{苹果派}} & = 10 \times 0.8 + 2 = 10 \nonumber
+    \end{aligned}
+\end{equation}
+
+\begin{table}[H]
+    \centering
+    \caption{苹果派配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc|cc}
+        \toprule
+        \textbf{物品} & \textbf{品质} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        生苹果派 & $\bigstar$ &4 & 0.6 & 是 & 反胃 30\% 5s \\
+        苹果派 & $\bigstar \bigstar \bigstar$ &10 & 1.2 & 是 & 生命恢复1 5s \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{胡萝卜派}
+
+胡萝卜派合成表如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \begin{scope}
+            \node (1) at (0.5,2.5) {};
+            \node (2) at (1.5,2.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/sugar.png}};
+            \node (3) at (2.5,2.5) {};
+            \node (4) at (0.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/carrot.png}};
+            \node (5) at (1.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/carrot.png}};
+            \node (6) at (2.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/carrot.png}};
+            \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+            \node (8) at (1.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+            \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+            \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/raw_carrot_pie.png}};
+            \node (11) at (10.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/carrot_pie.png}};
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (2sub) at (1.5,2.5) [font=\scriptsize] {3};
+            \node (10sub)  at (6.5,1.5) [font=\scriptsize] {3};
+            \node (11sub)  at (10.5,1.5) [font=\scriptsize] {3};
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \draw [-{Stealth},thick] (7.5,1.5) -- (9.5,1.5);
+            \draw [recipe grid] (6,1) grid (7,2);
+            \draw [recipe grid] (10,1) grid (11,2);
+            \node (text) [font=\small] at (8.5,1.8) {3pf};
+            \node (text) [font=\small] at (4.5,1.2) {厨务台};
+            \node (text) [font=\small] at (8.5,1.2) {烘焙炉};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{苹果派}
+\end{figure}
+
+胡萝卜派数值设计：
+
+由下列公式计算得出平均每个胡萝卜派原材料携带饥饿值:
+\begin{equation}
+    \frac{6 \times 3 + 3 \times 3 + 1.5 \times 3}{3} = 10.5 \nonumber
+\end{equation}
+
+经过加工与烘焙，可确定生成物携带的饥饿值与营养值。
+\begin{equation}
+    \begin{aligned}
+        H_{\text{生胡萝卜派}} & = \lfloor 10.5 \times 0.4 \rfloor = 4 \\
+        H_{\text{胡萝卜派}} & = \lfloor 10.5 \times 0.8 + 3 \rfloor = 11 \nonumber
+    \end{aligned}
+\end{equation}
+
+\begin{table}[H]
+    \centering
+    \caption{胡萝卜派配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc|cc}
+        \toprule
+        \textbf{物品} & \textbf{品质} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        生胡萝卜派 & $\bigstar$ &4 & 0.6 & 是 & 反胃 30\% 5s \\
+        胡萝卜派 & $\bigstar \bigstar \bigstar$ & 11 & 1.2 & 是 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{鸡蛋派}
+
+鸡蛋派合成表如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \begin{scope}
+            \node (1) at (0.5,2.5) {};
+            \node (2) at (1.5,2.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/sugar.png}};
+            \node (3) at (2.5,2.5) {};
+            \node (4) at (0.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/egg.png}};
+            \node (5) at (1.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/egg.png}};
+            \node (6) at (2.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/egg.png}};
+            \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+            \node (8) at (1.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+            \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+            \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/raw_quiche_pie.png}};
+            \node (11) at (10.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/quiche_pie.png}};
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (2sub) at (1.5,2.5) [font=\scriptsize] {3};
+            \node (10sub)  at (6.5,1.5) [font=\scriptsize] {3};
+            \node (11sub)  at (10.5,1.5) [font=\scriptsize] {3};
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \draw [-{Stealth},thick] (7.5,1.5) -- (9.5,1.5);
+            \draw [recipe grid] (6,1) grid (7,2);
+            \draw [recipe grid] (10,1) grid (11,2);
+            \node (text) [font=\small] at (8.5,1.8) {3pf};
+            \node (text) [font=\small] at (4.5,1.2) {厨务台};
+            \node (text) [font=\small] at (8.5,1.2) {烘焙炉};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{鸡蛋派}
+\end{figure}
+
+鸡蛋派数值设计：
+
+由下列公式计算得出平均每个鸡蛋派原材料携带饥饿值:
+\begin{equation}
+    \frac{6 \times 3 + 2 \times 3 + 1.5 \times 3}{3} = 9.5 \nonumber
+\end{equation}
+
+经过加工与烘焙，可确定生成物携带的饥饿值与营养值。
+\begin{equation}
+    \begin{aligned}
+        H_{\text{生鸡蛋派}} & = \lfloor 9.5 \times 0.4 \rfloor = 3 \\
+        H_{\text{鸡蛋派}} & = \lfloor 9.5 \times 0.8 + 2 \rfloor = 9 \nonumber
+    \end{aligned}
+\end{equation}
+
+\begin{table}[H]
+    \centering
+    \caption{鸡蛋派配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc|cc}
+        \toprule
+        \textbf{物品} & \textbf{品质} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        生鸡蛋派 & $\bigstar$ & 3 & 0.6 & 是 & 反胃 100\% 10s, 中毒1 50\% 5s \\
+        鸡蛋派 & $\bigstar \bigstar \bigstar$ & 9 & 1.2 & 是 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{浆果派}
+
+浆果派合成表如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \begin{scope}
+            \node (1) at (0.5,2.5) {};
+            \node (2) at (1.5,2.5) {};
+            \node (3) at (2.5,2.5) {};
+            \node (4) at (0.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/sweet_berries.png}};
+            \node (5) at (1.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/glow_berries.png}};
+            \node (6) at (2.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/sweet_berries.png}};
+            \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+            \node (8) at (1.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+            \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+            \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/raw_berry_pie.png}};
+            \node (11) at (10.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/berry_pie.png}};
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (2sub) at (1.5,1.5) [font=\scriptsize] {3};
+            \node (10sub)  at (6.5,1.5) [font=\scriptsize] {3};
+            \node (11sub)  at (10.5,1.5) [font=\scriptsize] {3};
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \draw [-{Stealth},thick] (7.5,1.5) -- (9.5,1.5);
+            \draw [recipe grid] (6,1) grid (7,2);
+            \draw [recipe grid] (10,1) grid (11,2);
+            \node (text) [font=\small] at (8.5,1.8) {3pf};
+            \node (text) [font=\small] at (4.5,1.2) {厨务台};
+            \node (text) [font=\small] at (8.5,1.2) {烘焙炉};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{浆果派}
+\end{figure}
+
+浆果派数值设计：
+
+由下列公式计算得出平均每个浆果派原材料携带饥饿值:
+\begin{equation}
+    \frac{6 \times 3 + 2 \times 5}{3} = 9.3 \nonumber
+\end{equation}
+
+经过加工与烘焙，可确定生成物携带的饥饿值与营养值。
+\begin{equation}
+    \begin{aligned}
+        H_{\text{生浆果派}} & = \lfloor 9.3 \times 0.4 \rfloor = 3 \\
+        H_{\text{浆果派}} & = \lfloor 9.3 \times 0.8 + 2 \rfloor = 9 \nonumber
+    \end{aligned}
+\end{equation}
+
+\begin{table}[H]
+    \centering
+    \caption{浆果派配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc|cc}
+        \toprule
+        \textbf{物品} & \textbf{品质} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        生浆果派 & $\bigstar$ & 3 & 0.6 & 是 & 反胃 50\% 8s, 中毒1 10\% 5s \\
+        浆果派 & $\bigstar \bigstar \bigstar$ & 9 & 1.2 & 是 & 夜视，30s \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage

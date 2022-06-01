@@ -1,0 +1,261 @@
+{
+  "bag_grid": {
+    "alpha": 1.0,
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "clip_offset": [0, 0],
+    "clips_children": false,
+    "collection_name": "bag_collection",
+    "enabled": true,
+    "grid_dimensions": [9.0, 3.0],
+    "grid_item_template": "hammerCommonUI.item_slot",
+    "grid_rescaling_type": "none",
+    "layer": 1,
+    "max_size": [0, 0],
+    "maximum_grid_items": 0,
+    "min_size": [0, 0],
+    "offset": [0, 0],
+    "priority": 0,
+    "propagate_alpha": true,
+    "size": [163, 54],
+    "type": "grid",
+    "visible": true
+  },
+  "crafting_grid": {
+    "alpha": 1.0,
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "clip_offset": [0, 0],
+    "clips_children": false,
+    "collection_name": "test_grid",
+    "enabled": true,
+    "grid_dimensions": [3.0, 3.0],
+    "grid_item_template": "hammerCommonUI.item_slot",
+    "grid_rescaling_type": "none",
+    "layer": 1,
+    "max_size": [0, 0],
+    "maximum_grid_items": 0,
+    "min_size": [0, 0],
+    "offset": [0, 0],
+    "priority": 0,
+    "propagate_alpha": true,
+    "size": [54, 54],
+    "type": "grid",
+    "visible": true
+  },
+  "crafting_panel": {
+    "alpha": 1.0,
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "clip_offset": [0, 0],
+    "clips_children": false,
+    "controls": [
+      {
+        "crafting_slot0@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left"
+        }
+      },
+      {
+        "crafting_slot1@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [18, 0]
+        }
+      },
+      {
+        "crafting_slot2@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [36, 0]
+        }
+      },
+      {
+        "crafting_slot3@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [0, 18]
+        }
+      },
+      {
+        "crafting_slot4@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [18, 18]
+        }
+      },
+      {
+        "crafting_slot5@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [36, 18]
+        }
+      },
+      {
+        "crafting_slot6@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [0, 36]
+        }
+      },
+      {
+        "crafting_slot7@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [18, 36]
+        }
+      },
+      {
+        "crafting_slot8@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [36, 36]
+        }
+      },
+      {
+        "crafting_slot9@hammerCommonUI.item_slot_big": {
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "layer": 2
+        }
+      },
+      {
+        "arrow_image@hammerCommonUI.knife_img": {}
+      }
+    ],
+    "enabled": true,
+    "layer": 0,
+    "max_size": [0, 0],
+    "min_size": [0, 0],
+    "offset": [0, 0],
+    "priority": 0,
+    "propagate_alpha": false,
+    "size": [120, 54],
+    "type": "panel",
+    "visible": true
+  },
+  "furnace_panel": {
+    "alpha": 1.0,
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "clip_offset": [0, 0],
+    "clips_children": false,
+    "controls": [
+      {
+        "furnace_slot0@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left"
+        }
+      },
+      {
+        "furnace_slot1@hammerCommonUI.item_slot": {
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left"
+        }
+      },
+      {
+        "furnace_slot2@hammerCommonUI.item_slot_big": {
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle"
+        }
+      },
+      {
+        "flame_img@hammerCommonUI.flame_img": {}
+      },
+      {
+        "flame_mask@hammerCommonUI.flame_mask": {
+          "layer": 10
+        }
+      },
+      {
+        "furnace_arrow_mask@hammerCommonUI.furnace_arrow_mask": {
+          "layer": 10
+        }
+      },
+      {
+        "furnace_arrow_img@hammerCommonUI.furnace_arrow_img": {}
+      }
+    ],
+    "enabled": true,
+    "layer": 0,
+    "max_size": [0, 0],
+    "min_size": [0, 0],
+    "offset": [0, 0],
+    "priority": 0,
+    "propagate_alpha": false,
+    "size": [80, 54],
+    "type": "panel",
+    "visible": true
+  },
+  "hand_grid": {
+    "alpha": 1.0,
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "clip_offset": [0, 0],
+    "clips_children": false,
+    "collection_name": "hand_collection",
+    "enabled": true,
+    "grid_dimensions": [9.0, 1.0],
+    "grid_item_template": "hammerCommonUI.item_slot",
+    "grid_rescaling_type": "none",
+    "layer": 2,
+    "max_size": [0, 0],
+    "maximum_grid_items": 0,
+    "min_size": [0, 0],
+    "offset": [0, 0],
+    "priority": 0,
+    "propagate_alpha": true,
+    "size": [163, 18],
+    "type": "grid",
+    "visible": true
+  },
+  "inventory_panel": {
+    "alpha": 1.0,
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "clip_offset": [0, 0],
+    "clips_children": false,
+    "controls": [
+      {
+        "bag_grid@hammerPanelUI.bag_grid": {}
+      },
+      {
+        "hand_grid@hammerPanelUI.hand_grid": {}
+      },
+      {
+        "item_detail@hammerCommonUI.item_detail": {}
+      },
+      {
+        "progressive_bar@hammerCommonUI.progress_bar": {
+          "$barMaskSize": ["100.0%+0.0px", "100.0%+0.0px"]
+        }
+      }
+    ],
+    "enabled": true,
+    "layer": 0,
+    "max_size": [0, 0],
+    "min_size": [0, 0],
+    "offset": [0, 0],
+    "priority": 0,
+    "propagate_alpha": false,
+    "size": [162, 75],
+    "type": "panel",
+    "visible": true
+  },
+  "main": {
+    "absorbs_input": true,
+    "always_accepts_input": false,
+    "controls": [
+      {
+        "inventory_panel@hammerPanelUI.inventory_panel": {}
+      }
+    ],
+    "force_render_below": false,
+    "is_showing_menu": true,
+    "render_game_behind": true,
+    "render_only_when_topmost": true,
+    "should_steal_mouse": false,
+    "type": "screen"
+  },
+  "namespace": "hammerPanelUI"
+}

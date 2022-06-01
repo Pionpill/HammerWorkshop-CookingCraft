@@ -1,0 +1,270 @@
+\section{数值设计}
+\subsection{原版食物数值分析}
+
+\subsubsection{原版数值说明}
+
+原版食物包含两个重要数值: 饥饿值(Hunger) 与饱食度(Saturation)。以及他们的比值营养值(Nutritional value)。在下文的数值设计中，我们以饥饿值为主，所有食材均将显式或隐式(不可直接被食用)携带饥饿值这一属性，再更具食材类型人为确定其营养值，以此计算出饱食值。
+
+\begin{equation}
+    Nv = \frac{S}{H}
+\end{equation}
+
+其中，饥饿值和饱食度上限均为20，饥饿度即为显示的饥饿条，饱食度不显示，但饱食度消耗完后才会消耗饥饿度。饱食度不高于饥饿度，营养值越高，食物也相对越优质。原版根据不同食物的营养值划分了等级如下(考虑到一些食物的 buff，下表与实际营养值有些许差异):
+
+\begin{table}[H]
+    \centering
+    \caption{营养等级}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|c|cc}
+        \toprule
+        \textbf{营养等级} & \textbf{营养值} & \textbf{食物} \\
+        \midrule
+        超自然 & 2.4 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/golden_apple.png}  \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/golden_carrot.png} \\
+        好 & 1.6 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_beef.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_porkchop.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_mutton.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_salmon.png}\\
+        普通 & 1.2 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/baked_potato.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/beetroot.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/beetroot_soup.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/bread.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/carrot.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_chicken.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_cod.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_rabbit.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/mushroom_stew.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/rabbit_stew.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/suspicious_stew.png}\\
+        低 & 0.6 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/apple.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/chorus_fruit.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/melon_slice.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/potato.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/poisonous_potato.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/pumpkin_pie.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/beef.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/chicken.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/mutton.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/rabbit.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/sweet_berries.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/porkchop.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/dried_kelp.png}\\
+        差 & 0.2 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cake.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cookie.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/honey_bottle.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/pufferfish.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cod.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/salmon.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/rotten_flesh.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/tropical_fish.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/spider_eye.png} \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/glow_berries.png} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+对于原版食物，汇总属性如下(金苹果与附魔金苹果已经超出了一般食物范畴，buff 请自行查阅资料):
+
+
+\begin{center}
+    \setlength{\tabcolsep}{4mm}
+    \begin{longtable}{c|c|ccc|ccc}
+        \caption{原版食物属性} \\
+        \toprule
+        \textbf{图标} & \textbf{英文} & \textbf{饥饿} & \textbf{饱食} & \textbf{营养} & \textbf{备注} \\
+        \midrule
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/golden_apple.png} & golden\_apple & 4 & 9.6 & 2.4 & 附魔金苹果相同，buff 加强 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/golden_carrot.png} & golden\_carrot & 6 & 14.4 & 2.4 &  \\
+        \midrule
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_beef.png} & cooked\_beef & 8 & 12.8 & 1.6 &  熔炉烘焙 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_porkchop.png} & cooked\_porkchop & 8 & 12.8 & 1.6 & 熔炉烘焙 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_mutton.png} & cooked\_mutton & 6 & 9.6 & 1.6 &  熔炉烘焙 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_salmon.png} & cooked\_salmon & 6 & 9.6 & 1.6 &  熔炉烘焙 \\
+        \midrule
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/baked_potato.png} & baked\_potato & 5 & 6 & 1.2 & 熔炉烘焙 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/beetroot.png} & beetroot & 1 & 1.2 & 1.2 & \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/beetroot_soup.png} & beetroot\_soup & 6 & 7.2 & 1.2 & \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/bread.png} & bread & 5 & 6 & 1.2 & \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/carrot.png} & carrot & 3 & 3.6 & 1.2 & \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_chicken.png} & cooked\_chicken & 6 & 7.2 & 1.2 & \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_cod.png} & cooked\_cod & 5 & 6 & 1.2 & \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_rabbit.png} & cooked\_rabbit & 5 & 6 & 1.2 & 熔炉烘焙 \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/mushroom_stew.png} & mushroom\_stew & 6 & 7.2 & 1.2 & \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/rabbit_stew.png} & rabbit\_stew & 10 & 12 & 1.2 & \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/suspicious_stew.png} & suspicious\_stew & 6 & 7.2 & 1.2 & 产生一定药水效果 \\
+        \midrule
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/rabbit.png} & rabbit & 2 & 1.8 & 0.9 &  \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/apple.png} & apple & 4 & 2.4 & 0.6 &  \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/chorus_fruit.png} & chorus\_fruit & 5 & 2.4 & 0.6 & 随机传送 \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/melon_slice.png} & melon\_slice & 2 & 1.2 & 0.6 &  \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/potato.png} & potato & 1 & 0.6 & 0.6 &  \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/poisonous_potato.png} & poisonous\_potato & 2 & 1.2 & 0.6 &  \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/pumpkin_pie.png} & pumpkin\_pie & 8 & 4.8 & 0.6 &  \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/beef.png} & beef & 3 & 1.8 & 0.6 &  \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/chicken.png} & chicken & 2 & 1.2 & 0.6 & \textbf{饥饿} 30s 30\% \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/mutton.png} & mutton & 2 & 1.2 & 0.6 &  \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/porkchop.png} & porkchop & 3 & 1.8 & 0.6 & \textbf{中毒} 4s 60\% \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/dried_kelp.png}  & dried\_kelp & 1 & 0.6 & 0.6 \\ 
+        \midrule
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/sweet_berries.png} & sweet\_berries & 2 & 0.4 & 0.2 &  \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cake.png} & cake & 14 & 2.8 & 0.2 & 七次吃完 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cookie.png}  & cookie & 2 & 0.4 & 0.2 \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/honey_bottle.png}  & honey\_bottle & 6 & 1.2 & 0.2 & 消除\textbf{中毒}效果 \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/pufferfish.png}  & pufferfish & 1 & 0.2 & 0.2 & \textbf{饥饿Ⅲ,反胃Ⅱ} 15s,\textbf{中毒Ⅳ} 1min\\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cod.png}  & cod & 2 & 0.4 & 0.2 \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/salmon.png}  & salmon & 2 & 0.4 & 0.2 \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/rotten_flesh.png}  & rotten\_flesh & 4 & 0.8 & 0.2 & \textbf{饥饿} 20s 80\% \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/tropical_fish.png}  & tropical\_fish & 1 & 0.2 & 0.2 \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/spider_eye.png}  & spider\_eye & 2 & 3.2 & 1.6 & \textbf{中毒} 4s \\ 
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/glow_berries.png}  & glow\_berries & 2 & 0.4 & 0.2 \\
+        \bottomrule
+    \end{longtable}
+\end{center}
+
+原版食物共计有三种烹饪方法，一是直接食用，二是合成台合成，三是熔炉烘焙。
+
+直接食用的原始食材性价比较低，一般不会这样使用。
+
+\subsubsection{合成食物的能量损耗}
+
+关于合成台合成食物，以兔肉煲为例：兔肉煲需要五种原材料，其中碗可以重复使用，也即需要三种食材和一种调料(蘑菇\footnote{蘑菇可以合成蘑菇煲并补充能量，本模组将蘑菇视为调料/食材，作为调料时蘑菇不带能量。})，其原始材料补充的饥饿值和饱食度如下:
+
+\begin{equation}
+    \begin{aligned}
+        H_{raw} = & 5(\text{熟兔肉}) + 3(\text{胡萝卜}) + 5(\text{烤马铃薯}) + = 13 \\
+        S_{raw} = & 6(\text{熟兔肉}) + 3.6(\text{胡萝卜}) + 6(\text{烤马铃薯}) = 15.6 \\
+        Nv_{raw} = & \frac{S_{raw}}{H_{raw}} = \frac{15.6}{13} = 1.2 \nonumber
+    \end{aligned}
+\end{equation}
+
+而兔肉煲所携带的饥饿值为 10，饱食值为 12，营养值为 1.2。那么可以计算出合成过程中的能量转换比:
+
+\begin{equation}
+    \begin{aligned}
+        ER_{H} = \frac{H_{food}}{H_{raw}} = \frac{10}{13} = 0.77 \\
+        ER_{S} = \frac{S_{food}}{S_{raw}} = \frac{12}{15.6} = 0.77 \nonumber
+    \end{aligned}
+\end{equation}
+
+我们可以设计一个更为简单的合成食物过程中的饥饿值损耗公式\footnote{绝大部分食材采用这种方式，小部分会做微调}(括号为向下取整符号):
+
+\begin{equation}
+    H_{food} = \lfloor H_{raw} \times 0.8 \rfloor 
+\end{equation}
+
+再由开发人员确定某类食物的营养值就可以计算出食物的饱食度，其中生食营养值不高于1.2。不可直接食用素材营养值为 0.2。
+
+根据如上原理，我们可以反向计算出一些原材料所携带的隐藏属性如下表(这里的营养值为人工标定):
+
+\begin{center}
+    \setlength{\tabcolsep}{4mm}
+    \begin{longtable}{c|c|ccc|ccc}
+        \caption{原版食物属性} \\
+        \toprule
+        \textbf{图标} & \textbf{英文} & \textbf{饥饿} & \textbf{饱食} & \textbf{营养} & \textbf{备注} \\
+        \midrule
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/wheat.png} & wheat & 2 & 0.4 & 0.2 & 面包反向计算(修正) \\
+        \midrule
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cocoa_beans.png} & cocoa\_beans & 4 & 2.4 & 0.6 & 曲奇反向计算(修正) \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/brown_mushroom.png} & mushroom & 4 & 2.4 & 0.6 & 蘑菇煲反向计算,作为主食  \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/pumpkin_side.png} & pumpkin & 8 & 4.8 & 0.6 & 南瓜派反向计算 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/egg.png} & egg & 2 & 2.4 & 0.6 & 南瓜派反向计算 \\
+        \midrule
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/milk_bucket.png} & milk\_bucket & 3 & 3.6 & 1.2 & 蛋糕反向计算 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/sugar.png} & sugar & 1.5 & 1.8 & 1.2 & 蜂蜜反向计算 \\
+        \midrule
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/kelp.png} & kelp & 1.5 & 0.8 & 0.6 & 干海带反向计算 \\
+        \bottomrule
+    \end{longtable}
+\end{center}
+
+在这一过程中，发现原版有些不合理的配方:
+\begin{itemize}
+    \item 曲奇补充的能量过大。较小可可豆携带的能量值。
+    \item 蘑菇多个配方难以计算能量值，将其作为主食与调料分开。
+    \item 糖作为主食与调料分开。
+\end{itemize}
+
+\subsubsection{熔炉烧制食物的能量增加}
+
+熔炉烘焙的食物分析涉及到两个方面，一是消耗的燃料量(也即烹饪时间)，二是烹饪获得的经验。下面是原版烹饪食物携带的饥饿值对比\footnote{干海带只进行了烘干处理，所以和加工一样，有能量损耗。}:
+
+\begin{center}
+    \setlength{\tabcolsep}{4mm}
+    \begin{longtable}{cccc|cccc|c}
+        \caption{原版食物属性} \\
+        \toprule
+        \textbf{烧制前} & \textbf{饥饿} & \textbf{饱食} & \textbf{营养} & \textbf{烧制后} & \textbf{饥饿} & \textbf{饱食} & \textbf{营养} & \textbf{经验}\\
+        \midrule
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/chicken.png} & 2 & 1.2 & 0.6 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_chicken.png} & 6 & 7.2 & 1.2 & 0.35 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/mutton.png} & 2 & 1.2 & 0.6 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_mutton.png} & 6 & 9.6 & 1.6 & 0.35 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/beef.png} & 3 & 1.8 & 0.6 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_beef.png} & 8 & 12.8 & 1.6 & 0.35 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/porkchop.png} & 3 & 1.8 & 0.6 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_porkchop.png} & 8 & 12.8 & 1.6 & 0.35 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/rabbit.png} & 2 & 1.8 & 0.9 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_rabbit.png} & 5 & 6 & 1.2 & 0.35 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cod.png} & 2 & 0.4 & 0.2 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_cod.png} & 5 & 6 & 1.2 & 0.35 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/salmon.png} & 2 & 0.4 & 0.2 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/cooked_salmon.png} & 6 & 9.6 & 1.6 & 0.35 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/potato.png} & 1 & 0.6 & 0.6 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/baked_potato.png} & 5 & 6 & 1.2 & 0.35 \\
+        \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/kelp.png} & 1.5 & 0.8 & 0.6 & \includegraphics[width=0.5cm,height=0.5cm]{./images/origin/dried_kelp.png} & 1 & 0.6 & 0.6 & 0.1 \\
+        \bottomrule
+    \end{longtable}
+\end{center}
+
+由上表可以看出，烘焙后的食物饥饿值上升了 3-5 不等，营养值均达到 1.2，1.6 品质。由此可以得出结论，每消耗 1 单位燃料\footnote{原版烧制物品所需的 1/8 个煤炭}，会赋予食物 3-5 点的饥饿度加成，0.35 经验以及营养品质的提升。
+
+\subsection{模组食物数值设计}
+
+\subsubsection{合成与烧制数值设计}
+
+对于合成新食材，以如下公式计算出的数值为参考计算出新食物的饥饿值:
+
+\begin{equation}
+    \label{eq:hungry}
+    H_{food} = \lfloor H_{raw} \times 0.8 \rfloor 
+\end{equation}
+
+对于烧制食品，根据其烧制所消耗的单位燃料(n)，以如下饥饿度加成为参考:
+
+\begin{equation}
+    \begin{aligned}
+        \label{eq:fire}
+        H_{food} = & H_{raw} + (3-5)\times \lfloor \log_{2}(n+1) \rfloor \\
+        Ex = & 0.35 \times n
+    \end{aligned}
+\end{equation}
+
+注: 如果为提取佐料(如海带提取为海带干)，其饥饿度采用公式 \ref{eq:hungry} 计算，经验系数改为 0.1。
+
+关于食品营养值的确定，对于一类的食物(如派类，甜品类)营养值应相同，其它特殊食物，或食物有特殊加成，其营养值应该参考该食物的主要食材。例如主要食材是牛肉，那么烹饪后其营养值应该为 1.6。
+
+\subsubsection{食物品质}
+
+标记食材品质的主要目的有两个:
+\begin{enumerate}
+    \item 确实食物的设计方向，即食物在设计时应该以下面的要求为参考。
+    \item 确定食物的烹饪难度，也即玩家制作该食物的难度。
+\end{enumerate}
+
+食物品质有五个等级，使用 ★ 表示，五种等级的食材简要划分如下:
+
+\begin{center}
+    \setlength{\tabcolsep}{4mm}
+    \begin{longtable}{c|c|c|c}
+        \caption{食物品质} \\
+        \toprule
+        \textbf{品质} & \textbf{表示} & \textbf{条件} & 例子 \\
+        \midrule
+        一般 & $\bigstar$ & 少量能量(饥饿值 $\leq$ 5) & 胡萝卜，生牛肉 \\
+        良好 & $\bigstar \bigstar$ & 适量能量(5 $<$ 饥饿值 $\leq$ 10) & 兔肉煲，熟肉  \\
+        极佳 & $\bigstar \bigstar \bigstar$ & 大量能量 (10 $<$ 饥饿值 $\leq$ 15)，一定 buff & 金苹果 \\
+        大师 & $\bigstar \bigstar \bigstar \bigstar$ & 巨量能量 (15 $<$ 饥饿值)，较强 buff &   \\
+        传奇 & $\bigstar \bigstar \bigstar \bigstar \bigstar$ & 巨量能量 (15 $<$ 饥饿值)，强力 buff &   \\
+        \bottomrule
+    \end{longtable}
+\end{center}
+
+同时等级越高的食材工艺数应该越多，例如在后续版本中，会涉及到利用牛奶发酵成黄油，食材制作需要黄油，食材需要熏制或者烘焙等。
+
+\subsubsection{食物 buff 决策}
+
+模组食物所携带的 buff 应由食材决定，例如利用牛奶，蜂蜜烹饪的食物可以带上 \textbf{消除中毒} 的效果。生食应该带上 \textbf{饥饿，反胃} 等负面 buff。
+
+\begin{center}
+    \setlength{\tabcolsep}{4mm}
+    \begin{longtable}{c|c|c|c}
+        \caption{材料 buff 决策} \\
+        \toprule
+        \textbf{材料} & \textbf{正面 buff} & \textbf{负面 buff} & 备注 \\
+        \midrule
+        苹果 & 生命恢复 & 无 & \\
+        胡萝卜 & 夜视 & 无 & \\
+        发光浆果 & 发光(自定义) & 中毒 \\
+        \bottomrule
+    \end{longtable}
+\end{center}
+
+\
+
+\subsection{特征数值分析}
+\subsubsection{原版矿物特征分布}
+
+由于矿物并不是本模组的主要研究对象，仅作一些基础描述。
+
+\begin{table}[H]
+    \centering
+    \caption{原版矿物特征分布}
+    \label{table:原版矿物特征分布}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cccccccc}
+        \toprule
+        \textbf{} & \textbf{煤} & \textbf{铁} & \textbf{铜} & \textbf{青金石} & \textbf{金} & \textbf{红石} & \textbf{钻石} & \textbf{绿宝石} \\
+        \midrule
+        NPB(矿) & 142 & 77 &  & 3.43 & 8.2 & 24 & 3 & 0-2(山地) \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\newpage

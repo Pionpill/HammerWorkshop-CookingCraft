@@ -1,0 +1,25 @@
+@startuml
+package client.ui {
+    class CookingTableScreen {
+        + InventoryPanelUI: inventoryPanelUI 
+        + CraftingPanelUI: craftingPanelUI
+        + RecipePanelUI: recipePanelUI
+        + closeBtn
+    }
+
+    class ScreenNode 
+
+    ScreenNode <|-- CookingTableScreen
+}
+
+package common.commonManager {
+    class CookingTableRecipeBase {
+        + UpdateSlotData()
+        + Tick()
+    }
+    class CookingTableRecipeManager {
+        + recipes
+    }
+    CookingTableRecipeBase <|-- CookingTableRecipeManager
+}
+@enduml

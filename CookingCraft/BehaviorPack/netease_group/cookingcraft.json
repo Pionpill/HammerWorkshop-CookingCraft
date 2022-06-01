@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "group_name": "itemGroup.name.cookingcraft.pie",
+      "icon": "cookingcraft:carrot_pie",
+      "list": [
+        "cookingcraft:apple_pie",
+        "cookingcraft:carrot_pie",
+        "cookingcraft:quiche_pie",
+        "cookingcraft:berry_pie",
+        "cookingcraft:raw_apple_pie",
+        "cookingcraft:raw_carrot_pie",
+        "cookingcraft:raw_quiche_pie",
+        "cookingcraft:raw_berry_pie"
+      ]
+    }
+  ]
+}

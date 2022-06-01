@@ -1,0 +1,45 @@
+{
+  "resource_pack_name": "vanilla",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "cookingcraft:flour": {
+      "textures": "textures/items/flour"
+    },
+    "cookingcraft:apple_pie": {
+      "textures": "textures/items/apple_pie"
+    },
+    "cookingcraft:raw_apple_pie": {
+      "textures": "textures/items/raw_apple_pie"
+    },
+    "cookingcraft:berry_pie": {
+      "textures": "textures/items/berry_pie"
+    },
+    "cookingcraft:raw_berry_pie": {
+      "textures": "textures/items/raw_berry_pie"
+    },
+    "cookingcraft:carrot_pie": {
+      "textures": "textures/items/carrot_pie"
+    },
+    "cookingcraft:raw_carrot_pie": {
+      "textures": "textures/items/raw_carrot_pie"
+    },
+    "cookingcraft:quiche_pie": {
+      "textures": "textures/items/quiche_pie"
+    },
+    "cookingcraft:raw_quiche_pie": {
+      "textures": "textures/items/raw_quiche_pie"
+    },
+    "cookingcraft:herb": {
+      "textures": "textures/items/herb"
+    },
+    "cookingcraft:herb_seeds": {
+      "textures": "textures/items/herb_seeds"
+    },
+    "cookingcraft:tomato": {
+      "textures": "textures/items/tomato"
+    },
+    "cookingcraft:tomato_seeds": {
+      "textures": "textures/items/tomato_seeds"
+    }
+  }
+}

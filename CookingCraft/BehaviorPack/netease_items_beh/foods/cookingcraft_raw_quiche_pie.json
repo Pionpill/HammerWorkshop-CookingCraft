@@ -1,0 +1,36 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:raw_quiche_pie",
+      "register_to_create_menu": true,
+      "category": "cooking_craft"
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      "minecraft:use_duration": 32,
+      "minecraft:food": {
+        "nutrition": 4,
+        "saturation_modifier": "low",
+        "can_always_eat": false,
+        "effects": [
+          {
+            "name": "nausea",
+            "chance": 1,
+            "duration": 10,
+            "amplifier": 0
+          },
+          {
+            "name": "poison",
+            "chance": 0.5,
+            "duration": 5,
+            "amplifier": 0
+          }
+        ]
+      },
+      "netease:customtips": {
+        "value": "§f--------------------\n§6§l生食\n§r§3‖品质‖:§e★\n§3‖饥饿‖:§6●●\n§f--------------------\n§d- 一定会反胃\n- 中等概率中毒"
+      }
+    }
+  }
+}

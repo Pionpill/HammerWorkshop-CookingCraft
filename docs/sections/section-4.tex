@@ -1,0 +1,371 @@
+\section{工作台系统}
+
+功能设计主要涉及到工作台相关的设计以及交互式方块设计，这里只对功能进行说明，详细的设计逻辑参考详细设计说明书。工作台大致可分为以下几类:
+\begin{itemize}
+    \item 合成台: UI 界面，无需保存 BlockEntity 数据。
+    \item 熔炉: UI 界面，需要保持 BlockEntity 数据。
+    \item 响应方块: 无 UI，需要保存 BlockEntity 数据。
+\end{itemize}
+
+\subsection{合成台}
+
+合成台，需要复杂的合成配方，一般不需要保持 BlockEntity 数据。
+
+\subsubsection{厨务台}
+
+厨务台 (cooking\_table) 为模组食物的主要加工区域，基本所有的食物原料都需要在此合成，再进入下一步加工。(例如苹果派需要在厨务台上合成为生苹果派，再放入烘焙炉)。
+
+厨务台的合成配方如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (6) at (2.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/stone_bricks.png}};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/cooking_table_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{面粉}
+\end{figure}
+
+厨务台和原版合成台类似，模组食物仅能在厨务台上合成。在此工作台上可以合成两种食物:
+\begin{itemize}
+    \item 生食(unfinished\_food): 需要进一步加工的食物，可以直接食用，但有负面buff
+    \item 熟食(finished\_food): 可以直接使用的食物。
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{厨务台属性}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|c}
+        \toprule
+        \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        大小 & 3x2 & 作用 & 制作模组食物 \\
+        $ER_{unfinished}$ & 0.4 & $ER_{finished}$ & 0.8 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+对生食进一步烹饪的过程中，需要将其携带的饥饿值乘 2 ，即按照熟食的饥饿值进一步加工。
+
+完整的厨务台应该由以下三部分组成(其中前两项为必要部分):
+\begin{itemize}
+    \item 容器面板(container\_panel): 显示背包物品并进行实时更新。
+    \item 合成面板(crafting\-panel): 主要功能区，对原材料进行合成。
+    \item 清单面板(menu\_panel): 显示现有配方，起到一个辅助作用。
+\end{itemize}
+
+其合成面板应具有以下结构:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \draw [recipe grid](6,1) grid (7,2);
+        \begin{scope}[yshift=-0.5cm]
+            \draw [recipe grid](8,0) grid (9,4);
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{厨务台 UI}
+\end{figure}
+
+\begin{itemize}
+    \item 左侧: 九宫格为九个原材料槽
+    \item 中间: 一个输出槽
+    \item 右侧：四个固定物品的调料槽，依次为盐，糖，油，香料。
+\end{itemize}
+
+其中，调料槽在 v0.2 测试版加入。
+
+\subsection{熔炉}
+
+\subsubsection{烘焙炉}
+
+烘焙炉(baking\_furnace) 对合成的生食进一步加工成烘焙食物(baking\_food)。
+
+烘焙炉的合成配方如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/clay_ball.png}};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/clay_ball.png}};
+        \node (6) at (2.5,1.5)  {};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/baking_furnace_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{面粉}
+\end{figure}
+
+烘焙炉与原版熔炉功能相同，配方不同，在烘焙炉上可以将生的烘焙食物烤熟。
+
+\begin{table}[H]
+    \centering
+    \caption{厨务台属性}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|c}
+        \toprule
+        \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        大小 & 2x2 & 作用 & 烘焙食物 \\
+        饥饿度增量 & 2-5 & 经验 & 0.35 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+完整的烘焙炉应该由以下三部分组成(其中前两项为必要部分):
+\begin{itemize}
+    \item 容器面板(container\_panel): 显示背包物品并进行实时更新。
+    \item 熔炉面板(crafting\-panel): 主要功能区，对原材料进行合成。
+    \item 清单面板(menu\_panel): 显示现有配方，起到一个辅助作用。
+\end{itemize}
+
+其熔炉面板应具有以下结构:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,1) grid (1,2);
+        \draw [recipe grid](4,0) grid (5,1);
+        \draw [recipe grid](0,-1) grid (1,0);
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{烘焙炉 UI}
+\end{figure}
+
+\begin{itemize}
+    \item 左上方: 原材料槽
+    \item 左下方: 燃料槽
+    \item 右侧：输出槽
+\end{itemize}
+
+\subsubsection{研磨机}
+
+研磨机(mill) 对原材料(主要是谷物) 加工成食物原材料。
+
+研磨机的合成配方如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/clay_ball.png}};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/clay_ball.png}};
+        \node (6) at (2.5,1.5)  {};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/baking_furnace_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{面粉}
+\end{figure}
+
+研磨机类似与原版熔炉，原材料是金而不是燃料(有钱能使鬼推磨)。
+
+\begin{table}[H]
+    \centering
+    \caption{研磨机属性}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|c}
+        \toprule
+        \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        大小 & 1x2 & 作用 & 加工谷物 \\
+        饥饿度增量 & - & 经验 & 0.35 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+完整的研磨机应该由以下三部分组成(其中前两项为必要部分):
+\begin{itemize}
+    \item 容器面板(container\_panel): 显示背包物品并进行实时更新。
+    \item 熔炉面板(crafting\-panel): 主要功能区，对原材料进行合成。
+    \item 清单面板(menu\_panel): 显示现有配方，起到一个辅助作用。
+\end{itemize}
+
+其熔炉面板应具有以下结构:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (5,1);
+        \draw [recipe grid](2,-2) grid (3,-1);
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{研磨机 UI}
+\end{figure}
+
+\begin{itemize}
+    \item 左上方: 原材料槽
+    \item 左下方: 燃料槽
+    \item 右侧：输出槽
+\end{itemize}
+
+\subsubsection{压榨机}
+
+压榨机(squeezer) 对原材料加工成食物调料。
+
+压榨机的合成配方如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/clay_ball.png}};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/clay_ball.png}};
+        \node (6) at (2.5,1.5)  {};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/baking_furnace_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{面粉}
+\end{figure}
+
+压榨机类似与原版熔炉，但压榨机不需要原材料，对应的压榨时间较长。
+
+\begin{table}[H]
+    \centering
+    \caption{压榨机属性}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|c}
+        \toprule
+        \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        大小 & 1x2 & 作用 & 压榨原材料 \\
+        饥饿度增量 & - & 经验 & 0.35 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+完整的压榨机应该由以下三部分组成(其中前两项为必要部分):
+\begin{itemize}
+    \item 容器面板(container\_panel): 显示背包物品并进行实时更新。
+    \item 熔炉面板(furnace\_panel): 主要功能区，对原材料进行合成。
+    \item 清单面板(menu\_panel): 显示现有配方，起到一个辅助作用。
+\end{itemize}
+
+其熔炉面板应具有以下结构:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](-2,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (5,1);
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{压榨机 UI}
+\end{figure}
+
+\begin{itemize}
+    \item 左侧: 原材料槽
+    \item 右侧：输出槽
+\end{itemize}
+
+\subsection{响应方块}
+
+\subsubsection{烧烤架}
+
+烧烤架(grill) 可以制成烧烤类食物。
+
+烧烤架的合成配方如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/clay_ball.png}};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/clay_ball.png}};
+        \node (6) at (2.5,1.5)  {};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/baking_furnace_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{面粉}
+\end{figure}
+
+烧烤架不通过 UI 合成物品，而是通过交互获得新物品。
+
+\begin{table}[H]
+    \centering
+    \caption{烧烤架属性}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|c}
+        \toprule
+        \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        大小 & 1x1 & 作用 & 制作烧烤 \\
+        饥饿度增量 & 2-5 & 经验 & 0.35 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+烧烤架需要以下两种物品:
+\begin{itemize}
+    \item 燃料: 使用后烧烤架开启燃烧状态。
+    \item 食物: 可以在烧烤架上烤制。
+\end{itemize}
+
+
+\newpage

@@ -1,0 +1,9 @@
+{
+  "category": [
+    {
+      "name": "cooking_craft",
+      "labelText": "itemCategory.name.cooking_craft",
+      "icon": "textures/blocks/cooking_table_icon"
+    }
+  ]
+}

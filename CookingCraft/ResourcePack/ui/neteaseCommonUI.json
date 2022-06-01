@@ -1,0 +1,368 @@
+{
+   "background" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "layer" : 2,
+      "nineslice_size" : 4,
+      "offset" : [ 0, 0 ],
+      "size" : [ "100.0%+0.0px", "100.0%+0.0px" ],
+      "texture" : "textures/ui/panel_bg",
+      "type" : "image",
+      "visible" : true
+   },
+   "bagContent" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "scrollingPanel@neteaseCommonUI.scrollingPanel" : {}
+         },
+         {
+            "dropArea@neteaseCommonUI.dropButton" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 1,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, -14 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "75%", "75%" ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "bagGrid" : {
+      "anchor_from" : "top_left",
+      "anchor_to" : "top_left",
+      "collection_name" : "bag_grid",
+      "grid_item_template" : "neteaseCommonUI.itemBtn",
+      "grid_rescaling_type" : "horizontal",
+      "layer" : 4,
+      "maximum_grid_items" : 36,
+      "size" : [ "100%", "default" ],
+      "type" : "grid",
+      "visible" : true
+   },
+   "button_label" : {
+      "color" : "$label_color",
+      "font_scale_factor" : "$label_font_scale_factor",
+      "font_size" : "$label_font_size",
+      "font_type" : "smooth",
+      "layer" : "$label_layer",
+      "max_size" : [ "100%", "100%" ],
+      "offset" : [ 0, 0 ],
+      "shadow" : false,
+      "text" : "$label_text",
+      "text_alignment" : "center",
+      "type" : "label"
+   },
+   "closeBtn@common.button" : {
+      "$default_texture" : "",
+      "$hover_texture" : "",
+      "$label_color" : [ 0, 0, 0 ],
+      "$label_font_scale_factor" : 0.8199999928474426,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "x",
+      "$pressed_button_name" : "",
+      "$pressed_texture" : "",
+      "$texture_layer" : 2,
+      "anchor_from" : "top_right",
+      "anchor_to" : "top_right",
+      "controls" : [
+         {
+            "default@neteaseCommonUI.default" : {}
+         },
+         {
+            "hover@neteaseCommonUI.hover" : {}
+         },
+         {
+            "pressed@neteaseCommonUI.pressed" : {}
+         },
+         {
+            "button_label@neteaseCommonUI.button_label" : {}
+         }
+      ],
+      "layer" : 22,
+      "offset" : [ 0, 0 ],
+      "size" : [ 28, "100%" ],
+      "type" : "button",
+      "visible" : true
+   },
+   "default" : {
+      "layer" : "$texture_layer",
+      "nineslice_size" : 1,
+      "texture" : "$default_texture",
+      "type" : "image"
+   },
+   "dropButton@common.button" : {
+      "$default_texture" : "textures/ui/bg_frame_01",
+      "$hover_texture" : "textures/ui/bg_frame_01",
+      "$pressed_button_name" : "",
+      "$pressed_texture" : "textures/ui/bg_frame_01",
+      "$texture_layer" : -10,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "button_mappings" : [],
+      "controls" : [
+         {
+            "default@neteaseCommonUI.default" : {}
+         },
+         {
+            "hover@neteaseCommonUI.hover" : {}
+         },
+         {
+            "pressed@neteaseCommonUI.pressed" : {}
+         }
+      ],
+      "default_control" : "default",
+      "hover_control" : "hover",
+      "layer" : 1,
+      "offset" : [ 0, 0 ],
+      "pressed_control" : "pressed",
+      "size" : [ "100%", "100%" ],
+      "type" : "button",
+      "visible" : true
+   },
+   "header" : {
+      "anchor_from" : "top_middle",
+      "anchor_to" : "top_middle",
+      "controls" : [
+         {
+            "closeBtn@neteaseCommonUI.closeBtn" : {}
+         },
+         {
+            "headerName@neteaseCommonUI.headerName" : {}
+         },
+         {
+            "headerBg@neteaseCommonUI.headerBg" : {}
+         }
+      ],
+      "size" : [ "100%", 28 ],
+      "type" : "panel"
+   },
+   "headerBg" : {
+      "layer" : 3,
+      "nineslice_size" : [ 3, 3, 3, 6 ],
+      "texture" : "textures/ui/title_bar",
+      "type" : "image",
+      "visible" : true
+   },
+   "headerName" : {
+      "$header_name|default" : "",
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "color" : [ 0, 0, 0 ],
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 23,
+      "offset" : [ 0, 0 ],
+      "shadow" : false,
+      "size" : [ 60, "50%" ],
+      "text" : "$header_name",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "hover" : {
+      "layer" : "$texture_layer",
+      "nineslice_size" : 1,
+      "texture" : "$hover_texture",
+      "type" : "image"
+   },
+   "itemBtn@common.button" : {
+      "$default_texture" : "textures/ui/bg_frame_01",
+      "$hover_texture" : "textures/ui/bg_frame_01",
+      "$item_button_anchor_from|default" : "center",
+      "$item_button_anchor_to|default" : "center",
+      "$item_button_layer|default" : 1,
+      "$item_button_offset|default" : [ 0, 0 ],
+      "$item_button_size|default" : [ 28, 28 ],
+      "$pressed_button_name" : "",
+      "$pressed_texture" : "textures/ui/bg_frame_01",
+      "$texture_layer" : 2,
+      "anchor_from" : "$item_button_anchor_from",
+      "anchor_to" : "$item_button_anchor_to",
+      "button_mappings" : [],
+      "controls" : [
+         {
+            "selectedImg@neteaseCommonUI.selectedImg" : {}
+         },
+         {
+            "default@neteaseCommonUI.default" : {}
+         },
+         {
+            "hover@neteaseCommonUI.hover" : {}
+         },
+         {
+            "pressed@neteaseCommonUI.pressed" : {}
+         },
+         {
+            "itemImg@neteaseCommonUI.itemImg" : {}
+         },
+         {
+            "durabilityBar@neteaseCommonUI.progressBar" : {}
+         }
+      ],
+      "default_control" : "default",
+      "hover_control" : "hover",
+      "is_handle_button_move_event" : true,
+      "layer" : "$item_button_layer",
+      "offset" : "$item_button_offset",
+      "pressed_control" : "pressed",
+      "size" : "$item_button_size",
+      "type" : "button",
+      "visible" : true
+   },
+   "itemDetail" : {
+      "$offset|default" : [ 0, "-16px" ],
+      "anchor_from" : "bottom_middle",
+      "anchor_to" : "bottom_middle",
+      "controls" : [
+         {
+            "itemDetailBg" : {
+               "alpha" : "#itemDetailAlpha",
+               "bindings" : [
+                  {
+                     "binding_condition" : "always_when_visible",
+                     "binding_name" : "#itemDetailAlpha",
+                     "binding_name_override" : "#alpha"
+                  }
+               ],
+               "controls" : [
+                  {
+                     "itemDetailText" : {
+                        "alpha" : "#itemDetailAlpha",
+                        "bindings" : [
+                           {
+                              "binding_condition" : "always_when_visible",
+                              "binding_name" : "#itemDetailAlpha",
+                              "binding_name_override" : "#alpha"
+                           }
+                        ],
+                        "layer" : 1,
+                        "text" : "",
+                        "type" : "label"
+                     }
+                  }
+               ],
+               "layer" : 30,
+               "nineslice_size" : 4,
+               "size" : [ "100%c + 8px", "100%c + 8px" ],
+               "texture" : "textures/ui/detail_bg",
+               "type" : "image"
+            }
+         }
+      ],
+      "layer" : 30,
+      "offset" : "$offset",
+      "size" : [ "100%c", "100%c" ],
+      "type" : "panel"
+   },
+   "itemImg" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "controls" : [
+         {
+            "itemNum@neteaseCommonUI.itemNum" : {}
+         }
+      ],
+      "layer" : 3,
+      "offset" : [ 0, 0 ],
+      "renderer" : "inventory_item_renderer",
+      "size" : [ 24, 24 ],
+      "type" : "custom",
+      "visible" : true
+   },
+   "itemNum" : {
+      "anchor_from" : "bottom_right",
+      "anchor_to" : "bottom_right",
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 4,
+      "offset" : [ 2, 3 ],
+      "shadow" : true,
+      "size" : [ "55%", "40%" ],
+      "text" : "",
+      "text_alignment" : "right",
+      "type" : "label",
+      "visible" : true
+   },
+   "main" : {
+      "absorbs_input" : true,
+      "always_accepts_input" : false,
+      "controls" : [
+         {
+            "bagContent@neteaseCommonUI.bagContent" : {}
+         }
+      ],
+      "force_render_below" : false,
+      "is_showing_menu" : true,
+      "render_game_behind" : true,
+      "render_only_when_topmost" : true,
+      "should_steal_mouse" : false,
+      "type" : "screen"
+   },
+   "namespace" : "neteaseCommonUI",
+   "pressed" : {
+      "layer" : "$texture_layer",
+      "nineslice_size" : 1,
+      "texture" : "$pressed_texture",
+      "type" : "image"
+   },
+   "progressBar" : {
+      "$progressBarOffset|default" : [ 0, 8 ],
+      "$progressBarSize|default" : [ 18, 2 ],
+      "color" : [ 0.30, 0.30, 0.30 ],
+      "controls" : [
+         {
+            "barMask" : {
+               "$barMaskSize|default" : [ "100.0%+0.0px", 1 ],
+               "anchor_from" : "center",
+               "anchor_to" : "center",
+               "clip_direction" : "left",
+               "color" : [ 0, 1, 0 ],
+               "layer" : 21,
+               "nineslice_size" : 1,
+               "offset" : [ 0, 0 ],
+               "size" : "$barMaskSize",
+               "texture" : "textures/ui/white_bg",
+               "type" : "image",
+               "visible" : true
+            }
+         }
+      ],
+      "layer" : 10,
+      "nineslice_size" : 1,
+      "offset" : "$progressBarOffset",
+      "size" : "$progressBarSize",
+      "texture" : "textures/ui/white_bg",
+      "type" : "image",
+      "visible" : false
+   },
+   "scrollingPanel@common.scrolling_panel" : {
+      "$scroll_box_mouse_image_control" : "common-classic.button_state_default",
+      "$scroll_size" : [ "8px", "100%" ],
+      "$scrolling_content" : "neteaseCommonUI.bagGrid",
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "layer" : 1,
+      "visible" : true
+   },
+   "selectedImg" : {
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "layer" : 5,
+      "nineslice_size" : 4,
+      "offset" : [ 0, 0 ],
+      "size" : [ "100.0%+4.0px", "100.0%+4.0px" ],
+      "texture" : "textures/ui/bg_frame_02",
+      "type" : "image",
+      "visible" : false
+   }
+}
