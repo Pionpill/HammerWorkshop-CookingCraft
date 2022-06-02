@@ -86,7 +86,7 @@
       "identifier": "cookingcraft:herb_stage_3",
       "item_texture": "cookingcraft:herb_stage_3",
       "textures": ["cookingcraft:herb_stage_3"],
-      "use_ao": false
+      "use_ao": true
     }
   }
 }

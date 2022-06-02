@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-04-25 16:15:57
-LastEditTime: 2022-06-01 23:12:57
+LastEditTime: 2022-06-02 17:00:35
 '''
 import time
 import mod.server.extraServerApi as serverApi
@@ -53,8 +53,6 @@ class PlantsServerSystem(ServerSystem):
             return
         else:
             self.interactCoolDict[playerId] = time.time()
-
-        logger.debug(args["entityId"])
 
         if PlantsCommonManager.GetSeedInfo(args["itemName"]):
             seedName = args["itemName"]

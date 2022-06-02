@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-31 13:07:47
-LastEditTime: 2022-06-01 22:15:48
+LastEditTime: 2022-06-02 16:48:40
 '''
 from abc import abstractmethod
 from random import seed
@@ -59,7 +59,6 @@ class PlantsCommonManager(object):
         """
         seedInfo = cls.seedsInfo.get(seedName, None)
         if not seedInfo:
-            logger.error("没有注册 {0} 的种植信息".format(seedName))
             return
         return seedInfo
 
@@ -74,7 +73,8 @@ class PlantsCommonManager(object):
             set : 可种植的生态集合
         """
         seedInfo = cls.GetSeedInfo(seedName)
-        return seedInfo.get("plantBiome")
+        biomeSet = seedInfo.get("plantConditions").get("plantBiome")
+        return biomeSet
 
     @classmethod
     def GetSeedPlantLandList(cls, seedName):
@@ -87,7 +87,8 @@ class PlantsCommonManager(object):
             set : 可种植的方块集合
         """
         seedInfo = cls.GetSeedInfo(seedName)
-        return seedInfo.get("plantLandList")
+        landList = seedInfo.get("plantConditions").get("plantLandList")
+        return landList
 
     @classmethod
     def GetPlantStageNum(cls, seedName):

@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-30 17:02:38
-LastEditTime: 2022-05-31 19:17:39
+LastEditTime: 2022-06-02 22:43:51
 '''
 from mod.common.minecraftEnum import BiomeType
 
@@ -61,6 +61,10 @@ class BiomeForm(object):
     plains = {
         "plains", "ice_plains", "savanna", "sunflower_plains",
         "ice_plains_spikes", "savanna_mutated"
+    }
+    savanna = {
+        "savanna", "savanna_mutated", "savanna_plateau",
+        "savanna_plateau_mutated"
     }
 
     # 高原
@@ -127,7 +131,7 @@ class BiomeForm(object):
     bamboo = {"bamboo_jungle", "bamboo_jungle_hills"}
 
     # 沼泽
-    swampland = {"swampland", "swampland_mutated"}
+    swamp = {"swampland", "swampland_mutated"}
     # 海岸
     shore = {"mushroom_island_shore"}
     # 蘑菇岛

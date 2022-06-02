@@ -1,0 +1,118 @@
+\section{植物系统}
+
+原版植物生长仅需要土地，光照等简单条件，且仅含一次性收获(小麦)与藤曼生长(南瓜)两种方式，较为简单。模组的植物通过脚本控制，添加了植物种植条件:生态，攀爬。增添了可多次收获植物，树木...以丰富玩法。
+
+\subsection{粮食}
+
+粮食的特点: 多产，提供大量饱食度，无 buff。
+
+\subsubsection{水稻}
+
+\subsubsection{玉米}
+
+\subsection{蔬菜}
+
+蔬菜的特点: 中等产量，作为辅助原材料，一般无 buff。
+
+\subsubsection{番茄}
+
+\subsubsection{洋葱}
+
+\subsection{水果}
+
+水果的特点: 可直接食用，可做成饮料，可提供 buff。
+
+\subsection{配料}
+
+配料的特点: 不提供饱食度。
+
+\subsubsection{香草}
+
+香草的获取难度被设计为\textbf{简单}，其特征如下:
+\begin{table}[H]
+    \centering
+    \caption{香草特征}
+    \label{table:香草特征}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气 \\
+        \midrule
+        \textbf{散植特征} & 生成几率 & 0.1 & 生成次数 & 7 \\
+        \midrule
+        \textbf{特征规则} & 生成地 & 地表 & 生态 & 森林，平原 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+香草的种植难度被设计为\textbf{简单}，其种植信息如下:
+
+\begin{table}[H]
+    \centering
+    \caption{香草种植信息}
+    \label{table:香草种植信息}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+                                           & \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明}        \\
+        \midrule
+        \textbf{种植条件}                  & 土地          & 农田，草方块    & 生态          & 温带平原，森林，水域 \\
+        \midrule
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]        & 海拔          & [64,192]               \\
+                                           & 天气          & 无            & 特殊          & -             \\
+        \midrule
+        \textbf{生长速度}                  & 速度          & 中等(11tick)    & 阶段tick      & [3,3,5]              \\
+        \midrule
+        \multirow{2}{*}{\textbf{收获}}     & 收获次数      & 1             & 掉落物        & 种子1-2，香草1-4     \\
+                                           & 饥饿度        & 0             & 营养值        & 0                    \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{辣椒}
+
+辣椒的获取难度被设计为\textbf{中等}，其特征如下:
+\begin{table}[H]
+    \centering
+    \caption{辣椒特征}
+    \label{table:辣椒特征}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气 \\
+        \midrule
+        \textbf{散植特征} & 生成几率 & 0.2 & 生成次数 & 3 \\
+        \midrule
+        \multirow{2}{*}{\textbf{特征规则}} & 生成地 & 地表 & 生态 & 森林 \\
+                        & 生成条件 & 树下  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+辣椒的种植难度被设计为\textbf{简单}，其种植信息如下:
+
+\begin{table}[H]
+    \centering
+    \caption{辣椒种植信息}
+    \label{table:辣椒种植信息}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+                                           & \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明}        \\
+        \midrule
+        \textbf{种植条件}                  & 土地          & 农田，草方块    & 生态          & 温带平原，森林 \\
+        \midrule
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]        & 海拔          & [64,128]               \\
+                                           & 天气          & 无            & 特殊          & -             \\
+        \midrule
+        \textbf{生长速度}                  & 速度          & 快(7tick)    & 阶段tick      & [2,2,3]              \\
+        \midrule
+        \multirow{2}{*}{\textbf{收获}}     & 收获次数      & 1             & 掉落物        & 辣椒 2-5     \\
+                                           & 饥饿度        & 0             & 营养值        & 0                    \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
