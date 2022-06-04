@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-31 13:03:38
-LastEditTime: 2022-06-02 12:13:34
+LastEditTime: 2022-06-04 17:24:57
 '''
 '''
 Description: your project
@@ -26,23 +26,22 @@ class PlantsManager(object):
         object.__init__(self)
 
     @classmethod
-    def CanPlant(self, seedName, biomeName, landName):
+    def CanPlant(cls, seedName, biomeName, blockName):
         """能否种植，需要满足两个条件: 生态和土地
 
         Args:
             seedName (str): 农作物种子名
             biomeName (str): 生态名
-            landName (str): 农作物种植的方块名
+            blockName (str): 农作物种植的方块名
 
         Returns:
             bool: 能否种植
         """
-        return PlantsCommonManager.JudgeLand(
-            seedName, landName) and PlantsCommonManager.JudgeBiome(
-                seedName, biomeName)
+        return cls.JudgeBlock(seedName, blockName) and cls.JudgeBiome(
+            seedName, biomeName)
 
     @classmethod
-    def CanGrow(self, plantBlockName, blockPos, dimension, levelId, playerId):
+    def CanGrow(cls, plantBlockName, blockPos, dimension, levelId, playerId):
         """判断是否能生长
 
         Args:
@@ -86,10 +85,87 @@ class PlantsManager(object):
                     0] > blockAltitude or blockAltitude > plantAltitudeRequire[
                         1]:
                 return False
+        # 判断发芽条件
+        plantSproutRequire = growConditions.get("sprout", None)
+        if plantSproutRequire and PlantsCommonManager.GetPlantStageId == 0:
+            comp = serverApi.GetEngineCompFactory().CreateWeather(levelId)
+            if plantSproutRequire == "rain":
+                isRaining = comp.IsRaining()
+                if not isRaining:
+                    return False
+            if plantSproutRequire == "thunder":
+                isThunder = comp.IsThunder()
+                if not isThunder:
+                    return False
+        # 判断特殊条件
+        plantSpecialCondition = growConditions.get("special", None)
+        if plantSpecialCondition:
+            if not cls.JudgeSpecialGrowCondition(plantSpecialCondition,
+                                                 blockPos, levelId, dimension):
+                return False
         return True
 
     @classmethod
-    def CanChangeStage(self, plantBlockName, tickCount):
+    def JudgeBiome(cls, seedName, biomeName):
+        """判断生态
+
+        Args:
+            seedName (str): 农作物种子名
+            biomeName (str): MC 生态名
+
+        Returns:
+            bool: 该生态可否种植
+        """
+        plantBiomeSet = PlantsCommonManager.GetSeedBiomeSet(seedName)
+        if plantBiomeSet and biomeName in plantBiomeSet:
+            return True
+        return False
+
+    @classmethod
+    def JudgeBlock(cls, seedName, blockName):
+        """判断土地/篱笆
+
+        Args:
+            seedName (str): 农作物种子名
+            blockName (str): block 名
+
+        Returns:
+            bool: 该土地(block)上能否种植
+        """
+        plantLandList = PlantsCommonManager.GetSeedPlantLandList(seedName)
+        if blockName in plantLandList:
+            return True
+        return False
+
+    @classmethod
+    def JudgeSpecialGrowCondition(cls, specialCondition, blockPos, levelId,
+                                  dimension):
+        """判断特殊的生长条件
+
+        Args:
+            specialCondition (dict): 特殊条件
+            blockPos (tuple): (x,y,z)
+            levelId (int): levelId
+            dimension (int): dimension
+
+        Returns:
+            bool: 能否生长
+        """
+        waterDis = specialCondition.get("water", None)
+        if waterDis:
+            blockComp = compFactory.CreateBlockInfo(levelId)
+            posX, posY, posZ = blockPos
+            y = posY
+            for x in range(posX - waterDis, posX + waterDis + 1):
+                for z in range(posZ - waterDis, posZ + waterDis + 1):
+                    blockDic = blockComp.GetBlockNew((x, y, z), dimension)
+                    if blockDic.get("name") == "minecraft:water":
+                        return True
+            return False
+        return True
+
+    @staticmethod
+    def CanChangeStage(plantBlockName, tickCount):
         """判断农作物能否进入下一阶段
 
         Args:
@@ -101,8 +177,23 @@ class PlantsManager(object):
         """
         seedName = PlantsCommonManager.GetPlantSeedNameByStage(plantBlockName)
         stageId = PlantsCommonManager.GetPlantStageId(plantBlockName)
-        plantTickList = PlantsCommonManager.GetPlantStageTickNum(
+        plantTickNum = PlantsCommonManager.GetPlantStageTickNum(
             seedName, stageId)
-        if tickCount >= plantTickList:
+        if tickCount >= plantTickNum:
+            return True
+        return False
+
+    @staticmethod
+    def IsClimbingPlant(seedName):
+        """判断植物是否需要攀登
+
+        Args:
+            seedName (str): 种子全名
+
+        Returns:
+            bool: 是否需要攀登
+        """
+        plantLandList = PlantsCommonManager.GetSeedPlantLandList(seedName)
+        if "cookingcraft:fence_post" in plantLandList:
             return True
         return False

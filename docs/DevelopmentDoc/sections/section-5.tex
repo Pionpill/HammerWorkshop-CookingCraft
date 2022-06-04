@@ -140,8 +140,8 @@
         \toprule
                                            & \textbf{属性} & \textbf{说明}    & \textbf{属性} & \textbf{说明} \\
         \midrule
-        \multirow{2}{*}{\textbf{种植条件}} & 土地          & 农田，草地       & 温度          & 温带，热带    \\
-                                           & 生态          & 平原，森林，水域 & 特殊          & 攀藤          \\
+        \multirow{2}{*}{\textbf{种植条件}} & 土地          & 篱笆      & 温度          & 温带，热带    \\
+                                           & 生态          & 平原，森林，水域 & 特殊          &          \\
         \midrule
         \multirow{2}{*}{\textbf{生长条件}} & 光照          & [6,15]           & 海拔          & [64,128]      \\
                                            & 天气          & 无               & 特殊          & -             \\
@@ -206,6 +206,55 @@
 \subsection{水果}
 
 水果的特点: 可直接食用，可做成饮料，可提供 buff。
+
+\subsubsection{香蕉}
+
+香蕉的获取难度被设计为\textbf{中等}，其特征如下:
+\begin{table}[H]
+    \centering
+    \caption{香蕉特征}
+    \label{table:香蕉特征}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{模型特征}                  & 模型高度 & 3      & 模型形状 & 十字形 \\
+        \midrule
+        \textbf{单方块特征}                & 生长方块 & 草方块 & 替换方块 & 空气   \\
+        \midrule
+        \textbf{散植特征}                  & 生成几率 & 0.1    & 生成次数 & 1      \\
+        \midrule
+        \textbf{特征规则} & 生成地   & 地表   & 生态     & 丛林   \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+香蕉的种植难度被设计为\textbf{中等}，其种植信息如下:
+
+\begin{table}[H]
+    \centering
+    \caption{香蕉种植信息}
+    \label{table:香蕉种植信息}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+                                           & \textbf{属性} & \textbf{说明}    & \textbf{属性} & \textbf{说明}   \\
+        \midrule
+        \multirow{2}{*}{\textbf{种植条件}} & 土地          & 农田，草方块            & 温度          & 热带      \\
+                                           & 生态          & 丛林 & 特殊          & - \\
+        \midrule
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]          & 海拔          & [64,128]        \\
+                                           & 天气          & -               & 特殊          & -              \\
+        \midrule
+        \textbf{生长速度}                  & 速度          & 慢(17tick)        & 阶段tick      & [3,3,4,3,4]         \\
+        \midrule
+        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 3                & 掉落物        & 香蕉:4-7        \\
+                                           & 饥饿度        & 1.5                & 营养值        & 0.4             \\
+                                           & 种子 & 果实即种子 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 
 \subsection{配料}
 

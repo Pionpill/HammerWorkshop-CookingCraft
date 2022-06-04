@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-04-25 16:15:57
-LastEditTime: 2022-06-02 17:00:35
+LastEditTime: 2022-06-04 21:09:29
 '''
 import time
 import mod.server.extraServerApi as serverApi
@@ -45,7 +45,6 @@ class PlantsServerSystem(ServerSystem):
         self.playerId = args["id"]
 
     def OnServerItemUse(self, args):
-
         playerId = args["entityId"]
         if not self.interactCoolDict.get(playerId):
             self.interactCoolDict[playerId] = time.time()
@@ -54,24 +53,34 @@ class PlantsServerSystem(ServerSystem):
         else:
             self.interactCoolDict[playerId] = time.time()
 
-        if PlantsCommonManager.GetSeedInfo(args["itemName"]):
-            seedName = args["itemName"]
+        itemName = args["itemName"]
+
+        if PlantsCommonManager.GetSeedInfo(itemName):
+            seedName = itemName
             dimension = args["dimensionId"]
             blockPos = (args["x"], args["y"], args["z"])
-            blockDict = compFactory.CreateBlockInfo(self.levelId).GetBlockNew(
-                blockPos, dimension)
-            blockName = blockDict.get("name")
+            blockName = self.GetBlockName(blockPos, dimension)
             biomeName = compFactory.CreateBiome(self.levelId).GetBiomeName(
                 blockPos, dimension)
             if PlantsManager.CanPlant(seedName, biomeName, blockName):
                 plantFirstStageName = PlantsCommonManager.GetPlantFirstStageName(
                     seedName)
                 plantBlockDict = {"name": plantFirstStageName, "aux": 0}
-                compFactory.CreateBlockInfo(self.levelId).SetBlockNew(
-                    (args["x"], args["y"] + 1, args["z"]),
-                    plantBlockDict,
-                    dimensionId=dimension)
-                self.__ItemPlant()
+                aboveBlockPos = (args["x"], args["y"] + 1, args["z"])
+                aboveBlockName = self.GetBlockName(aboveBlockPos, dimension)
+                if PlantsManager.IsClimbingPlant(seedName):
+                    belowBlockPos = (args["x"], args["y"] - 1, args["z"])
+                    belowBlockName = self.GetBlockName(belowBlockPos, dimension)
+                    if belowBlockName == "minecraft:farmland":
+                        newBlockPos = (args["x"], args["y"], args["z"])
+                        compFactory.CreateBlockInfo(self.levelId).SetBlockNew(
+                            newBlockPos, plantBlockDict, dimensionId=dimension)
+                        self.__ItemPlant()
+                elif aboveBlockName == "minecraft:air":
+                    newBlockPos = (args["x"], args["y"] + 1, args["z"])
+                    compFactory.CreateBlockInfo(self.levelId).SetBlockNew(
+                        newBlockPos, plantBlockDict, dimensionId=dimension)
+                    self.__ItemPlant()
 
     def OnBlockNeighborChangedServer(self, args):
         pos = (args['posX'], args['posY'], args['posZ'])
@@ -125,8 +134,15 @@ class PlantsServerSystem(ServerSystem):
             pos[1] - 1 == neighPos[1]) and pos[2] == neighPos[2]
 
     def __ItemPlant(self):
+        """农作物种下后，背包种子数-1
+        """
         comp = compFactory.CreateItem(self.playerId)
         invSlotId = comp.GetSelectSlotId()
         carriedItemCount = comp.GetPlayerItem(
             serverApi.GetMinecraftEnum().ItemPosType.CARRIED, 0).get("count")
         comp.SetInvItemNum(invSlotId, carriedItemCount - 1)
+
+    def GetBlockName(self, blockPos, dimension):
+        blockDict = compFactory.CreateBlockInfo(self.levelId).GetBlockNew(
+            blockPos, dimension)
+        return blockDict.get("name")

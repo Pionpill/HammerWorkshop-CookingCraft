@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-31 13:07:47
-LastEditTime: 2022-06-02 16:48:40
+LastEditTime: 2022-06-04 15:45:27
 '''
 from abc import abstractmethod
 from random import seed
@@ -14,38 +14,6 @@ from hammerCookingScripts.common.commonConfig.plantsConfig import SEEDS_INFO
 
 class PlantsCommonManager(object):
     seedsInfo = SEEDS_INFO
-
-    @classmethod
-    def JudgeBiome(cls, seedName, biomeName):
-        """判断生态
-
-        Args:
-            seedName (str): 农作物种子名
-            biomeName (str): MC 生态名
-
-        Returns:
-            bool: 该生态可否种植
-        """
-        plantBiomeSet = cls.GetSeedBiomeSet(seedName)
-        if plantBiomeSet and biomeName in plantBiomeSet:
-            return True
-        return False
-
-    @classmethod
-    def JudgeLand(cls, seedName, landName):
-        """判断土地
-
-        Args:
-            seedName (str): 农作物种子名
-            landName (str): block 名
-
-        Returns:
-            bool: 该土地(block)上能否种植
-        """
-        plantLandList = cls.GetSeedPlantLandList(seedName)
-        if landName in plantLandList:
-            return True
-        return False
 
     @classmethod
     def GetSeedInfo(cls, seedName):
@@ -91,7 +59,20 @@ class PlantsCommonManager(object):
         return landList
 
     @classmethod
-    def GetPlantStageNum(cls, seedName):
+    def GetSeedSpecialPlantCondition(cls, seedName):
+        """获取特殊种植需求
+
+        Args:
+            seedName (str): 农作物种子全称
+
+        Returns:
+            dict: 特殊需求
+        """
+        seedInfo = cls.GetSeedInfo(seedName)
+        return seedInfo.get("plantConditions").get("special", None)
+
+    @classmethod
+    def GetPlantStageCount(cls, seedName):
         """通过种子名获取生长植株状态数
 
         Args:
@@ -101,7 +82,8 @@ class PlantsCommonManager(object):
             int : 状态数量
         """
         seedInfo = cls.GetSeedInfo(seedName)
-        return seedInfo.get("stageNum")
+        tickList = seedInfo.get("tickList")
+        return len(tickList) + 1
 
     @classmethod
     def GetPlantStageTickNum(cls, seedName, stageId):
@@ -123,6 +105,19 @@ class PlantsCommonManager(object):
         return seedInfo.get("growthConditions")
 
     @classmethod
+    def GetSeedSpecialGrowCondition(cls, seedName):
+        """获取特殊生长需求
+
+        Args:
+            seedName (str): 农作物种子全称
+
+        Returns:
+            dict: 特殊需求
+        """
+        plantGrowConditions = cls.GetPlantGrowthConditions(seedName)
+        return plantGrowConditions.get("special", None)
+
+    @classmethod
     def GetPlantNextStageName(cls, currentBlockName):
         """获取农作物下一阶段 block 名
 
@@ -134,12 +129,22 @@ class PlantsCommonManager(object):
         """
         stageId = int(currentBlockName.split("_")[-1])
         seedName = cls.GetPlantSeedNameByStage(currentBlockName)
-        seedStageNum = cls.GetPlantStageNum(seedName)
-        if stageId + 1 >= seedStageNum:
+        seedStageCount = cls.GetPlantStageCount(seedName)
+        if stageId + 1 >= seedStageCount:
             logger.error("{0} stage 超出范围".format(currentBlockName))
             return
-        return PlantsCommonManager.GetPlantStageNameBySeed(
-            seedName, stageId + 1)
+        return PlantsCommonManager.GetPlantStageNameById(seedName, stageId + 1)
+
+    @classmethod
+    def GetPlantHarvestCount(cls, seedName):
+        seedInfo = cls.GetSeedInfo(seedName)
+        return seedInfo.get("harvestCount", None)
+
+    @classmethod
+    def GetPlantHarvestStage(cls, seedName):
+        seedInfo = cls.GetSeedInfo(seedName)
+        harvestStage = seedInfo.get("harvestStage", None)
+        return cls.GetPlantStageNameById(harvestStage)
 
     @staticmethod
     def GetPlantFirstStageName(seedName):
@@ -157,11 +162,28 @@ class PlantsCommonManager(object):
 
     @staticmethod
     def GetPlantSeedNameByStage(stageBlockName):
+        """通过生长时block名获取种子名字
+
+        Args:
+            stageBlockName (str): 生长的农作物的block名
+
+        Returns:
+            str: seedName
+        """
         seedName = stageBlockName.split("_")[0] + "_seeds"
         return seedName
 
     @staticmethod
-    def GetPlantStageNameBySeed(seedName, stageId):
+    def GetPlantStageNameById(seedName, stageId):
+        """通过状态 Id 获取种植时 block 名
+
+        Args:
+            seedName (str): 种子全名
+            stageId (int): 生长状态 id
+
+        Returns:
+            str: 农族欧文生长时的 block 全名
+        """
         return seedName.split("_")[0] + "_stage_" + str(stageId)
 
     @staticmethod

@@ -23,5 +23,9 @@
     "netease_model": "cookingcraft:herb_stage_3",
     "sound": "grass"
   },
+  "cookingcraft:fence_post": {
+    "netease_model": "cookingcraft:fence_post",
+    "sound": "wood"
+  },
   "format_version": [1, 1, 0]
 }
