@@ -40,6 +40,30 @@
     },
     "cookingcraft:tomato_seeds": {
       "textures": "textures/items/tomato_seeds"
+    },
+    "cookingcraft:onion": {
+      "textures": "textures/items/onion"
+    },
+    "cookingcraft:rice": {
+      "textures": "textures/items/rice"
+    },
+    "cookingcraft:rice_fruit": {
+      "textures": "textures/items/rice_fruit"
+    },
+    "cookingcraft:rice_straw": {
+      "textures": "textures/items/rice_straw"
+    },
+    "cookingcraft:corn": {
+      "textures": "textures/items/corn"
+    },
+    "cookingcraft:corn_fruit": {
+      "textures": "textures/items/corn_fruit"
+    },
+    "cookingcraft:corn_pieces": {
+      "textures": "textures/items/corn_pieces"
+    },
+    "cookingcraft:pepper": {
+      "textures": "textures/items/pepper"
     }
   }
 }
