@@ -1,30 +1,33 @@
 {
-    "resource_pack_name": "vanilla",
-    "texture_data": {
-        "cookingcraft:baking_furnace": {
-            "textures": "textures/blocks/baking_furnace"
-        },
-        "cookingcraft:baking_furnace_icon": {
-            "textures": "textures/blocks/baking_furnace_icon"
-        },
-        "cookingcraft:cooking_table": {
-            "textures": "textures/blocks/cooking_table"
-        },
-        "cookingcraft:cooking_table_icon": {
-            "textures": "textures/blocks/cooking_table_icon"
-        },
-        "cookingcraft:herb_stage_0": {
-            "textures": "textures/blocks/herb_stage_0"
-        },
-        "cookingcraft:herb_stage_1": {
-            "textures": "textures/blocks/herb_stage_1"
-        },
-        "cookingcraft:herb_stage_2": {
-            "textures": "textures/blocks/herb_stage_2"
-        },
-        "cookingcraft:herb_stage_3": {
-            "textures": "textures/blocks/herb_stage_3"
-        }
+  "resource_pack_name": "vanilla",
+  "texture_data": {
+    "cookingcraft:baking_furnace": {
+      "textures": "textures/blocks/baking_furnace"
     },
-    "texture_name": "atlas.terrain"
+    "cookingcraft:baking_furnace_icon": {
+      "textures": "textures/blocks/baking_furnace_icon"
+    },
+    "cookingcraft:cooking_table": {
+      "textures": "textures/blocks/cooking_table"
+    },
+    "cookingcraft:cooking_table_icon": {
+      "textures": "textures/blocks/cooking_table_icon"
+    },
+    "cookingcraft:fence_post": {
+      "textures": "textures/blocks/fence_post"
+    },
+    "cookingcraft:herb_stage_0": {
+      "textures": "textures/blocks/herb_stage_0"
+    },
+    "cookingcraft:herb_stage_1": {
+      "textures": "textures/blocks/herb_stage_1"
+    },
+    "cookingcraft:herb_stage_2": {
+      "textures": "textures/blocks/herb_stage_2"
+    },
+    "cookingcraft:herb_stage_3": {
+      "textures": "textures/blocks/herb_stage_3"
+    }
+  },
+  "texture_name": "atlas.terrain"
 }

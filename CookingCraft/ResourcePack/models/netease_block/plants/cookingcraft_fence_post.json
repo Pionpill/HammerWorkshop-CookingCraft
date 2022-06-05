@@ -1,0 +1,171 @@
+{
+  "format_version": "1.13.0",
+  "netease:block_geometry": {
+    "bones": [
+      {
+        "cubes": [
+          {
+            "origin": [-4, -1, 3],
+            "pivot": [0, -1, 0],
+            "rotation": [0, 0, 0],
+            "size": [1, 16, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [3, 0],
+                "uv_size": [-1, 1]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 0],
+                "uv_size": [1, 1]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              }
+            }
+          },
+          {
+            "origin": [-13, -1, 12],
+            "pivot": [0, -1, 0],
+            "rotation": [0, 0, 0],
+            "size": [1, 16, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [3, 0],
+                "uv_size": [-1, 1]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 0],
+                "uv_size": [1, 1]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              }
+            }
+          },
+          {
+            "origin": [-4, -1, 12],
+            "pivot": [0, -1, 0],
+            "rotation": [0, 0, 0],
+            "size": [1, 16, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [3, 0],
+                "uv_size": [-1, 1]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 0],
+                "uv_size": [1, 1]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              }
+            }
+          },
+          {
+            "origin": [-13, -1, 3],
+            "pivot": [0, -1, 0],
+            "rotation": [0, 0, 0],
+            "size": [1, 16, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [3, 0],
+                "uv_size": [-1, 1]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 0],
+                "uv_size": [1, 1]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              }
+            }
+          }
+        ],
+        "name": "fence",
+        "pivot": [0, -1, 0],
+        "rotation": [0, 0, 0]
+      }
+    ],
+    "description": {
+      "identifier": "cookingcraft:fence_post",
+      "textures": ["cookingcraft:fence_post"],
+      "use_ao": true
+    }
+  }
+}

@@ -6,9 +6,9 @@
         "cubes": [
           {
             "origin": [-16, -1, 4],
-            "pivot": [-8, -1, 8],
+            "pivot": [-8, 0, 8],
             "rotation": [0, 0, 0],
-            "size": [16, 16, 0],
+            "size": [16, 16, 8],
             "uv": {
               "north": {
                 "texture": 0,
@@ -24,45 +24,9 @@
           },
           {
             "origin": [-16, -1, 4],
-            "pivot": [-8, -1, 8],
+            "pivot": [-8, 0, 8],
             "rotation": [0, -90, 0],
-            "size": [16, 16, 0],
-            "uv": {
-              "north": {
-                "texture": 0,
-                "uv": [0, 0],
-                "uv_size": [16, 16]
-              },
-              "south": {
-                "texture": 0,
-                "uv": [0, 0],
-                "uv_size": [16, 16]
-              }
-            }
-          },
-          {
-            "origin": [-16, -1, 4],
-            "pivot": [-8, -1, 8],
-            "rotation": [0, 180, 0],
-            "size": [16, 16, 0],
-            "uv": {
-              "north": {
-                "texture": 0,
-                "uv": [0, 0],
-                "uv_size": [16, 16]
-              },
-              "south": {
-                "texture": 0,
-                "uv": [0, 0],
-                "uv_size": [16, 16]
-              }
-            }
-          },
-          {
-            "origin": [-16, -1, 4],
-            "pivot": [-8, -1, 8],
-            "rotation": [0, 90, 0],
-            "size": [16, 16, 0],
+            "size": [16, 16, 8],
             "uv": {
               "north": {
                 "texture": 0,
@@ -77,8 +41,8 @@
             }
           }
         ],
-        "name": "herb_stage_0",
-        "pivot": [-8, -1, 8],
+        "name": "herb_stage",
+        "pivot": [-8, 0, 8],
         "rotation": [0, 0, 0]
       }
     ],
