@@ -4,9 +4,11 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-06-01 15:43:39
-LastEditTime: 2022-06-04 15:55:33
+LastEditTime: 2022-06-07 23:51:41
 '''
 from hammerCookingScripts.common.commonBiome.BiomeForm import BiomeForm as BF
+
+SEEDS_NAME = ["cookingcraft:herb_seeds", "cookingcraft:pepper"]
 
 SEEDS_INFO = {
     "cookingcraft:herb_seeds": {
@@ -22,9 +24,21 @@ SEEDS_INFO = {
             "altitude": [64, 192],
             "weather": None,  # 可填写 "rain", "thunder"
             "sprout": None,  # 可填写 "rain", "thunder"
-            "special": {
-                "water": 3
-            }
+        },
+    },
+    "cookingcraft:pepper": {
+        "tickList": [2, 2, 3],
+        "harvestCount": 1,
+        "harvestStage": None,
+        "plantConditions": {
+            "plantLandList": ["minecraft:farmland", "minecraft:grass"],
+            "plantBiome": set(BF.woods | BF.plains) & BF.temperate
+        },
+        "growthConditions": {
+            "brightness": [9, 15],
+            "altitude": [64, 128],
+            "weather": None,  # 可填写 "rain", "thunder"
+            "sprout": None,  # 可填写 "rain", "thunder"
         },
     }
 }

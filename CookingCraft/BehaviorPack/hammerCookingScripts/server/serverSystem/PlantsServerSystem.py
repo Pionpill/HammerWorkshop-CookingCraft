@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-04-25 16:15:57
-LastEditTime: 2022-06-04 21:09:29
+LastEditTime: 2022-06-07 23:47:37
 '''
 import time
 import mod.server.extraServerApi as serverApi
@@ -102,7 +102,6 @@ class PlantsServerSystem(ServerSystem):
             pos = (args["posX"], args["posY"], args["posZ"])
             dimension = args["dimensionId"]
             plantBlockName = args["fullName"]
-
             if PlantsManager.CanGrow(plantBlockName, pos, dimension,
                                      self.levelId, self.playerId):
                 blockEntityComp = compFactory.CreateBlockEntityData(
@@ -115,6 +114,7 @@ class PlantsServerSystem(ServerSystem):
                 if not growth:
                     growth = 0
                 growth += 1
+                logger.debug(growth)
                 blockEntityData["growth"] = growth
 
                 if PlantsManager.CanChangeStage(plantBlockName, growth):

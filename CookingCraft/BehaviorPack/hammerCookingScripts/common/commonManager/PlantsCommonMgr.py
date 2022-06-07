@@ -4,17 +4,15 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-31 13:07:47
-LastEditTime: 2022-06-04 15:45:27
+LastEditTime: 2022-06-07 23:46:32
 '''
 from abc import abstractmethod
 from random import seed
 from hammerCookingScripts import logger
-from hammerCookingScripts.common.commonConfig.plantsConfig import SEEDS_INFO
+from hammerCookingScripts.common.commonConfig.plantsConfig import SEEDS_INFO, SEEDS_NAME
 
 
 class PlantsCommonManager(object):
-    seedsInfo = SEEDS_INFO
-
     @classmethod
     def GetSeedInfo(cls, seedName):
         """获取种子种植信息
@@ -25,7 +23,7 @@ class PlantsCommonManager(object):
         Returns:
             set: 种子对应的信息
         """
-        seedInfo = cls.seedsInfo.get(seedName, None)
+        seedInfo = SEEDS_INFO.get(seedName, None)
         if not seedInfo:
             return
         return seedInfo
@@ -170,8 +168,11 @@ class PlantsCommonManager(object):
         Returns:
             str: seedName
         """
-        seedName = stageBlockName.split("_")[0] + "_seeds"
-        return seedName
+        seedName = stageBlockName.split("_")[0]
+        if seedName in SEEDS_NAME:
+            return seedName
+        else:
+            return seedName + "_seeds"
 
     @staticmethod
     def GetPlantStageNameById(seedName, stageId):

@@ -1,0 +1,764 @@
+{
+  "format_version": "1.13.0",
+  "netease:block_geometry": {
+    "bones": [
+      {
+        "name": "pepper",
+        "pivot": [-8, -1, 8],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "name": "bone4",
+        "parent": "pepper",
+        "pivot": [1, 0, 1],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-5, 10, 3],
+            "pivot": [-4, 8, 3],
+            "rotation": [0, 0, 0],
+            "size": [1, 0, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [2.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              }
+            }
+          },
+          {
+            "origin": [-5, 8, 3],
+            "pivot": [-4, 8, 3],
+            "rotation": [0, 0, 0],
+            "size": [1, 2, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [1.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [1, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              }
+            }
+          }
+        ],
+        "name": "pepper6",
+        "parent": "bone4",
+        "pivot": [-4, 8, 3],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-6, 8, 4],
+            "pivot": [-6, 6, 5],
+            "rotation": [0, 0, 0],
+            "size": [1, 0, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [2.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              }
+            }
+          },
+          {
+            "origin": [-6, 6, 4],
+            "pivot": [-6, 6, 5],
+            "rotation": [0, 0, 0],
+            "size": [1, 2, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [1.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [1, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              }
+            }
+          }
+        ],
+        "name": "pepper5",
+        "parent": "bone4",
+        "pivot": [-6, 6, 5],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "name": "bone5",
+        "parent": "pepper",
+        "pivot": [-8, 2, 0],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-13, 9, 2],
+            "pivot": [-13, 7, 2],
+            "rotation": [0, 0, 0],
+            "size": [1, 0, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [2.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              }
+            }
+          },
+          {
+            "origin": [-13, 7, 2],
+            "pivot": [-13, 7, 2],
+            "rotation": [0, 0, 0],
+            "size": [1, 2, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [1.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [1, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              }
+            }
+          }
+        ],
+        "name": "pepper8",
+        "parent": "bone5",
+        "pivot": [-13, 7, 2],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-14, 8, 4],
+            "pivot": [-13, 6, 4],
+            "rotation": [0, 0, 0],
+            "size": [1, 0, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [2.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              }
+            }
+          },
+          {
+            "origin": [-14, 6, 4],
+            "pivot": [-13, 6, 4],
+            "rotation": [0, 0, 0],
+            "size": [1, 2, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [1.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [1, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              }
+            }
+          }
+        ],
+        "name": "pepper7",
+        "parent": "bone5",
+        "pivot": [-13, 6, 4],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "name": "bone2",
+        "parent": "pepper",
+        "pivot": [-8, -1, 8],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-16, -1, 4],
+            "pivot": [-8, -1, 8],
+            "rotation": [0, -90, 0],
+            "size": [16, 16, 8],
+            "uv": {
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [8, 8]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [8, 8]
+              }
+            }
+          },
+          {
+            "origin": [-16, -1, 4],
+            "pivot": [-8, -1, 8],
+            "rotation": [0, 0, 0],
+            "size": [16, 16, 8],
+            "uv": {
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [8, 8]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [8, 8]
+              }
+            }
+          }
+        ],
+        "name": "bone",
+        "parent": "bone2",
+        "pivot": [-8, -1, 8],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "name": "bone3",
+        "parent": "pepper",
+        "pivot": [1, -1, 8],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-4, 11, 10],
+            "pivot": [-3, 9, 10],
+            "rotation": [0, 0, 0],
+            "size": [1, 0, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [2.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              }
+            }
+          },
+          {
+            "origin": [-4, 9, 10],
+            "pivot": [-3, 9, 10],
+            "rotation": [0, 0, 0],
+            "size": [1, 2, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [1.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [1, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              }
+            }
+          }
+        ],
+        "name": "pepper4",
+        "parent": "bone3",
+        "pivot": [-3, 9, 10],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-6, 5, 12],
+            "pivot": [-5, 3, 12],
+            "rotation": [0, 0, 0],
+            "size": [1, 0, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [2.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              }
+            }
+          },
+          {
+            "origin": [-6, 3, 12],
+            "pivot": [-5, 3, 12],
+            "rotation": [0, 0, 0],
+            "size": [1, 2, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [1.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [1, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              }
+            }
+          }
+        ],
+        "name": "pepper3",
+        "parent": "bone3",
+        "pivot": [-5, 3, 12],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "name": "bone6",
+        "parent": "pepper",
+        "pivot": [-13, 5, 13],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-13, 7, 13],
+            "pivot": [-12, 5, 13],
+            "rotation": [0, 0, 0],
+            "size": [1, 0, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [2.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              }
+            }
+          },
+          {
+            "origin": [-13, 5, 13],
+            "pivot": [-12, 5, 13],
+            "rotation": [0, 0, 0],
+            "size": [1, 2, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [1.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [1, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              }
+            }
+          }
+        ],
+        "name": "pepper2",
+        "parent": "bone6",
+        "pivot": [-12, 5, 13],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-13, 10, 10],
+            "pivot": [-13, 4, 10],
+            "rotation": [0, 0, 0],
+            "size": [1, 0, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [2.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0.5, 0]
+              }
+            }
+          },
+          {
+            "origin": [-13, 8, 10],
+            "pivot": [-13, 4, 10],
+            "rotation": [0, 0, 0],
+            "size": [1, 2, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [1.5, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [1, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 15],
+                "uv_size": [0.5, 1]
+              }
+            }
+          }
+        ],
+        "name": "pepper1",
+        "parent": "bone6",
+        "pivot": [-13, 4, 10],
+        "rotation": [0, 0, 0]
+      }
+    ],
+    "description": {
+      "identifier": "cookingcraft:pepper_stage_3",
+      "item_texture": "cookingcraft:pepper_stage_2",
+      "textures": ["cookingcraft:pepper_stage_3"],
+      "use_ao": false
+    }
+  }
+}
