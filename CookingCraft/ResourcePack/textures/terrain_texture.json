@@ -13,6 +13,21 @@
         "cookingcraft:cooking_table_icon": {
             "textures": "textures/blocks/cooking_table_icon"
         },
+        "cookingcraft:corn_stage_0": {
+            "textures": "textures/blocks/corn_stage_0"
+        },
+        "cookingcraft:corn_stage_1": {
+            "textures": "textures/blocks/corn_stage_1"
+        },
+        "cookingcraft:corn_stage_2": {
+            "textures": "textures/blocks/corn_stage_2"
+        },
+        "cookingcraft:corn_stage_3": {
+            "textures": "textures/blocks/corn_stage_3"
+        },
+        "cookingcraft:corn_stage_4": {
+            "textures": "textures/blocks/corn_stage_4"
+        },
         "cookingcraft:fence_post": {
             "textures": "textures/blocks/fence_post"
         },
@@ -27,6 +42,12 @@
         },
         "cookingcraft:herb_stage_3": {
             "textures": "textures/blocks/herb_stage_3"
+        },
+        "cookingcraft:onion_stage_2": {
+            "textures": "textures/blocks/onion_stage_2"
+        },
+        "cookingcraft:onion_stage_3": {
+            "textures": "textures/blocks/onion_stage_3"
         },
         "cookingcraft:pepper_stage_0": {
             "textures": "textures/blocks/pepper_stage_0"

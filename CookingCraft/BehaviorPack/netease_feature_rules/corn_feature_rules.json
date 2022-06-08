@@ -2,8 +2,8 @@
   "format_version": "1.13.0",
   "minecraft:feature_rules": {
     "description": {
-      "identifier": "cookingcraft:pepper_feature_rules",
-      "places_feature": "cookingcraft:pepper_aggregate_feature"
+      "identifier": "cookingcraft:corn_feature_rules",
+      "places_feature": "cookingcraft:corn_scatter_feature"
     },
     "conditions": {
       "placement_pass": "surface_pass",
@@ -13,7 +13,7 @@
             {
               "test": "has_biome_tag",
               "operator": "==",
-              "value": "forest"
+              "value": "plains"
             }
           ]
         }

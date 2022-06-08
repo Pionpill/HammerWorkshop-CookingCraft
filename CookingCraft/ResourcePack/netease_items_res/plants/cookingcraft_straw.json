@@ -1,0 +1,11 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:straw"
+    },
+    "components": {
+      "minecraft:icon": "cookingcraft:straw"
+    }
+  }
+}

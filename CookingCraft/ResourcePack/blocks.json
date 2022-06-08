@@ -39,6 +39,74 @@
     "netease_model": "cookingcraft:pepper_stage_3",
     "sound": "grass"
   },
+  "cookingcraft:corn_stage_0": {
+    "netease_model": "cookingcraft:corn_stage_0",
+    "sound": "grass"
+  },
+  "cookingcraft:corn_stage_1": {
+    "netease_model": "cookingcraft:corn_stage_1",
+    "sound": "grass"
+  },
+  "cookingcraft:corn_stage_2": {
+    "netease_model": "cookingcraft:corn_stage_2",
+    "sound": "grass"
+  },
+  "cookingcraft:corn_stage_3": {
+    "netease_model": "cookingcraft:corn_stage_3",
+    "sound": "grass"
+  },
+  "cookingcraft:corn_stage_4": {
+    "netease_model": "cookingcraft:corn_stage_4",
+    "sound": "grass"
+  },
+  "cookingcraft:onion_stage_0": {
+    "netease_model": "cookingcraft:onion_stage_0",
+    "sound": "grass"
+  },
+  "cookingcraft:onion_stage_1": {
+    "netease_model": "cookingcraft:onion_stage_1",
+    "sound": "grass"
+  },
+  "cookingcraft:onion_stage_2": {
+    "netease_model": "cookingcraft:onion_stage_2",
+    "sound": "grass"
+  },
+  "cookingcraft:onion_stage_3": {
+    "netease_model": "cookingcraft:onion_stage_3",
+    "sound": "grass"
+  },
+  "cookingcraft:rice_stage_0": {
+    "netease_model": "cookingcraft:rice_stage_0",
+    "sound": "grass"
+  },
+  "cookingcraft:rice_stage_1": {
+    "netease_model": "cookingcraft:rice_stage_1",
+    "sound": "grass"
+  },
+  "cookingcraft:rice_stage_2": {
+    "netease_model": "cookingcraft:rice_stage_2",
+    "sound": "grass"
+  },
+  "cookingcraft:rice_stage_3": {
+    "netease_model": "cookingcraft:rice_stage_3",
+    "sound": "grass"
+  },
+  "cookingcraft:tomato_stage_0": {
+    "netease_model": "cookingcraft:tomato_stage_0",
+    "sound": "grass"
+  },
+  "cookingcraft:tomato_stage_1": {
+    "netease_model": "cookingcraft:tomato_stage_1",
+    "sound": "grass"
+  },
+  "cookingcraft:tomato_stage_2": {
+    "netease_model": "cookingcraft:tomato_stage_2",
+    "sound": "grass"
+  },
+  "cookingcraft:tomato_stage_3": {
+    "netease_model": "cookingcraft:tomato_stage_3",
+    "sound": "grass"
+  },
   "cookingcraft:fence_post": {
     "netease_model": "cookingcraft:fence_post",
     "sound": "wood"

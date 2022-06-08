@@ -1,0 +1,222 @@
+{
+  "format_version": "1.13.0",
+  "netease:block_geometry": {
+    "bones": [
+      {
+        "name": "onion",
+        "pivot": [-4, 0, 16],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-12, -1, 0],
+            "pivot": [-4, -1, 16],
+            "rotation": [0, 0, 0],
+            "size": [8, 17, 16],
+            "uv": {
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [8, 8.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [8, 8.5]
+              }
+            }
+          },
+          {
+            "origin": [-6, -1, 10],
+            "pivot": [-4, -1, 16],
+            "rotation": [0, 0, 0],
+            "size": [4, 3, 4],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [5, 14],
+                "uv_size": [-2, 2]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [3, 14],
+                "uv_size": [2, 2]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              }
+            }
+          },
+          {
+            "origin": [-14, -1, 2],
+            "pivot": [-4, -1, 16],
+            "rotation": [0, 0, 0],
+            "size": [4, 3, 4],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [5, 14],
+                "uv_size": [-2, 2]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [3, 14],
+                "uv_size": [2, 2]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              }
+            }
+          }
+        ],
+        "name": "bone",
+        "parent": "onion",
+        "pivot": [-4, 0, 16],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-24, -1, -4],
+            "pivot": [-16, 0, 12],
+            "rotation": [0, 0, 0],
+            "size": [8, 17, 16],
+            "uv": {
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [8, 8.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [8, 8.5]
+              }
+            }
+          },
+          {
+            "origin": [-18, -1, 6],
+            "pivot": [-16, 0, 12],
+            "rotation": [0, 0, 0],
+            "size": [4, 3, 4],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [5, 14],
+                "uv_size": [-2, 2]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [3, 14],
+                "uv_size": [2, 2]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              }
+            }
+          },
+          {
+            "origin": [-26, -1, -2],
+            "pivot": [-16, 0, 12],
+            "rotation": [0, 0, 0],
+            "size": [4, 3, 4],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [5, 14],
+                "uv_size": [-2, 2]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [3, 14],
+                "uv_size": [2, 2]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 14.5],
+                "uv_size": [2, 1.5]
+              }
+            }
+          }
+        ],
+        "name": "bone2",
+        "parent": "onion",
+        "pivot": [-16, 0, 12],
+        "rotation": [0, -90, 0]
+      }
+    ],
+    "description": {
+      "identifier": "cookingcraft:herb_stage_3",
+      "item_texture": "cookingcraft:herb_stage_3",
+      "textures": ["cookingcraft:herb_stage_3"],
+      "use_ao": false
+    }
+  }
+}

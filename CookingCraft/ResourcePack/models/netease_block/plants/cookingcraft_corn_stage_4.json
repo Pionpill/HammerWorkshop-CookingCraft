@@ -1,0 +1,444 @@
+{
+  "format_version": "1.13.0",
+  "netease:block_geometry": {
+    "bones": [
+      {
+        "name": "bone",
+        "pivot": [-8, -1, 8],
+        "rotation": [0, -45, 0]
+      },
+      {
+        "name": "corn",
+        "parent": "bone",
+        "pivot": [-8, 2, 8],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-8.5, 12, 7.5],
+            "pivot": [-6, 12, 8],
+            "rotation": [0, 0, 0],
+            "size": [3.0, 5, 3.0],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [2, 15.25],
+                "uv_size": [-0.75, 0.75]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              }
+            }
+          },
+          {
+            "origin": [-8, 13, 8],
+            "pivot": [-6, 12, 8],
+            "rotation": [0, 0, 0],
+            "size": [2, 5, 2],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [15, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [14.5, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              }
+            }
+          }
+        ],
+        "name": "corn4",
+        "parent": "corn",
+        "pivot": [-6, 12, 8],
+        "rotation": [-13.369646355953307, 6.8637857727975975, 26.69458343991641]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-10.5, 8, 7.5],
+            "pivot": [-8, 8, 8],
+            "rotation": [0, 0, 0],
+            "size": [3.0, 5, 3.0],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [2, 15.25],
+                "uv_size": [-0.75, 0.75]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              }
+            }
+          },
+          {
+            "origin": [-10, 9, 8],
+            "pivot": [-8, 8, 8],
+            "rotation": [0, 0, 0],
+            "size": [2, 5, 2],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [15, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [14.5, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              }
+            }
+          }
+        ],
+        "name": "corn2",
+        "parent": "corn",
+        "pivot": [-8, 8, 8],
+        "rotation": [-14.94547918394081, -1.292562968952047, -4.830449390284393]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-10.5, 12, 5.5],
+            "pivot": [-8, 12, 6],
+            "rotation": [0, 0, 0],
+            "size": [3.0, 5, 3.0],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [2, 15.25],
+                "uv_size": [-0.75, 0.75]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              }
+            }
+          },
+          {
+            "origin": [-10, 13, 6],
+            "pivot": [-8, 12, 6],
+            "rotation": [0, 0, 0],
+            "size": [2, 5, 2],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [15, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [14.5, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              }
+            }
+          }
+        ],
+        "name": "corn3",
+        "parent": "corn",
+        "pivot": [-8, 12, 6],
+        "rotation": [17.48435926497056, 0.7515475302984664, -2.384429161118448]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-7.5, 14, 5.5],
+            "pivot": [-5, 14, 6],
+            "rotation": [0, 0, 0],
+            "size": [3.0, 5, 3.0],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [2, 15.25],
+                "uv_size": [-0.75, 0.75]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 14.75],
+                "uv_size": [0.75, 1.25]
+              }
+            }
+          },
+          {
+            "origin": [-7, 15, 6],
+            "pivot": [-5, 14, 6],
+            "rotation": [0, 0, 0],
+            "size": [2, 5, 2],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [15, 15.5],
+                "uv_size": [-0.5, 0.5]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [14.5, 15.5],
+                "uv_size": [0.5, 0.5]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [15.5, 14.75],
+                "uv_size": [0.5, 1.25]
+              }
+            }
+          }
+        ],
+        "name": "corn1",
+        "parent": "corn",
+        "pivot": [-5, 14, 6],
+        "rotation": [16.938389081821928, -4.46375225998021, 14.335012209232351]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-16, -1, 8],
+            "pivot": [-8, -1, 8],
+            "rotation": [0, 0, 0],
+            "size": [16, 32, 8],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [4, 8]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              }
+            }
+          },
+          {
+            "origin": [-16, -1, 8],
+            "pivot": [-8, -1, 8],
+            "rotation": [0, -90, 0],
+            "size": [16, 32, 8],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [4, 8]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              }
+            }
+          }
+        ],
+        "name": "tietu",
+        "parent": "bone",
+        "pivot": [-8, -1, 8],
+        "rotation": [0, 0, 0]
+      }
+    ],
+    "description": {
+      "identifier": "cookingcraft:corn_stage_4",
+      "item_texture": "cookingcraft:corn_stage_4",
+      "textures": ["cookingcraft:corn_stage_4"],
+      "use_ao": false
+    }
+  }
+}

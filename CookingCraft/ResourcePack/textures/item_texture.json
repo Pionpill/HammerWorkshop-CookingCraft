@@ -50,14 +50,14 @@
     "cookingcraft:rice_fruit": {
       "textures": "textures/items/rice_fruit"
     },
-    "cookingcraft:rice_straw": {
-      "textures": "textures/items/rice_straw"
+    "cookingcraft:straw": {
+      "textures": "textures/items/straw"
     },
     "cookingcraft:corn": {
       "textures": "textures/items/corn"
     },
-    "cookingcraft:corn_fruit": {
-      "textures": "textures/items/corn_fruit"
+    "cookingcraft:corn_flour": {
+      "textures": "textures/items/corn_flour"
     },
     "cookingcraft:corn_pieces": {
       "textures": "textures/items/corn_pieces"
