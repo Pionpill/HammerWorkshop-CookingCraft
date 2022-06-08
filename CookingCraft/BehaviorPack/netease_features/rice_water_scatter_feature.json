@@ -1,0 +1,12 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:sequence_feature": {
+    "description": {
+      "identifier": "cookingcraft:rice_water_scatter_feature"
+    },
+    "features": [
+      "cookingcraft:replace_water_feature",
+      "cookingcraft:rice_scatter_feature"
+    ]
+  }
+}
