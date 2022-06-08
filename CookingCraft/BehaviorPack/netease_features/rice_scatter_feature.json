@@ -1,0 +1,22 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:scatter_feature": {
+    "description": {
+      "identifier": "cookingcraft:rice_scatter_feature"
+    },
+    "places_feature": "minecraft:rice_block_feature",
+    "iterations": 3,
+    "scatter_chance": 10.0,
+    "coordinate_eval_order": "zxy",
+    "project_input_to_floor": true,
+    "x": {
+      "distribution": "uniform",
+      "extent": [-1, 1]
+    },
+    "y": "1",
+    "z": {
+      "distribution": "uniform",
+      "extent": [-1, 1]
+    }
+  }
+}

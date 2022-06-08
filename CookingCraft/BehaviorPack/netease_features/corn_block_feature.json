@@ -2,9 +2,9 @@
   "format_version": "1.13.0",
   "minecraft:single_block_feature": {
     "description": {
-      "identifier": "cookingcraft:pepper_block_feature"
+      "identifier": "cookingcraft:corn_block_feature"
     },
-    "places_block": "cookingcraft:pepper_stage_3",
+    "places_block": "cookingcraft:corn_stage_4",
     "enforce_placement_rules": true,
     "enforce_survivability_rules": true,
     "may_place_on": ["example:grass"],
