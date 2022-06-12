@@ -249,10 +249,10 @@
 
 \
 
-\subsection{特征数值分析}
+\subsection{原版农作物数值分析}
 \subsubsection{原版矿物特征分布}
 
-由于矿物并不是本模组的主要研究对象，仅作一些基础描述。
+模组需要设计盐矿到植物系统，故在此进行一个简单的矿物说明。
 
 \begin{table}[H]
     \centering
@@ -267,4 +267,48 @@
         \bottomrule
     \end{tabular}
 \end{table}
+
+\subsubsection{原版农作物种植}
+
+此节只统计原版植物的种植条件以及收获时的掉落物。在种植方面，大部分原版农作物只有土地一个要求，生长方面只有光照一个要求。
+
+\begin{table}[H]
+    \centering
+    \caption{农作物种植信息}
+    \label{table:农作物种植信息}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cccccccc}
+        \toprule
+        \textbf{农作物} & \textbf{土地} & \textbf{光照} & \textbf{生长 tick} & \textbf{掉落物} & \textbf{饥饿值} \\
+        \midrule
+        小麦 & 耕地 & 8 & 种子[0-3],小麦[1] & 2 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{原版农作物特征分布}
+
+\begin{table}[H]
+    \centering
+    \caption{农作物特征分布}
+    \label{table:农作物特征分布}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc}
+        \toprule
+        & \textbf{主要获取方式} & \textbf{次要获取方式} & \textbf{种子类型} \\
+        \midrule
+        小麦 & 杂草掉落种子 & 村庄生成 & 果实种子分离 \\
+        马铃薯 & 村庄生成 & 箱子，怪物掉落 & 果实即种子 \\
+        胡萝卜 & 村庄生成 & 箱子，怪物掉落 & 果实即种子 \\
+        甜菜根 & 村庄生成 & 除草 & 果实种子分离 \\
+        南瓜 & 野外生成 & & 果实种子分离 \\
+        西瓜 & 野外生成 & & 果实种子分离 \\
+        可可豆 & 野外生成 & & 果实即种子 \\
+        地狱疣 & 地狱生成 & & 果实即种子 \\
+        甘蔗 & 野外生成 & & 果实即种子 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
 \newpage
