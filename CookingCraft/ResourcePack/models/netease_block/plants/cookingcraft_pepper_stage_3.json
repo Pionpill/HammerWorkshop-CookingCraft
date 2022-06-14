@@ -758,7 +758,7 @@
       "identifier": "cookingcraft:pepper_stage_3",
       "item_texture": "cookingcraft:pepper_stage_2",
       "textures": ["cookingcraft:pepper_stage_3"],
-      "use_ao": false
+      "use_ao": true
     }
   }
 }

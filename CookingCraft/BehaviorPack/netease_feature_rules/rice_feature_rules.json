@@ -2,7 +2,7 @@
   "format_version": "1.13.0",
   "minecraft:feature_rules": {
     "description": {
-      "identifier": "cookingcraft:herb_feature_rules",
+      "identifier": "cookingcraft:rice_feature_rules",
       "places_feature": "cookingcraft:rice_water_scatter_feature"
     },
     "conditions": {

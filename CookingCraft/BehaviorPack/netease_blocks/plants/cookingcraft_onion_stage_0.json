@@ -2,7 +2,7 @@
   "format_version": "1.16",
   "minecraft:block": {
     "description": {
-      "identifier": "cookingcraft:rice_stage_0",
+      "identifier": "cookingcraft:onion_stage_0",
       "register_to_creative_menu": false,
       "base_block": "custom_crop_block"
     },

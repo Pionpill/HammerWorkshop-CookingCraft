@@ -4,9 +4,9 @@
     "description": {
       "identifier": "cookingcraft:rice_scatter_feature"
     },
-    "places_feature": "minecraft:rice_block_feature",
+    "places_feature": "cookingcraft:rice_block_feature",
     "iterations": 3,
-    "scatter_chance": 10.0,
+    "scatter_chance": 50.0,
     "coordinate_eval_order": "zxy",
     "project_input_to_floor": true,
     "x": {

@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-31 13:07:47
-LastEditTime: 2022-06-07 23:46:32
+LastEditTime: 2022-06-14 10:28:07
 '''
 from abc import abstractmethod
 from random import seed
@@ -136,13 +136,27 @@ class PlantsCommonManager(object):
     @classmethod
     def GetPlantHarvestCount(cls, seedName):
         seedInfo = cls.GetSeedInfo(seedName)
-        return seedInfo.get("harvestCount", None)
+        return seedInfo.get("harvestCount", 1)
 
     @classmethod
     def GetPlantHarvestStage(cls, seedName):
         seedInfo = cls.GetSeedInfo(seedName)
         harvestStage = seedInfo.get("harvestStage", None)
-        return cls.GetPlantStageNameById(harvestStage)
+        return cls.GetPlantStageNameById(seedName, harvestStage)
+
+    @classmethod
+    def GetPlantLootTable(cls, seedName):
+        """获取掉落物表，仅限可多次收获的植物
+
+        Args:
+            seedName (str): 种子全称
+
+        Returns:
+            dict: 掉落物字典，其中个数为列表，需要再处理，没有则返回 None
+        """
+        seedInfo = cls.GetSeedInfo(seedName)
+        lootTable = seedInfo.get("lootTable", None)
+        return lootTable
 
     @staticmethod
     def GetPlantFirstStageName(seedName):
@@ -168,11 +182,11 @@ class PlantsCommonManager(object):
         Returns:
             str: seedName
         """
-        seedName = stageBlockName.split("_")[0]
-        if seedName in SEEDS_NAME:
-            return seedName
-        else:
-            return seedName + "_seeds"
+        itemName = stageBlockName.split("_")[0]
+        itemName = itemName.split(":")[-1]
+        for seedName in SEEDS_NAME:
+            if itemName in seedName:
+                return seedName
 
     @staticmethod
     def GetPlantStageNameById(seedName, stageId):
@@ -189,4 +203,12 @@ class PlantsCommonManager(object):
 
     @staticmethod
     def GetPlantStageId(stageBlockName):
+        """获取农作物状态 Id
+
+        Args:
+            stageBlockName (str): 农作物生长 Block 名
+
+        Returns:
+            int: 生长状态，以 0 开始
+        """
         return int(stageBlockName.split("_")[-1])

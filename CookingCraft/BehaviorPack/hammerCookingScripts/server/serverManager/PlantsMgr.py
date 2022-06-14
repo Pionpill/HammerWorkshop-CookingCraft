@@ -4,16 +4,10 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-31 13:03:38
-LastEditTime: 2022-06-07 23:52:12
+LastEditTime: 2022-06-14 14:29:09
 '''
-'''
-Description: your project
-version: 1.0
-Author: Pionpill
-LastEditors: Pionpill
-Date: 2022-05-31 13:03:38
-LastEditTime: 2022-05-31 13:05:35
-'''
+import random
+import copy
 import mod.server.extraServerApi as serverApi
 from hammerCookingScripts.common.commonManager.PlantsCommonMgr import PlantsCommonManager
 from hammerCookingScripts import logger
@@ -56,6 +50,7 @@ class PlantsManager(object):
         """
         seedName = PlantsCommonManager.GetPlantSeedNameByStage(plantBlockName)
         growConditions = PlantsCommonManager.GetPlantGrowthConditions(seedName)
+        logger.debug(seedName)
         # 判断光照
         plantLightRequire = growConditions.get("brightness", None)
         if plantLightRequire:
@@ -87,7 +82,8 @@ class PlantsManager(object):
                 return False
         # 判断发芽条件
         plantSproutRequire = growConditions.get("sprout", None)
-        if plantSproutRequire and PlantsCommonManager.GetPlantStageId == 0:
+        if plantSproutRequire and PlantsCommonManager.GetPlantStageId(
+                plantBlockName) == 0:
             comp = serverApi.GetEngineCompFactory().CreateWeather(levelId)
             if plantSproutRequire == "rain":
                 isRaining = comp.IsRaining()
@@ -104,6 +100,21 @@ class PlantsManager(object):
                                                  blockPos, levelId, dimension):
                 return False
         return True
+
+    @classmethod
+    def CanHarvest(cls, blockName):
+        """判断多次收获的农作物是否可以收获
+
+        Args:
+            blockName (str): 农作物生长 block 全名
+
+        Returns:
+            bool: 能否收获
+        """
+        seedName = PlantsCommonManager.GetPlantSeedNameByStage(blockName)
+        if cls.IsMultiHarvestPlant(seedName) and cls.IsHarvestStage(blockName):
+            return True
+        return False
 
     @classmethod
     def JudgeBiome(cls, seedName, biomeName):
@@ -153,6 +164,7 @@ class PlantsManager(object):
         """
         waterDis = specialCondition.get("water", None)
         if waterDis:
+            logger.debug("111")
             blockComp = compFactory.CreateBlockInfo(levelId)
             posX, posY, posZ = blockPos
             y = posY
@@ -163,6 +175,47 @@ class PlantsManager(object):
                         return True
             return False
         return True
+
+    @staticmethod
+    def IsMultiHarvestPlant(seedName):
+        """判断植物是否可以多次收获
+
+        Args:
+            seedName (str): 种子全名
+        """
+        harvestCount = PlantsCommonManager.GetPlantHarvestCount(seedName)
+        if harvestCount == 1:
+            return False
+        return True
+
+    @staticmethod
+    def IsHarvestStage(blockName):
+        """判断是否可以收获：生长到最后一阶段
+
+        Args:
+            blockName (str): 农作物生长的 block 名
+
+        Returns:
+            bool: 是否可以收获
+        """
+        seedName = PlantsCommonManager.GetPlantSeedNameByStage(blockName)
+        stageCount = PlantsCommonManager.GetPlantStageCount(seedName)
+        stageId = PlantsCommonManager.GetPlantStageId(blockName)
+        if stageCount == (stageId + 1):
+            return True
+        return False
+
+    @staticmethod
+    def GetPlantLootItem(seedName):
+        lootTable = PlantsCommonManager.GetPlantLootTable(seedName)
+        try:
+            countList = lootTable.get("count", None)
+            logger.debug(countList)
+        except:
+            logger.error("{0} lootTable 的 count 不可以缺失".format(seedName))
+        lootItem = copy.deepcopy(lootTable)
+        lootItem["count"] = random.randint(countList[0], countList[1])
+        return lootItem
 
     @staticmethod
     def CanChangeStage(plantBlockName, tickCount):
@@ -185,7 +238,7 @@ class PlantsManager(object):
 
     @staticmethod
     def IsClimbingPlant(seedName):
-        """判断植物是否需要攀登
+        """判断植物是否需要攀藤
 
         Args:
             seedName (str): 种子全名

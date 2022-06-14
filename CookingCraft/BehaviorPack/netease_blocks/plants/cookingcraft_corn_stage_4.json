@@ -2,7 +2,7 @@
   "format_version": "1.16",
   "minecraft:block": {
     "description": {
-      "identifier": "cookingcraft:rice_stage_4",
+      "identifier": "cookingcraft:corn_stage_4",
       "register_to_creative_menu": false,
       "base_block": "custom_crop_block"
     },

@@ -213,9 +213,9 @@
       }
     ],
     "description": {
-      "identifier": "cookingcraft:herb_stage_3",
-      "item_texture": "cookingcraft:herb_stage_3",
-      "textures": ["cookingcraft:herb_stage_3"],
+      "identifier": "cookingcraft:onion_stage_3",
+      "item_texture": "cookingcraft:onion_stage_3",
+      "textures": ["cookingcraft:onion_stage_3"],
       "use_ao": false
     }
   }

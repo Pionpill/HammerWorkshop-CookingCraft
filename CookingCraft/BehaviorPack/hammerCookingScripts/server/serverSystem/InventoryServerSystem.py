@@ -4,8 +4,9 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-04-25 16:15:57
-LastEditTime: 2022-05-28 16:15:48
+LastEditTime: 2022-06-14 10:12:46
 '''
+import copy
 from abc import abstractmethod
 import mod.server.extraServerApi as serverApi
 from hammerCookingScripts.common import modConfig
@@ -213,7 +214,6 @@ class InventoryServerSystem(ServerSystem):
             toNum = int(fromItem.get("count") * takePercent)
             fromNum = int(fromItem.get("count")) - toNum
             fromItem["count"] = toNum
-            import copy
             toItem = copy.deepcopy(fromItem)
             toItem["count"] = fromNum
             if isinstance(toSlot, int):

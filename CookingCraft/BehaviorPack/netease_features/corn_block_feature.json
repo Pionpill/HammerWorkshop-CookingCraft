@@ -7,7 +7,7 @@
     "places_block": "cookingcraft:corn_stage_4",
     "enforce_placement_rules": true,
     "enforce_survivability_rules": true,
-    "may_place_on": ["example:grass"],
-    "may_replace": ["example:air"]
+    "may_place_on": ["minecraft:grass"],
+    "may_replace": ["minecraft:air"]
   }
 }
