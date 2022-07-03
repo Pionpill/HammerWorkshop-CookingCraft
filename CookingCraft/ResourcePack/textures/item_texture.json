@@ -64,6 +64,9 @@
     },
     "cookingcraft:pepper": {
       "textures": "textures/items/pepper"
+    },
+    "cookingcraft:banana": {
+      "textures": "textures/items/banana"
     }
   }
 }

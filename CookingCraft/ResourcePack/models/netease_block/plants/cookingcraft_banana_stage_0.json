@@ -1,0 +1,52 @@
+{
+  "format_version": "1.13.0",
+  "netease:block_geometry": {
+    "bones": [
+      {
+        "name": "root",
+        "pivot": [-17, 0, 17],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-28.000000000000014, -1, 5.699999999999999],
+            "pivot": [-17, 0, 17],
+            "rotation": [0, -45, 0],
+            "size": [22.200000000000014, 48, 8.000000000000002],
+            "uv": {
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [5.5, 12]
+              }
+            }
+          },
+          {
+            "origin": [-17.000000000000014, -1, 17.7],
+            "pivot": [-17, 0, 17],
+            "rotation": [0, 45, 0],
+            "size": [22.200000000000014, 48, 8.000000000000004],
+            "uv": {
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [5.5, 12]
+              }
+            }
+          }
+        ],
+        "name": "bone",
+        "parent": "root",
+        "pivot": [-17, 0, 17],
+        "rotation": [0, 0, 0]
+      }
+    ],
+    "description": {
+      "identifier": "cookingcraft:banana_stage_0",
+      "item_texture": "cookingcraft:banana_stage_0",
+      "textures": ["cookingcraft:banana_stage_0"],
+      "use_ao": false
+    }
+  }
+}

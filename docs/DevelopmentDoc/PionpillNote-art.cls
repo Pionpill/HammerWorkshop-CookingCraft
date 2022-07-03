@@ -15,6 +15,7 @@
 \RequirePackage{color,xcolor}           % 颜色包
 \RequirePackage{graphicx}               % 图片格式支持包
 \RequirePackage{tikz}                   % 绘图包
+\RequirePackage{fontspec}                  
 % ========== 外部包 ==========
 \RequirePackage{fancyhdr,lastpage}      % 页眉页脚控制包
 \RequirePackage{parskip}                % 段落格式控制包
@@ -50,7 +51,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand\headrulewidth{0pt}
-\fancyfoot[L]{锤子工坊 v0.1.1}
+\fancyfoot[L]{锤子工坊 v0.2.1}
 \fancyfoot[C]{烹饪工艺(CookingCraft)开发设计书}
 \fancyfoot[R]{ \thepage{} / \pageref{LastPage}}
 % titletoc-目录样式
@@ -101,6 +102,7 @@
 \def\tihao#1{\gdef\@tihao{#1}}
 \def\timu#1{\gdef\@timu{#1}}
 \def\keyword#1{\gdef\@keyword{#1}}
+\setmainfont{Times New Roman}
 % ========== 符号设置 ==========
 \def\ee{\mathrm{e}}
 \def\ii{\mathrm{i}}

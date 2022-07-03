@@ -1,0 +1,80 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TMR Main File: resume.tex
+% Author: Marina Rose "Mars" Geldard
+% http://github.com/TheMartianLife/Resume
+
+% Available for others' use under:
+% The MIT License (https://opensource.org/licenses/MIT)
+
+% Last Updated: 20/09/2017
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+\documentclass{TMR}
+
+% Author details
+\name[Dr]{\textit{周肖桐}}[CN.]% Pre- and post-nominals optional
+\address{南京信息工程大学}
+% \wechat{小葱拌豆腐}
+\phone{189xxxxxx76} 
+\email{673486387@qq.com}
+% \homepage{HammerWorkshop}
+\github{https://github.com/Pionpill/HammerWorkshop-CookingCraft}
+% \linkedin{linkedin-handle}
+% \twitter{twitter-handle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Letter details
+\recipient
+	{合作开发团队或个人}
+	{委托方(甲方): 锤子工坊工作室\\
+    合作方(乙方): 周肖桐(个人)\\
+    委托类型: 美工\\}
+\greeting{\textbf{尊敬的美工开发者}}
+\farewell{合作愉快}
+
+% Toggle inclusion in output PDF
+%\hidecoverletter
+
+% Toggle how many values in footer
+\fullfooter
+
+\begin{document}
+\begin{coverletter}
+
+\hspace{2em} 首先，本着平等互惠的原则，双方自觉遵守中华人民共和国宪法及相关法律。本文主要说明一些注意事项，交待必要的合作内容
+。
+\hspace{2em} 在美工费用方面，基本按照每 32x32 像素画 15 元人民币计费(透明像素不计在内), 由于还涉及到部分建模，费用以下文为准。
+
+\hspace{2em} 在工作流程方面，甲方将分三个阶段付款，主要用于监督乙方工作，如果乙方签订合同后预期或者拒绝合作，视情况扣除部分或全部费用。这三个阶段如下:
+\begin{itemize}
+    \item demo: 需要乙方完成一项设计并交由甲方检查确定无误后开展主体工作。在完成该部分工作后，甲方付定金。定金占总金额的 20\%
+    \item 主体: 乙方需要在期限内完成甲方交予的所有工作，如果逾期则需扣除部分合作金。完成后甲方付主要费用。这部分费用占总金额的 50\%
+    \item 修改: 甲方接到乙方主体工作成果后，提出一定的细节修改意见(不超过2次)，完成后甲方付尾款。尾款占总金额的 30\%
+\end{itemize}
+
+
+\hspace{2em} 在美术绘画方面，需要注意所有美术作品都需符合 Minecraft 风格, 必须拥有像素画风格。请乙方和甲方相关工作人员协商确定。
+
+\hspace{2em} 在建模方面，有如下注意点:
+\begin{itemize}
+    \item 所有模型格式必须为 BlockBench 自由模型。
+    \item 所有模型需要向左上方各移动 8 格。
+    \item 所有模型 UV 必须为逐面 UV 16x16 大小。
+    \item 植被模型需要向下移动 1 格。
+\end{itemize}
+
+\end{coverletter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{resume}
+
+% Import any number of sections
+% This will dictate the order in which they display
+\import{sections/}{section-1.tex}
+
+\today
+
+\end{resume}
+\end{document}

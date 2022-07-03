@@ -4,13 +4,14 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-06-01 15:43:39
-LastEditTime: 2022-06-14 14:27:17
+LastEditTime: 2022-07-03 18:37:28
 '''
 from hammerCookingScripts.common.commonBiome.BiomeForm import BiomeForm as BF
 
 SEEDS_NAME = [
     "cookingcraft:herb_seeds", "cookingcraft:pepper", "cookingcraft:rice_fruit",
-    "cookingcraft:corn_pieces", "cookingcraft:tomato", "cookingcraft:onion"
+    "cookingcraft:corn_pieces", "cookingcraft:tomato", "cookingcraft:onion",
+    "cookingcraft:banana"
 ]
 
 SEEDS_INFO = {
@@ -110,6 +111,26 @@ SEEDS_INFO = {
             "plantLandList": ["minecraft:farmland", "minecraft:grass"],
             "plantBiome":
             set(set(BF.woods | BF.plains | BF.water) & BF.temperate) | BF.taiga
+        },
+        "growthConditions": {
+            "brightness": [9, 15],
+            "altitude": [64, 128],
+            "weather": None,
+            "sprout": None,
+        },
+    },
+    "cookingcraft:banana": {
+        "tickList": [3, 3, 4, 6],
+        "harvestCount": 3,
+        "harvestStage": 2,
+        "lootTable": {
+            "newItemName": "cookingcraft:banana",
+            "count": [4, 7],
+            "newAuxValue": 0
+        },
+        "plantConditions": {
+            "plantLandList": ["minecraft:farmland", "minecraft:grass"],
+            "plantBiome": BF.tropic & BF.jungle
         },
         "growthConditions": {
             "brightness": [9, 15],
