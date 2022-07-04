@@ -3,46 +3,6 @@
   "netease:block_geometry": {
     "bones": [
       {
-        "cubes": [
-          {
-            "origin": [-9.9, -1, 8.1],
-            "pivot": [-9, 0, 9],
-            "rotation": [0, 0, 0],
-            "size": [2.4000000000000004, 13, 2.4000000000000004],
-            "uv": {
-              "down": {
-                "texture": 0,
-                "uv": [1.25, 15.5],
-                "uv_size": [-0.5, 0.5]
-              },
-              "east": {
-                "texture": 0,
-                "uv": [0, 13.25],
-                "uv_size": [0.5, 2.75]
-              },
-              "north": {
-                "texture": 0,
-                "uv": [0, 13.25],
-                "uv_size": [0.5, 2.75]
-              },
-              "south": {
-                "texture": 0,
-                "uv": [0, 13.25],
-                "uv_size": [0.5, 2.75]
-              },
-              "up": {
-                "texture": 0,
-                "uv": [0.75, 15.5],
-                "uv_size": [0.5, 0.5]
-              },
-              "west": {
-                "texture": 0,
-                "uv": [0, 13.25],
-                "uv_size": [0.5, 2.75]
-              }
-            }
-          }
-        ],
         "name": "root",
         "pivot": [-17, 0, 17],
         "rotation": [0, 0, 0]
@@ -76,7 +36,7 @@
             }
           }
         ],
-        "name": "tietu",
+        "name": "bone",
         "parent": "root",
         "pivot": [-17, 0, 17],
         "rotation": [0, 0, 0]

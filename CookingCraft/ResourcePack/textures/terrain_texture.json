@@ -22,6 +22,9 @@
         "cookingcraft:banana_stage_4": {
             "textures": "textures/blocks/banana_stage_4"
         },
+        "cookingcraft:banana_stage_5": {
+            "textures": "textures/blocks/banana_stage_5"
+        },
         "cookingcraft:cooking_table": {
             "textures": "textures/blocks/cooking_table"
         },

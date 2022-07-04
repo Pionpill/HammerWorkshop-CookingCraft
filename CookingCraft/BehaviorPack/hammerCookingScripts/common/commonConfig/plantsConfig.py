@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-06-01 15:43:39
-LastEditTime: 2022-07-03 18:37:28
+LastEditTime: 2022-07-04 15:20:26
 '''
 from hammerCookingScripts.common.commonBiome.BiomeForm import BiomeForm as BF
 
@@ -120,9 +120,9 @@ SEEDS_INFO = {
         },
     },
     "cookingcraft:banana": {
-        "tickList": [3, 3, 4, 6],
+        "tickList": [3, 3, 3, 3, 4],
         "harvestCount": 3,
-        "harvestStage": 2,
+        "harvestStage": 3,
         "lootTable": {
             "newItemName": "cookingcraft:banana",
             "count": [4, 7],
@@ -130,7 +130,7 @@ SEEDS_INFO = {
         },
         "plantConditions": {
             "plantLandList": ["minecraft:farmland", "minecraft:grass"],
-            "plantBiome": BF.tropic & BF.jungle
+            "plantBiome": BF.tropic & BF.woods
         },
         "growthConditions": {
             "brightness": [9, 15],

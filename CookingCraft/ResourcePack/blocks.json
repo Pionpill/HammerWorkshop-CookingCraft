@@ -127,6 +127,10 @@
     "netease_model": "cookingcraft:banana_stage_4",
     "sound": "grass"
   },
+  "cookingcraft:banana_stage_5": {
+    "netease_model": "cookingcraft:banana_stage_4",
+    "sound": "grass"
+  },
   "cookingcraft:fence_post": {
     "netease_model": "cookingcraft:fence_post",
     "sound": "wood"

@@ -2,14 +2,14 @@
   "format_version": "1.16",
   "minecraft:block": {
     "description": {
-      "identifier": "cookingcraft:banana_stage_4",
+      "identifier": "cookingcraft:banana_stage_5",
       "register_to_creative_menu": false,
       "base_block": "custom_crop_block"
     },
     "components": {
       "minecraft:block_light_absorption": 0,
       "minecraft:block_light_emission": 0,
-      "minecraft:loot": "",
+      "minecraft:loot": "loot_tables/blocks/cookingcraft_banana.json",
       "netease:render_layer": {
         "value": "alpha"
       },
@@ -22,10 +22,6 @@
           "min": [0.0, 0.0, 0.0],
           "max": [1.0, 2, 1.0]
         }
-      },
-      "netease:random_tick": {
-        "enable": true,
-        "tick_to_script": true
       },
       "netease:neighborchanged_sendto_script": {
         "value": true
