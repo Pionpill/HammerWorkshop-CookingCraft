@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-31 13:03:38
-LastEditTime: 2022-06-14 14:29:09
+LastEditTime: 2022-07-05 16:22:16
 '''
 import random
 import copy
@@ -103,7 +103,7 @@ class PlantsManager(object):
 
     @classmethod
     def CanHarvest(cls, blockName):
-        """判断多次收获的农作物是否可以收获
+        """判断农作物是否可以右键收获,即多次收获的植物和藤蔓植物
 
         Args:
             blockName (str): 农作物生长 block 全名
@@ -112,7 +112,8 @@ class PlantsManager(object):
             bool: 能否收获
         """
         seedName = PlantsCommonManager.GetPlantSeedNameByStage(blockName)
-        if cls.IsMultiHarvestPlant(seedName) and cls.IsHarvestStage(blockName):
+        if cls.IsClimbingPlant(seedName) or (cls.IsMultiHarvestPlant(seedName)
+                                             and cls.IsHarvestStage(blockName)):
             return True
         return False
 
@@ -187,6 +188,22 @@ class PlantsManager(object):
         if harvestCount == 1:
             return False
         return True
+
+    @staticmethod
+    def IsClimbingPlant(seedName):
+        """判断是否是攀藤植物
+
+        Args:
+            seedName (str): 种子全称
+
+        Returns:
+            bool: 是则返回 True 反之为 False
+        """
+        plantLandList = PlantsCommonManager.GetSeedPlantLandList(seedName)
+        for land in plantLandList:
+            if "fence" in land:
+                return True
+        return False
 
     @staticmethod
     def IsHarvestStage(blockName):

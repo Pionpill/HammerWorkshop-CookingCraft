@@ -1,0 +1,31 @@
+@startuml common
+participant Common
+participant Kit
+participant Factory
+control Controller
+entity Entity
+database Config
+
+activate Common
+Common -> Kit: 访问接口
+activate Kit
+Kit -> Factory: 获取实例
+activate Factory
+Factory -> Controller: 创建/获取实例
+activate Controller
+Controller -> Factory: 返回实例
+deactivate Controller
+Factory -> Entity: 创建/获取实例
+activate Entity
+Entity -> Config: 获取数据
+activate Config
+Config -> Entity: 返回数据
+deactivate Config
+Entity -> Factory: 返回实例
+deactivate Entity
+Factory -> Kit: 返回实例
+deactivate Factory
+Kit -> Common: 返回实例对象
+deactivate Kit
+deactivate Common
+@enduml

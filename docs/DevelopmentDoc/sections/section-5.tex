@@ -2,13 +2,62 @@
 
 原版植物生长仅需要土地，光照等简单条件，且仅含一次性收获(小麦)与藤曼生长(南瓜)两种方式，较为简单。模组的植物通过脚本控制，添加了植物种植条件:生态，攀爬。增添了可多次收获植物，树木...以丰富玩法。
 
+我们将植物按作用分为三类: 粮食，蔬菜，水果，调料。植物的类被决定了植物果实在合成食物的过程中承担的角色(主要原材料，调料等)。同时不同的类别有其特点，比如粮食能大量生产，提供大量饱食度。
+
+其次，按照现实世界中的植物类型，我们将植物分为草本，禾本，藤蔓，木本，菌类，特殊。其在 MC 中的特性如下\footnote{此为大部分植物遵守的准则，也有例外，如香蕉这一大型草本植物，可收获3次}:
+
+\begin{table}[H]
+    \centering
+    \caption{植物类别特性}
+    \label{table:植物类别特性}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccccc}
+        \toprule
+        \textbf{植物类型} & \textbf{草本} & \textbf{禾本} & \textbf{藤蔓} & \textbf{木本} & \textbf{菌类}\\
+        \midrule
+        生长土地 & 草地，田地 & 田地 & 田地 & 草地 & 灰化土 \\
+        生长时间 & 快 & 中等 & 中等 & 慢 & 中等 \\
+        收获次数 & 1 & 1-3 & 1-5 & 特殊 & 特殊 \\ 
+        生长方式 & 直接种植 & 直接种植 & 攀藤 & 种植生长 & 直接种植 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+此外，针对植物的获取与种植条件，设置难度如下。
+
+\begin{table}[H]
+    \centering
+    \caption{植物获取}
+    \label{table:植物获取}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc}
+        \toprule
+        \textbf{获取难度} & \textbf{表示} & \textbf{说明} & \textbf{例子} \\
+        \midrule
+        简单 & $\bigstar$ & 世界大概率遇见 & 香草 \\
+        中等 & $\bigstar\bigstar$ & 世界中等概率遇见 & 辣椒 \\
+        困难 & $\bigstar \bigstar \bigstar$ & 世界小概率遇见，怪物掉落 & 水稻 \\
+        极难 & $\bigstar \bigstar \bigstar \bigstar$ & 条件极为严苛或通过购买/宝箱获得 & 雪莲 \\
+        传奇 & $\bigstar \bigstar \bigstar \bigstar \bigstar$ & 极其特殊的获取方式 & 暂无 \\
+        \midrule
+        \textbf{种植难度} & \textbf{表示} & \textbf{说明} & \textbf{例子} \\
+        \midrule
+        简单 & $\bigstar$ & 生态等条件宽裕 & 香草 \\
+        中等 & $\bigstar\bigstar$ & 需要特殊的条件，但容易达到 & 水稻 \\
+        困难 & $\bigstar \bigstar \bigstar$ & 种植生态较少 & 香蕉 \\
+        极难 & $\bigstar \bigstar \bigstar \bigstar$ & 严苛的种植条件 & 雪莲 \\
+        传奇 & $\bigstar \bigstar \bigstar \bigstar \bigstar$ & 无法种植或极难达到 & 暂无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 \subsection{粮食}
 
 粮食的特点: 多产，提供大量饱食度，无 buff。
 
 \subsubsection{水稻}
 
-水稻的获取难度被设计为\textbf{中等}，其特征如下:
+水稻的获取难度被设计为\textbf{困难}，其特征如下:
 \begin{table}[H]
     \centering
     \caption{水稻特征}
@@ -20,7 +69,7 @@
         \midrule
         \textbf{单方块特征}                & 生长方块 & 草方块 & 替换方块 & 空气   \\
         \midrule
-        \textbf{散植特征}                  & 生成几率 & 0.1    & 生成次数 & 3      \\
+        \textbf{散植特征}                  & 生成几率 & 0.8    & 生成次数 & 3      \\
         \midrule
         \multirow{2}{*}{\textbf{特征规则}} & 生成地   & 地表   & 生态     & 水系   \\
                                            & 生成条件 & 河边                       \\
@@ -29,7 +78,7 @@
 \end{table}
 
 
-水稻的种植难度被设计为\textbf{简单}，其种植信息如下:
+水稻的种植难度被设计为\textbf{中等}，其种植信息如下:
 
 \begin{table}[H]
     \centering
@@ -41,16 +90,16 @@
                                            & \textbf{属性} & \textbf{说明}    & \textbf{属性} & \textbf{说明}   \\
         \midrule
         \multirow{2}{*}{\textbf{种植条件}} & 土地          & 农田             & 温度          & 温带，热带      \\
-                                           & 生态          & 平原，森林，水域 & 特殊          & 附近 5 格内有水 \\
+                                           & 生态          & 平原，森林，水域 & 特殊          & 附近 3 格内有水 \\
         \midrule
         \multirow{2}{*}{\textbf{生长条件}} & 光照          & [11,15]          & 海拔          & [64,128]        \\
                                            & 天气          & 无               & 特殊          & 下雨发芽               \\
         \midrule
         \textbf{生长速度}                  & 速度          & 快(7tick)        & 阶段tick      & [2,2,3]         \\
         \midrule
-        \multirow{2}{*}{\textbf{收获}}     & 收获次数      & 1                & 掉落物        & 水稻:3-7        \\
+        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1                & 掉落物        & 水稻:3-7        \\
                                            & 饥饿度        & 2                & 营养值        & 0.4             \\
-                                           & 种子 & 果实分离 \\
+                                           & 种子 & 果实分离 & 生吃 & 不可 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -65,7 +114,7 @@
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|cc|cc}
         \toprule
-        \textbf{模型特征}   & 模型高度 & 2      & 模型形状 & 十字 \\
+        \textbf{模型特征}   & 模型高度 & 2      & 模型形状 & X字 \\
         \midrule
         \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气 \\
         \midrule
@@ -88,7 +137,7 @@
         \toprule
                                            & \textbf{属性} & \textbf{说明}    & \textbf{属性} & \textbf{说明}      \\
         \midrule
-        \multirow{2}{*}{\textbf{种植条件}} & 土地          & 农田，草地       & 温度          & 温带，热带，亚寒带 \\
+        \multirow{2}{*}{\textbf{种植条件}} & 土地          & 农田      & 温度          & 温带，热带，亚寒带 \\
                                            & 生态          & 平原，森林，水域 & 特殊          & -                  \\
         \midrule
         \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]           & 海拔          & [64,192]           \\
@@ -98,7 +147,7 @@
         \midrule
         \multirow{2}{*}{\textbf{收获}}     & 收获次数      & 3                & 掉落物        & 玉米:2-3           \\
                                            & 饥饿度        & 3                & 营养值        & 0.6                \\
-                                           & 种子 & 果实分离 \\
+                                           & 种子 & 果实分离 & 生吃 & 不可 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -109,7 +158,7 @@
 
 \subsubsection{番茄}
 
-番茄的获取难度被设计为\textbf{中等}，其特征如下:
+番茄的获取难度被设计为\textbf{困难}，其特征如下:
 \begin{table}[H]
     \centering
     \caption{番茄特征}
@@ -121,7 +170,7 @@
         \midrule
         \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气 \\
         \midrule
-        \textbf{散植特征}   & 生成几率 & 0.05   & 生成次数 & 5    \\
+        \textbf{散植特征}   & 生成几率 & -   & 生成次数 & -    \\
         \midrule
         \textbf{特征规则}   & 生成地   & 地表   & 生态     & 平原 \\
         \bottomrule
@@ -150,7 +199,7 @@
         \midrule
         \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 2                & 掉落物        & 番茄:2-5      \\
                                            & 饥饿度        & 2                & 营养值        & 0.6           \\
-                                        & 种子 & 果实即为种子 \\
+                                        & 种子 & 果实即为种子 & 生吃 & 可 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -169,7 +218,7 @@
         \midrule
         \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气 \\
         \midrule
-        \textbf{散植特征}   & 生成几率 & 0.1   & 生成次数 & 3    \\
+        \textbf{散植特征}   & 生成几率 & 0.05   & 生成次数 & 3    \\
         \midrule
         \textbf{特征规则}   & 生成地   & 地表   & 生态     & 寒带森林 \\
         \bottomrule
@@ -198,7 +247,7 @@
         \midrule
         \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1                & 掉落物        & 洋葱:2-5      \\
                                            & 饥饿度        & 2                & 营养值        & 0.4           \\
-                                        & 种子 & 果实即为种子 \\
+                                        & 种子 & 果实即为种子 & 生吃 & 可(失明30s) \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -209,7 +258,7 @@
 
 \subsubsection{香蕉}
 
-香蕉的获取难度被设计为\textbf{中等}，其特征如下:
+香蕉的获取难度被设计为\textbf{困难}，其特征如下:
 \begin{table}[H]
     \centering
     \caption{香蕉特征}
@@ -217,7 +266,7 @@
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|cc|cc}
         \toprule
-        \textbf{模型特征}                  & 模型高度 & 3      & 模型形状 & 十字形 \\
+        \textbf{模型特征}                  & 模型高度 & 3      & 模型形状 & X字形 \\
         \midrule
         \textbf{单方块特征}                & 生长方块 & 草方块 & 替换方块 & 空气   \\
         \midrule
@@ -229,7 +278,7 @@
 \end{table}
 
 
-香蕉的种植难度被设计为\textbf{中等}，其种植信息如下:
+香蕉的种植难度被设计为\textbf{困难}，其种植信息如下:
 
 \begin{table}[H]
     \centering
@@ -249,8 +298,8 @@
         \textbf{生长速度}                  & 速度          & 慢(17tick)        & 阶段tick      & [3,3,4,3,4]         \\
         \midrule
         \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 3                & 掉落物        & 香蕉:4-7        \\
-                                           & 饥饿度        & 1.5                & 营养值        & 0.4             \\
-                                           & 种子 & 果实即种子 \\
+                                           & 饥饿度        & 2                & 营养值        & 1.2             \\
+                                           & 种子 & 果实即种子 & 生吃 & 可 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -274,7 +323,7 @@
         \midrule
         \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气       \\
         \midrule
-        \textbf{散植特征}   & 生成几率 & 0.1    & 生成次数 & 7          \\
+        \textbf{散植特征}   & 生成几率 & 0.08    & 生成次数 & 7          \\
         \midrule
         \textbf{特征规则}   & 生成地   & 地表   & 生态     & 森林，平原 \\
         \bottomrule
@@ -303,7 +352,7 @@
         \midrule
         \multirow{2}{*}{\textbf{收获}}     & 收获次数      & 1                & 掉落物        & 种子1-2，香草1-4 \\
                                            & 饥饿度        & 0                & 营养值        & 0                \\
-                                           & 种子 & 果实种子分离 \\
+                                           & 种子 & 果实种子分离 & 生吃 & 不可 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -352,7 +401,7 @@
         \midrule
         \multirow{2}{*}{\textbf{收获}}     & 收获次数      & 1             & 掉落物        & 辣椒 2-5      \\
                                            & 饥饿度        & 0             & 营养值        & 0             \\
-                                           & 种子 & 果实即为种子 \\
+                                           & 种子 & 果实即为种子 & 生吃 & 可(反胃15s) \\
         \bottomrule
     \end{tabular}
 \end{table}

@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-31 13:07:47
-LastEditTime: 2022-06-14 10:28:07
+LastEditTime: 2022-07-05 16:33:31
 '''
 from abc import abstractmethod
 from random import seed
@@ -50,7 +50,7 @@ class PlantsCommonManager(object):
             seedName (str): 种子全称
 
         Returns:
-            set : 可种植的方块集合
+            list : 可种植的方块集合
         """
         seedInfo = cls.GetSeedInfo(seedName)
         landList = seedInfo.get("plantConditions").get("plantLandList")
@@ -135,14 +135,33 @@ class PlantsCommonManager(object):
 
     @classmethod
     def GetPlantHarvestCount(cls, seedName):
+        """获取农作物收获次数
+
+        Args:
+            seedName (str): 种子名
+
+        Returns:
+            int: 收获次数
+        """
         seedInfo = cls.GetSeedInfo(seedName)
         return seedInfo.get("harvestCount", 1)
 
     @classmethod
     def GetPlantHarvestStage(cls, seedName):
+        """获取农作物收获时的 BlockName, 如果是数字，则转换为 BlockName
+
+        Args:
+            seedName (str): 种子名
+
+        Returns:
+            str: 农作物生长时的 BlockName
+        """
         seedInfo = cls.GetSeedInfo(seedName)
         harvestStage = seedInfo.get("harvestStage", None)
-        return cls.GetPlantStageNameById(seedName, harvestStage)
+        if isinstance(harvestStage, int):
+            return cls.GetPlantStageNameById(seedName, harvestStage)
+        else:
+            return harvestStage
 
     @classmethod
     def GetPlantLootTable(cls, seedName):
@@ -197,7 +216,7 @@ class PlantsCommonManager(object):
             stageId (int): 生长状态 id
 
         Returns:
-            str: 农族欧文生长时的 block 全名
+            str: 农作物生长时的 BlockName
         """
         return seedName.split("_")[0] + "_stage_" + str(stageId)
 

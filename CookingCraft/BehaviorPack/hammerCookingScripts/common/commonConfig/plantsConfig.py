@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-06-01 15:43:39
-LastEditTime: 2022-07-04 15:20:26
+LastEditTime: 2022-07-05 16:31:44
 '''
 from hammerCookingScripts.common.commonBiome.BiomeForm import BiomeForm as BF
 
@@ -74,7 +74,7 @@ SEEDS_INFO = {
             "newAuxValue": 0
         },
         "plantConditions": {
-            "plantLandList": ["minecraft:farmland", "minecraft:grass"],
+            "plantLandList": ["minecraft:farmland"],
             "plantBiome":
             set(
                 set(BF.woods | BF.plains | BF.water)
@@ -90,7 +90,12 @@ SEEDS_INFO = {
     "cookingcraft:tomato": {
         "tickList": [3, 4, 4],
         "harvestCount": 1,
-        "harvestStage": None,
+        "harvestStage": "cookingcraft:fence_post",
+        "lootTable": {
+            "newItemName": "cookingcraft:tomato",
+            "count": [2, 5],
+            "newAuxValue": 0
+        },
         "plantConditions": {
             "plantLandList": ["cookingcraft:fence_post"],
             "plantBiome":

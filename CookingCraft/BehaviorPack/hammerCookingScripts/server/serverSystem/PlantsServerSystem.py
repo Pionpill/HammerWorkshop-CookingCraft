@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-04-25 16:15:57
-LastEditTime: 2022-06-14 10:39:31
+LastEditTime: 2022-07-05 16:32:51
 '''
 import time
 import mod.server.extraServerApi as serverApi
@@ -151,20 +151,24 @@ class PlantsServerSystem(ServerSystem):
             dimension = args["dimensionId"]
             blockPos = (args["x"], args["y"], args["z"])
             lootItem = PlantsManager.GetPlantLootItem(seedName)
-            harvestCount = PlantsCommonManager.GetPlantHarvestCount(seedName)
 
-            blockEntityComp = compFactory.CreateBlockEntityData(self.playerId)
-            blockEntityData = blockEntityComp.GetBlockEntityData(
-                dimension, blockPos)
-            if not blockEntityData:
-                return
-            harvestNum = blockEntityData["harvestNum"]
-            if not harvestNum:
-                harvestNum = 0
-            harvestNum += 1
-            blockEntityData["harvestNum"] = harvestNum
-            if harvestNum >= harvestCount:
-                return
+            if not PlantsManager.IsClimbingPlant(seedName):
+                harvestCount = PlantsCommonManager.GetPlantHarvestCount(
+                    seedName)
+
+                blockEntityComp = compFactory.CreateBlockEntityData(
+                    self.playerId)
+                blockEntityData = blockEntityComp.GetBlockEntityData(
+                    dimension, blockPos)
+                if not blockEntityData:
+                    return
+                harvestNum = blockEntityData["harvestNum"]
+                if not harvestNum:
+                    harvestNum = 0
+                harvestNum += 1
+                blockEntityData["harvestNum"] = harvestNum
+                if harvestNum >= harvestCount:
+                    return
 
             itemComp = compFactory.CreateItem(serverApi.GetLevelId())
             itemComp.SpawnItemToLevel(lootItem, 0, blockPos)
