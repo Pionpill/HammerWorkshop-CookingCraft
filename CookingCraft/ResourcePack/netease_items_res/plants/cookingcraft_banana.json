@@ -6,7 +6,8 @@
     },
     "components": {
       "minecraft:icon": "cookingcraft:banana",
-      "minecraft:render_offsets": "seeds"
+      "minecraft:render_offsets": "seeds",
+      "minecraft:use_animation": "eat"
     }
   }
 }

@@ -6,7 +6,7 @@
     },
     "places_feature": "cookingcraft:onion_block_feature",
     "iterations": 3,
-    "scatter_chance": 10.0,
+    "scatter_chance": 5.0,
     "x": {
       "distribution": "uniform",
       "extent": [0, 7]

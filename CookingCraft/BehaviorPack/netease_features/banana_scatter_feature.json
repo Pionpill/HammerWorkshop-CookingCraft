@@ -2,11 +2,11 @@
   "format_version": "1.13.0",
   "minecraft:scatter_feature": {
     "description": {
-      "identifier": "cookingcraft:herb_scatter_feature"
+      "identifier": "cookingcraft:banana_scatter_feature"
     },
-    "places_feature": "cookingcraft:herb_block_feature",
-    "iterations": 7,
-    "scatter_chance": 8.0,
+    "places_feature": "cookingcraft:banana_block_feature",
+    "iterations": 1,
+    "scatter_chance": 10.0,
     "x": {
       "distribution": "uniform",
       "extent": [0, 7]

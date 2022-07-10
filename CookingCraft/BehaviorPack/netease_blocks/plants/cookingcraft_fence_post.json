@@ -12,7 +12,7 @@
       "minecraft:block_light_emission": 0,
       "minecraft:block_light_absorption": 0,
       "minecraft:explosion_resistance": 3,
-      "minecraft:loot": "",
+      "minecraft:loot": "loot_tables/blocks/cookingcraft_fence_post.json",
       "netease:render_layer": {
         "value": "alpha"
       },

@@ -6,7 +6,7 @@
     },
     "places_feature": "cookingcraft:tomato_block_feature",
     "iterations": 5,
-    "scatter_chance": 5.0,
+    "scatter_chance": 2.0,
     "x": {
       "distribution": "uniform",
       "extent": [0, 7]

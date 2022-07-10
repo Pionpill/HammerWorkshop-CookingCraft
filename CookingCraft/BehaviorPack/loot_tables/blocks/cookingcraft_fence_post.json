@@ -5,14 +5,14 @@
       "entries": [
         {
           "type": "item",
-          "name": "cookingcraft:onion",
+          "name": "cookingcraft:fence_post",
           "weight": 1,
           "functions": [
             {
               "function": "set_count",
               "count": {
-                "min": 2,
-                "max": 5
+                "min": 1,
+                "max": 1
               }
             }
           ]

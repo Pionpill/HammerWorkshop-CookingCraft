@@ -282,3 +282,5 @@ target
 *.mcgui
 .VSCodeCounter
 *.pdf
+
+out

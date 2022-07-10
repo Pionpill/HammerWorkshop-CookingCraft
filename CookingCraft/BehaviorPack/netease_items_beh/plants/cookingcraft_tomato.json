@@ -8,8 +8,14 @@
     },
     "components": {
       "minecraft:max_stack_size": 64,
+      "minecraft:use_duration": 32,
+      "minecraft:food": {
+        "nutrition": 3,
+        "saturation_modifier": "low",
+        "can_always_eat": false
+      },
       "netease:customtips": {
-        "value": "§f--------------------\n§6§l材料|种子\n§r§3‖温度‖:§e温带，热带\n§3‖土地‖:§e攀藤\n--------------------\n§2【描述】\n§r辣椒生长在低海拔地域\n在温带森林和草原出现。"
+        "value": "§f--------------------\n§6§l材料|种子|食物\n§r§3‖温度‖:§e温带，热带\n§3‖土地‖:§e攀藤\n§3‖饥饿‖:§6●○\n--------------------\n§2【描述】\n§r番茄生长在低海拔地域\n在温带森林和草原出现。"
       }
     }
   }
