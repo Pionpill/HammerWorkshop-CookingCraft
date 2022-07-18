@@ -3,45 +3,91 @@
   "netease:block_geometry": {
     "bones": [
       {
+        "name": "root",
+        "pivot": [-8, 0, 8],
+        "rotation": [0, 0, 0]
+      },
+      {
         "cubes": [
           {
-            "origin": [-16, -1, 4],
+            "origin": [-8, -1, 0],
             "pivot": [-8, 0, 8],
             "rotation": [0, 0, 0],
             "size": [16, 16, 8],
             "uv": {
+              "down": {
+                "texture": 3,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "east": {
+                "texture": 3,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
               "north": {
-                "texture": 0,
+                "texture": 3,
                 "uv": [0, 0],
                 "uv_size": [16, 16]
               },
               "south": {
-                "texture": 0,
+                "texture": 3,
                 "uv": [0, 0],
-                "uv_size": [16, 16]
+                "uv_size": [0, 0]
+              },
+              "up": {
+                "texture": 3,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "west": {
+                "texture": 3,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
               }
             }
           },
           {
-            "origin": [-16, -1, 4],
+            "origin": [-24, -1, 0],
             "pivot": [-8, 0, 8],
             "rotation": [0, -90, 0],
             "size": [16, 16, 8],
             "uv": {
+              "down": {
+                "texture": 3,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "east": {
+                "texture": 3,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
               "north": {
-                "texture": 0,
+                "texture": 3,
                 "uv": [0, 0],
                 "uv_size": [16, 16]
               },
               "south": {
-                "texture": 0,
+                "texture": 3,
                 "uv": [0, 0],
-                "uv_size": [16, 16]
+                "uv_size": [0, 0]
+              },
+              "up": {
+                "texture": 3,
+                "uv": [0, 0.5],
+                "uv_size": [0, -0.5]
+              },
+              "west": {
+                "texture": 3,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
               }
             }
           }
         ],
-        "name": "herb_stage",
+        "name": "bone",
+        "parent": "root",
         "pivot": [-8, 0, 8],
         "rotation": [0, 0, 0]
       }

@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-11 19:44:58
-LastEditTime: 2022-07-17 15:09:00
+LastEditTime: 2022-07-19 00:55:28
 '''
 from copy import deepcopy
 from random import randint
@@ -77,7 +77,8 @@ class PlantProxy(object):
         # type: () -> bool
         """判断是否是攀藤植物"""
         plantLandList = self.plant.GetPlantLandList()
-        return any("fence" in plantLand for plantLand in plantLandList)
+        return any(
+            plantsUtils.IsFence(plantLand) for plantLand in plantLandList)
 
     # plantBiome
     def JudgeBiome(self, biomeName):
@@ -141,8 +142,8 @@ class PlantProxy(object):
     def GetLootItem(self):
         # type: () -> dict
         """获取多次收获植被的掉落物"""
-        if not self.IsMultiPlant():
-            logger.warn("{self.seedName} 不是可多次收获的植物")
+        if not self.plant.GetLootTable():
+            logger.warn("{0} 没有掉落物表".format(self.seedName))
             return
         if self.lootItem is None:
             countList = self.plant.GetLootItemCount()

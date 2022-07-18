@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-04-25 16:15:57
-LastEditTime: 2022-07-18 15:53:09
+LastEditTime: 2022-07-19 01:06:10
 '''
 import time
 import mod.server.extraServerApi as serverApi
@@ -60,6 +60,10 @@ class PlantsSystem(ServerSystem):
             dimension = args["dimensionId"]
             blockPos = (args["x"], args["y"], args["z"])
             self.__ModSeedUse(seedName, blockPos, dimension)
+        elif plantsUtils.IsFence(itemName):
+            dimension = args["dimensionId"]
+            blockPos = (args["x"], args["y"], args["z"])
+            self.__ModFenceUse(itemName, blockPos, dimension)
 
     def OnBlockNeighborChangedServer(self, args):
         # type: (dict) -> None
@@ -192,7 +196,7 @@ class PlantsSystem(ServerSystem):
         blockDict = comp.GetBlockNew(neighPos)
         airBlockDict = {'name': 'minecraft:air', 'aux': 0}
         if PlantsManager.IsClimbingPlant(seedName):
-            if blockDict["name"] == "minecraft:framland":
+            if blockDict["name"] == "minecraft:farmland":
                 return
             comp.SetBlockNew(pos, airBlockDict)
         elif not PlantsManager.JudgePlantLand(seedName, blockDict["name"]):
@@ -216,7 +220,7 @@ class PlantsSystem(ServerSystem):
         aboveBlockName = serverBlockUtils.GetBlockName(self.levelId,
                                                        aboveBlockPos, dimension)
         if aboveBlockName == "minecraft:air":
-            self.__PlantCrop(aboveBlockPos, plantBlockDict, dimension)
+            self.__SetBlock(aboveBlockPos, plantBlockDict, dimension)
 
     def __PlantClimbingCrop(self, blockPos, plantBlockDict, dimension):
         # type: (tuple, dict, int) -> None
@@ -225,15 +229,27 @@ class PlantsSystem(ServerSystem):
         belowBlockName = serverBlockUtils.GetBlockName(self.levelId,
                                                        belowBlockPos, dimension)
         if belowBlockName == "minecraft:farmland":
-            newBlockPos = blockPos
-            compFactory.CreateBlockInfo(self.levelId).SetBlockNew(
-                newBlockPos, plantBlockDict, dimensionId=dimension)
-            serverItemUtils.UseItem(self.playerId)
+            self.__SetBlock(blockPos, plantBlockDict, dimension)
 
-    def __PlantCrop(self, blockPos, plantBlockDict, dimension):
+    def __SetBlock(self, blockPos, blockDict, dimension):
         # type: (tuple, dict, int) -> None
         """普通植物的种植"""
         newBlockPos = blockPos
         compFactory.CreateBlockInfo(self.levelId).SetBlockNew(
-            newBlockPos, plantBlockDict, dimensionId=dimension)
+            newBlockPos, blockDict, dimensionId=dimension)
         serverItemUtils.UseItem(self.playerId)
+
+    # FIXME 没有办法阻止放置栅栏
+    def __ModFenceUse(self, itemName, blockPos, dimension):
+        # type: (str, tuple, int) -> None
+        """放置篱笆"""
+        aboveBlockPos = positionUtils.GetRelativePosition(blockPos, "above")
+        aboveBlockName = serverBlockUtils.GetBlockName(self.levelId,
+                                                       aboveBlockPos, dimension)
+        belowBlockPos = positionUtils.GetRelativePosition(blockPos, "below")
+        belowBlockName = serverBlockUtils.GetBlockName(self.levelId,
+                                                       belowBlockPos, dimension)
+        if aboveBlockName == "minecraft:air" and belowBlockName == "minecraft:farmland":
+            blockDict = {"name": itemName, "aux": 0}
+        else:
+            blockDict = {"name": "minecraft:air", "aux": 0}

@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-15 21:13:48
-LastEditTime: 2022-07-17 19:22:36
+LastEditTime: 2022-07-18 23:02:04
 '''
 from hammerCookingScripts import logger
 
@@ -13,6 +13,8 @@ SEEDS_NAME = [
     "cookingcraft:corn_pieces", "cookingcraft:tomato", "cookingcraft:onion",
     "cookingcraft:banana"
 ]
+
+FENCES_NAME = ["cookingcraft:fence_post"]
 
 
 def GetSeedNameByStageBlock(blockName):
@@ -58,3 +60,9 @@ def GetStageId(blockName):
     # type: (str) -> int
     """通过植物生长状态方块获取状态Id"""
     return int(blockName.split("_")[-1])
+
+
+def IsFence(name):
+    # type: (str) -> bool
+    """判断物品/方块是否是篱笆"""
+    return name in FENCES_NAME

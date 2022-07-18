@@ -4,8 +4,9 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-30 17:02:38
-LastEditTime: 2022-07-11 13:43:13
+LastEditTime: 2022-07-18 23:44:17
 '''
+
 from mod.common.minecraftEnum import BiomeType
 
 
@@ -27,10 +28,10 @@ class BiomeForm(object):
     }
     # 温带
     temperate = {
-        "ocean", "river", "plains", "extreme_hills", "forest", "beach",
-        "forest_hills", "extreme_hills_edge", "birch_forest",
-        "birch_forest_hills", "roofed_forest", "extreme_hills_plus_trees",
-        "ocean", "legacy_frozen_ocean", "deep_ocean", "bamboo_jungle",
+        "river", "plains", "extreme_hills", "forest", "beach", "forest_hills",
+        "extreme_hills_edge", "birch_forest", "birch_forest_hills",
+        "roofed_forest", "extreme_hills_plus_trees", "ocean",
+        "legacy_frozen_ocean", "deep_ocean", "bamboo_jungle",
         "bamboo_jungle_hills", "sunflower_plains", "extreme_hills_mutated",
         "flower_forest", "swampland", "swampland_mutated",
         "birch_forest_mutated", "birch_forest_hills_mutated",
@@ -38,6 +39,7 @@ class BiomeForm(object):
         "redwood_taiga_hills_mutated", "extreme_hills_plus_trees_mutated",
         "mushroom_island", "mushroom_island_shore"
     }
+
     # 寒带
     frigid = {
         "taiga", "legacy_frozen_ocean", "frozen_river", "ice_plains",

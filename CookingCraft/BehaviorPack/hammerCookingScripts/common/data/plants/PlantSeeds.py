@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-06-01 15:43:39
-LastEditTime: 2022-07-17 13:38:55
+LastEditTime: 2022-07-19 00:20:00
 '''
 from hammerCookingScripts.common.data.biome import PlantsBiomeForm as PlantsBF
 
@@ -31,7 +31,7 @@ SEEDS_INFO = {
         "harvestCount": 1,
         "harvestBlock": None,
         "plantConditions": {
-            "plantLandList": ["minecraft:farmland", "minecraft:grass"],
+            "plantLandList": ["minecraft:farmland"],
             "plantBiome":
             PlantsBF.common & PlantsBF.temperature["medium"]
             & PlantsBF.rainfall["medium"]
@@ -91,6 +91,11 @@ SEEDS_INFO = {
         "tickList": [3, 4, 4],
         "harvestCount": 1,
         "harvestBlock": "cookingcraft:fence_post",
+        "lootTable": {
+            "newItemName": "cookingcraft:tomato",
+            "count": (2, 5),
+            "newAuxValue": 0
+        },
         "lootTable": {
             "newItemName": "cookingcraft:tomato",
             "count": (2, 5),
