@@ -13,12 +13,12 @@
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|ccccc}
         \toprule
-        \textbf{植物类型} & \textbf{草本} & \textbf{禾本} & \textbf{藤蔓} & \textbf{木本} & \textbf{菌类}\\
+        \textbf{植物类型} & \textbf{草本} & \textbf{禾本} & \textbf{藤蔓} & \textbf{木本} & \textbf{菌类} \\
         \midrule
-        生长土地 & 草地，田地 & 田地 & 田地 & 草地 & 灰化土 \\
-        生长时间 & 快 & 中等 & 中等 & 慢 & 中等 \\
-        收获次数 & 1 & 1-3 & 1-5 & 特殊 & 特殊 \\ 
-        生长方式 & 直接种植 & 直接种植 & 攀藤 & 种植生长 & 直接种植 \\
+        生长土地          & 草地，田地    & 田地          & 田地          & 草地          & 灰化土        \\
+        生长时间          & 快            & 中等          & 中等          & 慢            & 中等          \\
+        收获次数          & 1             & 1-3           & 1-5           & 特殊          & 特殊          \\
+        生长方式          & 直接种植      & 直接种植      & 攀藤          & 种植生长      & 直接种植      \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -32,21 +32,21 @@
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|ccc}
         \toprule
-        \textbf{获取难度} & \textbf{表示} & \textbf{说明} & \textbf{例子} \\
+        \textbf{获取难度} & \textbf{表示}                                  & \textbf{说明}                   & \textbf{例子} \\
         \midrule
-        简单 & $\bigstar$ & 世界大概率遇见 & 香草 \\
-        中等 & $\bigstar\bigstar$ & 世界中等概率遇见 & 辣椒 \\
-        困难 & $\bigstar \bigstar \bigstar$ & 世界小概率遇见，怪物掉落 & 水稻 \\
-        极难 & $\bigstar \bigstar \bigstar \bigstar$ & 条件极为严苛或通过购买/宝箱获得 & 雪莲 \\
-        传奇 & $\bigstar \bigstar \bigstar \bigstar \bigstar$ & 极其特殊的获取方式 & 暂无 \\
+        简单              & $\bigstar$                                     & 世界大概率遇见                  & 香草          \\
+        中等              & $\bigstar\bigstar$                             & 世界中等概率遇见                & 辣椒          \\
+        困难              & $\bigstar \bigstar \bigstar$                   & 世界小概率遇见，怪物掉落        & 水稻          \\
+        极难              & $\bigstar \bigstar \bigstar \bigstar$          & 条件极为严苛或通过购买/宝箱获得 & 雪莲          \\
+        传奇              & $\bigstar \bigstar \bigstar \bigstar \bigstar$ & 极其特殊的获取方式              & 暂无          \\
         \midrule
-        \textbf{种植难度} & \textbf{表示} & \textbf{说明} & \textbf{例子} \\
+        \textbf{种植难度} & \textbf{表示}                                  & \textbf{说明}                   & \textbf{例子} \\
         \midrule
-        简单 & $\bigstar$ & 生态等条件宽裕 & 香草 \\
-        中等 & $\bigstar\bigstar$ & 需要特殊的条件，但容易达到 & 水稻 \\
-        困难 & $\bigstar \bigstar \bigstar$ & 种植生态较少 & 香蕉 \\
-        极难 & $\bigstar \bigstar \bigstar \bigstar$ & 严苛的种植条件 & 雪莲 \\
-        传奇 & $\bigstar \bigstar \bigstar \bigstar \bigstar$ & 无法种植或极难达到 & 暂无 \\
+        简单              & $\bigstar$                                     & 生态等条件宽裕                  & 香草          \\
+        中等              & $\bigstar\bigstar$                             & 需要特殊的条件，但容易达到      & 水稻          \\
+        困难              & $\bigstar \bigstar \bigstar$                   & 种植生态较少                    & 香蕉          \\
+        极难              & $\bigstar \bigstar \bigstar \bigstar$          & 严苛的种植条件                  & 雪莲          \\
+        传奇              & $\bigstar \bigstar \bigstar \bigstar \bigstar$ & 无法种植或极难达到              & 暂无          \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -87,19 +87,21 @@
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|cc|cc}
         \toprule
-                                           & \textbf{属性} & \textbf{说明}    & \textbf{属性} & \textbf{说明}   \\
+                                           & \textbf{属性} & \textbf{说明}   & \textbf{属性} & \textbf{说明} \\
         \midrule
-        \multirow{2}{*}{\textbf{种植条件}} & 土地          & 农田             & 温度          & 温带，热带      \\
-                                           & 生态          & 平原，森林，水域 & 特殊          & 附近 3 格内有水 \\
+        \multirow{4}{*}{\textbf{种植条件}} & 土地          & 农田            & 生态(温度)    & 温带，热带    \\
+                                           & 生态(降雨)    & 中，高          & 生态(海拔)    & 中            \\
+                                           & 生态(土地)    & 草地            & 生态(特殊)    & 无            \\
+                                           & 特殊          & 附近 3 格内有水                                 \\
         \midrule
-        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [11,15]          & 海拔          & [64,128]        \\
-                                           & 天气          & 无               & 特殊          & 下雨发芽               \\
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [11,15]         & 海拔          & [64,128]      \\
+                                           & 天气          & 无              & 特殊          & 下雨发芽      \\
         \midrule
-        \textbf{生长速度}                  & 速度          & 快(7tick)        & 阶段tick      & [2,2,3]         \\
+        \textbf{生长速度}                  & 速度          & 快(7tick)       & 阶段tick      & [2,2,3]       \\
         \midrule
-        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1                & 掉落物        & 水稻:3-7        \\
-                                           & 饥饿度        & 2                & 营养值        & 0.4             \\
-                                           & 种子 & 果实分离 & 生吃 & 不可 \\
+        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1               & 掉落物        & 水稻:3-7      \\
+                                           & 饥饿度        & 2               & 营养值        & 0.4           \\
+                                           & 种子          & 果实分离        & 生吃          & 不可          \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -114,7 +116,7 @@
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|cc|cc}
         \toprule
-        \textbf{模型特征}   & 模型高度 & 2      & 模型形状 & X字 \\
+        \textbf{模型特征}   & 模型高度 & 2      & 模型形状 & X字  \\
         \midrule
         \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气 \\
         \midrule
@@ -135,19 +137,21 @@
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|cc|cc}
         \toprule
-                                           & \textbf{属性} & \textbf{说明}    & \textbf{属性} & \textbf{说明}      \\
+                                           & \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
         \midrule
-        \multirow{2}{*}{\textbf{种植条件}} & 土地          & 农田      & 温度          & 温带，热带，亚寒带 \\
-                                           & 生态          & 平原，森林，水域 & 特殊          & -                  \\
+        \multirow{4}{*}{\textbf{种植条件}} & 土地          & 农田          & 生态(温度)    & 温带，热带    \\
+                                           & 生态(降雨)    & 中            & 生态(海拔)    & 中            \\
+                                           & 生态(土地)    & 草地          & 生态(特殊)    & 针叶林        \\
+                                           & 特殊          & -                                             \\
         \midrule
-        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]           & 海拔          & [64,192]           \\
-                                           & 天气          & 无               & 特殊          & -                  \\
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]        & 海拔          & [64,192]      \\
+                                           & 天气          & 无            & 特殊          & -             \\
         \midrule
-        \textbf{生长速度}                  & 速度          & 较慢(14tick)     & 阶段tick      & [3,3,3,5]          \\
+        \textbf{生长速度}                  & 速度          & 较慢(14tick)  & 阶段tick      & [3,3,3,5]     \\
         \midrule
-        \multirow{2}{*}{\textbf{收获}}     & 收获次数      & 3                & 掉落物        & 玉米:2-3           \\
-                                           & 饥饿度        & 3                & 营养值        & 0.6                \\
-                                           & 种子 & 果实分离 & 生吃 & 不可 \\
+        \multirow{2}{*}{\textbf{收获}}     & 收获次数      & 3             & 掉落物        & 玉米:2-3      \\
+                                           & 饥饿度        & 3             & 营养值        & 0.6           \\
+                                           & 种子          & 果实分离      & 生吃          & 不可          \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -170,7 +174,7 @@
         \midrule
         \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气 \\
         \midrule
-        \textbf{散植特征}   & 生成几率 & -   & 生成次数 & -    \\
+        \textbf{散植特征}   & 生成几率 & -      & 生成次数 & -    \\
         \midrule
         \textbf{特征规则}   & 生成地   & 地表   & 生态     & 平原 \\
         \bottomrule
@@ -187,19 +191,21 @@
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|cc|cc}
         \toprule
-                                           & \textbf{属性} & \textbf{说明}    & \textbf{属性} & \textbf{说明} \\
+                                           & \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
         \midrule
-        \multirow{2}{*}{\textbf{种植条件}} & 土地          & 篱笆      & 温度          & 温带，热带    \\
-                                           & 生态          & 平原，森林，水域 & 特殊          &          \\
+        \multirow{4}{*}{\textbf{种植条件}} & 土地          & 篱笆          & 生态(温度)    & 温带，热带    \\
+                                           & 生态(降雨)    & 中            & 生态(海拔)    & 中            \\
+                                           & 生态(土地)    & 草地          & 生态(特殊)    & -             \\
+                                           & 特殊          & -                                             \\
         \midrule
-        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [6,15]           & 海拔          & [64,128]      \\
-                                           & 天气          & 无               & 特殊          & -             \\
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [6,15]        & 海拔          & [64,128]      \\
+                                           & 天气          & 无            & 特殊          & -             \\
         \midrule
-        \textbf{生长速度}                  & 速度          & 中等(11tick)     & 阶段tick      & [3,4,4]       \\
+        \textbf{生长速度}                  & 速度          & 中等(11tick)  & 阶段tick      & [3,4,4]       \\
         \midrule
-        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 2                & 掉落物        & 番茄:2-5      \\
-                                           & 饥饿度        & 2                & 营养值        & 0.6           \\
-                                        & 种子 & 果实即为种子 & 生吃 & 可 \\
+        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 2             & 掉落物        & 番茄:2-5      \\
+                                           & 饥饿度        & 2             & 营养值        & 0.6           \\
+                                           & 种子          & 果实即为种子  & 生吃          & 可            \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -214,11 +220,11 @@
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|cc|cc}
         \toprule
-        \textbf{模型特征}   & 模型高度 & 1      & 模型形状 & 井字 \\
+        \textbf{模型特征}   & 模型高度 & 1      & 模型形状 & 井字     \\
         \midrule
-        \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气 \\
+        \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气     \\
         \midrule
-        \textbf{散植特征}   & 生成几率 & 0.05   & 生成次数 & 3    \\
+        \textbf{散植特征}   & 生成几率 & 0.05   & 生成次数 & 3        \\
         \midrule
         \textbf{特征规则}   & 生成地   & 地表   & 生态     & 寒带森林 \\
         \bottomrule
@@ -235,19 +241,21 @@
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|cc|cc}
         \toprule
-                                           & \textbf{属性} & \textbf{说明}    & \textbf{属性} & \textbf{说明} \\
+                                           & \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
         \midrule
-        \multirow{2}{*}{\textbf{种植条件}} & 土地          & 农田，草地       & 温度          & 温带，亚寒带    \\
-                                           & 生态          & 平原，森林，水域 & 特殊          & -          \\
+        \multirow{4}{*}{\textbf{种植条件}} & 土地          & 农田          & 生态(温度)    & 温带，寒带    \\
+                                           & 生态(降雨)    & 中，低        & 生态(海拔)    & 中            \\
+                                           & 生态(土地)    & 草地          & 生态(特殊)    & -             \\
+                                           & 特殊          & -                                             \\
         \midrule
-        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]           & 海拔          & [64,192]      \\
-                                           & 天气          & 无               & 特殊          & -             \\
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]        & 海拔          & [64,192]      \\
+                                           & 天气          & 无            & 特殊          & -             \\
         \midrule
         \textbf{生长速度}                  & 速度          & 快(7tick)     & 阶段tick      & [2,2,3]       \\
         \midrule
-        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1                & 掉落物        & 洋葱:2-5      \\
-                                           & 饥饿度        & 2                & 营养值        & 0.4           \\
-                                        & 种子 & 果实即为种子 & 生吃 & 可(失明30s) \\
+        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1             & 掉落物        & 洋葱:2-5      \\
+                                           & 饥饿度        & 2             & 营养值        & 0.4           \\
+                                           & 种子          & 果实即为种子  & 生吃          & 可(失明30s)   \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -266,13 +274,13 @@
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|cc|cc}
         \toprule
-        \textbf{模型特征}                  & 模型高度 & 3      & 模型形状 & X字形 \\
+        \textbf{模型特征}   & 模型高度 & 3      & 模型形状 & X字形 \\
         \midrule
-        \textbf{单方块特征}                & 生长方块 & 草方块 & 替换方块 & 空气   \\
+        \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气  \\
         \midrule
-        \textbf{散植特征}                  & 生成几率 & 0.1    & 生成次数 & 1      \\
+        \textbf{散植特征}   & 生成几率 & 0.1    & 生成次数 & 1     \\
         \midrule
-        \textbf{特征规则} & 生成地   & 地表   & 生态     & 丛林   \\
+        \textbf{特征规则}   & 生成地   & 地表   & 生态     & 丛林  \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -287,19 +295,21 @@
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|cc|cc}
         \toprule
-                                           & \textbf{属性} & \textbf{说明}    & \textbf{属性} & \textbf{说明}   \\
+                                           & \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
         \midrule
-        \multirow{2}{*}{\textbf{种植条件}} & 土地          & 农田，草方块            & 温度          & 热带      \\
-                                           & 生态          & 丛林 & 特殊          & - \\
+        \multirow{4}{*}{\textbf{种植条件}} & 土地          & 农田          & 生态(温度)    & 热带          \\
+                                           & 生态(降雨)    & 中，高        & 生态(海拔)    & 中            \\
+                                           & 生态(土地)    & 草地          & 生态(特殊)    & -             \\
+                                           & 特殊          & -                                             \\
         \midrule
-        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]          & 海拔          & [64,128]        \\
-                                           & 天气          & -               & 特殊          & -              \\
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]        & 海拔          & [64,128]      \\
+                                           & 天气          & -             & 特殊          & -             \\
         \midrule
-        \textbf{生长速度}                  & 速度          & 慢(17tick)        & 阶段tick      & [3,3,4,3,4]         \\
+        \textbf{生长速度}                  & 速度          & 慢(17tick)    & 阶段tick      & [3,3,4,3,4]   \\
         \midrule
-        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 3                & 掉落物        & 香蕉:4-7        \\
-                                           & 饥饿度        & 2                & 营养值        & 1.2             \\
-                                           & 种子 & 果实即种子 & 生吃 & 可 \\
+        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 3             & 掉落物        & 香蕉:4-7      \\
+                                           & 饥饿度        & 2             & 营养值        & 1.2           \\
+                                           & 种子          & 果实即种子    & 生吃          & 可            \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -323,7 +333,7 @@
         \midrule
         \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气       \\
         \midrule
-        \textbf{散植特征}   & 生成几率 & 0.08    & 生成次数 & 7          \\
+        \textbf{散植特征}   & 生成几率 & 0.08   & 生成次数 & 7          \\
         \midrule
         \textbf{特征规则}   & 生成地   & 地表   & 生态     & 森林，平原 \\
         \bottomrule
@@ -340,19 +350,21 @@
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|cc|cc}
         \toprule
-                                           & \textbf{属性} & \textbf{说明}    & \textbf{属性} & \textbf{说明}    \\
+                                           & \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明}    \\
         \midrule
-        \multirow{2}{*}{\textbf{种植条件}} & 土地          & 农田，草方块     & 温度          & 温带             \\
-                                           & 生态          & 平原，森林，水域 & 特殊          & -                \\
+        \multirow{4}{*}{\textbf{种植条件}} & 土地          & 农田，草方块  & 生态(温度)    & 温带             \\
+                                           & 生态(降雨)    & 中            & 生态(海拔)    & 中               \\
+                                           & 生态(土地)    & 草地          & 生态(特殊)    & -                \\
+                                           & 特殊          & -                                                \\
         \midrule
-        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]           & 海拔          & [64,192]         \\
-                                           & 天气          & 无               & 特殊          & -                \\
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]        & 海拔          & [64,192]         \\
+                                           & 天气          & 无            & 特殊          & -                \\
         \midrule
-        \textbf{生长速度}                  & 速度          & 中等(11tick)     & 阶段tick      & [3,3,5]          \\
+        \textbf{生长速度}                  & 速度          & 中等(11tick)  & 阶段tick      & [3,3,5]          \\
         \midrule
-        \multirow{2}{*}{\textbf{收获}}     & 收获次数      & 1                & 掉落物        & 种子1-2，香草1-4 \\
-                                           & 饥饿度        & 0                & 营养值        & 0                \\
-                                           & 种子 & 果实种子分离 & 生吃 & 不可 \\
+        \multirow{2}{*}{\textbf{收获}}     & 收获次数      & 1             & 掉落物        & 种子1-2，香草1-4 \\
+                                           & 饥饿度        & 0             & 营养值        & 0                \\
+                                           & 种子          & 果实种子分离  & 生吃          & 不可             \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -391,8 +403,10 @@
         \toprule
                                            & \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
         \midrule
-        \multirow{2}{*}{\textbf{种植条件}} & 土地          & 农田，草方块  & 温度          & 温带          \\
-                                           & 生态          & 平原，森林    & 特殊          & -             \\
+        \multirow{4}{*}{\textbf{种植条件}} & 土地          & 农田          & 生态(温度)    & 温带          \\
+                                           & 生态(降雨)    & 中            & 生态(海拔)    & 中            \\
+                                           & 生态(土地)    & 草地          & 生态(特殊)    & -             \\
+                                           & 特殊          & -                                             \\
         \midrule
         \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]        & 海拔          & [64,128]      \\
                                            & 天气          & 无            & 特殊          & -             \\
@@ -401,7 +415,7 @@
         \midrule
         \multirow{2}{*}{\textbf{收获}}     & 收获次数      & 1             & 掉落物        & 辣椒 2-5      \\
                                            & 饥饿度        & 0             & 营养值        & 0             \\
-                                           & 种子 & 果实即为种子 & 生吃 & 可(反胃15s) \\
+                                           & 种子          & 果实即为种子  & 生吃          & 可(反胃15s)   \\
         \bottomrule
     \end{tabular}
 \end{table}

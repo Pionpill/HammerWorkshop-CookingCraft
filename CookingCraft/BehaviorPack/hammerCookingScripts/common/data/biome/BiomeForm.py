@@ -1,16 +1,16 @@
 '''
-Description: your project
+Description: 原始的生态群戏
 version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-30 17:02:38
-LastEditTime: 2022-06-02 22:43:51
+LastEditTime: 2022-07-11 13:43:13
 '''
 from mod.common.minecraftEnum import BiomeType
 
 
 class BiomeForm(object):
-    """植物的生态群戏
+    """生态群戏
     按温度分为: 热带，寒带，温带
     按地域分为: 海洋，河流，水系(海洋+河流)", 草原", 沙漠", 山地", 森林", 丛林", 恶地等
     按位面可分为: 地域，末地
@@ -62,6 +62,7 @@ class BiomeForm(object):
         "plains", "ice_plains", "savanna", "sunflower_plains",
         "ice_plains_spikes", "savanna_mutated"
     }
+    # 稀树草原
     savanna = {
         "savanna", "savanna_mutated", "savanna_plateau",
         "savanna_plateau_mutated"
@@ -129,7 +130,6 @@ class BiomeForm(object):
 
     # 竹林
     bamboo = {"bamboo_jungle", "bamboo_jungle_hills"}
-
     # 沼泽
     swamp = {"swampland", "swampland_mutated"}
     # 海岸
@@ -140,7 +140,6 @@ class BiomeForm(object):
     beach = {"beach", "stone_beach", "cold_beach"}
     # 边缘
     edge = {"extreme_hills_edge", "jungle_edge", "jungle_edge_mutated"}
-
     # 末地
     the_end = {"the_end"}
     # 地狱
@@ -150,3 +149,6 @@ class BiomeForm(object):
     }
 
     water = ocean | river
+
+
+__all__ = [BiomeType]

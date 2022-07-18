@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-03-29 15:20:19
-LastEditTime: 2022-05-25 22:25:13
+LastEditTime: 2022-07-11 14:29:58
 '''
 # -*- coding: utf-8 -*-
 
@@ -12,7 +12,7 @@ import mod.server.extraServerApi as serverApi
 import time
 from hammerCookingScripts.common import modConfig
 from hammerCookingScripts import logger
-from hammerCookingScripts.common.commonUtils import itemUtils
+from hammerCookingScripts.utils import itemUtils
 from hammerCookingScripts.server.serverSystem.InventoryServerSystem import InventoryServerSystem
 from hammerCookingScripts.server.serverFactory.WorkbenchManagerFactory import WorkbenchManagerFactory
 

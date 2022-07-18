@@ -4,7 +4,7 @@ version: 0.1
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-03-29 12:48:07
-LastEditTime: 2022-03-29 17:23:12
+LastEditTime: 2022-07-15 21:10:54
 '''
 
 # -*- coding: utf-8 -*-
@@ -18,8 +18,7 @@ def makeLogger():
     logging.basicConfig(
         level=0,
         format='|CookingCraft| [%(levelname)s-%(asctime)s]:%(message)s')
-    log = logging.getLogger(__name__)
-    return log
+    return logging.getLogger(__name__)
 
 
 logger = makeLogger()

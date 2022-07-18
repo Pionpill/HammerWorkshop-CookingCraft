@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-03-29 15:12:41
-LastEditTime: 2022-06-01 22:50:53
+LastEditTime: 2022-07-17 15:38:46
 '''
 
 # -*- coding: utf-8 -*-
@@ -25,7 +25,7 @@ ServerSystemName_Workbench = "WorkbenchServerSystem"
 ServerSystemClsPath_Workbench = "hammerCookingScripts.server.serverSystem.WorkbenchServerSystem.WorkbenchServerSystem"
 # 植物
 ServerSystemName_Plants = "PlantsServerSystem"
-ServerSystemClsPath_Plants = "hammerCookingScripts.server.serverSystem.PlantsServerSystem.PlantsServerSystem"
+ServerSystemClsPath_Plants = "hammerCookingScripts.server.system.PlantsSystem.PlantsSystem"
 
 # Client System
 # 工作台

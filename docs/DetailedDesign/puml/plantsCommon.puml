@@ -1,0 +1,7 @@
+@startuml plantsCommon
+class PlantProxy
+class Plants
+class factory
+class facade
+class util
+@enduml

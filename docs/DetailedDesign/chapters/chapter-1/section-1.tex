@@ -22,14 +22,14 @@
 
 \subsubsection{模块之间交互}
 
-Client 和 Server 模块都拥有 System 子模块，这是这两个模块之间交互的唯一通道，即通过事件进行交互。其它子模块交互仅允许向 System 传递信息或者获取 System 进行操作。
+Client 和 Server 模块都拥有 System 子模块(System 模块也代指 Client/Server 模块)，这是这两个模块之间交互的唯一通道，即通过事件进行交互。其它子模块交互仅允许向 System 传递信息或者获取 System 进行操作。
 
-原则上 Client 和 System 的任意模块都可以引用 Common 模块中的内容，但我们规定仅可调用 Common 中的 Kit(Abstract Factory) 模块。一般地 Common 中的数据均为只读数据，也不会给出数据更改的接口。
+原则上 Client 和 System 的任意模块都可以引用 Common 模块中的内容，但我们规定仅可调用 Common 中的 Facade 模块。一般地 Common 中的数据均为只读数据，也不会给出数据更改的接口。
 
 模块之间交互的接口如下:
 \begin{itemize}
     \item System: Client 和 System 之间通过 System 的事件进行交互。
-    \item Kit: 使用 Abstract Factory 管理模块内的类，Common 模块均从 Kit 中获取交互接口。
+    \item Facade: 提供 Common 模块的对外接口，Server 模块调用 Common 模块仅能从 Facade 中获取。
 \end{itemize}
 
 \newpage
@@ -51,22 +51,22 @@ Common 模块是存储数据与对数据简单处理的模块，所有的常量�
         \toprule
         \textbf{子模块} & \textbf{角色} & \textbf{作用} & \textbf{独有} & \textbf{交互} \\
         \midrule
-        Config & 数据结构 & 存储数据 & \checkmark & - \\
+        data & 数据结构 & 存储数据 & \checkmark & - \\
         && \multicolumn{3}{l}{相当于 json 文件，用于保存数据。}  \\
         \midrule
-        Entity & 数据结构 & 将数据构造为类 & \checkmark & Config \\
-        && \multicolumn{3}{l}{采用单一设计模式，仅提供读数据功能。}  \\
+        entity & 数据结构 & 将数据构造为类 & \checkmark & Config \\
+        && \multicolumn{3}{l}{用户获取 data 模块中的数据并构造为对应的类}  \\
         \midrule
-        Controller & 逻辑算法 & 对数据进行简单的逻辑处理。 & \checkmark & Factory/Utils \\
-        && \multicolumn{3}{l}{提供对 Entity 的部分操作功能。}  \\
+        proxy & 逻辑算法 & 对数据进行简单的逻辑处理。 & \checkmark & Factory/Utils \\
+        && \multicolumn{3}{l}{提供对 entity 的部分操作功能，外部仅能从 proxy 对数据进行操作。}  \\
         \midrule
-        Factory & 逻辑算法 & 工厂类 &  & Manager/Entity \\
+        factory & 逻辑算法 & 工厂类 &  & Manager/Entity \\
         && \multicolumn{3}{l}{统一由 Factory 创建类实例并进行管理。}  \\
         \midrule
-        Kit & 对外接口 & 抽象工厂类，对外提供接口。 & \checkmark & Factory/Utils \\
-        && \multicolumn{3}{l}{Client 和 Server 通过 Kit 和 Common 交互。}  \\
+        Facade & 对外接口 & 抽象工厂类，对外提供接口。 & \checkmark & Factory/Utils \\
+        && \multicolumn{3}{l}{System 通过 Facade 和 Common 交互。}  \\
         \midrule
-        Utils & 逻辑算法 & 工具类，提供一些通用方法 & & - \\
+        utils & 逻辑算法 & 工具类，提供一些通用方法 & & - \\
         && \multicolumn{3}{l}{通用的工具类，一般只包含函数。}  \\
         \bottomrule
     \end{tabular}
@@ -74,9 +74,9 @@ Common 模块是存储数据与对数据简单处理的模块，所有的常量�
 
 特殊模块的说明:
 \begin{itemize}
-    \item \textbf{Utils}: 不同系统可以使用同一个 Utils 工具，而其它子模块，不同的系统间不可以交互。Utils 通过 Kit 提供外部接口。
-    \item \textbf{Controller}: 与 CS 模块的 Manager 子模块类似，但 Manager 为世界中每个实体分配一个，即 Manager 针对不同的实体会有多个实例化，而 Controller 至多有一个实例化对象，因为它的处理对象 Entity 仅有一个实例化对象。此外，Controller 不要直接访问 Entity，应该从 Factory 中获取 Entity 对象。
-    \item \textbf{Kit}: 注意 Kit 是提供对外的接口，它仅起到一个统一外部接口的作用，内部模块间调用，应尽量使用 Factory 模块。
+    \item \textbf{utils}: 不同系统可以使用同一个 utils 工具，而其它子模块，不同的系统间不可以交互。utils 通过 facade 提供外部接口。
+    \item \textbf{proxy}: proxy 是数据代理类，将数据与对数据的操作解耦。proxy 不要直接访问 Entity，应该从 Factory 中获取 Entity 对象。
+    \item \textbf{facade}: 注意 facade 是提供对外的接口，它仅起到一个统一外部接口的作用，内部模块间调用，应尽量使用 Factory 模块。
 \end{itemize}
 
 Common 模块内部交互关系如下:
@@ -88,6 +88,12 @@ Common 模块内部交互关系如下:
     \caption{Common 模块内部关系}
     \label{fig:Common 模块内部关系}
 \end{figure}
+
+Common 模块主要作用是向 System 模块提供数据与简单的数据操作；故采用类似 MVC 的结构进行管理。Common 模块内部交互方式如下:
+\begin{itemize}
+    \item facade: 提供外部接口，所有向 System 模块提供的接口都在此声明。
+    \item factory: 提供内部接口，所有与数据相关的类与实例均由 factory 提供并进行管理。如果不涉及到数据(例如 utils 模块)，无需经过 factory，由其他模块直接调用。
+\end{itemize}
 
 \subsubsection{System 模块}
 

@@ -28,7 +28,7 @@ from hammerCookingScripts import logger
 from hammerCookingScripts.common import modConfig
 from hammerCookingScripts.client.ui.BlockUI import BlockUI
 from hammerCookingScripts.client.clientUtils.interactState import ContainerInteractionStateMachine, ButtonEventType, NodeId
-from hammerCookingScripts.common.commonUtils import itemUtils
+from hammerCookingScripts.utils import itemUtils
 
 compFactory = clientApi.GetEngineCompFactory()
 

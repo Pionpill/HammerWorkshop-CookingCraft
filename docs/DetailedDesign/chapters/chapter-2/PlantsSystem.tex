@@ -1,3 +1,35 @@
 \section{植物系统}
 
-植物系统负责模组中植物种植，是一个比较简单的系统。
+植物系统负责模组中植物种植，是一个比较简单的系统。植物系统的主要功能为: 植物数据的管理与生长判定。
+
+\begin{itemize}
+    \item 植物数据: 所有植物的种植，生长数据。
+    \item 生长判定: 服务端对植物的种植与生长判定。
+\end{itemize}
+
+\subsection{common 模块}
+\subsubsection{整体结构}
+
+植物系统的 common 模块包含以下几个重要子模块/类:
+\begin{itemize}
+    \item \textbf{data.plants}: 存储植物数据。
+    \begin{itemize}
+        \item 接口: entity.Plant 直接读 data.plants 中的数据。
+    \end{itemize}
+    \item \textbf{entity.Plant}: 植物类，包含基本的植物信息，通过 Get 方法获取。
+    \begin{itemize}
+        \item 接口: factory.PlantsFactory: 负责实例化植物类，并构建一个表格进行管理。
+    \end{itemize}
+    \item \textbf{proxy.PlantProxy}: 植物代理类，包含对植物的基本操作。
+    \begin{itemize}
+        \item 接口: factory.PlantsFactory: 负责实例化植物代理类，并构建一个表格进行管理。同时代理类从工厂中获取植物类实例。
+    \end{itemize}
+    \item \textbf{factory.PlantsFactory}: 植物工厂类，系统类均由此获取。
+    \begin{itemize}
+        \item 接口: facade.PlantsFacade: 获取植物系统类与实例。
+    \end{itemize}
+    \item \textbf{facade.PLantsFacade}: 植物系统外观。
+    \begin{itemize}
+        \item 接口: System 通过它获取植物系统数据。
+    \end{itemize}
+\end{itemize}

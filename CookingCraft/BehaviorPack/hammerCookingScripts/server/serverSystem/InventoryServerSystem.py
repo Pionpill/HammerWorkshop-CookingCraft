@@ -4,14 +4,14 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-04-25 16:15:57
-LastEditTime: 2022-06-14 10:12:46
+LastEditTime: 2022-07-11 14:29:59
 '''
 import copy
 from abc import abstractmethod
 import mod.server.extraServerApi as serverApi
 from hammerCookingScripts.common import modConfig
 from hammerCookingScripts import logger
-from hammerCookingScripts.common.commonUtils import itemUtils
+from hammerCookingScripts.utils import itemUtils
 
 ServerSystem = serverApi.GetServerSystemCls()
 minecraftEnum = serverApi.GetMinecraftEnum()
