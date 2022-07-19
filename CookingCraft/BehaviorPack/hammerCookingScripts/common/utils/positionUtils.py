@@ -4,10 +4,10 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-17 14:25:36
-LastEditTime: 2022-07-17 17:44:41
+LastEditTime: 2022-07-19 14:49:57
 '''
 from math import sqrt
-from hammerCookingScripts.utils.enumUtils import RelativePosition
+from hammerCookingScripts.common.utils.enumUtils import RelativePosition
 
 
 def JudgeBasicPosition(oriPos, targetPos):

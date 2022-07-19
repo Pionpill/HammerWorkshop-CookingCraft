@@ -11,7 +11,7 @@ from abc import abstractmethod
 import mod.server.extraServerApi as serverApi
 from hammerCookingScripts.common import modConfig
 from hammerCookingScripts import logger
-from hammerCookingScripts.utils import itemUtils
+from hammerCookingScripts.common.utils import itemUtils
 
 ServerSystem = serverApi.GetServerSystemCls()
 minecraftEnum = serverApi.GetMinecraftEnum()

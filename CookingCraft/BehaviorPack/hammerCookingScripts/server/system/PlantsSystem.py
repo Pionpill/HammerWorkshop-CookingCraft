@@ -4,15 +4,15 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-04-25 16:15:57
-LastEditTime: 2022-07-19 01:06:10
+LastEditTime: 2022-07-19 14:46:44
 '''
 import time
 import mod.server.extraServerApi as serverApi
 from hammerCookingScripts import logger
-from hammerCookingScripts.server.manager import PlantsManager
+from hammerCookingScripts.server.controller import PlantsController
 from hammerCookingScripts.server.utils import serverItemUtils, serverBlockUtils
 from hammerCookingScripts.common.facade import PlantsFacade
-from hammerCookingScripts.utils import positionUtils, RelativePosition, engineUtils
+from hammerCookingScripts.common.utils import positionUtils, RelativePosition, engineUtils
 
 ServerSystem = serverApi.GetServerSystemCls()
 minecraftEnum = serverApi.GetMinecraftEnum()
@@ -94,22 +94,22 @@ class PlantsSystem(ServerSystem):
         blockName = args["blockName"]
         itemName = serverItemUtils.GetPlayerItemName(self.playerId)
         # 在篱笆上种植藤蔓植物
-        if PlantsManager.IsClimbingPlant(itemName):
-            plantBlockDict = PlantsManager.GetPlantFirstStageDict(itemName)
+        if PlantsController.IsClimbingPlant(itemName):
+            plantBlockDict = PlantsController.GetPlantFirstStageDict(itemName)
             self.__PlantClimbingCrop(blockPos, plantBlockDict, dimension)
         # 收获可多次收获的植物
-        elif PlantsManager.CanHarvest(blockName):
+        elif PlantsController.CanHarvest(blockName):
             self.__HarvestPlant(blockName, blockPos, dimension)
 
     def __HarvestPlant(self, blockName, blockPos, dimension):
         # type: (str, tuple, int) -> None
         """收获植株(藤蔓与多次种植)"""
         seedName = plantsUtils.GetSeedNameByStageBlock(blockName)
-        lootItem = PlantsManager.GetPlantLootItem(seedName)
-        if not PlantsManager.CanHarvest(blockName):
+        lootItem = PlantsController.GetPlantLootItem(seedName)
+        if not PlantsController.CanHarvest(blockName):
             return
         # 多次收获植物: 将收获次数计入植物中
-        if PlantsManager.IsClimbingPlant(seedName):
+        if PlantsController.IsClimbingPlant(seedName):
             self.__HarvestClimbingPlant(blockPos, seedName, dimension)
         else:
             self.__HarvestMultiPlant(blockPos, blockName, dimension)
@@ -118,7 +118,7 @@ class PlantsSystem(ServerSystem):
         # type: (tuple, str, int) -> None
         """收获藤蔓植物"""
         self.__SpawnPlantFruit(seedName, blockPos, dimension)
-        harvestStageBlockDict = PlantsManager.GetHarvestBlock(seedName)
+        harvestStageBlockDict = PlantsController.GetHarvestBlock(seedName)
         comp = compFactory.CreateBlockInfo(self.playerId)
         comp.SetBlockNew(blockPos, harvestStageBlockDict, dimension)
 
@@ -132,7 +132,7 @@ class PlantsSystem(ServerSystem):
         harvestNum = blockEntityData["harvestNum"] or 0
         harvestNum += 1
         # 如果已近到达收获次数上限，返回
-        if not PlantsManager.CanHarvest(blockName, harvestNum):
+        if not PlantsController.CanHarvest(blockName, harvestNum):
             return
         blockEntityData["harvestNum"] = harvestNum
         # 生成掉落物
@@ -145,7 +145,7 @@ class PlantsSystem(ServerSystem):
                                 dimension):
         # type: (str, int, tuple, int) -> None
         """设置新的可多次收获植株"""
-        harvestStageBlockDict = PlantsManager.GetHarvestBlock(seedName)
+        harvestStageBlockDict = PlantsController.GetHarvestBlock(seedName)
         comp = compFactory.CreateBlockInfo(self.playerId)
         comp.SetBlockNew(blockPos, harvestStageBlockDict, dimension)
         blockEntityData = serverBlockUtils.GetBlockEntityData(
@@ -155,15 +155,15 @@ class PlantsSystem(ServerSystem):
     def __SpawnPlantFruit(self, seedName, blockPos, dimension):
         # type: (str, tuple, int) -> None
         """掉落植物果实"""
-        lootItem = PlantsManager.GetPlantLootItem(seedName)
+        lootItem = PlantsController.GetPlantLootItem(seedName)
         itemComp = compFactory.CreateItem(serverApi.GetLevelId())
         itemComp.SpawnItemToLevel(lootItem, dimension, blockPos)
 
     def __ModPlantTick(self, blockPos, blockName, dimension):
         # type: (tuple,str,int) -> None
         """植物进行 tick 生长"""
-        if not PlantsManager.CanTick(blockName, blockPos, dimension,
-                                     self.levelId, self.playerId):
+        if not PlantsController.CanTick(blockName, blockPos, dimension,
+                                        self.levelId, self.playerId):
             return
         blockEntityData = serverBlockUtils.GetBlockEntityData(
             blockPos, dimension, self.playerId)
@@ -180,9 +180,9 @@ class PlantsSystem(ServerSystem):
                        harvestNum):
         # type: (tuple, str, int, dict,int) -> None
         """植物生长到下一状态"""
-        if not PlantsManager.CanGrowNextStage(blockName, growth):
+        if not PlantsController.CanGrowNextStage(blockName, growth):
             return
-        blockDict = PlantsManager.GetNextBlockStageDict(blockName)
+        blockDict = PlantsController.GetNextBlockStageDict(blockName)
         comp = compFactory.CreateBlockInfo(self.playerId)
         comp.SetBlockNew(pos, blockDict)
         blockEntityData["growth"] = 0
@@ -195,11 +195,11 @@ class PlantsSystem(ServerSystem):
         comp = compFactory.CreateBlockInfo(self.playerId)
         blockDict = comp.GetBlockNew(neighPos)
         airBlockDict = {'name': 'minecraft:air', 'aux': 0}
-        if PlantsManager.IsClimbingPlant(seedName):
+        if PlantsController.IsClimbingPlant(seedName):
             if blockDict["name"] == "minecraft:farmland":
                 return
             comp.SetBlockNew(pos, airBlockDict)
-        elif not PlantsManager.JudgePlantLand(seedName, blockDict["name"]):
+        elif not PlantsController.JudgePlantLand(seedName, blockDict["name"]):
             blockDict = {'name': 'minecraft:air', 'aux': 0}
             comp.SetBlockNew(pos, airBlockDict)
 
@@ -210,12 +210,12 @@ class PlantsSystem(ServerSystem):
                                                   dimension)
         biomeName = compFactory.CreateBiome(self.levelId).GetBiomeName(
             blockPos, dimension)
-        if not PlantsManager.CanPlant(seedName, biomeName, blockName):
+        if not PlantsController.CanPlant(seedName, biomeName, blockName):
+            logger.debug("{0} can't plant on land:[{1}] biome:[{2}]".format(
+                seedName, blockName, biomeName))
             return
 
-        logger.info("plant {0} on {1}".format(seedName, biomeName))
-        plantBlockDict = plantBlockDict = PlantsManager.GetPlantFirstStageDict(
-            seedName)
+        plantBlockDict = PlantsController.GetPlantFirstStageDict(seedName)
         aboveBlockPos = positionUtils.GetRelativePosition(blockPos, "above")
         aboveBlockName = serverBlockUtils.GetBlockName(self.levelId,
                                                        aboveBlockPos, dimension)

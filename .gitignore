@@ -284,3 +284,5 @@ target
 *.pdf
 
 out
+
+*.eps

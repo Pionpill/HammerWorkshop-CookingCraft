@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-11 12:59:32
-LastEditTime: 2022-07-11 14:16:55
+LastEditTime: 2022-07-19 14:45:28
 '''
 from hammerCookingScripts.common.data.biome.BiomeForm import BiomeForm as BF
 
@@ -21,10 +21,10 @@ class PlantsBiomeForm(object):
 
     rainfall = {
         "high":
-        BF.forest | BF.jungle | BF.birch | BF.swamp,
+        BF.jungle | BF.birch | BF.swamp,
         "medium":
         BF.ocean | BF.river | BF.plains | BF.plateau | BF.mountain | BF.taiga
-        | BF.shore | BF.mushroom | BF.beach,
+        | BF.shore | BF.mushroom | BF.beach | BF.forest,
         "low":
         BF.savanna | BF.mesa | BF.desert
     }

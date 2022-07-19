@@ -1,10 +1,10 @@
 '''
-Description: 植物系统管理类，负责判断植物的种植，生长等条件
+Description: 植物系统控制类，负责判断植物的种植，生长等条件
 version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-31 13:03:38
-LastEditTime: 2022-07-19 01:02:53
+LastEditTime: 2022-07-19 14:37:11
 '''
 import mod.server.extraServerApi as serverApi
 from hammerCookingScripts.common.facade import PlantsFacade
@@ -14,7 +14,7 @@ compFactory = serverApi.GetEngineCompFactory()
 plantsUtils = PlantsFacade.GetPlantsUtils()
 
 
-class PlantsManager(object):
+class PlantsController(object):
     def __init__(self):
         object.__init__(self)
 

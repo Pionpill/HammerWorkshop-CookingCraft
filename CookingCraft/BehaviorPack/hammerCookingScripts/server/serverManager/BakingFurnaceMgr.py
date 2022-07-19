@@ -8,7 +8,7 @@ LastEditTime: 2022-07-11 14:29:59
 '''
 from hammerCookingScripts.server.serverManager.WorkbenchMgrBase import WorkbenchMgrBase
 from hammerCookingScripts.common.commonManager.BakingRecipeMgr import BakingRecipeManager
-from hammerCookingScripts.utils import itemUtils
+from hammerCookingScripts.common.utils import itemUtils
 from hammerCookingScripts.common import modConfig
 from hammerCookingScripts import logger
 
