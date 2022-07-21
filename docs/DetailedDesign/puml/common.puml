@@ -3,29 +3,39 @@ participant Common
 participant Facade
 participant Factory
 participant Proxy
+participant Utils
 entity Entity
-database Config
+database data
 
 activate Common
 Common -> Facade: 访问接口
 activate Facade
-Facade -> Factory: 获取实例
+Facade -> Factory: 获取实例/模块
 activate Factory
-Factory -> Proxy: 创建/获取实例
+Factory -> Proxy: 创建管理实例
 activate Proxy
+
+Proxy -> Entity: 创建/获取实例
+activate Entity
+Entity -> data: 获取数据
+activate data
+data -> Entity: 返回数据
+deactivate data
+Entity -> Proxy: 返回实例
+Utils -> Proxy: 提供工具
+deactivate Entity
+
 Proxy -> Factory: 返回实例
 deactivate Proxy
-Factory -> Entity: 创建/获取实例
-activate Entity
-Entity -> Config: 获取数据
-activate Config
-Config -> Entity: 返回数据
-deactivate Config
-Entity -> Factory: 返回实例
-deactivate Entity
 Factory -> Facade: 返回实例
 deactivate Factory
-Facade -> Common: 返回实例对象
+
+Facade -> Utils: 获取模块
+activate Utils
+Utils -> Facade: 返回模块
+deactivate Utils
+
+Facade -> Common: 返回
 deactivate Facade
 deactivate Common
 @enduml
