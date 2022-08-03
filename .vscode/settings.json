@@ -1,50 +1,4 @@
 {
-  "files.associations": {
-    "array": "cpp",
-    "atomic": "cpp",
-    "*.tcc": "cpp",
-    "cctype": "cpp",
-    "clocale": "cpp",
-    "cmath": "cpp",
-    "cstdarg": "cpp",
-    "cstddef": "cpp",
-    "cstdint": "cpp",
-    "cstdio": "cpp",
-    "cstdlib": "cpp",
-    "cwchar": "cpp",
-    "cwctype": "cpp",
-    "deque": "cpp",
-    "unordered_map": "cpp",
-    "vector": "cpp",
-    "exception": "cpp",
-    "algorithm": "cpp",
-    "memory": "cpp",
-    "memory_resource": "cpp",
-    "optional": "cpp",
-    "string": "cpp",
-    "string_view": "cpp",
-    "system_error": "cpp",
-    "tuple": "cpp",
-    "type_traits": "cpp",
-    "utility": "cpp",
-    "fstream": "cpp",
-    "initializer_list": "cpp",
-    "iosfwd": "cpp",
-    "iostream": "cpp",
-    "istream": "cpp",
-    "limits": "cpp",
-    "new": "cpp",
-    "ostream": "cpp",
-    "sstream": "cpp",
-    "stdexcept": "cpp",
-    "streambuf": "cpp",
-    "typeinfo": "cpp",
-    "iomanip": "cpp",
-    "bitset": "cpp",
-    "cstring": "cpp",
-    "ctime": "cpp"
-  },
-  "editor.fontSize": 10,
   // ======================== LaTeX 设置 BEGIN  ========================
   //------------------------------LaTeX 配置----------------------------------
   "latex-workshop.latex.recipes": [
@@ -122,23 +76,11 @@
     "*.log",
     "*.fdb_latexmk"
   ],
-  //java配置
-  "java.home": "C:\\Language\\jdk-11.0.11",
-  "java.configuration.runtimes": [
-    {
-      "name": "JavaSE-11",
-      "path": "C:\\Language\\jdk-11.0.11",
-      "default": true
-    }
-  ],
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "java.configuration.checkProjectSettingsExclusions": false,
-  "files.autoGuessEncoding": true,
   //code run插件 中文输入
   "code-runner.executorMap": {
     "java": "cd $dir && javac -d. $fileName && java app.$fileNameWithoutExt"
   },
   "python.pythonPath": "c:\\Language\\Python27\\python.exe",
-  "cSpell.words": ["cookingcraft", "customtips"]
+  "cSpell.words": ["cookingcraft", "customtips", "sourcery"],
+  "python.analysis.extraPaths": ["./CookingCraft/BehaviorPack"]
 }

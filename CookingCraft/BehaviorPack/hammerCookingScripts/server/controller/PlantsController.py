@@ -33,20 +33,20 @@ class PlantsController(object):
         return plantProxy.JudgeLand(blockName)
 
     @classmethod
-    def CanTick(cls, blockName, blockPos, dimension, levelId, playerId):
+    def CanTick(cls, blockName, pos, dimensionId, levelId, playerId):
         # type: (str, tuple, int, int, int) -> bool
         """判断是否能进行 Tick"""
         seedName = plantsUtils.GetSeedNameByStageBlock(blockName)
         plantProxy = PlantsFacade.GetPlantProxy(seedName)
         # 判断光照与海拔
-        if not cls.__JudgeBaseGrowCondition(playerId, blockPos, dimension,
+        if not cls.__JudgeBaseGrowCondition(playerId, pos, dimensionId,
                                             plantProxy):
             return False
         # 判断天气与发芽
         if not cls.__JudgeWeatherGrowCondition(levelId, blockName, plantProxy):
             return False
         # 判断特殊生长条件
-        if not cls.__JudgeSpecialGrowCondition(blockPos, levelId, dimension,
+        if not cls.__JudgeSpecialGrowCondition(pos, levelId, dimensionId,
                                                plantProxy):
             return False
         return True
@@ -115,15 +115,14 @@ class PlantsController(object):
         return plantProxy.IsClimbingPlant()
 
     @classmethod
-    def __JudgeBaseGrowCondition(cls, playerId, blockPos, dimension,
-                                 plantProxy):
+    def __JudgeBaseGrowCondition(cls, playerId, pos, dimensionId, plantProxy):
         # type: (int, tuple, int, PlantProxy) -> bool
         """ 判断基础生长条件: 光照与海拔 """
         comp = compFactory.CreateBlockInfo(playerId)
-        brightness = comp.GetBlockLightLevel(blockPos, dimension)
+        brightness = comp.GetBlockLightLevel(pos, dimensionId)
         if not plantProxy.JudgeBrightness(brightness):
             return False
-        blockAltitude = blockPos[1]
+        blockAltitude = pos[1]
         if not plantProxy.JudgeAltitude(blockAltitude):
             return False
         return True
@@ -146,8 +145,7 @@ class PlantsController(object):
         return True
 
     @classmethod
-    def __JudgeSpecialGrowCondition(cls, blockPos, levelId, dimension,
-                                    plantProxy):
+    def __JudgeSpecialGrowCondition(cls, pos, levelId, dimensionId, plantProxy):
         # type: (tuple, int, int, PlantProxy) -> bool
         # sourcery skip: use-named-expression
         """ 判断特殊生长条件 """
@@ -155,21 +153,20 @@ class PlantsController(object):
         if not specialGrowthCondition:
             return True
         waterDis = specialGrowthCondition.get("water", None)
-        if waterDis and cls.__JudgeWater(waterDis, levelId, blockPos,
-                                         dimension):
+        if waterDis and cls.__JudgeWater(waterDis, levelId, pos, dimensionId):
             return False
         return True
 
     @classmethod
-    def __JudgeWater(cls, waterDis, levelId, blockPos, dimension):
+    def __JudgeWater(cls, waterDis, levelId, pos, dimensionId):
         # type: (int, int, tuple, int) -> bool
         """ 判断特殊生长条件: 水 """
         blockComp = compFactory.CreateBlockInfo(levelId)
-        posX, posY, posZ = blockPos
+        posX, posY, posZ = pos
         y = posY
         for x in range(posX - waterDis, posX + waterDis + 1):
             for z in range(posZ - waterDis, posZ + waterDis + 1):
-                blockDic = blockComp.GetBlockNew((x, y, z), dimension)
+                blockDic = blockComp.GetBlockNew((x, y, z), dimensionId)
                 if blockDic.get("name") == "minecraft:water":
                     return True
         return False

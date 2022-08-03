@@ -3,25 +3,24 @@ from hammerCookingScripts import logger
 
 
 class Plant(object):
-    """植物类，提供植物种植，生长相关的数据信息
-    """
+    """植物类，提供植物种植，生长相关的数据信息"""
     def __init__(self, seedName):
         # type: (str) -> None
         object.__init__(self)
         self.seedName = seedName
-        self._seedInfo = SEEDS_INFO.get(seedName)
-        self._InitAttr()
-        del self._seedInfo
+        self.__seedInfo = SEEDS_INFO.get(seedName)
+        self.__InitAttr()
+        del self.__seedInfo
 
-    def _InitAttr(self):
+    def __InitAttr(self):
         try:
-            self._tickList = self._seedInfo.get("tickList")
-            self._harvestCount = self._seedInfo.get("harvestCount")
+            self._tickList = self.__seedInfo.get("tickList")
+            self._harvestCount = self.__seedInfo.get("harvestCount")
         except KeyError:
             logger.warn("{self.seedName} 未设置 tickList/harvestCount 值")
 
-        self._harvestBlock = self._seedInfo.get("harvestBlock", None)
-        self._lootTable = self._seedInfo.get("lootTable", None)
+        self._harvestBlock = self.__seedInfo.get("harvestBlock", None)
+        self._lootTable = self.__seedInfo.get("lootTable", None)
         if self._lootTable:
             try:
                 self._lootItemName = self._lootTable.get("newItemName")
@@ -31,7 +30,7 @@ class Plant(object):
                 logger.error("{self.seedName} 的 lootTable 存在未设置的值")
 
         try:
-            plantConditions = self._seedInfo.get("plantConditions")
+            plantConditions = self.__seedInfo.get("plantConditions")
             self._plantLandList = plantConditions.get("plantLandList")
             self._plantBiome = plantConditions.get("plantBiome")
             self._plantSpecial = plantConditions.get("special", None)
@@ -40,15 +39,18 @@ class Plant(object):
             logger.error("{self.seedName} 的 plantsConditions 存在未设置的值")
 
         try:
-            growthConditions = self._seedInfo.get("growthConditions")
-            self._brightness = growthConditions.get("brightness")
-            self._altitude = growthConditions.get("altitude")
-            self._weather = growthConditions.get("Weather", None)
-            self._sprout = growthConditions.get("sprout", None)
-            self._growthSpecial = growthConditions.get("special", None)
-            del growthConditions
+            self.__InitGrowthConditions()
         except KeyError:
             logger.error("{self.seedName} 的 growthConditions 存在未设置的值")
+
+    def __InitGrowthConditions(self):
+        growthConditions = self.__seedInfo.get("growthConditions")
+        self._brightness = growthConditions.get("brightness")
+        self._altitude = growthConditions.get("altitude")
+        self._weather = growthConditions.get("Weather", None)
+        self._sprout = growthConditions.get("sprout", None)
+        self._growthSpecial = growthConditions.get("special", None)
+        del growthConditions
 
     def GetTickList(self):
         # type: () -> list

@@ -286,3 +286,5 @@ target
 out
 
 *.eps
+*.pyc
+__pycache__

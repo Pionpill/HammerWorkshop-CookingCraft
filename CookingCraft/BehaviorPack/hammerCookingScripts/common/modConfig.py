@@ -1,4 +1,12 @@
 '''
+Description: your project
+version: 1.0
+Author: Pionpill
+LastEditors: Pionpill
+Date: 2022-07-19 01:11:15
+LastEditTime: 2022-07-30 15:24:27
+'''
+'''
 Description: 常量保存文件,只读
 version: 1.0
 Author: Pionpill
@@ -70,7 +78,7 @@ UI_DEFS = {
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————
 # Event
-BagChangedEvent = "BagChangedEvent"  # 玩家获取新的物品事件
+InventoryChangedEvent = "InventoryChangedEvent"  # 玩家获取新的物品事件
 ItemSwapClientEvent = "ItemSwapClientEvent"
 ItemDropClientEvent = "ItemDropClientEvent"  # 物品交换事件
 CloseInventoryEvent = "CloseInventoryEvent"
@@ -78,10 +86,10 @@ CloseCraftingTableEvent = "CloseCraftingTableEvent"  # 关闭工作台，应该�
 
 UIShouldCloseEvent = "UIShouldCloseEvent"  # 玩家死亡等情况下，UI强制关闭事件
 WorkbenchChangedEvent = "WorkbenchChangedEvent"  # 工作台改变事件
-InventoryOpenEvent = "InventoryOpenEvent"
+WorkbenchOpenEvent = "WorkbenchOpenEvent"
 ItemSwapServerEvent = "ItemSwapServerEvent"
 ItemDropServerEvent = "ItemDropServerEvent"
-WorkBenchOpenEvent = "WorkBenchOpenEvent"
+WorkbenchOpenEvent = "WorkbenchOpenEvent"
 OutSlotClickEvent = "OutSlotClickEvent"
 # ————————————————————————————————————————————————————————————————————————————————————————————————————
 # data
@@ -104,6 +112,3 @@ WORKBENCH_SLOT_PREFIX = {
 # 燃烧时间间隔
 BURN_INTERVAL = 5
 MAX_STACK_SIZE = 64
-
-# Plants
-SeedsList = ["cookingcraft:herb_seeds"]

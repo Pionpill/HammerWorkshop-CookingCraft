@@ -11,11 +11,8 @@ from hammerCookingScripts.common.utils import plantsUtils
 
 
 class PlantsFacade(object):
-    def __init__(self):
-        object.__init__(self)
-
-    @classmethod
-    def GetPlantProxy(cls, seedName):
+    @staticmethod
+    def GetPlantProxy(seedName):
         # type: (str) -> PlantsFactory
         return PlantsFactory.GetPlantProxy(seedName)
 
