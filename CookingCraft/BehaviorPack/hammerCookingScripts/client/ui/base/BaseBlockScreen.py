@@ -7,11 +7,12 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-04-14 20:32:05
-LastEditTime: 2022-08-03 15:26:09
+LastEditTime: 2022-08-05 14:35:04
 '''
 import mod.client.extraClientApi as clientApi
 from hammerCookingScripts import logger
-from hammerCookingScripts.client.factory import UIFactory
+from hammerCookingScripts.common import modConfig
+from hammerCookingScripts.client.controller import SystemController
 
 ScreenNode = clientApi.GetScreenNodeCls()
 compFactory = clientApi.GetEngineCompFactory()
@@ -27,7 +28,9 @@ class BaseBlockScreen(ScreenNode):
 
     def Create(self):
         """创建关闭按钮控件"""
-        UIFactory.GetCloseButtonUIControl(self.blockName, self.closeBthPath)
+        closeBtnController = self.GetBaseUIControl(self.closeBthPath).asButton()
+        closeBtnController.AddTouchEventParams({"isSallow": True})
+        closeBtnController.SetButtonTouchUpCallback(self._OnCloseBthTouchUp)
         self.SetShowCondition(True)
 
     def GetShowCondition(self):
@@ -60,3 +63,14 @@ class BaseBlockScreen(ScreenNode):
         clientApi.SetResponse(True)
         self.SetScreenVisible(False)
         self.SetShowCondition(False)
+
+    def _OnCloseBthClicked(self, event):
+        # type: (dict) -> None
+        """关闭UI界面"""
+        clientSystem = SystemController.GetModClientSystem(
+            modConfig.ClientSystemName_Workbench)
+        eventData = {"playerId": clientSystem.GetPlayerId()}
+        clientSystem.NotifyToServer(modConfig.CloseInventoryEvent, eventData)
+        # 延迟 0.1s 关闭界面
+        gameComp = compFactory.CreateGame(clientApi.GetLevelId())
+        gameComp.AddTimer(0.1, self.CloseUI)

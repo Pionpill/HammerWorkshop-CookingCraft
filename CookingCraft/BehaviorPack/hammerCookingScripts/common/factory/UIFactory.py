@@ -4,12 +4,12 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-31 14:01:04
-LastEditTime: 2022-07-31 16:55:17
+LastEditTime: 2022-08-04 14:52:51
 '''
 from hammerCookingScripts.common.proxy import UIProxy
 
 
-class UIController(object):
+class UIFactory(object):
     proxy = UIProxy()
 
     @classmethod

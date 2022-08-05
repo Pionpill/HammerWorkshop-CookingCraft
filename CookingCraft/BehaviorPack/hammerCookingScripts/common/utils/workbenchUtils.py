@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-27 21:10:53
-LastEditTime: 2022-08-03 00:45:02
+LastEditTime: 2022-08-05 14:44:16
 '''
 from hammerCookingScripts import logger
 
@@ -44,12 +44,15 @@ def GetFuelSlotPrefix():
 
 
 def IsMaterialSlot(slotName):
-    return GetMaterialSlotPrefix() in slotName
+    return False if isinstance(slotName,
+                               int) else GetMaterialSlotPrefix() in slotName
 
 
 def IsFuelSlot(slotName):
-    return GetFuelSlotPrefix() in slotName
+    return False if isinstance(slotName,
+                               int) else GetFuelSlotPrefix() in slotName
 
 
 def IsResultSlot(slotName):
-    return GetResultSlotPrefix() in slotName
+    return False if isinstance(slotName,
+                               int) else GetResultSlotPrefix() in slotName

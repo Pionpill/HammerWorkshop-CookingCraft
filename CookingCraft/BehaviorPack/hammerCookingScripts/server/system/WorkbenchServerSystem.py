@@ -1,10 +1,11 @@
 import copy
 from abc import abstractmethod
+from time import sleep
 
 import mod.server.extraServerApi as serverApi
 from hammerCookingScripts import logger
 from hammerCookingScripts.common import modConfig
-from hammerCookingScripts.common.utils import itemUtils, workbenchUtils
+from hammerCookingScripts.common.utils import engineUtils, itemUtils, workbenchUtils
 from hammerCookingScripts.server.controller import WorkbenchController
 from hammerCookingScripts.server.factory import WorkbenchFactory
 from hammerCookingScripts.server.utils import serverBlockUtils as blockUtils
@@ -15,10 +16,11 @@ minecraftEnum = serverApi.GetMinecraftEnum()
 compFactory = serverApi.GetEngineCompFactory()
 
 
-class InventoryServerSystem(ServerSystem):
+class WorkbenchServerSystem(ServerSystem):
     def __init__(self, namespace, systemName):
         ServerSystem.__init__(self, namespace, systemName)
         self.ListenWorkbenchEvent()
+        self.interactCoolDict = {}
         self.levelId = serverApi.GetLevelId()
 
     def ListenWorkbenchEvent(self):
@@ -28,8 +30,7 @@ class InventoryServerSystem(ServerSystem):
         self.ListenForEvent(engineNamespace, engineSystemName,
                             'ServerBlockUseEvent', self, self.OnServerBlockUse)
         self.ListenForEvent(engineNamespace, engineSystemName,
-                            'ServerItemUseOnEvent', self,
-                            self.OnServerItemUseOn)
+                            'ServerItemUseOnEvent', self, self.OnServerItemUse)
         self.ListenForEvent(engineNamespace, engineSystemName,
                             'ActorAcquiredItemServerEvent', self,
                             self.OnActorAcquiredItemServer)
@@ -66,10 +67,12 @@ class InventoryServerSystem(ServerSystem):
     def OnServerBlockUse(self, event):
         # type: (dict) -> None
         """工作台使用回调函数"""
-        blockName, playerId = event['blockName'], event["playerId"]
+        playerId = event["playerId"]
+        if not engineUtils.coolDown(playerId, self.interactCoolDict):
+            return
+        blockName = event['blockName']
         pos = (event['x'], event['y'], event['z'])
         dimensionId = event['dimensionId']
-
         if not workbenchUtils.IsWorkbenchBlock(
                 blockName) or WorkbenchController.IsPlayerOpeningBlock(
                     playerId):
@@ -85,12 +88,16 @@ class InventoryServerSystem(ServerSystem):
         self.__UpdateWorkbenchUI(playerId, blockName, pos, dimensionId)
         self.__UpdateInventoryUI(playerId, blockName)
 
-    def OnServerItemUseOn(self, args):
+    def OnServerItemUse(self, args):
         # type: (dict) -> None
         """使用物品
         如果是自定义工作台: 拦截使用物品"""
+        playerId = args["entityId"]
+        if not engineUtils.coolDown(playerId, self.interactCoolDict):
+            return
         pos = (args["x"], args["y"], args["z"])
-        blockDict = blockUtils.GetBlockInfo(pos, self.levelId)
+        dimensionId = args["dimensionId"]
+        blockDict = blockUtils.GetBlockInfo(pos, dimensionId, self.levelId)
         if workbenchUtils.IsWorkbenchBlock(blockDict["name"]):
             args["ret"] = True
 
@@ -119,8 +126,8 @@ class InventoryServerSystem(ServerSystem):
         pos = (args["x"], args["y"], args["z"])
         playerId = args['playerId']
         dimensionId = args["dimensionId"]
-        workbenchSlotData = blockUtils.GetBlockEntityData(
-            pos, dimensionId, playerId)
+        workbenchSlotData = WorkbenchController.GetBlockSlotData(
+            blockName, pos, dimensionId, self.levelId)
         if not workbenchSlotData:
             return
         itemComp = compFactory.CreateItem(self.levelId)
@@ -136,7 +143,8 @@ class InventoryServerSystem(ServerSystem):
 
     def OnPlayerDieServer(self, args):  # sourcery skip: use-named-expression
         # type: (dict) -> None
-        """玩家死亡，如果正打开工作台
+        """
+        玩家死亡，如果正打开工作台
         1. 客户端: 关闭 UI
         2. 删除使用工作台状态
         """
@@ -160,7 +168,7 @@ class InventoryServerSystem(ServerSystem):
         if blockName not in modConfig.WorkbenchBlocks:
             return
         pos = (args["posX"], args["posY"], args["posZ"])
-        dimensionId = args["dimensionId"]
+        dimensionId = args["dimension"]
         WBManager = self.__DoGetNewWorkbenchManager(blockName, pos, dimensionId)
         if WBManager.Tick():
             self.__DoUpdateUI(blockName, pos, dimensionId)
@@ -188,65 +196,84 @@ class InventoryServerSystem(ServerSystem):
                 self.__UpdateWorkbenchUI(playerId, blockName, pos, dimensionId)
                 break
 
-    def OnItemSwap(self, itemSwapData):
+    def OnItemSwap(self, swapData):
         # type: (dict) -> None
         """物品交换"""
-        fromSlot, toSlot = itemSwapData["fromSlot"], itemSwapData["toSlot"]
-        fromItem, toItem = itemSwapData["fromItem"], itemSwapData["toItem"]
-        takePercent = itemSwapData["takePercent"]
-        playerId, blockName = itemSwapData["playerId"], itemSwapData[
-            "blockName"]
+        fromSlot, toSlot = swapData["fromSlot"], swapData["toSlot"]
+        fromItem, toItem = swapData["fromItem"], swapData["toItem"]
+        takePercent = swapData["takePercent"]
+        playerId, blockName = swapData["playerId"], swapData["blockName"]
         logger.info("Try swap [{0}] to [{1}]".format(fromSlot, toSlot))
-        self.__DoHandleItemSwapData(fromSlot, fromItem, toSlot, toItem,
-                                    takePercent, playerId)
+        pos, dimensionId = swapData["pos"], swapData["dimensionId"]
+        result = self.__DoHandleItemSwapData(fromSlot, fromItem, toSlot, toItem,
+                                             takePercent, playerId, pos,
+                                             dimensionId)
+        if result:
+            fromItem, toItem = result
+        else:
+            return
         if isinstance(fromSlot, str) or isinstance(toSlot, str):
             if not self.__DoWorkbenchItemSwap(blockName, playerId, fromSlot,
                                               fromItem, toSlot, toItem):
                 return
-            self.__UpdateWorkbenchUI(playerId, blockName, itemSwapData["pos"],
-                                     itemSwapData["dimensionId"])
+            self.__UpdateWorkbenchUI(playerId, blockName, swapData["pos"],
+                                     swapData["dimensionId"])
         else:
             itemComp = compFactory.CreateItem(playerId)
             itemComp.SetInvItemExchange(fromSlot, toSlot)
-        itemSwapData["fromItem"] = fromItem
-        itemSwapData["toItem"] = toItem
-        self.NotifyToClient(playerId, modConfig.ItemSwapServerEvent,
-                            itemSwapData)
+        swapData["fromItem"] = fromItem
+        swapData["toItem"] = toItem
+        self.NotifyToClient(playerId, modConfig.ItemSwapServerEvent, swapData)
 
     def __DoHandleItemSwapData(self, fromSlot, fromItem, toSlot, toItem,
-                               takePercent, playerId):
+                               takePercent, playerId, pos, dimensionId):
         """处理物品交换逻辑并修正一些数据"""
-        # type: (int/str, dict, int/str, dict, float, int) -> None
-        """处理交换物品的数据"""
+        # type: (int/str, dict, int/str, dict, float, int) -> tuple
         if isinstance(toSlot, int):
             toItem = serverItemUtils.GetPlayerInventoryItem(playerId, toSlot)
         if isinstance(fromSlot, int):
-            fromItem = serverItemUtils.GetPlayerInventoryItem(playerId, toSlot)
+            fromItem = serverItemUtils.GetPlayerInventoryItem(
+                playerId, fromSlot)
+        WBManager = WorkbenchFactory.GetWorkbenchManager(pos + (dimensionId, ))
+        slotData = WBManager.ConvertToSlotData()
+        if slotData:
+            if isinstance(fromSlot, str):
+                fromItem = slotData.get(fromSlot)
+            if isinstance(toSlot, str):
+                toItem = slotData.get(toSlot)
         if itemUtils.IsSameItem(fromItem, toItem):
-            self.__DoHandleSameItemSwapData(fromSlot, fromItem, toSlot, toItem,
-                                            takePercent, playerId)
+            logger.info("same item swap")
+            result = self.__DoHandleSameItemSwapData(fromSlot, fromItem, toSlot,
+                                                     toItem, takePercent,
+                                                     playerId)
+            if result:
+                fromItem, toItem = result
+            else:
+                return False
         if takePercent < 1 and not toItem:
-            self.__DoHandlePercentItemSwapData(fromSlot, fromItem, toSlot,
-                                               toItem, takePercent, playerId)
+            logger.info("percent item swap")
+            fromItem, toItem = self.__DoHandlePercentItemSwapData(
+                fromSlot, fromItem, toSlot, toItem, takePercent, playerId)
+        return (fromItem, toItem)
 
     def __DoHandleSameItemSwapData(self, fromSlot, fromItem, toSlot, toItem,
                                    takePercent, playerId):
-        # type (int/str, dict, int/str, dict, float, int) -> None
+        # type (int/str, dict, int/str, dict, float, int) -> tuple
         """处理相同物品交换逻辑"""
         itemComp = compFactory.CreateItem(playerId)
         basicInfo = itemComp.GetItemBasicInfo(toItem.get("newItemName"),
                                               toItem.get("newAuxValue"))
         if not basicInfo:
-            return
+            return False
         maxStackSize = basicInfo.get("maxStackSize")
         takeNum = int(fromItem.get("count") * takePercent)
         fromNum, toNum = fromItem.get("count"), toItem.get("count")
         if not takeNum and not toNum:
-            return
+            return False
         if toNum == maxStackSize:
-            return
+            return False
         if toNum + takeNum >= maxStackSize:
-            fromNum -= maxStackSize - toNum
+            fromNum = fromNum + toNum - maxStackSize
             toNum = maxStackSize
         else:
             toNum += takeNum
@@ -259,10 +286,11 @@ class InventoryServerSystem(ServerSystem):
             itemComp.SetInvItemNum(fromSlot, toNum)
         if isinstance(toSlot, int):
             itemComp.SetInvItemNum(toSlot, fromNum)
+        return (fromItem, toItem)
 
     def __DoHandlePercentItemSwapData(self, fromSlot, fromItem, toSlot, toItem,
                                       takePercent, playerId):
-        # type (int/str, dict, int/str, dict, float, int) -> None
+        # type (int/str, dict, int/str, dict, float, int) -> tuple
         """处理部分物品交换逻辑"""
         itemComp = compFactory.CreateItem(playerId)
         toNum = int(fromItem.get("count") * takePercent)
@@ -274,6 +302,7 @@ class InventoryServerSystem(ServerSystem):
             itemComp.SpawnItemToPlayerInv(toItem, playerId, toSlot)
         if isinstance(fromSlot, int):
             itemComp.SpawnItemToPlayerInv(fromItem, playerId, fromSlot)
+        return (fromItem, toItem)
 
     def __DoWorkbenchItemSwap(self, blockName, playerId, fromSlot, fromItem,
                               toSlot, toItem):
@@ -284,17 +313,16 @@ class InventoryServerSystem(ServerSystem):
             logger.error("Get opened block key error!")
             return False
         pos, dimensionId = blockInfo["pos"], blockInfo["dimensionId"]
-        blockKey = pos + (dimensionId, )
         # 工作台内部物品交换
         if isinstance(fromSlot, str) and isinstance(toSlot, str):
-            if not self.__DoWorkbenchInnerItemSwap(
-                    self, fromSlot, fromItem, toSlot, toItem, pos, dimensionId):
+            if not self.__DoWorkbenchInnerItemSwap(fromSlot, fromItem, toSlot,
+                                                   toItem, pos, dimensionId):
                 return False
         # 工作台与物品栏交换
         elif isinstance(fromSlot, str) or isinstance(toSlot, str):
-            if not self.__DoWorkbenchOuterItemSwap(
-                    self, fromSlot, fromItem, toSlot, toItem, pos, dimensionId,
-                    playerId):
+            if not self.__DoWorkbenchOuterItemSwap(fromSlot, fromItem, toSlot,
+                                                   toItem, pos, dimensionId,
+                                                   playerId):
                 return False
         if blockName in modConfig.CraftingBlock:
             self.__MatchCraftingRecipe(playerId, blockName, dimensionId, pos)
@@ -307,6 +335,7 @@ class InventoryServerSystem(ServerSystem):
         blockKey = pos + (dimensionId, )
         WBManager = WorkbenchFactory.GetWorkbenchManager(blockKey)
         if not WBManager.CanSlotSet(toSlot):
+            logger.info("结果槽位无法交换")
             return False
         itemComp = compFactory.CreateItem(playerId)
         blockEntityData = blockUtils.GetBlockEntityData(pos, dimensionId,
@@ -325,6 +354,7 @@ class InventoryServerSystem(ServerSystem):
                 WBManager.UpdateItemData(fromSlot, toItem)
                 blockEntityData[fromSlot] = toItem
             itemComp.SpawnItemToPlayerInv(fromItem, playerId, toSlot)
+        # 从背包到工作台
         else:
             WBManager.UpdateItemData(toSlot, fromItem)
             blockEntityData[toSlot] = fromItem
@@ -415,7 +445,7 @@ class InventoryServerSystem(ServerSystem):
         pos, dimensionId = args["pos"], args["dimensionId"]
         playerId, blockName = args["playerId"], args["blockName"]
         # 将物品返回给玩家，重置工作台内容
-        self.__DoResetCraftingTable(self, blockName, pos, dimensionId, playerId)
+        self.__DoResetCraftingTable(blockName, pos, dimensionId, playerId)
         # UI 界面删除工作台物品
         self.__UpdateWorkbenchUI(playerId, blockName, pos, dimensionId)
 
@@ -429,7 +459,8 @@ class InventoryServerSystem(ServerSystem):
         """
         blockKey = pos + (dimensionId, )
         WBManager = WorkbenchFactory.GetWorkbenchManager(blockKey, blockName)
-        materialsItems = WBManager.Reset()
+        materialsItems = WBManager.GetMaterialsItems()
+        WBManager.Reset()
         itemComp = compFactory.CreateItem(playerId)
         for materialItem in materialsItems.values():
             if materialItem is not None:
@@ -447,15 +478,15 @@ class InventoryServerSystem(ServerSystem):
         playerId, pos = event["playerId"], event["pos"]
         dimensionId = event["dimensionId"]
         blockKey = pos + (dimensionId, )
-        WBManager = WorkbenchFactory.GetWorkbenchManager(blockKey, blockName)
+        WBManager = WorkbenchFactory.GetWorkbenchManager(blockKey)
         WBManager.Produce()
-        self.__UpdateBlockEntitySlotData(pos, dimensionId, blockName)
 
         itemComp = compFactory.CreateItem(playerId)
         itemComp.SpawnItemToPlayerInv(event["item"], playerId)
         blockInfo = WorkbenchController.GetCurOpenedBlockInfo(playerId)
         if blockInfo:
             blockName = blockInfo.get("blockName")
+            self.__UpdateBlockEntitySlotData(pos, dimensionId, blockName)
             self.__UpdateInventoryUI(playerId, blockName)
         self.__MatchCraftingRecipe(playerId, blockName, dimensionId, pos)
 
@@ -465,22 +496,25 @@ class InventoryServerSystem(ServerSystem):
         # sourcery skip: use-named-expression
         blockKey = pos + (dimensionId, )
         WBManager = WorkbenchFactory.GetWorkbenchManager(blockKey, blockName)
-        newSlotData = WBManager.ConvertToBlockEntityData()
+        newSlotData = WBManager.ConvertToSlotData()
         blockEntityData = blockUtils.GetBlockEntityData(pos, dimensionId,
                                                         self.levelId)
-        for slotName in blockEntityData.keys():
-            newItemDict = newSlotData.get(slotName)
-            if newItemDict:
-                blockEntityData[slotName] = newItemDict
+        for slotName, itemDict in newSlotData.items():
+            blockEntityData[slotName] = itemDict
 
     def __MatchCraftingRecipe(self, playerId, blockName, dimensionId, pos):
         # type: (int, str, int, tuple, dict) -> None
         """匹配工作台配方，如果能合成新的产品，向客户端发送事件"""
         WBManager = WorkbenchFactory.GetWorkbenchManager(
             pos + (dimensionId, ), blockName)
-        resultsItems = WBManager.MatchRecipe(self)
+        resultsItems = WBManager.MatchRecipe()
         if not resultsItems:
             return
+        logger.debug(resultsItems)
+        blockEntityData = blockUtils.GetBlockEntityData(pos, dimensionId,
+                                                        self.levelId)
+        for slotName, slotItem in resultsItems.items():
+            blockEntityData[slotName] = slotItem
         gameComp = compFactory.CreateGame(serverApi.GetLevelId())
         gameComp.AddTimer(0.01, self.__UpdateWorkbenchUI, playerId, blockName,
                           pos, dimensionId)

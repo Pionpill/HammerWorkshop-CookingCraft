@@ -2,10 +2,10 @@
 Description: 厨务台界面的 UI，新增以下 UI 控件:
 |- main
     |- crafting_panel
-        |- crafting_slot0
-        |- crafting_slot1
+        |- material_slot0
+        |- material_slot1
         |- ......
-        |- crafting_slot9
+        |- result_slot0
         |- arrow_image
 
 Description: your project
@@ -15,9 +15,12 @@ LastEditors: Pionpill
 Date: 2022-08-03 14:36:13
 LastEditTime: 2022-08-03 15:53:54
 '''
+import mod.client.extraClientApi as clientApi
 from hammerCookingScripts.client.ui.base.BaseInventoryScreen import BaseInventoryScreen
 from hammerCookingScripts.client.controller import SystemController
 from hammerCookingScripts.common import modConfig
+
+compFactory = clientApi.GetEngineCompFactory()
 
 
 class BaseCraftingScreen(BaseInventoryScreen):
@@ -40,3 +43,24 @@ class BaseCraftingScreen(BaseInventoryScreen):
             self.slotManager.SetSlotInfo(slotName,
                                          slotInfo=(slotPath, itemDict))
             self._SetSlotUI(slotPath, itemDict)
+
+    def _OnCloseBthTouchUp(self, args):
+        # type: (dict) -> None
+        """
+        1. 向服务端传递界面关闭事件
+        2. 关闭UI界面
+        """
+        clientSystem = SystemController.GetModClientSystem(
+            modConfig.ClientSystemName_Workbench)
+        eventData = {"playerId": clientSystem.GetPlayerId()}
+        clientSystem.NotifyToServer(modConfig.CloseInventoryEvent, eventData)
+        # 如果是工作台需要返回物品
+        eventData["pos"] = self.pos
+        eventData["dimensionId"] = self.dimensionId
+        eventData["playerId"] = clientSystem.GetPlayerId()
+        eventData["blockName"] = self.blockName
+        clientSystem.NotifyToServer(modConfig.CloseCraftingTableEvent,
+                                    eventData)
+        # 延迟 0.1s 关闭界面
+        gameComp = compFactory.CreateGame(clientApi.GetLevelId())
+        gameComp.AddTimer(0.1, self.CloseUI())

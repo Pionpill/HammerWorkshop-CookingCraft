@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-08-02 19:57:53
-LastEditTime: 2022-08-03 00:54:18
+LastEditTime: 2022-08-05 22:08:52
 '''
 # -*- coding:utf-8 -*-
 from hammerCookingScripts import logger
@@ -27,7 +27,7 @@ class SlotManager(object):
     def GetSlotItem(self, **kwargs):
         # type: (dict) -> str
         """获取 slot 对应的物品信息, 键: slotName, slotPath"""
-        for key, value in kwargs.values():
+        for key, value in kwargs.items():
             if key.lower() in ["slotname", "name"]:
                 return self.__GetSlotInfo(value).get("item")
             if key.lower() in ["slotpath", "path"]:
@@ -116,7 +116,7 @@ class SlotManager(object):
         ]
 
     def __str__(self):
-        return self.__pathsInfo.__str__()
+        return self.__slotsInfo.__str__()
 
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-19 01:11:15
-LastEditTime: 2022-07-30 15:24:27
+LastEditTime: 2022-08-04 14:47:38
 '''
 '''
 Description: 常量保存文件,只读
@@ -30,18 +30,18 @@ Minecraft = "Minecraft"
 # Server System
 # 工作台
 ServerSystemName_Workbench = "WorkbenchServerSystem"
-ServerSystemClsPath_Workbench = "hammerCookingScripts.server.serverSystem.WorkbenchServerSystem.WorkbenchServerSystem"
+ServerSystemClsPath_Workbench = "hammerCookingScripts.server.system.WorkbenchServerSystem.WorkbenchServerSystem"
 # 植物
 ServerSystemName_Plants = "PlantsServerSystem"
-ServerSystemClsPath_Plants = "hammerCookingScripts.server.system.PlantsSystem.PlantsSystem"
+ServerSystemClsPath_Plants = "hammerCookingScripts.server.system.PlantsServerSystem.PlantsServerSystem"
 
 # Client System
 # 工作台
 ClientSystemName_Workbench = "WorkbenchClientSystem"
-ClientSystemClsPath_Workbench = "hammerCookingScripts.client.clientSystem.WorkbenchClientSystem.WorkbenchClientSystem"
+ClientSystemClsPath_Workbench = "hammerCookingScripts.client.system.WorkbenchClientSystem.WorkbenchClientSystem"
 # 植物
 ClientSystemName_Plants = "PlantsClientSystem"
-ClientSystemClsPath_Plants = "hammerCookingScripts.client.clientSystem.PlantsClientSystem.PlantsClientSystem"
+ClientSystemClsPath_Plants = "hammerCookingScripts.client.system.PlantsClientSystem.PlantsClientSystem"
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————
 # Block
@@ -58,23 +58,6 @@ InventoryContainerBlocks = [CookingTable_Block_Name, BakingFurnace_Block_Name]
 WorkbenchBlocks = [CookingTable_Block_Name, BakingFurnace_Block_Name]
 CraftingBlock = [CookingTable_Block_Name]  # 合成台，block 内不包含数据
 FurnaceBlockList = [BakingFurnace_Block_Name]
-
-# ————————————————————————————————————————————————————————————————————————————————————————————————————
-# UI
-UI_DEFS = {
-    "cookingcraft:cooking_table": {
-        "uiName": "cooking_table_screen",
-        "uiClassPath":
-        "hammerCookingScripts.client.ui.CookingTableScreen.CookingTableScreen",
-        "uiScreenDef": "cooking_table_screen.main"
-    },
-    "cookingcraft:baking_furnace": {
-        "uiName": "baking_furnace_screen",
-        "uiClassPath":
-        "hammerCookingScripts.client.ui.BakingFurnaceScreen.BakingFurnaceScreen",
-        "uiScreenDef": "baking_furnace_screen.main"
-    }
-}
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————
 # Event

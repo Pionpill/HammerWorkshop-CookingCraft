@@ -51,69 +51,69 @@
     "clips_children": false,
     "controls": [
       {
-        "crafting_slot0@hammerCommonUI.item_slot": {
+        "material_slot0@hammerCommonUI.item_slot": {
           "anchor_from": "top_left",
           "anchor_to": "top_left"
         }
       },
       {
-        "crafting_slot1@hammerCommonUI.item_slot": {
+        "material_slot1@hammerCommonUI.item_slot": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "offset": [18, 0]
         }
       },
       {
-        "crafting_slot2@hammerCommonUI.item_slot": {
+        "material_slot2@hammerCommonUI.item_slot": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "offset": [36, 0]
         }
       },
       {
-        "crafting_slot3@hammerCommonUI.item_slot": {
+        "material_slot3@hammerCommonUI.item_slot": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "offset": [0, 18]
         }
       },
       {
-        "crafting_slot4@hammerCommonUI.item_slot": {
+        "material_slot4@hammerCommonUI.item_slot": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "offset": [18, 18]
         }
       },
       {
-        "crafting_slot5@hammerCommonUI.item_slot": {
+        "material_slot5@hammerCommonUI.item_slot": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "offset": [36, 18]
         }
       },
       {
-        "crafting_slot6@hammerCommonUI.item_slot": {
+        "material_slot6@hammerCommonUI.item_slot": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "offset": [0, 36]
         }
       },
       {
-        "crafting_slot7@hammerCommonUI.item_slot": {
+        "material_slot7@hammerCommonUI.item_slot": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "offset": [18, 36]
         }
       },
       {
-        "crafting_slot8@hammerCommonUI.item_slot": {
+        "material_slot8@hammerCommonUI.item_slot": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "offset": [36, 36]
         }
       },
       {
-        "crafting_slot9@hammerCommonUI.item_slot_big": {
+        "result_slot0@hammerCommonUI.item_slot_big": {
           "anchor_from": "right_middle",
           "anchor_to": "right_middle",
           "layer": 2
@@ -142,19 +142,19 @@
     "clips_children": false,
     "controls": [
       {
-        "furnace_slot0@hammerCommonUI.item_slot": {
+        "material_slot0@hammerCommonUI.item_slot": {
           "anchor_from": "top_left",
           "anchor_to": "top_left"
         }
       },
       {
-        "furnace_slot1@hammerCommonUI.item_slot": {
+        "fuel_slot0@hammerCommonUI.item_slot": {
           "anchor_from": "bottom_left",
           "anchor_to": "bottom_left"
         }
       },
       {
-        "furnace_slot2@hammerCommonUI.item_slot_big": {
+        "result_slot0@hammerCommonUI.item_slot_big": {
           "anchor_from": "right_middle",
           "anchor_to": "right_middle"
         }

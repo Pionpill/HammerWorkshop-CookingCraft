@@ -24,11 +24,11 @@ LastEditTime: 2022-04-15 17:33:18
 from abc import abstractmethod
 import mod.client.extraClientApi as clientApi
 from hammerCookingScripts import logger
-from hammerCookingScripts.common import modConfig
 from hammerCookingScripts.client.ui.base.BaseBlockScreen import BaseBlockScreen
 from hammerCookingScripts.client.utils import pathUtils
-from hammerCookingScripts.client.factory import UIFactory
 from hammerCookingScripts.client.ui.utils.interactState import ContainerInteractionStateMachine, ButtonEventType, NodeId
+from hammerCookingScripts.client.ui.manager import SlotManager
+from hammerCookingScripts.common import modConfig
 from hammerCookingScripts.common.utils import itemUtils, workbenchUtils
 from hammerCookingScripts.client.controller import SystemController
 
@@ -50,7 +50,7 @@ class BaseInventoryScreen(BaseBlockScreen):
         self.itemDetailTextPath = "{0}/item_detail/item_detail_bg/item_detail_text".format(
             self.inventoryPanelPath)
         # 管理背包槽位信息
-        self.slotManager = UIFactory.GetSlotManager()
+        self.slotManager = SlotManager()
         self.lastSelectedPath = None  # slot path
         self.lastTouchButtonPath = None
         self.lastTouchPosition = None
@@ -197,7 +197,7 @@ class BaseInventoryScreen(BaseBlockScreen):
         self.pos = workbenchData["pos"]
         self.dimensionId = workbenchData["dimensionId"]
         self.containerStateMachine.ResetToDefault()
-        BaseBlockScreen.ShowBlockUI()
+        BaseBlockScreen.ShowBlockUI(self)
 
     def UpdateInventoryUI(self, inventorySlotData):
         # type: (dict) -> None
@@ -349,7 +349,7 @@ class BaseInventoryScreen(BaseBlockScreen):
         slotPath = self._GetSlotPath(itemPath)
         return self.slotManager.GetSlotItem(path=slotPath)
 
-    def _GetNameSlotByPath(self, path):
+    def _GetSlotNameByPath(self, path):
         # type: (str|int) -> str|int
         """通过 slotPath 获取 slotName; path 的父路径包括 slot 路径"""
         path = self._GetSlotPath(path)
@@ -369,23 +369,25 @@ class BaseInventoryScreen(BaseBlockScreen):
         return ("/").join(newPathList)
 
     def _SetSlotUI(self, path, item):
+        # sourcery skip: use-fstring-for-concatenation
         # type: (str|int, dict) -> None
         """设置 slotPath 的 item UI"""
         if item and item.get('count'):
             self.__DoSetSlotItemUI(path, item)
         else:
-            self.GetBaseUIControl(f"{path}/item_renderer").SetVisible(False)
-            self.GetBaseUIControl(f"{path}/count_label").SetVisible(False)
-            self.GetBaseUIControl(f"{path}/durability_bar").SetVisible(False)
+            self.GetBaseUIControl(path + "/item_renderer").SetVisible(False)
+            self.GetBaseUIControl(path + "/count_label").SetVisible(False)
+            self.GetBaseUIControl(path + "/durability_bar").SetVisible(False)
 
     def __DoSetSlotItemUI(self, path, item):
+        # sourcery skip: use-fstring-for-concatenation
         self.__DoSetDurabilityBar(path, item)
         isEnchant = bool(item.get('enchatData'))
         userData = item.get('userData')
-        self.SetUiItem(f"{path}/item_renderer", item["newItemName"],
+        self.SetUiItem(path + "/item_renderer", item["newItemName"],
                        item["newAuxValue"], isEnchant, userData)
 
-        self.GetBaseUIControl(f"{path}/item_renderer").SetVisible(True)
+        self.GetBaseUIControl(path + "/item_renderer").SetVisible(True)
         countLabelControl = self.GetBaseUIControl(path +
                                                   "/count_label").asLabel()
         if item["count"] > 1:
@@ -428,8 +430,9 @@ class BaseInventoryScreen(BaseBlockScreen):
         maxDurability = basicInfo.get("maxDurability", 0)
         if maxDurability != 0:
             return currentDurability * 1.0 / maxDurability
+        return 1
 
-    def __HandleIdle(self):
+    def __HandleIdle(self, buttonPath):
         """处理默认按钮: 基础属性重置，不显示特殊图片"""
         self.clickInterval = 0
         self.heldTime = None
@@ -449,7 +452,7 @@ class BaseInventoryScreen(BaseBlockScreen):
         self.GetBaseUIControl(self.lastSelectedPath +
                               "/selected_image").SetVisible(True)
 
-    def __HandleUnSelected(self):
+    def __HandleUnSelected(self, buttonPath):
         """处理未被选中: 状态重置"""
         self.containerStateMachine.ResetToDefault()
 
@@ -462,8 +465,8 @@ class BaseInventoryScreen(BaseBlockScreen):
         swapData = SystemController.GetModClientSystem(
             modConfig.ClientSystemName_Workbench).CreateEventData()
         swapData["blockName"] = self.blockName
-        swapData["fromSlot"] = self._GetNameSlotByPath(self.lastSelectedPath)
-        swapData["toSlot"] = self._GetNameSlotByPath(buttonPath)
+        swapData["fromSlot"] = self._GetSlotNameByPath(self.lastSelectedPath)
+        swapData["toSlot"] = self._GetSlotNameByPath(buttonPath)
         swapData["playerId"] = SystemController.GetModClientSystem(
             modConfig.ClientSystemName_Workbench).GetPlayerId()
         swapData["fromItem"] = self._GetItemByPath(self.lastSelectedPath)
@@ -471,12 +474,12 @@ class BaseInventoryScreen(BaseBlockScreen):
         swapData["pos"] = self.pos
         swapData["dimensionId"] = self.dimensionId
         swapData["takePercent"] = self.takePercent
-        SystemController.GetModClientSystem(
-            modConfig.ClientSystemName_Workbench).NotifyToServer(
-                modConfig.ItemSwapClientEvent, swapData)
+        clientSystem = SystemController.GetModClientSystem(
+            modConfig.ClientSystemName_Workbench)
+        clientSystem.NotifyToServer(modConfig.ItemSwapClientEvent, swapData)
         self.containerStateMachine.ResetToDefault()
 
-    def __HandleDropAll(self):
+    def __HandleDropAll(self, buttonPath):
         # FIXME 无法触发
         """处理物品丢弃: 向服务端传入 ItemDropClientEvent 事件及 相关数据"""
         if not self.lastSelectedPath:
@@ -489,7 +492,7 @@ class BaseInventoryScreen(BaseBlockScreen):
             modConfig.ClientSystemName_Workbench).GetPlayerId()
         dropData["pos"] = self.pos
         dropData["dimensionId"] = self.dimensionId
-        dropData["slot"] = self._GetNameSlotByPath(self.lastSelectedPath)
+        dropData["slot"] = self._GetSlotNameByPath(self.lastSelectedPath)
         dropData["item"] = self._GetItemByPath(self.lastSelectedPath)
         SystemController.GetModClientSystem(
             modConfig.ClientSystemName_Workbench).NotifyToServer(
@@ -507,11 +510,11 @@ class BaseInventoryScreen(BaseBlockScreen):
              self.lastTouchPosition[1] - inventoryPanelPos[1] - 4))
         self.progressiveBarControl.SetVisible(True)
 
-    def __HandleTouchProgressiveComplete(self):
+    def __HandleTouchProgressiveComplete(self, buttonPath):
         """处理长按按钮分堆结束"""
         self.heldTime = None
 
-    def __HandleTouchProgressiveCancel(self):
+    def __HandleTouchProgressiveCancel(self, buttonPath):
         """处理取消长按后分堆"""
         self.containerStateMachine.ResetToDefault()
 
@@ -519,7 +522,7 @@ class BaseInventoryScreen(BaseBlockScreen):
         # sourcery skip: use-named-expression
         # type: (str) -> None
         """处理合堆"""
-        slotName = self._GetNameSlotByPath(buttonPath)
+        slotName = self._GetSlotNameByPath(buttonPath)
         if workbenchUtils.IsResultSlot(slotName):
             # 结果槽禁止进行合堆操作
             self.containerStateMachine.ResetToDefault()
@@ -529,7 +532,7 @@ class BaseInventoryScreen(BaseBlockScreen):
         newAuxValue = itemDict.get("newAuxValue", 0)
         itemInfo = itemComp.GetItemBasicInfo(newItemName, newAuxValue)
         if itemInfo:
-            self.__DoCoalesce(self, itemInfo, itemDict, buttonPath)
+            self.__DoCoalesce(itemInfo, itemDict, buttonPath)
         self.GetBaseUIControl(
             buttonPath.replace("/item_button", "") +
             "/selected_image").SetVisible(False)

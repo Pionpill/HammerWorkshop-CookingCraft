@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-31 16:58:49
-LastEditTime: 2022-08-02 21:20:19
+LastEditTime: 2022-08-05 16:06:49
 '''
 from hammerCookingScripts.common.data.recipe import bakingRecipes, cookingRecipes
 from hammerCookingScripts.common.entity.adapter import recipeAdapter
@@ -31,7 +31,7 @@ class Recipe(object):
         """根据配方名获取配方字典, 并转换为 materials: xx results:xx 格式"""
         rawRecipe = self.__recipes.get(recipeName)
         if rawRecipe:
-            return self.__recipeAdapter(recipeName, recipeName)
+            return self.__recipeAdapter(recipeName, rawRecipe)
         return
 
     def GetRecipeResults(self, recipeName):

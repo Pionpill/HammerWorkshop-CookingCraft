@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-04-25 16:15:57
-LastEditTime: 2022-07-23 17:43:08
+LastEditTime: 2022-08-04 14:46:39
 '''
 import time
 
@@ -22,7 +22,7 @@ compFactory = serverApi.GetEngineCompFactory()
 plantsUtils = PlantsFacade.GetPlantsUtils()
 
 
-class PlantsSystem(ServerSystem):
+class PlantsServerSystem(ServerSystem):
     def __init__(self, namespace, systemName):
         ServerSystem.__init__(self, namespace, systemName)
         self.levelId = serverApi.GetLevelId()

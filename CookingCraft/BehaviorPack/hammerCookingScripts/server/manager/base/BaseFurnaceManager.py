@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-26 16:32:09
-LastEditTime: 2022-08-02 21:19:35
+LastEditTime: 2022-08-06 00:47:31
 '''
 from copy import deepcopy
 
@@ -34,19 +34,13 @@ class BaseFurnaceManager(BaseWorkbenchManager):
         self.burnDuration = 0  # 可燃烧总时间，单位 tick
         self.producingProgress = 0
 
-    def ConvertFromBlockEntityData(self, entityDict):
-        # type: (dict) -> None
-        """将 BlockEntity 各槽位的数据存入管理类"""
-        for slotName, itemDict in entityDict:
-            self._ConvertToItemData(slotName, itemDict)
-
-    def ConvertToBlockEntityData(self):
+    def ConvertToSlotData(self):
         # type: () -> dict
-        """将管理类的数据转换为 BlockEntityData 数据"""
-        blockEntityDict = deepcopy(self.materialsItems)
-        blockEntityDict.update(self.fuelsItems)
-        blockEntityDict.update(self.resultsItems)
-        return blockEntityDict
+        """将管理类的数据转换为 dict 数据"""
+        slotData = deepcopy(self.materialsItems)
+        slotData.update(self.fuelsItems)
+        slotData.update(self.resultsItems)
+        return slotData
 
     def UpdateItemData(self, slotName, itemDict):
         # type: (str,dict) -> None
@@ -57,7 +51,7 @@ class BaseFurnaceManager(BaseWorkbenchManager):
         # type: (str) -> bool
         """判断槽位是否可以放置物品"""
         return all(
-            slot.startswith(self.materialSlotPrefix)
+            isinstance(slot, int) or slot.startswith(self.materialSlotPrefix)
             or slot.startswith(self.fuelSlotPrefix) for slot in slotName)
 
     def Tick(self):
@@ -124,6 +118,12 @@ class BaseFurnaceManager(BaseWorkbenchManager):
             shouldRefresh = True
         return shouldRefresh
 
+    def GetAllSlotName(self):
+        # type: () -> list
+        """获取所有槽名，用于作为字典的键"""
+        return self.materialsItems.keys() + self.resultsItems.keys(
+        ) + self.fuelsItems.keys()
+
     def GetFuelBurnDuration(self):  # sourcery skip: use-named-expression
         # type: () -> tuple
         """遍历 fuelsItems 获取燃料可燃烧 tick 数 (keyName: str, duration: int)"""
@@ -163,9 +163,12 @@ class BaseFurnaceManager(BaseWorkbenchManager):
             itemDict = self.resultsItems
         else:
             raise KeyError
-        if itemDict[slotName]["count"] >= count:
-            itemDict[slotName]["count"] -= count
-            if itemDict[slotName]["count"] == 0:
-                itemDict[slotName] = None
+        item = itemDict.get(slotName)
+        if not item:
+            return
+        if item["count"] >= count:
+            item["count"] -= count
+            if item["count"] == 0:
+                item = None
         else:
             logger.debug("{0} 数量不足以自减 {1}".format(slotName, count))

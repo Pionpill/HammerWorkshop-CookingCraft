@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-17 15:46:37
-LastEditTime: 2022-07-30 16:26:28
+LastEditTime: 2022-08-05 13:41:18
 '''
 import mod.server.extraServerApi as serverApi
 
@@ -21,7 +21,7 @@ def GetBlockName(levelId, pos, dimensionId):
 
 
 def GetBlockEntityData(pos, dimensionId, id):
-    # type: (tuple, int, int) -> dict
+    # type: (tuple, int, int) -> BlockEntityData
     """
     获取方块信息字典
     id 可以是 playerId, levelId
@@ -30,8 +30,8 @@ def GetBlockEntityData(pos, dimensionId, id):
     return blockEntityComp.GetBlockEntityData(dimensionId, pos)
 
 
-def GetBlockInfo(pos, id):
-    # type: (tuple, int) -> Dict
+def GetBlockInfo(pos, dimensionId, id):
+    # type: (tuple,int, int) -> Dict
     """获取方块信息数据"""
     blockComp = compFactory.CreateBlockInfo(id)
-    return blockComp.GetBlockNew(pos)
+    return blockComp.GetBlockNew(pos, dimensionId)

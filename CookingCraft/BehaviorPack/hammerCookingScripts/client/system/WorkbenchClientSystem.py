@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-31 13:22:33
-LastEditTime: 2022-08-03 15:25:21
+LastEditTime: 2022-08-05 15:50:36
 '''
 import mod.client.extraClientApi as clientApi
 from hammerCookingScripts.common import modConfig
@@ -15,7 +15,7 @@ ClientSystem = clientApi.GetClientSystemCls()
 compFactory = clientApi.GetEngineCompFactory()
 
 
-class WorkbenchSystem(ClientSystem):
+class WorkbenchClientSystem(ClientSystem):
     def __init__(self, namespace, systemName):
         ClientSystem.__init__(self, namespace, systemName)
         self.playerId = clientApi.GetLocalPlayerId()

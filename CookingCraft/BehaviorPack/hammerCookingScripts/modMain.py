@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-03-29 12:47:55
-LastEditTime: 2022-05-30 16:51:25
+LastEditTime: 2022-08-04 14:50:28
 '''
 
 # -*- coding: utf-8 -*-
@@ -34,7 +34,7 @@ class CookingCraft(object):
 
     @Mod.DestroyServer()
     def ServerDestroy(self):
-        logger.info("CookingCraft Server Destory")
+        logger.info("CookingCraft Server Destroy")
 
     @Mod.InitClient()
     def ClientInit(self):

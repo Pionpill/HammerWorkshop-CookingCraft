@@ -4,12 +4,11 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-04-13 18:19:57
-LastEditTime: 2022-08-03 14:42:52
+LastEditTime: 2022-08-05 15:53:25
 '''
 from hammerCookingScripts import logger
 from hammerCookingScripts.common import modConfig
 from hammerCookingScripts.common.facade import WorkbenchFacade
-from hammerCookingScripts.client.ui.base.BaseInventoryScreen import BaseInventoryScreen
 import mod.client.extraClientApi as clientApi
 
 ScreenNode = clientApi.GetScreenNodeCls()
@@ -21,10 +20,11 @@ class UIController(object):
     layer = 25123
 
     @classmethod
-    def InitAllUI(cls):
+    def InitAllUI(cls, args):
         """初始化所有 UI"""
         cls.Clear()
         blockNames = cls.UIProxy.GetAllUIBlockName()
+        logger.info("=====注册UI界面=====")
         for blockName in blockNames:
             cls.__InitUI(blockName)
 
@@ -35,8 +35,9 @@ class UIController(object):
         uiName = cls.UIProxy.GetName(blockName)
         uiClassPath = cls.UIProxy.GetClassPath(blockName)
         uiScreenDef = cls.UIProxy.GetScreenDef(blockName)
-        clientApi.RegisterUI(modConfig.ModName, uiName, uiClassPath,
-                             uiScreenDef)
+        if clientApi.RegisterUI(modConfig.ModName, uiName, uiClassPath,
+                                uiScreenDef):
+            logger.info("成功注册 {0} 界面".format(blockName))
 
     @classmethod
     def GetUINode(cls, blockName):  # sourcery skip: use-named-expression
@@ -61,6 +62,7 @@ class UIController(object):
         uiNode = clientApi.CreateUI(modConfig.ModName, uiName, {'isHub': 1})
         uiNode.SetLayer("", cls.layer)
         cls.UIDict[uiName] = uiNode
+        logger.debug("创建 {0} 的 UI 节点".format(blockName))
         return uiNode
 
     @classmethod

@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-26 19:15:11
-LastEditTime: 2022-08-03 20:05:35
+LastEditTime: 2022-08-06 00:57:56
 '''
 from abc import abstractmethod
 from copy import deepcopy
@@ -26,32 +26,28 @@ class BaseCraftingManager(BaseWorkbenchManager):
         """
         return
 
-    def CanSlotSet(self, slotName):
+    def CanSlotSet(self, *slotName):
         # type: (str) -> bool
         """判断槽位是否可以放置物品"""
         return all(
-            slot.startswith(self.materialSlotPrefix) for slot in slotName)
-
-    def ConvertFromBlockEntityData(self, entityDict):
-        # type: (dict) -> None
-        """将 BlockEntity 各槽位的数据存入管理类"""
-        for slotName, itemDict in entityDict:
-            self._ConvertToItemData(slotName, itemDict)
+            isinstance(slot, int) or slot.startswith(self.materialSlotPrefix)
+            for slot in slotName)
 
     def UpdateItemData(self, slotName, itemDict):
         # type: (str,dict) -> None
         """更新方块的物品数据"""
         self._ConvertToItemData(slotName, itemDict)
 
-    def ConvertToBlockEntityData(self):
+    def ConvertToSlotData(self):
         # type: () -> dict
         """将管理类的数据转换为 BlockEntityData 数据"""
-        return deepcopy(self.materialsItems)
+        slotData = deepcopy(self.materialsItems)
+        slotData.update(self.resultsItems)
+        return slotData
 
     def Reset(self):
         # type: () -> dict
         """工作台重置，所有槽位返回原始状态，返回原材料操的所有物品作为掉落物"""
-        spawnItems = self.materialsItems
         self.materialsItems = {
             self.materialSlotPrefix + str(i): None
             for i in range(self.slotNum.get(self.materialSlotPrefix))
@@ -60,7 +56,6 @@ class BaseCraftingManager(BaseWorkbenchManager):
             self.resultSlotPrefix + str(i): None
             for i in range(self.slotNum.get(self.resultSlotPrefix))
         }
-        return spawnItems
 
     def GetMaterialsItems(self):
         # type: () -> dict
@@ -76,6 +71,11 @@ class BaseCraftingManager(BaseWorkbenchManager):
             self.resultSlotPrefix + str(i): None
             for i in range(self.slotNum.get(self.resultSlotPrefix))
         }
+
+    def GetAllSlotName(self):
+        # type: () -> list
+        """获取所有槽名，用于作为字典的键"""
+        return self.materialsItems.keys() + self.resultsItems.keys()
 
     def _ConvertToItemData(self, slotName, itemDict):
         # type: (str,dict) -> None

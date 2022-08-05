@@ -4,10 +4,12 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-21 23:40:29
-LastEditTime: 2022-07-31 17:49:39
+LastEditTime: 2022-08-06 01:03:44
 '''
 from hammerCookingScripts.common.proxy.base.BaseRecipeProxy import \
     BaseRecipeProxy
+from hammerCookingScripts import logger
+from hammerCookingScripts.common.utils import workbenchUtils
 
 
 class BaseCraftingRecipeProxy(BaseRecipeProxy):
@@ -32,8 +34,10 @@ class BaseCraftingRecipeProxy(BaseRecipeProxy):
     def MatchRecipe(self, blockItems, matchNum=9):
         # type: (dict, int) -> dict
         """匹配配方，返回配方结果; 默认匹配 9 次"""
-        for recipeName, _ in self._recipe.GetAllRecipeName():
+        # logger.debug(blockItems)
+        for recipeName in self._recipe.GetAllRecipeName():
             materials = self._GetRecipeMaterials(recipeName)
+            # logger.debug(materials)
             matchCount = 0
             for slotName, materialItem in materials.items():
                 matchCount += 1
@@ -44,4 +48,7 @@ class BaseCraftingRecipeProxy(BaseRecipeProxy):
                     self._lastUsedRecipeName = recipeName
                     return self._GetRecipeResults(recipeName)
         self._lastUsedRecipeName = None
-        return
+        return {
+            workbenchUtils.GetResultSlotPrefix() + str(id): None
+            for id in range(self.GetResultsSlotNum())
+        }

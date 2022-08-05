@@ -4,10 +4,10 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-23 17:57:59
-LastEditTime: 2022-07-31 16:56:39
+LastEditTime: 2022-08-04 14:53:46
 '''
 from hammerCookingScripts.common.factory import WorkbenchFactory
-from hammerCookingScripts.common.factory import UIController
+from hammerCookingScripts.common.factory import UIFactory
 from hammerCookingScripts.common.proxy import UIProxy
 from hammerCookingScripts.common.proxy.base import BaseFurnaceRecipeProxy
 
@@ -21,4 +21,4 @@ class WorkbenchFacade(object):
     @staticmethod
     def GetUIProxy():
         # type: () -> UIProxy
-        return UIController.GetUIProxy()
+        return UIFactory.GetUIProxy()

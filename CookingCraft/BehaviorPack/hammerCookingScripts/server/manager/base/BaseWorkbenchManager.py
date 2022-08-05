@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-25 22:40:39
-LastEditTime: 2022-08-02 21:18:48
+LastEditTime: 2022-08-06 01:14:39
 '''
 from abc import abstractmethod
 
@@ -66,7 +66,9 @@ class BaseWorkbenchManager(object):
     def ConvertFromBlockEntityData(self, entityDict):
         # type: (dict) -> None
         """将 BlockEntity 各槽位的数据存入管理类"""
-        raise NotImplementedError
+        if entityDict:
+            for slotName in self.GetAllSlotName():
+                self._ConvertToItemData(slotName, entityDict[slotName])
 
     @abstractmethod
     def UpdateItemData(self, slotName, itemDict):
@@ -74,15 +76,24 @@ class BaseWorkbenchManager(object):
         """更新方块的物品数据"""
 
     @abstractmethod
-    def ConvertToBlockEntityData(self):
+    def ConvertToSlotData(self):
         # type: () -> dict
         """将管理类的数据转换为 BlockEntityData 数据"""
         raise NotImplementedError
 
     @abstractmethod
-    def CanSlotSet(self):
-        # type: () -> None
-        """判断槽位是否可以防止物品"""
+    def GetAllSlotName(self):
+        # type: () -> list
+        """获取所有槽名，用于作为字典的键"""
+        raise NotImplementedError
+
+    @abstractmethod
+    def _ConvertToItemData(self, slotName, itemDict):
+        # type: (str,dict) -> None
+        """
+        更新方块的物品数据
+        仅提取 prefix 符合的数据
+        """
         raise NotImplementedError
 
     def _IsEmptySlotDict(self, slotDict):
@@ -101,7 +112,6 @@ class BaseWorkbenchManager(object):
         return slotName[:count]
 
     def _CanProduce(self):
-        # type: () -> bool
         """
         判断是否可以生产:
         存在原材料 and 存在原材料对应的配方 and 生成槽没可以增加物品
@@ -109,11 +119,8 @@ class BaseWorkbenchManager(object):
         if not self.materialsItems:
             return False
         recipeResultsItems = self.proxy.MatchRecipe(self.materialsItems)
-        if not recipeResultsItems:
-            return False
-        if not self.resultsItems or self.__CanResultsSlotAdd():
-            return True
-        return False
+        return bool(not self.resultsItems or
+                    self.__CanResultsSlotAdd()) if recipeResultsItems else False
 
     def _ItemReduce(self, slotName, count=1):
         # type: (str,int) -> None
@@ -125,10 +132,13 @@ class BaseWorkbenchManager(object):
             itemDict = self.resultsItems
         else:
             raise KeyError
-        if itemDict[slotName]["count"] >= count:
-            itemDict[slotName]["count"] -= count
-            if itemDict[slotName]["count"] == 0:
-                itemDict[slotName] = None
+        item = itemDict[slotName]
+        if not item:
+            return
+        if item["count"] >= count:
+            item["count"] -= count
+            if item["count"] == 0:
+                item = None
         else:
             logger.debug("{0} 数量不足以自减 {1}".format(slotName, count))
 
@@ -163,8 +173,14 @@ class BaseWorkbenchManager(object):
         # type: () -> None
         """原材料表物品消耗"""
         recipeMaterialsItems = self.proxy.GetLastUsedRecipeMaterials()
-        for slotName, _ in recipeMaterialsItems.items():
-            self._ItemReduce(slotName)
+        logger.debug(recipeMaterialsItems)
+        if recipeMaterialsItems is None:
+            return
+        for slotName, itemDict in recipeMaterialsItems.items():
+            if itemDict is None:
+                continue
+            count = itemDict.get("count")
+            self._ItemReduce(slotName, count)
 
     def _ProduceResultsItems(self):
         # type: () -> None
