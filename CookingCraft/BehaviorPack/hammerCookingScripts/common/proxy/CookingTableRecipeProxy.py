@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-23 16:14:17
-LastEditTime: 2022-08-06 00:36:14
+LastEditTime: 2022-08-06 13:26:20
 '''
 from hammerCookingScripts.common.data.recipe import cookingRecipes
 from hammerCookingScripts.common.proxy.base import BaseCraftingRecipeProxy

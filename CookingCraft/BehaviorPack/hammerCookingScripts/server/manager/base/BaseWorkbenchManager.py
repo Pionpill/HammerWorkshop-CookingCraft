@@ -4,9 +4,10 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-25 22:40:39
-LastEditTime: 2022-08-06 01:14:39
+LastEditTime: 2022-08-06 14:12:50
 '''
 from abc import abstractmethod
+from copy import deepcopy
 
 from hammerCookingScripts import logger
 from hammerCookingScripts.common import modConfig
@@ -159,21 +160,25 @@ class BaseWorkbenchManager(object):
         # type: () -> bool
         """判断产物是否能添加到结果槽"""
         recipeResultsItems = self.proxy.GetLastUsedRecipeResults()
+        if not recipeResultsItems:
+            return False
         for slotName, itemDict in recipeResultsItems.items():
             resultsItem = self.resultsItems.get(slotName)
             if resultsItem and not itemUtils.IsSameItem(resultsItem, itemDict):
                 return False
         # 判断结果槽物品是否到达上限
-        return all(
-            itemDict.get("count") >= recipeResultsItems.get(slotName).get(
-                "maxStackSize", modConfig.MAX_STACK_SIZE)
-            for slotName, itemDict in self.resultsItems.items())
+        for slotName, itemDict in self.resultsItems.items():
+            if itemDict is None:
+                continue
+            if itemDict.get("count") >= recipeResultsItems.get(slotName).get(
+                    "maxStackSize", modConfig.MAX_STACK_SIZE):
+                return False
+        return True
 
     def _ConsumeMaterialsItems(self):
         # type: () -> None
         """原材料表物品消耗"""
         recipeMaterialsItems = self.proxy.GetLastUsedRecipeMaterials()
-        logger.debug(recipeMaterialsItems)
         if recipeMaterialsItems is None:
             return
         for slotName, itemDict in recipeMaterialsItems.items():
@@ -191,3 +196,8 @@ class BaseWorkbenchManager(object):
                 self.resultsItems[slotName] = itemDict
             else:
                 self.resultsItems[slotName]["count"] += 1
+
+    def __str__(self):
+        strDict = deepcopy(self.materialsItems)
+        strDict.update(self.resultsItems)
+        return strDict.__str__()

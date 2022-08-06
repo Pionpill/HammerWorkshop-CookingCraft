@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-27 22:54:59
-LastEditTime: 2022-08-06 00:58:40
+LastEditTime: 2022-08-06 14:06:01
 '''
 
 from copy import deepcopy
@@ -54,10 +54,10 @@ class WorkbenchController(object):
 
     @classmethod
     def IsPositionBlockUsing(cls, pos, dimensionId):
-        # type: (tuple, int) -> bool
         """判断某个位置的方块是否正在被使用"""
-        curOpenedBlockInfo = cls.curOpenedBlock.values()
-        return pos in curOpenedBlockInfo and dimensionId in curOpenedBlockInfo
+        return any(pos == curOpenedBlockInfo.get("pos")
+                   and dimensionId == curOpenedBlockInfo["dimensionId"]
+                   for curOpenedBlockInfo in cls.curOpenedBlock.values())
 
     @classmethod
     def GetOpeningPlayerList(cls):
@@ -96,12 +96,14 @@ class WorkbenchController(object):
     def FormFurnaceData(cls, blockName, pos, dimensionId, levelId):
         # type: (str, tuple, int, int) -> dict
         """生成 furnace 的 workbenchData"""
-        workbenchSlotData = cls.GetBlockSlotData(blockName, pos, dimensionId,
-                                                 levelId)
         exaPos = pos + (dimensionId, )
         WBManager = WorkbenchFactory.GetWorkbenchManager(exaPos)
         isBurning = WBManager.IsBurning()
-        burnDuration = WBManager.GetFuelBurnDuration()
+        burnDurationTuple = WBManager.GetFuelBurnDuration()
+        if not burnDurationTuple:
+            burnDuration = 0
+        else:
+            burnDuration = burnDurationTuple[-1]
         isProducing = WBManager.IsProducing()
         if WBManager.IsUIInit():
             WBManager.UIInit()
@@ -110,7 +112,6 @@ class WorkbenchController(object):
                 pos,
                 dimensionId,
                 levelId,
-                workbenchSlotData,
                 isBurning=isBurning,
                 burnDuration=burnDuration,
                 isProducing=isProducing)
@@ -119,7 +120,6 @@ class WorkbenchController(object):
             pos,
             dimensionId,
             levelId,
-            workbenchSlotData,
             isBurning=isBurning,
             burnDuration=burnDuration,
             isProducing=isProducing,

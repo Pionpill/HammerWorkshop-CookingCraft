@@ -16,10 +16,13 @@ LastEditors: Pionpill
 Date: 2022-08-03 14:36:13
 LastEditTime: 2022-08-03 19:48:50
 '''
+import mod.client.extraClientApi as clientApi
 from hammerCookingScripts.client.ui.base.BaseInventoryScreen import BaseInventoryScreen
 from hammerCookingScripts.client.controller import SystemController
 from hammerCookingScripts.client.utils import pathUtils
 from hammerCookingScripts.common import modConfig
+
+compFactory = clientApi.GetEngineCompFactory()
 
 
 class BaseFurnaceScreen(BaseInventoryScreen):
@@ -88,7 +91,7 @@ class BaseFurnaceScreen(BaseInventoryScreen):
         for key, value in workbenchData.items():
             if key == "burnDuration":
                 if value != self.burnDuration:
-                    self.burnDuration = workbenchData["burnDuration"]
+                    self.burnDuration = value
                     self.burnProgress = 0
             elif key == "burnProgress":
                 self.burnProgress = value
@@ -104,3 +107,17 @@ class BaseFurnaceScreen(BaseInventoryScreen):
                     self.slotManager.SetSlotInfo(slotName,
                                                  slotInfo=(slotPath, itemDict))
                     self._SetSlotUI(slotPath, itemDict)
+
+    def _OnCloseBthTouchUp(self, args):
+        # type: (dict) -> None
+        """
+        1. 向服务端传递界面关闭事件
+        2. 关闭UI界面
+        """
+        clientSystem = SystemController.GetModClientSystem(
+            modConfig.ClientSystemName_Workbench)
+        eventData = {"playerId": clientSystem.GetPlayerId()}
+        clientSystem.NotifyToServer(modConfig.CloseInventoryEvent, eventData)
+        # 延迟 0.1s 关闭界面
+        gameComp = compFactory.CreateGame(clientApi.GetLevelId())
+        gameComp.AddTimer(0.1, self.CloseUI())

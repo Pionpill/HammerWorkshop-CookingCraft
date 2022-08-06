@@ -193,10 +193,11 @@ class WorkbenchServerSystem(ServerSystem):
         # 如果当前ui界面打开则通知客户端更新UI
         for playerId in WorkbenchController.GetOpeningPlayerList():
             if WorkbenchController.IsPositionBlockUsing(pos, dimensionId):
+                self.__UpdateBlockEntitySlotData(pos, dimensionId, blockName)
                 self.__UpdateWorkbenchUI(playerId, blockName, pos, dimensionId)
                 break
 
-    def OnItemSwap(self, swapData):
+    def OnItemSwap(self, swapData):  # sourcery skip: use-named-expression
         # type: (dict) -> None
         """物品交换"""
         fromSlot, toSlot = swapData["fromSlot"], swapData["toSlot"]
@@ -227,6 +228,7 @@ class WorkbenchServerSystem(ServerSystem):
 
     def __DoHandleItemSwapData(self, fromSlot, fromItem, toSlot, toItem,
                                takePercent, playerId, pos, dimensionId):
+        # sourcery skip: use-named-expression
         """处理物品交换逻辑并修正一些数据"""
         # type: (int/str, dict, int/str, dict, float, int) -> tuple
         if isinstance(toSlot, int):
@@ -488,7 +490,8 @@ class WorkbenchServerSystem(ServerSystem):
             blockName = blockInfo.get("blockName")
             self.__UpdateBlockEntitySlotData(pos, dimensionId, blockName)
             self.__UpdateInventoryUI(playerId, blockName)
-        self.__MatchCraftingRecipe(playerId, blockName, dimensionId, pos)
+        if workbenchUtils.IsCraftingBlock(blockName):
+            self.__MatchCraftingRecipe(playerId, blockName, dimensionId, pos)
 
     def __UpdateBlockEntitySlotData(self, pos, dimensionId, blockName=None):
         # type: (tuple, int, str) -> None
@@ -510,7 +513,6 @@ class WorkbenchServerSystem(ServerSystem):
         resultsItems = WBManager.MatchRecipe()
         if not resultsItems:
             return
-        logger.debug(resultsItems)
         blockEntityData = blockUtils.GetBlockEntityData(pos, dimensionId,
                                                         self.levelId)
         for slotName, slotItem in resultsItems.items():

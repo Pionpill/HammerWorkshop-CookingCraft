@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-26 16:32:09
-LastEditTime: 2022-08-06 00:47:31
+LastEditTime: 2022-08-06 14:12:48
 '''
 from copy import deepcopy
 
@@ -172,3 +172,9 @@ class BaseFurnaceManager(BaseWorkbenchManager):
                 item = None
         else:
             logger.debug("{0} 数量不足以自减 {1}".format(slotName, count))
+
+    def __str__(self):
+        strDict = deepcopy(self.materialsItems)
+        strDict.update(self.resultsItems)
+        strDict.update(self.fuelsItems)
+        return strDict.__str__()

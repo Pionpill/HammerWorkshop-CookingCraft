@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-21 23:40:29
-LastEditTime: 2022-08-06 01:03:44
+LastEditTime: 2022-08-06 13:56:48
 '''
 from hammerCookingScripts.common.proxy.base.BaseRecipeProxy import \
     BaseRecipeProxy
@@ -34,10 +34,8 @@ class BaseCraftingRecipeProxy(BaseRecipeProxy):
     def MatchRecipe(self, blockItems, matchNum=9):
         # type: (dict, int) -> dict
         """匹配配方，返回配方结果; 默认匹配 9 次"""
-        # logger.debug(blockItems)
         for recipeName in self._recipe.GetAllRecipeName():
             materials = self._GetRecipeMaterials(recipeName)
-            # logger.debug(materials)
             matchCount = 0
             for slotName, materialItem in materials.items():
                 matchCount += 1
