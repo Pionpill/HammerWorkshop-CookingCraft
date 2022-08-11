@@ -135,5 +135,9 @@
     "netease_model": "cookingcraft:fence_post",
     "sound": "wood"
   },
+  "cookingcraft:mill": {
+    "netease_model": "cookingcraft:mill",
+    "sound": "stone"
+  },
   "format_version": [1, 1, 0]
 }

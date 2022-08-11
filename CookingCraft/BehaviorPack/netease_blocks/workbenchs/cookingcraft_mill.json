@@ -2,7 +2,7 @@
   "format_version": "1.16",
   "minecraft:block": {
     "description": {
-      "identifier": "cookingcraft:baking_furnace",
+      "identifier": "cookingcraft:mill",
       "register_to_creative_menu": true,
       "category": "cooking_craft"
     },
@@ -10,7 +10,7 @@
       "minecraft:map_color": "#515151",
       "minecraft:block_light_emission": 0,
       "minecraft:explosion_resistance": 3,
-      "minecraft:loot": "loot_tables/blocks/cookingcraft_baking_furnace.json",
+      "minecraft:loot": "loot_tables/blocks/cookingcraft_mill.json",
       "minecraft:destroy_time": 3,
       "netease:tier": {
         "digger": "pickaxe",
@@ -23,11 +23,11 @@
       "minecraft:block_light_absorption": 0.0,
       "netease:aabb": {
         "collision": {
-          "min": [-1, 0, 0],
-          "max": [1, 1, 1]
+          "min": [0, 0, 0],
+          "max": [1, 0.6, 1]
         },
         "clip": {
-          "min": [-1.0, 0.0, 0.0],
+          "min": [0.0, 0.0, 0.0],
           "max": [1.0, 1, 1.0]
         }
       },

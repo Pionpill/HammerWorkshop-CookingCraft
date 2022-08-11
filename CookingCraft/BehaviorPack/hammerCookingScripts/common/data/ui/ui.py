@@ -5,7 +5,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-31 13:49:04
-LastEditTime: 2022-08-01 12:21:47
+LastEditTime: 2022-08-11 15:03:11
 '''
 uiDirPath = "hammerCookingScripts.client.ui."
 
@@ -19,5 +19,10 @@ UI_DEFS = {
         "name": "baking_furnace_screen",
         "classPath": uiDirPath + "BakingFurnaceScreen.BakingFurnaceScreen",
         "screenDef": "baking_furnace_screen.main"
+    },
+    "cookingcraft:mill": {
+        "name": "mill_screen",
+        "classPath": uiDirPath + "MillScreen.MillScreen",
+        "screenDef": "mill_screen.main"
     }
 }

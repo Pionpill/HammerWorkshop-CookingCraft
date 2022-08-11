@@ -17,6 +17,7 @@ compFactory = serverApi.GetEngineCompFactory()
 
 
 class WorkbenchServerSystem(ServerSystem):
+
     def __init__(self, namespace, systemName):
         ServerSystem.__init__(self, namespace, systemName)
         self.ListenWorkbenchEvent()
@@ -165,24 +166,25 @@ class WorkbenchServerSystem(ServerSystem):
         3. 根据 Tick 返回值决定是否要更新客户端 UI
         """
         blockName = args["blockName"]
-        if blockName not in modConfig.WorkbenchBlocks:
+        if not workbenchUtils.IsWorkbenchBlock(blockName):
             return
         pos = (args["posX"], args["posY"], args["posZ"])
         dimensionId = args["dimension"]
-        WBManager = self.__DoGetNewWorkbenchManager(blockName, pos, dimensionId)
-        if WBManager.Tick():
+        WorkbenchMgr = self.__DoGetNewWorkbenchManager(blockName, pos,
+                                                       dimensionId)
+        if WorkbenchMgr.Tick():
             self.__DoUpdateUI(blockName, pos, dimensionId)
 
     def __DoGetNewWorkbenchManager(self, blockName, pos, dimensionId):
         # type: (str, tuple, int) -> manager
         """尝试获取一个新的 manager，如果不存在，则创建并初始化槽数据"""
         blockKey = pos + (dimensionId, )
-        WBManager = WorkbenchFactory.GetWorkbenchManager(blockKey, blockName)
-        if not WBManager.IsDataInit():
+        WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(blockKey, blockName)
+        if not WorkbenchMgr.IsDataInit():
             blockEntityData = blockUtils.GetBlockEntityData(
                 pos, dimensionId, self.levelId)
-            WBManager.DataInit(blockEntityData)
-        return WBManager
+            WorkbenchMgr.DataInit(blockEntityData)
+        return WorkbenchMgr
 
     def __DoUpdateUI(self, blockName, pos, dimensionId):
         # type: (str, tuple, int) -> None
@@ -236,8 +238,9 @@ class WorkbenchServerSystem(ServerSystem):
         if isinstance(fromSlot, int):
             fromItem = serverItemUtils.GetPlayerInventoryItem(
                 playerId, fromSlot)
-        WBManager = WorkbenchFactory.GetWorkbenchManager(pos + (dimensionId, ))
-        slotData = WBManager.ConvertToSlotData()
+        WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(pos +
+                                                            (dimensionId, ))
+        slotData = WorkbenchMgr.ConvertToSlotData()
         if slotData:
             if isinstance(fromSlot, str):
                 fromItem = slotData.get(fromSlot)
@@ -335,8 +338,8 @@ class WorkbenchServerSystem(ServerSystem):
         # type: (str|int, dict, str|int, dict, tuple, int, int) -> bool
         """工作台与背包物品交换"""
         blockKey = pos + (dimensionId, )
-        WBManager = WorkbenchFactory.GetWorkbenchManager(blockKey)
-        if not WBManager.CanSlotSet(toSlot):
+        WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(blockKey)
+        if not WorkbenchMgr.CanSlotSet(toSlot):
             logger.info("结果槽位无法交换")
             return False
         itemComp = compFactory.CreateItem(playerId)
@@ -345,20 +348,20 @@ class WorkbenchServerSystem(ServerSystem):
         # 从工作台取出物品到背包
         if isinstance(toSlot, int):
             # 从生成槽获取物品
-            if not WBManager.CanSlotSet(fromSlot):
+            if not WorkbenchMgr.CanSlotSet(fromSlot):
                 # 从生成槽取出物品时，只能在目标槽位为空时才可以取出
                 if toItem and not itemUtils.IsSameItem(fromItem, toItem):
                     return False
-                newWorkbenchItems = WBManager.MatchRecipe()
+                newWorkbenchItems = WorkbenchMgr.MatchRecipe()
                 for slotName, slotItem in newWorkbenchItems.items():
                     blockEntityData[slotName] = slotItem
             else:
-                WBManager.UpdateItemData(fromSlot, toItem)
+                WorkbenchMgr.UpdateItemData(fromSlot, toItem)
                 blockEntityData[fromSlot] = toItem
             itemComp.SpawnItemToPlayerInv(fromItem, playerId, toSlot)
         # 从背包到工作台
         else:
-            WBManager.UpdateItemData(toSlot, fromItem)
+            WorkbenchMgr.UpdateItemData(toSlot, fromItem)
             blockEntityData[toSlot] = fromItem
             if toItem:
                 itemComp.SpawnItemToPlayerInv(toItem, playerId, fromSlot)
@@ -371,12 +374,12 @@ class WorkbenchServerSystem(ServerSystem):
         # type: (str, dict, str, dict, tuple, int) -> bool
         """工作台内部物品交换"""
         blockKey = pos + (dimensionId, )
-        WBManager = WorkbenchFactory.GetWorkbenchManager(blockKey)
+        WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(blockKey)
         # 原材料与生成物不能交换
-        if not WBManager.CanSlotSet(fromSlot, toSlot):
+        if not WorkbenchMgr.CanSlotSet(fromSlot, toSlot):
             return False
-        WBManager.UpdateItemData(toSlot, fromItem)
-        WBManager.UpdateItemData(fromSlot, toItem)
+        WorkbenchMgr.UpdateItemData(toSlot, fromItem)
+        WorkbenchMgr.UpdateItemData(fromSlot, toItem)
         self.__UpdateBlockEntitySlotData(pos, dimensionId)
         return True
 
@@ -407,8 +410,8 @@ class WorkbenchServerSystem(ServerSystem):
         blockKey = pos + (dimensionId, )
         blockEntityData = blockUtils.GetBlockEntityData(pos, dimensionId,
                                                         self.levelId)
-        WBManager = WorkbenchFactory.GetWorkbenchManager(blockKey)
-        WBManager.UpdateItemData(slotName, None)
+        WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(blockKey)
+        WorkbenchMgr.UpdateItemData(slotName, None)
         blockEntityData[slotName] = None
 
     def OnCloseWorkbenchUI(self, args):
@@ -460,9 +463,9 @@ class WorkbenchServerSystem(ServerSystem):
         3. 重置blockEntityData数据
         """
         blockKey = pos + (dimensionId, )
-        WBManager = WorkbenchFactory.GetWorkbenchManager(blockKey, blockName)
-        materialsItems = WBManager.GetMaterialsItems()
-        WBManager.Reset()
+        WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(blockKey, blockName)
+        materialsItems = WorkbenchMgr.GetMaterialsItems()
+        WorkbenchMgr.Reset()
         itemComp = compFactory.CreateItem(playerId)
         for materialItem in materialsItems.values():
             if materialItem is not None:
@@ -480,8 +483,8 @@ class WorkbenchServerSystem(ServerSystem):
         playerId, pos = event["playerId"], event["pos"]
         dimensionId = event["dimensionId"]
         blockKey = pos + (dimensionId, )
-        WBManager = WorkbenchFactory.GetWorkbenchManager(blockKey)
-        WBManager.Produce()
+        WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(blockKey)
+        WorkbenchMgr.Produce()
 
         itemComp = compFactory.CreateItem(playerId)
         itemComp.SpawnItemToPlayerInv(event["item"], playerId)
@@ -498,8 +501,8 @@ class WorkbenchServerSystem(ServerSystem):
         """根据管理类更新 blockEntity 的槽数据"""
         # sourcery skip: use-named-expression
         blockKey = pos + (dimensionId, )
-        WBManager = WorkbenchFactory.GetWorkbenchManager(blockKey, blockName)
-        newSlotData = WBManager.ConvertToSlotData()
+        WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(blockKey, blockName)
+        newSlotData = WorkbenchMgr.ConvertToSlotData()
         blockEntityData = blockUtils.GetBlockEntityData(pos, dimensionId,
                                                         self.levelId)
         for slotName, itemDict in newSlotData.items():
@@ -508,9 +511,9 @@ class WorkbenchServerSystem(ServerSystem):
     def __MatchCraftingRecipe(self, playerId, blockName, dimensionId, pos):
         # type: (int, str, int, tuple, dict) -> None
         """匹配工作台配方，如果能合成新的产品，向客户端发送事件"""
-        WBManager = WorkbenchFactory.GetWorkbenchManager(
+        WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(
             pos + (dimensionId, ), blockName)
-        resultsItems = WBManager.MatchRecipe()
+        resultsItems = WorkbenchMgr.MatchRecipe()
         if not resultsItems:
             return
         blockEntityData = blockUtils.GetBlockEntityData(pos, dimensionId,

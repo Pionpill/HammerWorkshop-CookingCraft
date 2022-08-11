@@ -5,7 +5,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-23 00:16:40
-LastEditTime: 2022-08-01 00:55:20
+LastEditTime: 2022-08-11 16:20:17
 '''
 from hammerCookingScripts import logger
 
@@ -20,6 +20,10 @@ def BakingFurnaceRecipeAdapter(recipeName, rawRecipeDict):
     # type: (str,dict) -> dict
     """cookingcraft:baking_furnace 的配方调试器"""
     return __FurnaceRecipeAdapter(recipeName, rawRecipeDict)
+
+
+def MillRecipeAdapter(recipeName, rawRecipeDict):
+    return __FurnaceRecipeAdapter(recipeName, rawRecipeDict, 1, 2)
 
 
 def __CraftingRecipeAdapter(recipeName,
@@ -49,9 +53,11 @@ def __FurnaceRecipeAdapter(recipeName,
                            resultSlotNum=1):
     # type: (str,dict,int,int) -> dict
     """熔炉单个配方调试器:补全数据，自动将配方名转换为原材料"""
-    if rawRecipeDict.get("materials") is None:
+    materialsDict = rawRecipeDict.get("materials")
+    if materialsDict is None:
         materialsDict = {"material_slot0": {"newItemName": recipeName}}
-    if rawRecipeDict.get("results") is None:
+    resultsDict = rawRecipeDict.get("results")
+    if resultsDict is None:
         resultsDict = {"result_slot0": rawRecipeDict}
     newMaterialsDict = __FormSlotDict("material_slot", materialSlotNum,
                                       materialsDict)
@@ -91,5 +97,16 @@ def __FormNewItemDict(oldItemDict=None, recipeName=None):
 
 
 if __name__ == "__main__":
-    testDict = {"newItemName": "cookingcraft:apple_pie"}
-    print(BakingFurnaceRecipeAdapter("cookingcraft:raw_apple_pie", testDict))
+    testDict = {
+        "materials": {
+            "material_slot0": {
+                "newItemName": "minecraft:apple"
+            }
+        },
+        "results": {
+            "result_slot0": {
+                "newItemName": "minecraft:apple"
+            }
+        }
+    }
+    print(MillRecipeAdapter("cookingcraft:apple", testDict))

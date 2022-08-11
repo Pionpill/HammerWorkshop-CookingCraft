@@ -4,6 +4,7 @@
         "ui/cooking_table_screen.json",
         "ui/hammerCommonUI.json",
         "ui/hammerPanelUI.json",
+        "ui/mill_screen.json",
         "ui/neteaseCommonUI.json"
     ]
 }

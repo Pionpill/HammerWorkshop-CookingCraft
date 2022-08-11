@@ -4,14 +4,15 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-31 16:58:49
-LastEditTime: 2022-08-05 16:06:49
+LastEditTime: 2022-08-11 16:22:43
 '''
-from hammerCookingScripts.common.data.recipe import bakingRecipes, cookingRecipes
+from hammerCookingScripts.common.data.recipe import bakingRecipes, cookingRecipes, millRecipes
 from hammerCookingScripts.common.entity.adapter import recipeAdapter
 from hammerCookingScripts import logger
 
 
 class Recipe(object):
+
     def __init__(self, recipes):
         # type: (dict) -> None
         object.__init__(self)
@@ -23,6 +24,8 @@ class Recipe(object):
             self.__recipeAdapter = recipeAdapter.BakingFurnaceRecipeAdapter
         elif self.__recipes == cookingRecipes:
             self.__recipeAdapter = recipeAdapter.CookingTableRecipeAdapter
+        elif self.__recipes == millRecipes:
+            self.__recipeAdapter = recipeAdapter.MillRecipeAdapter
         else:
             logger.error("{0} 没有对应的转换器".format(self.__recipes))
 

@@ -80,7 +80,8 @@
   "code-runner.executorMap": {
     "java": "cd $dir && javac -d. $fileName && java app.$fileNameWithoutExt"
   },
-  "python.pythonPath": "c:\\Language\\Python27\\python.exe",
+  "python.pythonPath": "C:\\Env\\Python\\Python2.7\\python.exe",
   "cSpell.words": ["cookingcraft", "customtips", "sourcery"],
-  "python.analysis.extraPaths": ["./CookingCraft/BehaviorPack"]
+  "python.analysis.extraPaths": ["./CookingCraft/BehaviorPack"],
+  "python.formatting.provider": "autopep8"
 }

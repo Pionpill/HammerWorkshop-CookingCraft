@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-27 22:54:59
-LastEditTime: 2022-08-06 14:06:01
+LastEditTime: 2022-08-11 16:57:25
 '''
 
 from copy import deepcopy
@@ -97,16 +97,16 @@ class WorkbenchController(object):
         # type: (str, tuple, int, int) -> dict
         """生成 furnace 的 workbenchData"""
         exaPos = pos + (dimensionId, )
-        WBManager = WorkbenchFactory.GetWorkbenchManager(exaPos)
-        isBurning = WBManager.IsBurning()
-        burnDurationTuple = WBManager.GetFuelBurnDuration()
+        WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(exaPos)
+        isBurning = WorkbenchMgr.IsBurning()
+        burnDurationTuple = WorkbenchMgr.GetFuelBurnDuration()
         if not burnDurationTuple:
             burnDuration = 0
         else:
             burnDuration = burnDurationTuple[-1]
-        isProducing = WBManager.IsProducing()
-        if WBManager.IsUIInit():
-            WBManager.UIInit()
+        isProducing = WorkbenchMgr.IsProducing()
+        if WorkbenchMgr.IsUIInit():
+            WorkbenchMgr.UIInit()
             return WorkbenchController.FormWorkbenchData(
                 blockName,
                 pos,
@@ -123,15 +123,15 @@ class WorkbenchController(object):
             isBurning=isBurning,
             burnDuration=burnDuration,
             isProducing=isProducing,
-            burnProgress=WBManager.GetUIBurnProgress(),
-            produceProgress=WBManager.GetUIProducingProgress())
+            burnProgress=WorkbenchMgr.GetUIBurnProgress(),
+            produceProgress=WorkbenchMgr.GetUIProducingProgress())
 
     @classmethod
     def ConvertBlockEntityDataToDict(cls, blockName, blockEntityData, exaPos):
-        WBManager = WorkbenchFactory.GetWorkbenchManager(exaPos, blockName)
+        WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(exaPos, blockName)
         return {
             slotName: blockEntityData[slotName]
-            for slotName in WBManager.GetAllSlotName()
+            for slotName in WorkbenchMgr.GetAllSlotName()
         }
 
     @classmethod

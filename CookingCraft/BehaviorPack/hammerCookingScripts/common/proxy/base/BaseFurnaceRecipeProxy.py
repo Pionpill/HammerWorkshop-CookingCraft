@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-22 16:00:57
-LastEditTime: 2022-08-06 13:56:51
+LastEditTime: 2022-08-11 17:01:10
 '''
 from hammerCookingScripts.common.proxy.base.BaseRecipeProxy import \
     BaseRecipeProxy
@@ -13,6 +13,7 @@ from hammerCookingScripts.common.utils import workbenchUtils
 
 
 class BaseFurnaceRecipeProxy(BaseRecipeProxy):
+
     def __init__(self, recipes, fuelDict):
         BaseRecipeProxy.__init__(self, recipes)
         self._fuelDict = fuelDict

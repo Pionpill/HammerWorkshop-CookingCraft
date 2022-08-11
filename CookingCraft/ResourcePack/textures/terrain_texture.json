@@ -1,114 +1,117 @@
 {
-    "resource_pack_name": "vanilla",
-    "texture_data": {
-        "cookingcraft:baking_furnace": {
-            "textures": "textures/blocks/baking_furnace"
-        },
-        "cookingcraft:baking_furnace_icon": {
-            "textures": "textures/blocks/baking_furnace_icon"
-        },
-        "cookingcraft:banana_stage_0": {
-            "textures": "textures/blocks/banana_stage_0"
-        },
-        "cookingcraft:banana_stage_1": {
-            "textures": "textures/blocks/banana_stage_1"
-        },
-        "cookingcraft:banana_stage_2": {
-            "textures": "textures/blocks/banana_stage_2"
-        },
-        "cookingcraft:banana_stage_3": {
-            "textures": "textures/blocks/banana_stage_3"
-        },
-        "cookingcraft:banana_stage_4": {
-            "textures": "textures/blocks/banana_stage_4"
-        },
-        "cookingcraft:banana_stage_5": {
-            "textures": "textures/blocks/banana_stage_5"
-        },
-        "cookingcraft:cooking_table": {
-            "textures": "textures/blocks/cooking_table"
-        },
-        "cookingcraft:cooking_table_icon": {
-            "textures": "textures/blocks/cooking_table_icon"
-        },
-        "cookingcraft:corn_stage_0": {
-            "textures": "textures/blocks/corn_stage_0"
-        },
-        "cookingcraft:corn_stage_1": {
-            "textures": "textures/blocks/corn_stage_1"
-        },
-        "cookingcraft:corn_stage_2": {
-            "textures": "textures/blocks/corn_stage_2"
-        },
-        "cookingcraft:corn_stage_3": {
-            "textures": "textures/blocks/corn_stage_3"
-        },
-        "cookingcraft:corn_stage_4": {
-            "textures": "textures/blocks/corn_stage_4"
-        },
-        "cookingcraft:fence_post": {
-            "textures": "textures/blocks/fence_post"
-        },
-        "cookingcraft:herb_stage_0": {
-            "textures": "textures/blocks/herb_stage_0"
-        },
-        "cookingcraft:herb_stage_1": {
-            "textures": "textures/blocks/herb_stage_1"
-        },
-        "cookingcraft:herb_stage_2": {
-            "textures": "textures/blocks/herb_stage_2"
-        },
-        "cookingcraft:herb_stage_3": {
-            "textures": "textures/blocks/herb_stage_3"
-        },
-        "cookingcraft:onion_stage_0": {
-            "textures": "textures/blocks/onion_stage_0"
-        },
-        "cookingcraft:onion_stage_1": {
-            "textures": "textures/blocks/onion_stage_1"
-        },
-        "cookingcraft:onion_stage_2": {
-            "textures": "textures/blocks/onion_stage_2"
-        },
-        "cookingcraft:onion_stage_3": {
-            "textures": "textures/blocks/onion_stage_3"
-        },
-        "cookingcraft:pepper_stage_0": {
-            "textures": "textures/blocks/pepper_stage_0"
-        },
-        "cookingcraft:pepper_stage_1": {
-            "textures": "textures/blocks/pepper_stage_1"
-        },
-        "cookingcraft:pepper_stage_2": {
-            "textures": "textures/blocks/pepper_stage_2"
-        },
-        "cookingcraft:pepper_stage_3": {
-            "textures": "textures/blocks/pepper_stage_3"
-        },
-        "cookingcraft:rice_stage_0": {
-            "textures": "textures/blocks/rice_stage_0"
-        },
-        "cookingcraft:rice_stage_1": {
-            "textures": "textures/blocks/rice_stage_1"
-        },
-        "cookingcraft:rice_stage_2": {
-            "textures": "textures/blocks/rice_stage_2"
-        },
-        "cookingcraft:rice_stage_3": {
-            "textures": "textures/blocks/rice_stage_3"
-        },
-        "cookingcraft:tomato_stage_0": {
-            "textures": "textures/blocks/tomato_stage_0"
-        },
-        "cookingcraft:tomato_stage_1": {
-            "textures": "textures/blocks/tomato_stage_1"
-        },
-        "cookingcraft:tomato_stage_2": {
-            "textures": "textures/blocks/tomato_stage_2"
-        },
-        "cookingcraft:tomato_stage_3": {
-            "textures": "textures/blocks/tomato_stage_3"
-        }
+  "resource_pack_name": "vanilla",
+  "texture_data": {
+    "cookingcraft:baking_furnace": {
+      "textures": "textures/blocks/baking_furnace"
     },
-    "texture_name": "atlas.terrain"
+    "cookingcraft:baking_furnace_icon": {
+      "textures": "textures/blocks/baking_furnace_icon"
+    },
+    "cookingcraft:banana_stage_0": {
+      "textures": "textures/blocks/banana_stage_0"
+    },
+    "cookingcraft:banana_stage_1": {
+      "textures": "textures/blocks/banana_stage_1"
+    },
+    "cookingcraft:banana_stage_2": {
+      "textures": "textures/blocks/banana_stage_2"
+    },
+    "cookingcraft:banana_stage_3": {
+      "textures": "textures/blocks/banana_stage_3"
+    },
+    "cookingcraft:banana_stage_4": {
+      "textures": "textures/blocks/banana_stage_4"
+    },
+    "cookingcraft:banana_stage_5": {
+      "textures": "textures/blocks/banana_stage_5"
+    },
+    "cookingcraft:cooking_table": {
+      "textures": "textures/blocks/cooking_table"
+    },
+    "cookingcraft:cooking_table_icon": {
+      "textures": "textures/blocks/cooking_table_icon"
+    },
+    "cookingcraft:corn_stage_0": {
+      "textures": "textures/blocks/corn_stage_0"
+    },
+    "cookingcraft:corn_stage_1": {
+      "textures": "textures/blocks/corn_stage_1"
+    },
+    "cookingcraft:corn_stage_2": {
+      "textures": "textures/blocks/corn_stage_2"
+    },
+    "cookingcraft:corn_stage_3": {
+      "textures": "textures/blocks/corn_stage_3"
+    },
+    "cookingcraft:corn_stage_4": {
+      "textures": "textures/blocks/corn_stage_4"
+    },
+    "cookingcraft:fence_post": {
+      "textures": "textures/blocks/fence_post"
+    },
+    "cookingcraft:herb_stage_0": {
+      "textures": "textures/blocks/herb_stage_0"
+    },
+    "cookingcraft:herb_stage_1": {
+      "textures": "textures/blocks/herb_stage_1"
+    },
+    "cookingcraft:herb_stage_2": {
+      "textures": "textures/blocks/herb_stage_2"
+    },
+    "cookingcraft:herb_stage_3": {
+      "textures": "textures/blocks/herb_stage_3"
+    },
+    "cookingcraft:onion_stage_0": {
+      "textures": "textures/blocks/onion_stage_0"
+    },
+    "cookingcraft:onion_stage_1": {
+      "textures": "textures/blocks/onion_stage_1"
+    },
+    "cookingcraft:onion_stage_2": {
+      "textures": "textures/blocks/onion_stage_2"
+    },
+    "cookingcraft:onion_stage_3": {
+      "textures": "textures/blocks/onion_stage_3"
+    },
+    "cookingcraft:pepper_stage_0": {
+      "textures": "textures/blocks/pepper_stage_0"
+    },
+    "cookingcraft:pepper_stage_1": {
+      "textures": "textures/blocks/pepper_stage_1"
+    },
+    "cookingcraft:pepper_stage_2": {
+      "textures": "textures/blocks/pepper_stage_2"
+    },
+    "cookingcraft:pepper_stage_3": {
+      "textures": "textures/blocks/pepper_stage_3"
+    },
+    "cookingcraft:rice_stage_0": {
+      "textures": "textures/blocks/rice_stage_0"
+    },
+    "cookingcraft:rice_stage_1": {
+      "textures": "textures/blocks/rice_stage_1"
+    },
+    "cookingcraft:rice_stage_2": {
+      "textures": "textures/blocks/rice_stage_2"
+    },
+    "cookingcraft:rice_stage_3": {
+      "textures": "textures/blocks/rice_stage_3"
+    },
+    "cookingcraft:tomato_stage_0": {
+      "textures": "textures/blocks/tomato_stage_0"
+    },
+    "cookingcraft:tomato_stage_1": {
+      "textures": "textures/blocks/tomato_stage_1"
+    },
+    "cookingcraft:tomato_stage_2": {
+      "textures": "textures/blocks/tomato_stage_2"
+    },
+    "cookingcraft:tomato_stage_3": {
+      "textures": "textures/blocks/tomato_stage_3"
+    },
+    "cookingcraft:mill": {
+      "textures": "textures/blocks/mill"
+    }
+  },
+  "texture_name": "atlas.terrain"
 }

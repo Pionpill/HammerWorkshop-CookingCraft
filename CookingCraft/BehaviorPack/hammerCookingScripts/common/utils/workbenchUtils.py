@@ -4,11 +4,11 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-27 21:10:53
-LastEditTime: 2022-08-05 14:44:16
+LastEditTime: 2022-08-11 15:35:06
 '''
 from hammerCookingScripts import logger
 
-FURNACE_LIST = ["cookingcraft:baking_furnace"]
+FURNACE_LIST = ["cookingcraft:baking_furnace","cookingcraft:mill"]
 CRAFTING_LIST = ["cookingcraft:cooking_table"]
 
 
