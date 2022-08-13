@@ -2,10 +2,10 @@
   "format_version": "1.10",
   "minecraft:item": {
     "description": {
-      "identifier": "cookingcraft:raw_quiche_pie"
+      "identifier": "cookingcraft:raw_egg_pie"
     },
     "components": {
-      "minecraft:icon": "cookingcraft:raw_quiche_pie",
+      "minecraft:icon": "cookingcraft:raw_egg_pie",
       "minecraft:use_animation": "eat"
     }
   }

@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-26 16:32:09
-LastEditTime: 2022-08-11 17:04:51
+LastEditTime: 2022-08-12 01:42:07
 '''
 from copy import deepcopy
 
@@ -134,6 +134,10 @@ class BaseFurnaceManager(BaseWorkbenchManager):
             if itemDict:
                 itemName = itemDict.get("newItemName")
                 return (keyName, self.proxy.GetBurnDuration(itemName))
+        if self.IsBurning():
+            return (None, self.burnDuration)
+        else:
+            return (None, 0)
 
     def _ConvertToItemData(self, slotName, itemDict):
         # type: (str,dict) -> None

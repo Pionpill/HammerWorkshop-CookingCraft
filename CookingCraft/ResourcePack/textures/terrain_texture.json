@@ -61,6 +61,12 @@
     "cookingcraft:herb_stage_3": {
       "textures": "textures/blocks/herb_stage_3"
     },
+    "cookingcraft:mill": {
+      "textures": "textures/blocks/mill"
+    },
+    "cookingcraft:mill_icon": {
+      "textures": "textures/blocks/mill_icon"
+    },
     "cookingcraft:onion_stage_0": {
       "textures": "textures/blocks/onion_stage_0"
     },
@@ -108,9 +114,6 @@
     },
     "cookingcraft:tomato_stage_3": {
       "textures": "textures/blocks/tomato_stage_3"
-    },
-    "cookingcraft:mill": {
-      "textures": "textures/blocks/mill"
     }
   },
   "texture_name": "atlas.terrain"

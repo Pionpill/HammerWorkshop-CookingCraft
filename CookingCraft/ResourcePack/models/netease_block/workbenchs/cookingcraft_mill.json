@@ -286,6 +286,7 @@
     ],
     "description": {
       "identifier": "cookingcraft:mill",
+      "item_texture": "cookingcraft:mill_icon",
       "textures": ["cookingcraft:mill"],
       "use_ao": true
     }

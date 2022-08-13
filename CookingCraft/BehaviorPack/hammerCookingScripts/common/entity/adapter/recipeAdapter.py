@@ -5,7 +5,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-23 00:16:40
-LastEditTime: 2022-08-11 16:20:17
+LastEditTime: 2022-08-14 00:12:16
 '''
 from hammerCookingScripts import logger
 
@@ -30,6 +30,7 @@ def __CraftingRecipeAdapter(recipeName,
                             rawRecipeDict,
                             materialSlotNum=9,
                             resultSlotNum=1):
+    # sourcery skip: use-fstring-for-concatenation
     # type: (str, dict,int,int) -> dict
     """烹饪桌单个配方调试器:补全数据(槽位的None 与 物品的 count，newAuxValue)"""
     materialsDict = rawRecipeDict.get("materials")
@@ -39,6 +40,10 @@ def __CraftingRecipeAdapter(recipeName,
         resultsDict = {"result_slot0": resultsDict}
     if materialsDict is None or resultsDict is None:
         logger.error("{0} 缺失 ，materials 或 results 键".format(recipeName))
+    for id in range(materialSlotNum):
+        if materialsDict.get("material_slot" + str(id)) is None:
+            addDict = {"material_slot" + str(id): None}
+            materialsDict.update(addDict)
     # 原材料字典: 省略的槽位补 None
     newMaterialsDict = __FormSlotDict("material_slot", materialSlotNum,
                                       materialsDict)
@@ -97,7 +102,7 @@ def __FormNewItemDict(oldItemDict=None, recipeName=None):
 
 
 if __name__ == "__main__":
-    testDict = {
+    testMillDict = {
         "materials": {
             "material_slot0": {
                 "newItemName": "minecraft:apple"
@@ -109,4 +114,21 @@ if __name__ == "__main__":
             }
         }
     }
-    print(MillRecipeAdapter("cookingcraft:apple", testDict))
+    print(MillRecipeAdapter("cookingcraft:apple", testMillDict))
+
+    testCraftingDict = {
+        "materials": {
+            "material_slot3": {
+                "newItemName": "cookingcraft:spices",
+                "count": 2
+            },
+            "material_slot4": {
+                "newItemName": "cookingcraft:chill_powder"
+            }
+        },
+        "results": {
+            "newItemName": "cookingcraft:seasoning",
+            "count": 3
+        }
+    }
+    print(CookingTableRecipeAdapter("cookingcraft:seasoning", testCraftingDict))

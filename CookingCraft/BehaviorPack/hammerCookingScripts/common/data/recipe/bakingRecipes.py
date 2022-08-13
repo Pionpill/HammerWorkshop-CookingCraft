@@ -4,28 +4,29 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-18 16:19:47
-LastEditTime: 2022-08-06 14:24:58
+LastEditTime: 2022-08-14 00:22:16
 '''
 bakingRecipes = {
     "cookingcraft:raw_apple_pie": {
-        "newItemName": "cookingcraft:apple_pie",
-        "newAuxValue": 0,
-        "count": 1
+        "newItemName": "cookingcraft:apple_pie"
     },
     "cookingcraft:raw_carrot_pie": {
-        "newItemName": "cookingcraft:carrot_pie",
-        "newAuxValue": 0,
-        "count": 1
+        "newItemName": "cookingcraft:carrot_pie"
     },
-    "cookingcraft:raw_quiche_pie": {
-        "newItemName": "cookingcraft:quiche_pie",
-        "newAuxValue": 0,
-        "count": 1
+    "cookingcraft:raw_egg_pie": {
+        "newItemName": "cookingcraft:egg_pie"
     },
     "cookingcraft:raw_berry_pie": {
-        "newItemName": "cookingcraft:berry_pie",
-        "newAuxValue": 0,
-        "count": 1
+        "newItemName": "cookingcraft:berry_pie"
+    },
+    "cookingcraft:raw_corn_pie": {
+        "newItemName": "cookingcraft:corn_pie"
+    },
+    "cookingcraft:raw_cheese_pie": {
+        "newItemName": "cookingcraft:cheese_pie"
+    },
+    "cookingcraft:corn": {
+        "newItemName": "cookingcraft:baking_corn"
     },
 }
 

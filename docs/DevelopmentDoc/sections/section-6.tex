@@ -3,29 +3,24 @@
 
 \subsubsection{面粉}
 
-面粉，现阶段\footnote{后续使用风车/研磨台合成}直接合成。
+面粉，使用石磨合成。
 
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
-        \draw [recipe grid](0,0) grid (3,3);
-        \node (1) at (0.5,2.5) {};
-        \node (2) at (1.5,2.5) {};
-        \node (3) at (2.5,2.5) {};
-        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/wheat.png}};
-        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/wheat.png}};
-        \node (6) at (2.5,1.5) {};
-        \node (7) at (0.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/wheat.png}};
-        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/wheat.png}};
-        \node (9) at (2.5,0.5) {};
-        \draw [recipe grid] (6,1) grid (7,2);
-        \node (10)  at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/wheat.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+        \node (3)  at (5.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/straw.png}};
         \begin{scope}
-            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
-            \node (text) [font=\small] at (4.5,1.2) {工作台};
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub) at (0.5,0.5) [font=\scriptsize] {3};
         \end{scope}
     \end{tikzpicture}
-    \caption{面粉}
+    \caption{面粉 UI}
 \end{figure}
 
 \begin{table}[H]
@@ -36,18 +31,214 @@
         \toprule
         \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
         \midrule
-        面粉 & 6 & 1.5 & 否 & 无 \\
+        面粉 & 5 & 1.5 & 否 & 无 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-\subsection{派类食物}
+\subsubsection{大米}
 
-派类食物营养值设定为 1.2。制作难度适中，一般为极佳($\bigstar \bigstar \bigstar$)食物。派类食物需要在烹饪桌(cooking\_table)上合成生食，再放入烘焙炉进行烘焙。面粉是所有派类食物必须的原材料。
+大米，使用石磨合成。
 
-\subsubsection{苹果派}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/rice.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/rice_pieces.png}};
+        \node (3)  at (5.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/straw.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub) at (0.5,0.5) [font=\scriptsize] {3};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{大米配方}
+\end{figure}
 
-苹果派设计为精致食物，合成表如下:
+\begin{table}[H]
+    \centering
+    \caption{大米配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        大米 & 5 & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{淀粉}
+
+淀粉，使用石磨合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/rice_pieces.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/rice_flour.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{淀粉配方}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{淀粉配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        淀粉 & 5 & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{玉米粒}
+
+玉米粒，使用石磨合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/corn.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/corn_pieces.png}};
+        \node (3)  at (5.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/straw.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub) at (0.5,0.5) [font=\scriptsize] {3};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{玉米粒配方}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{玉米粒配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        玉米粒 & 7 & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{玉米粉}
+
+玉米粉，使用石磨合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/corn_pieces.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/corn_flour.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{玉米粉配方}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{玉米粉配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        玉米粉 & 7 & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\subsubsection{香料}
+
+香料，使用石磨合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/herb.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/spices.png}};
+        \node (3)  at (5.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/straw.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub) at (0.5,0.5) [font=\scriptsize] {3};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{香料配方}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{香料配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        香料 & - & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{辣椒粉}
+
+辣椒粉(chill\_powder)，使用石磨合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/pepper.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/chill_powder.png}};
+        \node (3)  at (5.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/straw.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{辣椒粉配方}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{辣椒粉配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        辣椒粉 & - & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{调料}
+
+调料，使用厨务台合成。
 
 \begin{figure}[H]
     \centering
@@ -56,6 +247,103 @@
         \begin{scope}
             \node (1) at (0.5,2.5) {};
             \node (2) at (1.5,2.5) {};
+            \node (3) at (2.5,2.5) {};
+            \node (4) at (0.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/spices.png}};
+            \node (5) at (1.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/chill_powder.png}};
+            \node (6) at (2.5,1.5) {};
+            \node (7) at (0.5,0.5) {};
+            \node (8) at (1.5,0.5) {};
+            \node (9) at (2.5,0.5) {};
+            \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/seasoning.png}};
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub) at (0.5,1.5) [font=\scriptsize] {2};
+            \node (2sub)  at (6.5,1.5) [font=\scriptsize] {3};
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \draw [recipe grid] (6,1) grid (7,2);
+            \node (text) [font=\small] at (4.5,1.2) {厨务台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{调料}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{调料配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        调料 & - & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{烘焙食物}
+
+烘焙食物营养值设定为 1.2。烘焙食物都必须经过烘焙炉获取最终产品。
+
+\subsubsection{烤玉米}
+
+烤玉米品质为良好，合成表如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}
+            \node (1) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/corn.png}};
+            \node (2) at (10.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/baking_corn.png}};
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub)  at (6.5,1.5) [font=\scriptsize] {};
+            \node (2sub)  at (10.5,1.5) [font=\scriptsize] {};
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (7.5,1.5) -- (9.5,1.5);
+            \draw [recipe grid] (6,1) grid (7,2);
+            \draw [recipe grid] (10,1) grid (11,2);
+            \node (text) [font=\small] at (8.5,1.2) {烘焙炉};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{烤玉米}
+\end{figure}
+
+烤玉米数值设计：
+
+经过加工与烘焙，可确定生成物携带的饥饿值与营养值。
+\begin{equation}
+    \begin{aligned}
+        H_{\text{烤玉米}} & = 3 \times 0.8 + 2 = 4.5 \nonumber
+    \end{aligned}
+\end{equation}
+
+\begin{table}[H]
+    \centering
+    \caption{烤玉米配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc|cc}
+        \toprule
+        \textbf{物品} & \textbf{品质} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        烤玉米 & $\bigstar \bigstar$ & 4 & 1.2 & 是 & - \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{苹果派}
+
+苹果派品质为:精致，合成表如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \begin{scope}
+            \node (1) at (0.5,2.5) {};
+            \node (2) at (1.5,2.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/seasoning.png}};
             \node (3) at (2.5,2.5) {};
             \node (4) at (0.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/apple.png}};
             \node (5) at (1.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/sugar.png}};
@@ -76,7 +364,6 @@
             \draw [-{Stealth},thick] (7.5,1.5) -- (9.5,1.5);
             \draw [recipe grid] (6,1) grid (7,2);
             \draw [recipe grid] (10,1) grid (11,2);
-            \node (text) [font=\small] at (8.5,1.8) {3pf};
             \node (text) [font=\small] at (4.5,1.2) {厨务台};
             \node (text) [font=\small] at (8.5,1.2) {烘焙炉};
         \end{scope}
@@ -190,17 +477,17 @@
     \begin{tikzpicture}
         \draw [recipe grid](0,0) grid (3,3);
         \begin{scope}
-            \node (1) at (0.5,2.5) {};
+            \node (1) at (0.5,2.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/seasoning.png}};
             \node (2) at (1.5,2.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/sugar.png}};
-            \node (3) at (2.5,2.5) {};
+            \node (3) at (2.5,2.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/seasoning.png}};
             \node (4) at (0.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/egg.png}};
             \node (5) at (1.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/egg.png}};
             \node (6) at (2.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/egg.png}};
             \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
             \node (8) at (1.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
             \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
-            \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/raw_quiche_pie.png}};
-            \node (11) at (10.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/quiche_pie.png}};
+            \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/raw_egg_pie.png}};
+            \node (11) at (10.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/egg_pie.png}};
         \end{scope}
         \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
             \node (2sub) at (1.5,2.5) [font=\scriptsize] {3};

@@ -2,10 +2,10 @@
   "format_version": "1.10",
   "minecraft:item": {
     "description": {
-      "identifier": "cookingcraft:rice_fruit"
+      "identifier": "cookingcraft:rice_pieces"
     },
     "components": {
-      "minecraft:icon": "cookingcraft:rice_fruit",
+      "minecraft:icon": "cookingcraft:rice_pieces",
       "minecraft:render_offsets": "seeds"
     }
   }

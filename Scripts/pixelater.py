@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-03-21 14:24:21
-LastEditTime: 2022-05-13 22:05:32
+LastEditTime: 2022-08-13 18:43:27
 '''
 import os
 import re
@@ -17,7 +17,7 @@ rawFilePath = ""  # 原始文件夹位置
 targetFilePath = ""  # 目标文件夹位置
 size = (32, 32)
 
-rawFilePath = "D:\IDE\Programs\VS_Code_Programs\HammerWorkshop\HammerWorkshop-CookingCraft\Scripts\images\\raw"
+rawFilePath = "C:\Users\Pionpill\Pictures\CookingCraft"
 targetFilePath = "D:\IDE\Programs\VS_Code_Programs\HammerWorkshop\HammerWorkshop-CookingCraft\Scripts\images\\target"
 
 rawImgPath = "D:\IDE\Programs\VS_Code_Programs\HammerWorkshop\MedievalOverhaul\Textures\Meal\ApplePie\AppliePie_a.png"

@@ -484,13 +484,17 @@ class WorkbenchServerSystem(ServerSystem):
         dimensionId = event["dimensionId"]
         blockKey = pos + (dimensionId, )
         WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(blockKey)
-        WorkbenchMgr.Produce()
 
+        blockInfo = WorkbenchController.GetCurOpenedBlockInfo(playerId)
+        blockName = blockInfo.get("blockName")
+        if workbenchUtils.IsCraftingBlock(blockName):
+            WorkbenchMgr.Produce()
+        if workbenchUtils.IsFurnaceBlock(blockName):
+            slot = event["slot"]
+            WorkbenchMgr.UpdateItemData(slot, None)
         itemComp = compFactory.CreateItem(playerId)
         itemComp.SpawnItemToPlayerInv(event["item"], playerId)
-        blockInfo = WorkbenchController.GetCurOpenedBlockInfo(playerId)
         if blockInfo:
-            blockName = blockInfo.get("blockName")
             self.__UpdateBlockEntitySlotData(pos, dimensionId, blockName)
             self.__UpdateInventoryUI(playerId, blockName)
         if workbenchUtils.IsCraftingBlock(blockName):

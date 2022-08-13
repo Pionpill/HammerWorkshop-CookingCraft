@@ -2,56 +2,32 @@
   "resource_pack_name": "vanilla",
   "texture_name": "atlas.items",
   "texture_data": {
-    "cookingcraft:flour": {
-      "textures": "textures/items/flour"
-    },
     "cookingcraft:apple_pie": {
       "textures": "textures/items/apple_pie"
     },
-    "cookingcraft:raw_apple_pie": {
-      "textures": "textures/items/raw_apple_pie"
+    "cookingcraft:baking_corn": {
+      "textures": "textures/items/baking_corn"
+    },
+    "cookingcraft:chill_powder": {
+      "textures": "textures/items/chill_powder"
+    },
+    "cookingcraft:banana": {
+      "textures": "textures/items/banana"
     },
     "cookingcraft:berry_pie": {
       "textures": "textures/items/berry_pie"
     },
-    "cookingcraft:raw_berry_pie": {
-      "textures": "textures/items/raw_berry_pie"
+    "cookingcraft:butter": {
+      "textures": "textures/items/butter"
     },
     "cookingcraft:carrot_pie": {
       "textures": "textures/items/carrot_pie"
     },
-    "cookingcraft:raw_carrot_pie": {
-      "textures": "textures/items/raw_carrot_pie"
+    "cookingcraft:cheese_pie": {
+      "textures": "textures/items/cheese_pie"
     },
-    "cookingcraft:quiche_pie": {
-      "textures": "textures/items/quiche_pie"
-    },
-    "cookingcraft:raw_quiche_pie": {
-      "textures": "textures/items/raw_quiche_pie"
-    },
-    "cookingcraft:herb": {
-      "textures": "textures/items/herb"
-    },
-    "cookingcraft:herb_seeds": {
-      "textures": "textures/items/herb_seeds"
-    },
-    "cookingcraft:tomato": {
-      "textures": "textures/items/tomato"
-    },
-    "cookingcraft:tomato_seeds": {
-      "textures": "textures/items/tomato_seeds"
-    },
-    "cookingcraft:onion": {
-      "textures": "textures/items/onion"
-    },
-    "cookingcraft:rice": {
-      "textures": "textures/items/rice"
-    },
-    "cookingcraft:rice_fruit": {
-      "textures": "textures/items/rice_fruit"
-    },
-    "cookingcraft:straw": {
-      "textures": "textures/items/straw"
+    "cookingcraft:chill_power": {
+      "textures": "textures/items/chill_power"
     },
     "cookingcraft:corn": {
       "textures": "textures/items/corn"
@@ -59,14 +35,80 @@
     "cookingcraft:corn_flour": {
       "textures": "textures/items/corn_flour"
     },
+    "cookingcraft:corn_pie": {
+      "textures": "textures/items/corn_pie"
+    },
     "cookingcraft:corn_pieces": {
       "textures": "textures/items/corn_pieces"
+    },
+    "cookingcraft:egg_pie": {
+      "textures": "textures/items/egg_pie"
+    },
+    "cookingcraft:flour": {
+      "textures": "textures/items/flour"
+    },
+    "cookingcraft:herb": {
+      "textures": "textures/items/herb"
+    },
+    "cookingcraft:herb_seeds": {
+      "textures": "textures/items/herb_seeds"
+    },
+    "cookingcraft:onion": {
+      "textures": "textures/items/onion"
     },
     "cookingcraft:pepper": {
       "textures": "textures/items/pepper"
     },
-    "cookingcraft:banana": {
-      "textures": "textures/items/banana"
+    "cookingcraft:pumpkin_pie": {
+      "textures": "textures/items/pumpkin_pie"
+    },
+    "cookingcraft:raw_apple_pie": {
+      "textures": "textures/items/raw_apple_pie"
+    },
+    "cookingcraft:raw_berry_pie": {
+      "textures": "textures/items/raw_berry_pie"
+    },
+    "cookingcraft:raw_carrot_pie": {
+      "textures": "textures/items/raw_carrot_pie"
+    },
+    "cookingcraft:raw_corn_pie": {
+      "textures": "textures/items/raw_corn_pie"
+    },
+    "cookingcraft:raw_egg_pie": {
+      "textures": "textures/items/raw_egg_pie"
+    },
+    "cookingcraft:raw_pumpkin_pie": {
+      "textures": "textures/items/raw_pumpkin_pie"
+    },
+    "cookingcraft:raw_cheese_pie": {
+      "textures": "textures/items/raw_cheese_pie"
+    },
+    "cookingcraft:rice": {
+      "textures": "textures/items/rice"
+    },
+    "cookingcraft:rice_flour": {
+      "textures": "textures/items/rice_flour"
+    },
+    "cookingcraft:rice_pieces": {
+      "textures": "textures/items/rice_pieces"
+    },
+    "cookingcraft:salt": {
+      "textures": "textures/items/salt"
+    },
+    "cookingcraft:seasoning": {
+      "textures": "textures/items/seasoning"
+    },
+    "cookingcraft:spices": {
+      "textures": "textures/items/spices"
+    },
+    "cookingcraft:straw": {
+      "textures": "textures/items/straw"
+    },
+    "cookingcraft:tomato": {
+      "textures": "textures/items/tomato"
+    },
+    "cookingcraft:tomato_seeds": {
+      "textures": "textures/items/tomato_seeds"
     }
   }
 }

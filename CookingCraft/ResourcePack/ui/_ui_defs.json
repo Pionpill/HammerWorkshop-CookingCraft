@@ -5,6 +5,7 @@
         "ui/hammerCommonUI.json",
         "ui/hammerPanelUI.json",
         "ui/mill_screen.json",
-        "ui/neteaseCommonUI.json"
+        "ui/neteaseCommonUI.json",
+        "ui/squeeaer_screen.json"
     ]
 }

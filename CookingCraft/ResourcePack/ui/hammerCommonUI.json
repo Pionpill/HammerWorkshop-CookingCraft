@@ -420,7 +420,7 @@
       "always_accepts_input" : false,
       "controls" : [
          {
-            "item_slot@hammerCommonUI.item_slot" : {}
+            "furnace_arrow_img@hammerCommonUI.furnace_arrow_img" : {}
          }
       ],
       "force_render_below" : false,

@@ -36,6 +36,7 @@ compFactory = clientApi.GetEngineCompFactory()
 
 
 class BaseInventoryScreen(BaseBlockScreen):
+
     def __init__(self, namespace, name, param):
         BaseBlockScreen.__init__(self, namespace, name, param)
         self.inventoryPanelPath = "/inventory_panel"
@@ -269,6 +270,7 @@ class BaseInventoryScreen(BaseBlockScreen):
             self._ShowItemDetail(item)
         self.isDoubleClick = False
         eventData = {"item": self._GetItemByPath(slotPath)}
+        eventData["slot"] = slotPath.split("/")[-1]
         eventData["pos"] = self.pos
         eventData["dimensionId"] = self.dimensionId
         clientSystem = SystemController.GetModClientSystem(

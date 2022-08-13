@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-21 23:40:29
-LastEditTime: 2022-08-06 13:56:48
+LastEditTime: 2022-08-14 00:14:33
 '''
 from hammerCookingScripts.common.proxy.base.BaseRecipeProxy import \
     BaseRecipeProxy
@@ -13,6 +13,7 @@ from hammerCookingScripts.common.utils import workbenchUtils
 
 
 class BaseCraftingRecipeProxy(BaseRecipeProxy):
+
     def __init__(self, recipes):
         BaseRecipeProxy.__init__(self, recipes)
 
