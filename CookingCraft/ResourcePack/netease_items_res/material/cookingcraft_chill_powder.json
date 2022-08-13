@@ -1,0 +1,11 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:chill_powder"
+    },
+    "components": {
+      "minecraft:icon": "cookingcraft:chill_powder"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "cookingcraft:baking_furnace"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["AA ", "BBB"],
+    "key": {
+      "A": {
+        "item": "minecraft:clay_ball"
+      },
+      "B": {
+        "item": "minecraft:brick"
+      }
+    },
+    "result": {
+      "item": "cookingcraft:baking_furnace",
+      "count": 1
+    }
+  }
+}

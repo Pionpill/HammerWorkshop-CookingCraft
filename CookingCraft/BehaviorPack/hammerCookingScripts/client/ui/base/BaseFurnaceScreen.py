@@ -6,15 +6,12 @@ Description: 熔炉具有以下结构
         |- furnace_arrow_img
         |- flame_mask
         |- flame_img
-        |- furnace_slot0
-        |- furnace_slot1
-        |- furnace_slot2
         
 version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-08-03 14:36:13
-LastEditTime: 2022-08-03 19:48:50
+LastEditTime: 2022-08-11 15:29:40
 '''
 import mod.client.extraClientApi as clientApi
 from hammerCookingScripts.client.ui.base.BaseInventoryScreen import BaseInventoryScreen

@@ -173,7 +173,9 @@
         }
       },
       {
-        "furnace_arrow_img@hammerCommonUI.furnace_arrow_img": {}
+        "furnace_arrow_img@hammerCommonUI.furnace_arrow_img": {
+          "texture": "textures/ui/arrow_inactive"
+        }
       }
     ],
     "enabled": true,
@@ -247,7 +249,7 @@
     "always_accepts_input": false,
     "controls": [
       {
-        "inventory_panel@hammerPanelUI.inventory_panel": {}
+        "mill_panel@hammerPanelUI.mill_panel": {}
       }
     ],
     "force_render_below": false,
@@ -257,5 +259,158 @@
     "should_steal_mouse": false,
     "type": "screen"
   },
-  "namespace": "hammerPanelUI"
+  "mill_panel": {
+    "alpha": 1.0,
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "clip_offset": [0, 0],
+    "clips_children": false,
+    "controls": [
+      {
+        "material_slot0@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [0, 2]
+        }
+      },
+      {
+        "fuel_slot0@hammerCommonUI.item_slot": {
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [28, 0]
+        }
+      },
+      {
+        "result_slot0@hammerCommonUI.item_slot_big": {
+          "anchor_from": "top_right",
+          "anchor_to": "top_right",
+          "offset": [-22, 0]
+        }
+      },
+      {
+        "result_slot1@hammerCommonUI.item_slot_big": {
+          "anchor_from": "top_right",
+          "anchor_to": "top_right"
+        }
+      },
+      {
+        "flame_img@hammerCommonUI.flame_img": {
+          "offset": [30, 0]
+        }
+      },
+      {
+        "flame_mask@hammerCommonUI.flame_mask": {
+          "layer": 10,
+          "offset": [30, 0]
+        }
+      },
+      {
+        "furnace_arrow_mask@hammerCommonUI.furnace_arrow_mask": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": 10,
+          "offset": [24, 0]
+        }
+      },
+      {
+        "furnace_arrow_img@hammerCommonUI.furnace_arrow_img": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [24, 0]
+        }
+      }
+    ],
+    "enabled": true,
+    "layer": 0,
+    "max_size": [0, 0],
+    "min_size": [0, 0],
+    "offset": [0, 0],
+    "priority": 0,
+    "propagate_alpha": false,
+    "size": [100, 60],
+    "type": "panel",
+    "visible": true
+  },
+  "namespace": "hammerPanelUI",
+  "squeezer_panel": {
+    "alpha": 1.0,
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "clip_offset": [0, 0],
+    "clips_children": false,
+    "controls": [
+      {
+        "material_slot0@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [0, 2]
+        }
+      },
+      {
+        "material_slot1@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [18.0, 2]
+        }
+      },
+      {
+        "material_slot2@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [36.0, 2]
+        }
+      },
+      {
+        "fuel_slot0@hammerCommonUI.item_slot": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "visible": false
+        }
+      },
+      {
+        "result_slot0@hammerCommonUI.item_slot_big": {
+          "anchor_from": "top_right",
+          "anchor_to": "top_right"
+        }
+      },
+      {
+        "flame_img@hammerCommonUI.flame_img": {
+          "offset": [66.0, -19.0],
+          "visible": false
+        }
+      },
+      {
+        "flame_mask@hammerCommonUI.flame_mask": {
+          "layer": 10,
+          "offset": [66.0, -18.0],
+          "visible": false
+        }
+      },
+      {
+        "furnace_arrow_mask@hammerCommonUI.furnace_arrow_mask": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": 10,
+          "offset": [64.0, 0.0]
+        }
+      },
+      {
+        "furnace_arrow_img@hammerCommonUI.furnace_arrow_img": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [64.0, 0.0]
+        }
+      }
+    ],
+    "enabled": true,
+    "layer": 0,
+    "max_size": [0, 0],
+    "min_size": [0, 0],
+    "offset": [0, 0],
+    "priority": 0,
+    "propagate_alpha": false,
+    "size": [120, 22],
+    "type": "panel",
+    "visible": true
+  }
 }

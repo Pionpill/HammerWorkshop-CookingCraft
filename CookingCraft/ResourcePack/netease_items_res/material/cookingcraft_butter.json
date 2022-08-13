@@ -1,0 +1,11 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:butter"
+    },
+    "components": {
+      "minecraft:icon": "cookingcraft:butter"
+    }
+  }
+}

@@ -4,11 +4,12 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-23 18:00:11
-LastEditTime: 2022-07-27 15:26:20
+LastEditTime: 2022-08-11 16:31:45
 '''
 from hammerCookingScripts import logger
 from hammerCookingScripts.common.proxy import (BakingFurnaceRecipeProxy,
-                                               CookingTableRecipeProxy)
+                                               CookingTableRecipeProxy,
+                                               MillRecipeProxy)
 
 
 class WorkbenchFactory(object):
@@ -28,6 +29,8 @@ class WorkbenchFactory(object):
             cls.proxyDict[blockName] = CookingTableRecipeProxy()
         elif blockName == "cookingcraft:baking_furnace":
             cls.proxyDict[blockName] = BakingFurnaceRecipeProxy()
+        elif blockName == "cookingcraft:mill":
+            cls.proxyDict[blockName] = MillRecipeProxy()
         else:
             logger.warn("没有 {0} 对应的代理类".format(blockName))
             return

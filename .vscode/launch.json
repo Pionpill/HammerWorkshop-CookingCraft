@@ -5,7 +5,7 @@
       "name": "Python Debug",
       "type": "python",
       "request": "launch",
-      "python": "C:\\Language\\Python27\\python2.exe",
+      "python": "C:\\Env\\Python\\Python2.7\\python.exe",
       "program": "${file}",
       "console": "integratedTerminal",
       "cwd": "${fileDirname}"

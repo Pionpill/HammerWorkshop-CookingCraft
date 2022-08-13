@@ -2,16 +2,44 @@
   "groups": [
     {
       "group_name": "itemGroup.name.cookingcraft.pie",
-      "icon": "cookingcraft:carrot_pie",
+      "icon": "cookingcraft:apple_pie",
       "list": [
         "cookingcraft:apple_pie",
         "cookingcraft:carrot_pie",
-        "cookingcraft:quiche_pie",
+        "cookingcraft:egg_pie",
+        "cookingcraft:pumpkin_pie",
         "cookingcraft:berry_pie",
+        "cookingcraft:cheese_pie",
+        "cookingcraft:corn_pie",
         "cookingcraft:raw_apple_pie",
         "cookingcraft:raw_carrot_pie",
-        "cookingcraft:raw_quiche_pie",
-        "cookingcraft:raw_berry_pie"
+        "cookingcraft:raw_egg_pie",
+        "cookingcraft:raw_berry_pie",
+        "cookingcraft:raw_corn_pie",
+        "cookingcraft:raw_pumpkin_pie",
+        "cookingcraft:raw_cheese_pie"
+      ]
+    },
+    {
+      "group_name": "itemGroup.name.cookingcraft.condiment",
+      "icon": "cookingcraft:chill_powder",
+      "list": [
+        "cookingcraft:chill_powder",
+        "cookingcraft:seasoning",
+        "cookingcraft:spices",
+        "cookingcraft:salt",
+        "cookingcraft:butter"
+      ]
+    },
+    {
+      "group_name": "itemGroup.name.cookingcraft.grain",
+      "icon": "cookingcraft:corn_pieces",
+      "list": [
+        "cookingcraft:corn_pieces",
+        "cookingcraft:rice_pieces",
+        "cookingcraft:corn_flour",
+        "cookingcraft:flour",
+        "cookingcraft:rice_flour"
       ]
     }
   ]

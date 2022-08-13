@@ -6,12 +6,9 @@
       "type": "python",
       "request": "launch",
       "program": "${file}",
-      "python": "C:\\Language\\Python27\\python2.exe",
+      "python": "C:\\Env\\Python\\Python2.7\\python.exe",
       "console": "integratedTerminal",
-      "justMyCode": true,
-      "env": {
-        "PYTHONPATH": "${workspaceFolder}${pathSeparator}${env:PYTHONPATH}"
-      }
+      "justMyCode": true
     }
   ]
 }
