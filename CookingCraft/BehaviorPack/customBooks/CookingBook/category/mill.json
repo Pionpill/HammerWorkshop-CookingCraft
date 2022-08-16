@@ -1,0 +1,6 @@
+{
+  "title": "§l石磨",
+  "content": "这里记录了所有石磨的配方，石磨提供脱谷与研磨两种功能。\n石磨需要金粒或金锭作为燃料，俗话说的好，有钱能使鬼推磨。",
+  "isLocked": false,
+  "icon": "textures/blocks/mill_icon"
+}

@@ -1,0 +1,12 @@
+{
+  "item": "cookingcraft:plants_book",
+  "title1": "§l作物指南",
+  "title2": "",
+  "content": "§l烹饪工艺-作物指南 \n§r这里记录了所有作物的获取，培育，生长信息\n相关书籍: 烹饪指南\n测试版尚有许多功能待完善，还请见谅\n欢迎玩家反馈\n群：§8712936357\n§e§o              beta测试版",
+  "titleArea": {
+    "offset": [0, 4],
+    "textSize1": 13,
+    "textSize2": 8,
+    "padding": 1
+  }
+}

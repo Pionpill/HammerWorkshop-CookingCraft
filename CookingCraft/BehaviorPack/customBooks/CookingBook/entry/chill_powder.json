@@ -1,0 +1,11 @@
+{
+  "parent": "mill",
+  "icon": "textures/items/chill_powder",
+  "title": "辣椒粉",
+  "pages": [
+    {
+      "type": "textPage",
+      "content": "§l品质: §r§c常见 | ★★\n§r§l材料: §r§2辣椒x1\n§r§l产物: §r§2辣椒粉x1§r\n§l作用: \n§r§8调料的原材料之一，辣味食物的原材料§r\n§l描述: \n§r§8辣椒原来生长在中南美洲。欧洲殖民主义到达美洲以后，辣椒1493年率先传入欧洲，15世纪传入日本。而后传入我国。\n§r§8§r"
+    }
+  ]
+}

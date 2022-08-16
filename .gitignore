@@ -288,3 +288,7 @@ out
 *.eps
 *.pyc
 __pycache__
+
+temp.*
+Temp.*
+cooking_table/

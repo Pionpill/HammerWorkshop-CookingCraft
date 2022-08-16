@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-03-29 12:47:55
-LastEditTime: 2022-08-04 14:50:28
+LastEditTime: 2022-08-16 14:03:14
 '''
 
 # -*- coding: utf-8 -*-
@@ -19,6 +19,7 @@ from hammerCookingScripts.common import modConfig
 
 @Mod.Binding(name=modConfig.ModName, version="0.1.0")
 class CookingCraft(object):
+
     def __init__(self):
         logger.info("CookingCraft Mod Scripts Init")
 
@@ -31,6 +32,9 @@ class CookingCraft(object):
         serverApi.RegisterSystem(modConfig.ModName,
                                  modConfig.ServerSystemName_Plants,
                                  modConfig.ServerSystemClsPath_Plants)
+        serverApi.RegisterSystem(modConfig.ModName,
+                                 modConfig.ServerSystemName_Book,
+                                 modConfig.ServerSystemClsPath_Book)
 
     @Mod.DestroyServer()
     def ServerDestroy(self):
@@ -45,6 +49,9 @@ class CookingCraft(object):
         serverApi.RegisterSystem(modConfig.ModName,
                                  modConfig.ClientSystemName_Plants,
                                  modConfig.ClientSystemClsPath_Plants)
+        serverApi.RegisterSystem(modConfig.ModName,
+                                 modConfig.ClientSystemName_Book,
+                                 modConfig.ClientSystemClsPath_Book)
 
     @Mod.DestroyClient()
     def ClientDestroy(self):

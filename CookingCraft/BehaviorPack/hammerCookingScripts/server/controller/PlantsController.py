@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-31 13:03:38
-LastEditTime: 2022-07-19 14:37:11
+LastEditTime: 2022-08-16 14:08:45
 '''
 import mod.server.extraServerApi as serverApi
 from hammerCookingScripts.common.facade import PlantsFacade
@@ -15,6 +15,7 @@ plantsUtils = PlantsFacade.GetPlantsUtils()
 
 
 class PlantsController(object):
+
     def __init__(self):
         object.__init__(self)
 
@@ -33,13 +34,13 @@ class PlantsController(object):
         return plantProxy.JudgeLand(blockName)
 
     @classmethod
-    def CanTick(cls, blockName, pos, dimensionId, levelId, playerId):
-        # type: (str, tuple, int, int, int) -> bool
+    def CanTick(cls, blockName, pos, dimensionId, levelId):
+        # type: (str, tuple, int, int) -> bool
         """判断是否能进行 Tick"""
         seedName = plantsUtils.GetSeedNameByStageBlock(blockName)
         plantProxy = PlantsFacade.GetPlantProxy(seedName)
         # 判断光照与海拔
-        if not cls.__JudgeBaseGrowCondition(playerId, pos, dimensionId,
+        if not cls.__JudgeBaseGrowCondition(levelId, pos, dimensionId,
                                             plantProxy):
             return False
         # 判断天气与发芽
@@ -115,10 +116,10 @@ class PlantsController(object):
         return plantProxy.IsClimbingPlant()
 
     @classmethod
-    def __JudgeBaseGrowCondition(cls, playerId, pos, dimensionId, plantProxy):
+    def __JudgeBaseGrowCondition(cls, levelId, pos, dimensionId, plantProxy):
         # type: (int, tuple, int, PlantProxy) -> bool
         """ 判断基础生长条件: 光照与海拔 """
-        comp = compFactory.CreateBlockInfo(playerId)
+        comp = compFactory.CreateBlockInfo(levelId)
         brightness = comp.GetBlockLightLevel(pos, dimensionId)
         if not plantProxy.JudgeBrightness(brightness):
             return False

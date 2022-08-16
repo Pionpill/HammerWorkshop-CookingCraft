@@ -1,0 +1,11 @@
+{
+  "parent": "mill",
+  "icon": "textures/items/spices",
+  "title": "香料",
+  "pages": [
+    {
+      "type": "textPage",
+      "content": "§l品质: §r§c常见 | ★★\n§r§l材料: §r§2香草x3\n§r§l产物: §r§2香料x1, 桔梗x1§r\n§l作用: \n§r§8是调料的主要原材料之一，同时用于制作甜品§r\n§l描述: \n§r§8现实中的香料并不是由香草制作的!!!§r"
+    }
+  ]
+}

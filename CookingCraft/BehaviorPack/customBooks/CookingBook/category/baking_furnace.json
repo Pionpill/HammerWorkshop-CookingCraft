@@ -1,0 +1,6 @@
+{
+  "title": "§l烘焙炉",
+  "content": "这里记录了所有烘焙炉的配方，烘焙炉进一步加工需要烤制的食物。\n和原版熔炉一样，烘焙炉需要炭作为燃料。\n这里只记录直接使用烘焙炉获取的食物。",
+  "isLocked": false,
+  "icon": "textures/blocks/baking_furnace_icon"
+}

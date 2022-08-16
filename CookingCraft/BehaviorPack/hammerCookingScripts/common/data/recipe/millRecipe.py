@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-08-11 15:36:14
-LastEditTime: 2022-08-14 00:30:06
+LastEditTime: 2022-08-15 14:38:42
 '''
 millRecipes = {
     "cookingcraft:apple": {
@@ -19,7 +19,7 @@ millRecipes = {
             }
         }
     },
-    "cookingcraft:herb": {
+    "cookingcraft:spices": {
         "materials": {
             "material_slot0": {
                 "newItemName": "cookingcraft:herb",
@@ -35,7 +35,7 @@ millRecipes = {
             }
         }
     },
-    "cookingcraft:rice": {
+    "cookingcraft:rice_pieces": {
         "materials": {
             "material_slot0": {
                 "newItemName": "cookingcraft:rice",
@@ -51,7 +51,7 @@ millRecipes = {
             }
         }
     },
-    "minecraft:wheat": {
+    "minecraft:flour": {
         "materials": {
             "material_slot0": {
                 "newItemName": "minecraft:wheat",
@@ -67,7 +67,7 @@ millRecipes = {
             }
         }
     },
-    "cookingcraft:corn": {
+    "cookingcraft:corn_pieces": {
         "materials": {
             "material_slot0": {
                 "newItemName": "cookingcraft:corn",
@@ -80,7 +80,7 @@ millRecipes = {
             }
         }
     },
-    "cookingcraft:pepper": {
+    "cookingcraft:chill_powder": {
         "materials": {
             "material_slot0": {
                 "newItemName": "cookingcraft:pepper",

@@ -1,0 +1,19 @@
+{
+  "parent": "cooking_table",
+  "icon": "textures/items/egg_pie",
+  "title": "鸡蛋派",
+  "pages": [
+    {
+      "type": "textPage",
+      "content": "§l品质: §r§c极佳 | ★★★§r\n§l饥饿: §r§c9    | ●●●●○§r\n§l饱食: §r§c11   | ●●●●●○§r\n§l效果: \n§r§5+ 30s夜视效果§r\n§r§5- 不要生吃，可能会拉肚子§r\n§l描述: \n§r§8鸡蛋派没吃过，鸡蛋饼吃过吧。§r"
+    },
+    {
+      "type": "imagePage",
+      "subtitle": "合成",
+      "image": "textures/books/cooking_table/egg_pie",
+      "imageSize": [40, 125],
+      "info": "鸡蛋派的合成与加工配方",
+      "content": ""
+    }
+  ]
+}

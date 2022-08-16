@@ -1,0 +1,28 @@
+{
+  "parent": "condiments",
+  "icon": "textures/items/pepper",
+  "title": "辣椒",
+  "pages": [
+    {
+      "type": "textPage",
+      "content": "§l获取难度: §r§c中等 | ★★§r\n§l获取方式: §r§c森林野生§r\n=================\n§l种植难度: §r§c简单 | ★§r\n§l介绍: §r§8辣椒可在温带种植，需要适中的降雨量，在中海拔地区生长。§r\n§l特殊: §r§c无 §r\n=================\n§r§l收获次数: §r§c1§r\n§l凋落物物: §r§c辣椒 2-5§r\n"
+    },
+    {
+      "type": "highlightPage",
+      "subtitle": "收获",
+      "content": "辣椒是主要的辣味调味品，可经石磨研磨成辣椒粉使用。",
+      "info": "辣椒",
+      "itemData": [
+        {
+          "item": "cookingcraft:pepper",
+          "date": 0
+        }
+      ]
+    },
+    {
+      "type": "textPage",
+      "subtitle": "故事",
+      "content": "§8辣椒传入中国有两条路径，一是声名远扬的丝绸之路，从西亚进入新疆、甘肃、陕西等地，率先在西北栽培; 一是经过马六甲海峡进入南中国，在南方的云南、广西和湖南等地栽培，然后逐渐向全国扩展，几乎是没有辣椒的空白地带了。至乾隆年间，贵州地区开始大量食用辣椒\n作者吃辣就窜稀"
+    }
+  ]
+}

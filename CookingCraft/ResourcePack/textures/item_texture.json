@@ -107,6 +107,15 @@
     "cookingcraft:tomato": {
       "textures": "textures/items/tomato"
     },
+    "cookingcraft:cooking_book": {
+      "textures": "textures/items/cooking_book"
+    },
+    "cookingcraft:plants_book": {
+      "textures": "textures/items/plants_book"
+    },
+    "cookingcraft:author_book": {
+      "textures": "textures/items/author_book"
+    },
     "cookingcraft:tomato_seeds": {
       "textures": "textures/items/tomato_seeds"
     }

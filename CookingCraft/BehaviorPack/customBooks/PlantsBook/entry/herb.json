@@ -1,0 +1,28 @@
+{
+  "parent": "condiments",
+  "icon": "textures/items/herb",
+  "title": "香草",
+  "pages": [
+    {
+      "type": "textPage",
+      "content": "§l获取难度: §r§c简单 | ★§r\n§l获取方式: §r§c平原，森林野生§r\n=================\n§l种植难度: §r§c简单 | ★§r\n§l介绍: §r§8香草可在温带种植，需要适中的降雨量，在中海拔地区生长。§r\n§l特殊: §r§c可直接种在草地上 §r\n=================\n§r§l收获次数: §r§c1§r\n§l凋落物物: §r§c香草 1-4  种子:1-2§r\n"
+    },
+    {
+      "type": "highlightPage",
+      "subtitle": "收获",
+      "content": "香草是主要调味品之一，需要经石磨研磨成香料使用。",
+      "info": "香草",
+      "itemData": [
+        {
+          "item": "cookingcraft:herb",
+          "date": 0
+        }
+      ]
+    },
+    {
+      "type": "textPage",
+      "subtitle": "故事",
+      "content": "§8本模组简化了香料的获取方式。现实中食用香料泛指茴香，八角，桂皮等。现实中也没有香草这一具体植株，所有散发香味的草本植物均可以指代为香草。"
+    }
+  ]
+}

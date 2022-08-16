@@ -1,0 +1,19 @@
+{
+  "parent": "cooking_table",
+  "icon": "textures/items/seasoning",
+  "title": "调料",
+  "pages": [
+    {
+      "type": "textPage",
+      "content": "§l品质: §r§c常见 | ★★§r\n§l作用: \n§r§8四种主要调味品之一§r\n§l描述: \n§r§8多种调味品混合而成的调料，用途广泛，几乎所有的食物都会用到。§r"
+    },
+    {
+      "type": "imagePage",
+      "subtitle": "合成",
+      "image": "textures/books/cooking_table/seasoning",
+      "imageSize": [90, 50],
+      "info": "调料的合成与加工配方",
+      "content": ""
+    }
+  ]
+}

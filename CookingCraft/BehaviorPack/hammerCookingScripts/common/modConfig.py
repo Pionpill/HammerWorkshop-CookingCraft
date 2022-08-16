@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-19 01:11:15
-LastEditTime: 2022-08-04 14:47:38
+LastEditTime: 2022-08-16 14:02:53
 '''
 '''
 Description: 常量保存文件,只读
@@ -34,6 +34,9 @@ ServerSystemClsPath_Workbench = "hammerCookingScripts.server.system.WorkbenchSer
 # 植物
 ServerSystemName_Plants = "PlantsServerSystem"
 ServerSystemClsPath_Plants = "hammerCookingScripts.server.system.PlantsServerSystem.PlantsServerSystem"
+# 书籍
+ServerSystemName_Book = "BookServerSystem"
+ServerSystemClsPath_Book = "hammerCookingScripts.server.system.BookServerSystem.BookServerSystem"
 
 # Client System
 # 工作台
@@ -42,6 +45,9 @@ ClientSystemClsPath_Workbench = "hammerCookingScripts.client.system.WorkbenchCli
 # 植物
 ClientSystemName_Plants = "PlantsClientSystem"
 ClientSystemClsPath_Plants = "hammerCookingScripts.client.system.PlantsClientSystem.PlantsClientSystem"
+# 书籍
+ClientSystemName_Book = "BookClientSystem"
+ClientSystemClsPath_Book = "hammerCookingScripts.client.system.BookClientSystem.BookClientSystem"
 
 # ————————————————————————————————————————————————————————————————————————————————————————————————————
 # Block
