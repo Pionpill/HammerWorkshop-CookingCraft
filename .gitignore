@@ -288,3 +288,6 @@ out
 *.eps
 *.pyc
 __pycache__
+
+Temp.*
+books/
