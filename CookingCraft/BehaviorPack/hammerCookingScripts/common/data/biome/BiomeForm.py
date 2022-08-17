@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-30 17:02:38
-LastEditTime: 2022-07-18 23:44:17
+LastEditTime: 2022-08-17 13:29:57
 '''
 
 from mod.common.minecraftEnum import BiomeType
@@ -153,4 +153,4 @@ class BiomeForm(object):
     water = ocean | river
 
 
-__all__ = [BiomeType]
+__all__ = ['BiomeType']

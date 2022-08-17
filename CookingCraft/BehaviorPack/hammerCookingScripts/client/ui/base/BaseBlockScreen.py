@@ -7,7 +7,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-04-14 20:32:05
-LastEditTime: 2022-08-05 14:35:04
+LastEditTime: 2022-08-17 13:25:29
 '''
 import mod.client.extraClientApi as clientApi
 from hammerCookingScripts import logger
@@ -19,6 +19,7 @@ compFactory = clientApi.GetEngineCompFactory()
 
 
 class BaseBlockScreen(ScreenNode):
+
     def __init__(self, namespace, name, param):
         ScreenNode.__init__(self, namespace, name, param)
         self.mainPanelPath = "/main_panel"
@@ -64,7 +65,7 @@ class BaseBlockScreen(ScreenNode):
         self.SetScreenVisible(False)
         self.SetShowCondition(False)
 
-    def _OnCloseBthClicked(self, event):
+    def _OnCloseBthTouchUp(self, event):
         # type: (dict) -> None
         """关闭UI界面"""
         clientSystem = SystemController.GetModClientSystem(

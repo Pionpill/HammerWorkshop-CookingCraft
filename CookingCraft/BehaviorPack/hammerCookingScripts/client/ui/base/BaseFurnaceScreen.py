@@ -11,7 +11,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-08-03 14:36:13
-LastEditTime: 2022-08-11 15:29:40
+LastEditTime: 2022-08-17 13:23:15
 '''
 import mod.client.extraClientApi as clientApi
 from hammerCookingScripts.client.ui.base.BaseInventoryScreen import BaseInventoryScreen
@@ -23,6 +23,7 @@ compFactory = clientApi.GetEngineCompFactory()
 
 
 class BaseFurnaceScreen(BaseInventoryScreen):
+
     def __init__(self, namespace, name, param):
         BaseInventoryScreen.__init__(self, namespace, name, param)
         self.furnacePanelPath = "/furnace_panel"
@@ -67,14 +68,6 @@ class BaseFurnaceScreen(BaseInventoryScreen):
             self.arrowMaskControl.SetSpriteClipRatio(1.0 - arrowRatio)
             if arrowRatio == 1:
                 self.produceProgress = 0
-
-    def UpdateWorkbenchUI(self, workbenchData):
-        slotItems = workbenchData["workbenchSlotData"]
-        for slotName, itemDict in slotItems.items():
-            slotPath = "{0}/{1}".format(self.craftingPanelPath, slotName)
-            self.slotManager.SetSlotInfo(slotName,
-                                         slotInfo=(slotPath, itemDict))
-            self._SetSlotUI(slotPath, itemDict)
 
     def ShowUI(self, workbenchData):
         # type: (dict) -> None

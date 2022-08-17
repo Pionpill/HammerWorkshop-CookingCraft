@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-26 16:32:09
-LastEditTime: 2022-08-12 01:42:07
+LastEditTime: 2022-08-17 13:33:34
 '''
 from copy import deepcopy
 
@@ -29,7 +29,7 @@ class BaseFurnaceManager(BaseWorkbenchManager):
             self.fuelSlotPrefix + str(i): None
             for i in range(self.slotNum.get(self.fuelSlotPrefix))
         }
-        self.UIInit = False
+        self.clientUIInit = False
         self.burnInterval = modConfig.BURN_INTERVAL * 20
         self.burnTime = 0  # 剩余可燃烧时间，单位 tick
         self.burnDuration = 0  # 可燃烧总时间，单位 tick
@@ -96,12 +96,12 @@ class BaseFurnaceManager(BaseWorkbenchManager):
     def IsUIInit(self):
         # type: () -> bool
         """判断 UI 是否已初始化"""
-        return self.UIInit
+        return self.clientUIInit
 
     def UIInit(self):
         # type: () -> None
         """打开 UI: 记录 UI 已经被开启过"""
-        self.UIInit = True
+        self.clientUIInit = True
 
     def IsProducing(self):
         # type: () -> bool

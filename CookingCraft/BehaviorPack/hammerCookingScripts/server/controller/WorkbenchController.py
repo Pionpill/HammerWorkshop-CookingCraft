@@ -106,7 +106,7 @@ class WorkbenchController(object):
             burnDuration = burnDurationTuple[-1]
         isProducing = WorkbenchMgr.IsProducing()
         if WorkbenchMgr.IsUIInit():
-            WorkbenchMgr.UIInit()
+            WorkbenchMgr.clientUIInit()
             return WorkbenchController.FormWorkbenchData(
                 blockName,
                 pos,
