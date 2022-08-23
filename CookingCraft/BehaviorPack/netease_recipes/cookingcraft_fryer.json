@@ -1,0 +1,19 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "cookingcraft:fryer"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["AAA", " AA"],
+    "key": {
+      "A": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "result": {
+      "item": "cookingcraft:fryer",
+      "count": 1
+    }
+  }
+}

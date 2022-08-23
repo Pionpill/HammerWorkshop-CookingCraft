@@ -1,0 +1,258 @@
+{
+  "format_version": "1.13.0",
+  "netease:block_geometry": {
+    "bones": [
+      {
+        "cubes": [
+          {
+            "origin": [-16, 11, 7.5],
+            "pivot": [-8.5, 11, 8.5],
+            "rotation": [0, 0, 0],
+            "size": [16, 1, 1.0],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [16, 1]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 1]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [16, 1]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [16, 1]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [16, 1],
+                "uv_size": [-16, -1]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 1]
+              }
+            }
+          },
+          {
+            "origin": [-13, 1, 8],
+            "pivot": [-8, 9, 7],
+            "rotation": [0, 0, 0],
+            "size": [10, 10, 0],
+            "uv": {
+              "down": {
+                "texture": 1,
+                "uv": [0, 0],
+                "uv_size": [10, 0]
+              },
+              "east": {
+                "texture": 1,
+                "uv": [0, 0],
+                "uv_size": [0, 11]
+              },
+              "north": {
+                "texture": 1,
+                "uv": [0, 0],
+                "uv_size": [16, 16]
+              },
+              "up": {
+                "texture": 1,
+                "uv": [10, 0],
+                "uv_size": [-10, 0]
+              },
+              "west": {
+                "texture": 1,
+                "uv": [0, 0],
+                "uv_size": [0, 11]
+              }
+            }
+          }
+        ],
+        "name": "shelf",
+        "pivot": [-8, 0, 8],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-2, 0, 12],
+            "pivot": [-2, 0, 12],
+            "rotation": [22.5, 0, 0],
+            "size": [1, 16, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 1]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [1, 1],
+                "uv_size": [-1, -1]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              }
+            }
+          },
+          {
+            "origin": [-1.5, 0, 3],
+            "pivot": [-1.5, 0, 4],
+            "rotation": [-22.5, 0, 0],
+            "size": [1.0, 16, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 1]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [1, 1],
+                "uv_size": [-1, -1]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              }
+            }
+          }
+        ],
+        "name": "right",
+        "parent": "shelf",
+        "pivot": [-8, 0, 8],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [-15.5, 0, 12],
+            "pivot": [-15.5, 0, 12],
+            "rotation": [22.5, 0, 0],
+            "size": [1.0, 16, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 1]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [1, 1],
+                "uv_size": [-1, -1]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              }
+            }
+          },
+          {
+            "origin": [-15, 0, 3],
+            "pivot": [-15, 0, 4],
+            "rotation": [-22.5, 0, 0],
+            "size": [1, 16, 1],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 1]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [1, 1],
+                "uv_size": [-1, -1]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [1, 16]
+              }
+            }
+          }
+        ],
+        "name": "left",
+        "parent": "shelf",
+        "pivot": [-21.5, 0, 8],
+        "rotation": [0, 0, 0]
+      }
+    ],
+    "description": {
+      "identifier": "cookingcraft:meal_shelf",
+      "textures": ["cookingcraft:oak_planks", "cookingcraft:rope"],
+      "use_ao": true
+    }
+  }
+}

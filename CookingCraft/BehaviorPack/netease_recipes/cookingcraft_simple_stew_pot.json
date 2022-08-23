@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "cookingcraft:simple_stew_pot"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["A", "B"],
+    "key": {
+      "A": {
+        "item": "cookingcraft:stew_pot"
+      },
+      "B": {
+        "item": "minecraft:log"
+      }
+    },
+    "result": {
+      "item": "cookingcraft:simple_stew_pot",
+      "count": 1
+    }
+  }
+}

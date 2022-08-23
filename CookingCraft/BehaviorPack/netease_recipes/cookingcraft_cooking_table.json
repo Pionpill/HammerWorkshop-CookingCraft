@@ -5,16 +5,13 @@
       "identifier": "cookingcraft:cooking_table"
     },
     "tags": ["crafting_table"],
-    "pattern": ["##A", "##B"],
+    "pattern": ["AB", "BB"],
     "key": {
-      "#": {
-        "item": "minecraft:planks"
-      },
       "A": {
         "item": "minecraft:iron_ingot"
       },
       "B": {
-        "item": "minecraft:stonebrick"
+        "item": "minecraft:planks"
       }
     },
     "result": {
