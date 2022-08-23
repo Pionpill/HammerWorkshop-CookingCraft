@@ -20,7 +20,7 @@
       "nine_slice_right" : 0,
       "nine_slice_top" : 0,
       "nineslice_size" : [ 0, 0, 0, 0 ],
-      "offset" : [ 0.0, -1.0 ],
+      "offset" : [ 1.0, -1.0 ],
       "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ "default", "default" ],
@@ -46,7 +46,7 @@
       "$nine_slice_right" : 0,
       "$nine_slice_top" : 0,
       "$nineslice_size" : [ 0, 0, 0, 0 ],
-      "$pressed_button_name" : "%cooking_table_screen.click",
+      "$pressed_button_name" : "%squeezer_screen.click",
       "$pressed_texture" : "textures/ui/close_button_pressed_light",
       "$texture_layer" : 2,
       "alpha" : 1.0,
@@ -64,13 +64,13 @@
       "clips_children" : false,
       "controls" : [
          {
-            "default@cooking_table_screen.default" : {}
+            "default@squeezer_screen.default" : {}
          },
          {
-            "hover@cooking_table_screen.hover" : {}
+            "hover@squeezer_screen.hover" : {}
          },
          {
-            "pressed@cooking_table_screen.pressed" : {}
+            "pressed@squeezer_screen.pressed" : {}
          }
       ],
       "draggable" : "not_draggable",
@@ -83,31 +83,6 @@
       "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ 16, 16 ],
-      "visible" : true
-   },
-   "cooking_table_title" : {
-      "alpha" : 1.0,
-      "anchor_from" : "top_middle",
-      "anchor_to" : "top_middle",
-      "clip_offset" : [ 0, 0 ],
-      "clips_children" : false,
-      "color" : [ 0.0, 0.0, 0.0 ],
-      "enabled" : true,
-      "font_scale_factor" : 1.0,
-      "font_size" : "normal",
-      "font_type" : "default",
-      "layer" : 2,
-      "line_padding" : 0.0,
-      "max_size" : [ 0, 0 ],
-      "min_size" : [ 0, 0 ],
-      "offset" : [ 0.0, 7 ],
-      "priority" : 0,
-      "propagate_alpha" : false,
-      "shadow" : false,
-      "size" : [ 100, 11 ],
-      "text" : "厨务台",
-      "text_alignment" : "center",
-      "type" : "label",
       "visible" : true
    },
    "default" : {
@@ -139,7 +114,7 @@
       "always_accepts_input" : false,
       "controls" : [
          {
-            "main_panel@cooking_table_screen.main_panel" : {}
+            "main_panel@squeezer_screen.main_panel" : {}
          },
          {
             "inventory_panel@hammerPanelUI.inventory_panel" : {
@@ -148,9 +123,9 @@
             }
          },
          {
-            "crafting_panel@hammerPanelUI.cooking_panel" : {
+            "furnace_panel@hammerPanelUI.squeezer_panel" : {
                "layer" : 8,
-               "offset" : [ 0, -36 ]
+               "offset" : [ 0, -35 ]
             }
          }
       ],
@@ -169,13 +144,13 @@
       "clips_children" : false,
       "controls" : [
          {
-            "background_image@cooking_table_screen.background_image" : {}
+            "background_image@squeezer_screen.background_image" : {}
          },
          {
-            "cooking_table_title@cooking_table_screen.cooking_table_title" : {}
+            "close_button@squeezer_screen.close_button" : {}
          },
          {
-            "close_button@cooking_table_screen.close_button" : {}
+            "squeezer_title@squeezer_screen.squeezer_title" : {}
          }
       ],
       "enabled" : true,
@@ -189,7 +164,7 @@
       "type" : "panel",
       "visible" : true
    },
-   "namespace" : "cooking_table_screen",
+   "namespace" : "squeezer_screen",
    "netease_editor_template_image" : {
       "anchor_from" : "center",
       "anchor_to" : "center",
@@ -213,5 +188,30 @@
       "nineslice_size" : "$nineslice_size",
       "texture" : "$pressed_texture",
       "type" : "image"
+   },
+   "squeezer_title" : {
+      "alpha" : 1.0,
+      "anchor_from" : "top_middle",
+      "anchor_to" : "top_middle",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 0.0, 0.0, 0.0 ],
+      "enabled" : true,
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "default",
+      "layer" : 1,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 7 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 100, 11 ],
+      "text" : "压制机",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
    }
 }

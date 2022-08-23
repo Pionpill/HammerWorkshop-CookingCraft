@@ -20,7 +20,7 @@
       "nine_slice_right" : 0,
       "nine_slice_top" : 0,
       "nineslice_size" : [ 0, 0, 0, 0 ],
-      "offset" : [ 1.0, -1.0 ],
+      "offset" : [ 0.0, -1.0 ],
       "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ "default", "default" ],
@@ -28,6 +28,31 @@
       "type" : "image",
       "uv" : [ 0, 0 ],
       "uv_size" : [ 0, 0 ],
+      "visible" : true
+   },
+   "butcher_table_title" : {
+      "alpha" : 1.0,
+      "anchor_from" : "top_middle",
+      "anchor_to" : "top_middle",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 0.0, 0.0, 0.0 ],
+      "enabled" : true,
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "default",
+      "layer" : 2,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, 7 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 100, 11 ],
+      "text" : "屠宰台",
+      "text_alignment" : "center",
+      "type" : "label",
       "visible" : true
    },
    "close_button@common.button" : {
@@ -46,7 +71,7 @@
       "$nine_slice_right" : 0,
       "$nine_slice_top" : 0,
       "$nineslice_size" : [ 0, 0, 0, 0 ],
-      "$pressed_button_name" : "%squeezer_screen.click",
+      "$pressed_button_name" : "%butcher_table_screen.click",
       "$pressed_texture" : "textures/ui/close_button_pressed_light",
       "$texture_layer" : 2,
       "alpha" : 1.0,
@@ -64,13 +89,13 @@
       "clips_children" : false,
       "controls" : [
          {
-            "default@squeezer_screen.default" : {}
+            "default@butcher_table_screen.default" : {}
          },
          {
-            "hover@squeezer_screen.hover" : {}
+            "hover@butcher_table_screen.hover" : {}
          },
          {
-            "pressed@squeezer_screen.pressed" : {}
+            "pressed@butcher_table_screen.pressed" : {}
          }
       ],
       "draggable" : "not_draggable",
@@ -114,7 +139,7 @@
       "always_accepts_input" : false,
       "controls" : [
          {
-            "main_panel@squeezer_screen.main_panel" : {}
+            "main_panel@butcher_table_screen.main_panel" : {}
          },
          {
             "inventory_panel@hammerPanelUI.inventory_panel" : {
@@ -123,9 +148,9 @@
             }
          },
          {
-            "furnace_panel@hammerPanelUI.squeezer_panel" : {
+            "crafting_panel@hammerPanelUI.butcher_panel" : {
                "layer" : 8,
-               "offset" : [ 0, -35 ]
+               "offset" : [ 0, -36 ]
             }
          }
       ],
@@ -144,13 +169,13 @@
       "clips_children" : false,
       "controls" : [
          {
-            "background_image@squeezer_screen.background_image" : {}
+            "background_image@butcher_table_screen.background_image" : {}
          },
          {
-            "close_button@squeezer_screen.close_button" : {}
+            "butcher_table_title@butcher_table_screen.butcher_table_title" : {}
          },
          {
-            "squeezer_title@squeezer_screen.squeezer_title" : {}
+            "close_button@butcher_table_screen.close_button" : {}
          }
       ],
       "enabled" : true,
@@ -164,7 +189,7 @@
       "type" : "panel",
       "visible" : true
    },
-   "namespace" : "squeezer_screen",
+   "namespace" : "butcher_table_screen",
    "netease_editor_template_image" : {
       "anchor_from" : "center",
       "anchor_to" : "center",
@@ -188,30 +213,5 @@
       "nineslice_size" : "$nineslice_size",
       "texture" : "$pressed_texture",
       "type" : "image"
-   },
-   "squeezer_title" : {
-      "alpha" : 1.0,
-      "anchor_from" : "top_middle",
-      "anchor_to" : "top_middle",
-      "clip_offset" : [ 0, 0 ],
-      "clips_children" : false,
-      "color" : [ 0.0, 0.0, 0.0 ],
-      "enabled" : true,
-      "font_scale_factor" : 1.0,
-      "font_size" : "normal",
-      "font_type" : "default",
-      "layer" : 1,
-      "line_padding" : 0.0,
-      "max_size" : [ 0, 0 ],
-      "min_size" : [ 0, 0 ],
-      "offset" : [ 0, 7 ],
-      "priority" : 0,
-      "propagate_alpha" : false,
-      "shadow" : false,
-      "size" : [ 100, 11 ],
-      "text" : "压榨机",
-      "text_alignment" : "center",
-      "type" : "label",
-      "visible" : true
    }
 }

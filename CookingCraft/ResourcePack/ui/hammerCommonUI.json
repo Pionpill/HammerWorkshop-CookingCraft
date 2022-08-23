@@ -1,50 +1,166 @@
 {
-   "button_label" : {
-      "alpha" : "$control_alpha",
-      "color" : "$label_color",
-      "font_scale_factor" : "$label_font_scale_factor",
-      "font_size" : "$label_font_size",
-      "font_type" : "smooth",
-      "layer" : "$label_layer",
-      "max_size" : [ "100%", "100%" ],
-      "offset" : "$label_offset",
-      "shadow" : false,
-      "text" : "$label_text",
-      "text_alignment" : "center",
-      "type" : "label"
-   },
-   "count_label" : {
+   "border_img" : {
       "alpha" : 1.0,
       "anchor_from" : "center",
       "anchor_to" : "center",
+      "clip_direction" : "left",
       "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
       "clips_children" : false,
-      "color" : [ 1, 1, 1 ],
       "enabled" : true,
-      "font_scale_factor" : 0.5899999737739563,
-      "font_size" : "normal",
-      "font_type" : "smooth",
-      "layer" : 7,
-      "line_padding" : 0.0,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 1,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
-      "offset" : [ 4, 5 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
       "priority" : 0,
       "propagate_alpha" : false,
-      "shadow" : true,
-      "size" : [ 10, 6 ],
-      "text" : "64",
-      "text_alignment" : "right",
-      "type" : "label",
+      "size" : [ "default", "default" ],
+      "texture" : "textures/ui/item_cell",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
+      "visible" : true
+   },
+   "bowl_edge_img" : {
+      "alpha" : 1,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 4,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 16, 16 ],
+      "texture" : "textures/ui/bowl_edge",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
+      "visible" : true
+   },
+   "bowl_sketch" : {
+      "alpha" : 1,
+      "anchor_from" : "right_middle",
+      "anchor_to" : "right_middle",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 10,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -30, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 25, 25 ],
+      "texture" : "textures/ui/bowl_sketch",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
+      "visible" : true
+   },
+   "bucket_edge_img" : {
+      "alpha" : 1,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 4,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 16, 16 ],
+      "texture" : "textures/ui/bucket_edge",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
+      "visible" : true
+   },
+   "cooking_oil_edge_img" : {
+      "alpha" : 1,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 4,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 16, 16 ],
+      "texture" : "textures/ui/cooking_oil_edge",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
       "visible" : true
    },
    "flame_img" : {
-      "alpha" : 1.0,
+      "alpha" : 1,
       "anchor_from" : "left_middle",
       "anchor_to" : "left_middle",
       "clip_direction" : "left",
       "clip_offset" : [ 0, 0 ],
-      "clip_ratio" : 0.0,
+      "clip_ratio" : 0,
       "clips_children" : false,
       "enabled" : true,
       "fill" : false,
@@ -70,12 +186,12 @@
       "visible" : true
    },
    "flame_mask" : {
-      "alpha" : 1.0,
+      "alpha" : 1,
       "anchor_from" : "left_middle",
       "anchor_to" : "left_middle",
       "clip_direction" : "left",
       "clip_offset" : [ 0, 0 ],
-      "clip_ratio" : 0.0,
+      "clip_ratio" : 0,
       "clips_children" : false,
       "enabled" : true,
       "fill" : false,
@@ -101,12 +217,12 @@
       "visible" : true
    },
    "furnace_arrow_img" : {
-      "alpha" : 1.0,
+      "alpha" : 1,
       "anchor_from" : "center",
       "anchor_to" : "center",
       "clip_direction" : "left",
       "clip_offset" : [ 0, 0 ],
-      "clip_ratio" : 0.0,
+      "clip_ratio" : 0,
       "clips_children" : false,
       "enabled" : true,
       "fill" : false,
@@ -132,12 +248,12 @@
       "visible" : true
    },
    "furnace_arrow_mask" : {
-      "alpha" : 1.0,
+      "alpha" : 1,
       "anchor_from" : "center",
       "anchor_to" : "center",
       "clip_direction" : "left",
       "clip_offset" : [ 0, 0 ],
-      "clip_ratio" : 0.0,
+      "clip_ratio" : 0,
       "clips_children" : false,
       "enabled" : true,
       "fill" : false,
@@ -289,25 +405,35 @@
       "size" : [ "100%c", "100%c" ],
       "type" : "panel"
    },
-   "item_renderer" : {
-      "alpha" : 1.0,
+   "item_image" : {
+      "alpha" : 1,
       "anchor_from" : "center",
       "anchor_to" : "center",
+      "clip_direction" : "left",
       "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0,
       "clips_children" : false,
       "enabled" : true,
-      "layer" : 5,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 1,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
       "offset" : [ 0, 0 ],
       "priority" : 0,
       "propagate_alpha" : false,
-      "property_bag" : {
-         "#item_id_aux" : 131072
-      },
-      "renderer" : "inventory_item_renderer",
-      "size" : [ 16, 16 ],
-      "type" : "custom",
+      "size" : [ "default", "default" ],
+      "texture" : "textures/netease/common/image/default",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
       "visible" : true
    },
    "item_slot" : {
@@ -348,7 +474,7 @@
       "visible" : true
    },
    "item_slot_big" : {
-      "alpha" : 1.0,
+      "alpha" : 1,
       "anchor_from" : "center",
       "anchor_to" : "center",
       "clip_offset" : [ 0, 0 ],
@@ -384,13 +510,253 @@
       "type" : "panel",
       "visible" : true
    },
-   "knife_img" : {
+   "item_slot_bowl" : {
+      "alpha" : 1,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "selected_image@hammerCommonUI.selected_image" : {}
+         },
+         {
+            "item_button@hammerCommonUI.item_button" : {}
+         },
+         {
+            "count_label@hammerCommonUI.count_label" : {}
+         },
+         {
+            "durability_bar@hammerCommonUI.progress_bar" : {
+               "offset" : [ 0, 5 ],
+               "size" : [ "70.0%+0.0px", "7.0%+0.0px" ]
+            }
+         },
+         {
+            "item_renderer@hammerCommonUI.item_renderer" : {}
+         },
+         {
+            "bowl_edge_img@hammerCommonUI.bowl_edge_img" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 18, 18 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "item_slot_bucket" : {
+      "alpha" : 1,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "selected_image@hammerCommonUI.selected_image" : {}
+         },
+         {
+            "item_button@hammerCommonUI.item_button" : {}
+         },
+         {
+            "count_label@hammerCommonUI.count_label" : {}
+         },
+         {
+            "durability_bar@hammerCommonUI.progress_bar" : {
+               "offset" : [ 0, 5 ],
+               "size" : [ "70.0%+0.0px", "7.0%+0.0px" ]
+            }
+         },
+         {
+            "item_renderer@hammerCommonUI.item_renderer" : {}
+         },
+         {
+            "bucket_edge_img@hammerCommonUI.bucket_edge_img" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 18, 18 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "item_slot_cooking_oil" : {
+      "alpha" : 1,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "selected_image@hammerCommonUI.selected_image" : {}
+         },
+         {
+            "item_button@hammerCommonUI.item_button" : {}
+         },
+         {
+            "count_label@hammerCommonUI.count_label" : {}
+         },
+         {
+            "durability_bar@hammerCommonUI.progress_bar" : {
+               "offset" : [ 0, 5 ],
+               "size" : [ "70.0%+0.0px", "7.0%+0.0px" ]
+            }
+         },
+         {
+            "item_renderer@hammerCommonUI.item_renderer" : {}
+         },
+         {
+            "cooking_oil_edge_img@hammerCommonUI.cooking_oil_edge_img" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 18, 18 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "item_slot_salt" : {
       "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "selected_image@hammerCommonUI.selected_image" : {}
+         },
+         {
+            "item_button@hammerCommonUI.item_button" : {}
+         },
+         {
+            "count_label@hammerCommonUI.count_label" : {}
+         },
+         {
+            "durability_bar@hammerCommonUI.progress_bar" : {
+               "offset" : [ 0, 5 ],
+               "size" : [ "70.0%+0.0px", "7.0%+0.0px" ]
+            }
+         },
+         {
+            "item_renderer@hammerCommonUI.item_renderer" : {}
+         },
+         {
+            "salt_edge_img@hammerCommonUI.salt_edge_img" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 18, 18 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "item_slot_seasonings" : {
+      "alpha" : 1,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "selected_image@hammerCommonUI.selected_image" : {}
+         },
+         {
+            "item_button@hammerCommonUI.item_button" : {}
+         },
+         {
+            "count_label@hammerCommonUI.count_label" : {}
+         },
+         {
+            "durability_bar@hammerCommonUI.progress_bar" : {
+               "offset" : [ 0, 5 ],
+               "size" : [ "70.0%+0.0px", "7.0%+0.0px" ]
+            }
+         },
+         {
+            "item_renderer@hammerCommonUI.item_renderer" : {}
+         },
+         {
+            "seasonings_edge_img@hammerCommonUI.seasonings_edge_img" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 18, 18 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "item_slot_sugar" : {
+      "alpha" : 1,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "selected_image@hammerCommonUI.selected_image" : {}
+         },
+         {
+            "item_button@hammerCommonUI.item_button" : {}
+         },
+         {
+            "count_label@hammerCommonUI.count_label" : {}
+         },
+         {
+            "durability_bar@hammerCommonUI.progress_bar" : {
+               "offset" : [ 0, 5 ],
+               "size" : [ "70.0%+0.0px", "7.0%+0.0px" ]
+            }
+         },
+         {
+            "item_renderer@hammerCommonUI.item_renderer" : {}
+         },
+         {
+            "sugar_edge_img@hammerCommonUI.sugar_edge_img" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 18, 18 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "knife_img" : {
+      "alpha" : 1,
       "anchor_from" : "right_middle",
       "anchor_to" : "right_middle",
       "clip_direction" : "left",
       "clip_offset" : [ 0, 0 ],
-      "clip_ratio" : 0.0,
+      "clip_ratio" : 0,
       "clips_children" : false,
       "enabled" : true,
       "fill" : false,
@@ -420,7 +786,7 @@
       "always_accepts_input" : false,
       "controls" : [
          {
-            "furnace_arrow_img@hammerCommonUI.furnace_arrow_img" : {}
+            "oil_meter@hammerCommonUI.oil_meter" : {}
          }
       ],
       "force_render_below" : false,
@@ -430,7 +796,97 @@
       "should_steal_mouse" : false,
       "type" : "screen"
    },
+   "meter_scale" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 1,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 14, 60 ],
+      "texture" : "textures/ui/meter_scale",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
+      "visible" : true
+   },
    "namespace" : "hammerCommonUI",
+   "oil_img" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "down",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 1.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : true,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : false,
+      "layer" : 1,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 14, 60 ],
+      "texture" : "textures/ui/oil",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
+      "visible" : true
+   },
+   "oil_meter" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "border_img@hammerCommonUI.border_img" : {}
+         },
+         {
+            "meter_scale@hammerCommonUI.meter_scale" : {}
+         },
+         {
+            "liquid@hammerCommonUI.oil_img" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 16, 62 ],
+      "type" : "panel",
+      "visible" : true
+   },
    "progress_bar" : {
       "$progressBarOffset|default" : [ 0, 8 ],
       "$progressBarSize|default" : [ 18, 2 ],
@@ -461,7 +917,7 @@
       "type" : "image",
       "visible" : false
    },
-   "selected_image" : {
+   "salt_edge_img" : {
       "alpha" : 1.0,
       "anchor_from" : "center",
       "anchor_to" : "center",
@@ -474,22 +930,143 @@
       "grayscale" : false,
       "is_new_nine_slice" : false,
       "keep_ratio" : true,
-      "layer" : 5,
+      "layer" : 4,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "nine_slice_buttom" : 0,
       "nine_slice_left" : 0,
       "nine_slice_right" : 0,
       "nine_slice_top" : 0,
-      "nineslice_size" : 4,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
       "offset" : [ 0, 0 ],
       "priority" : 0,
       "propagate_alpha" : false,
-      "size" : [ "100.0%+4.0px", "100.0%+4.0px" ],
-      "texture" : "textures/ui/pocket_ui_highlight_slot",
+      "size" : [ 16, 16 ],
+      "texture" : "textures/ui/salt_edge",
       "type" : "image",
       "uv" : [ 0, 0 ],
       "uv_size" : [ 0, 0 ],
-      "visible" : false
+      "visible" : true
+   },
+   "seasonings_edge_img" : {
+      "alpha" : 1,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 4,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 16, 16 ],
+      "texture" : "textures/ui/seasonings_edge",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
+      "visible" : true
+   },
+   "sugar_edge_img" : {
+      "alpha" : 1,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 4,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 16, 16 ],
+      "texture" : "textures/ui/sugar_edge",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
+      "visible" : true
+   },
+   "water_img" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "down",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 1.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : true,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : false,
+      "layer" : 1,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 14, 60 ],
+      "texture" : "textures/ui/oil",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 0, 0 ],
+      "visible" : true
+   },
+   "water_meter" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "border_img@hammerCommonUI.border_img" : {}
+         },
+         {
+            "meter_scale@hammerCommonUI.meter_scale" : {}
+         },
+         {
+            "liquid@hammerCommonUI.water_img" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 16, 62 ],
+      "type" : "panel",
+      "visible" : true
    }
 }
