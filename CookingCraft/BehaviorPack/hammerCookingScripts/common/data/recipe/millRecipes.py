@@ -4,19 +4,15 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-08-11 15:36:14
-LastEditTime: 2022-08-15 14:38:42
+LastEditTime: 2022-08-25 00:38:08
 '''
 millRecipes = {
-    "cookingcraft:apple": {
+    "minecraft:apple": {
         "materials": {
-            "material_slot0": {
-                "newItemName": "minecraft:apple"
-            }
+            "material_slot0": "minecraft:apple"
         },
         "results": {
-            "result_slot0": {
-                "newItemName": "minecraft:apple"
-            }
+            "result_slot0": "minecraft:apple"
         }
     },
     "cookingcraft:spices": {
@@ -27,12 +23,8 @@ millRecipes = {
             }
         },
         "results": {
-            "result_slot0": {
-                "newItemName": "cookingcraft:spices"
-            },
-            "result_slot1": {
-                "newItemName": "cookingcraft:straw",
-            }
+            "result_slot0": "cookingcraft:spices",
+            "result_slot1": "cookingcraft:straw"
         }
     },
     "cookingcraft:rice_pieces": {
@@ -43,12 +35,8 @@ millRecipes = {
             }
         },
         "results": {
-            "result_slot0": {
-                "newItemName": "cookingcraft:rice_pieces"
-            },
-            "result_slot1": {
-                "newItemName": "cookingcraft:straw",
-            }
+            "result_slot0": "cookingcraft:rice_pieces",
+            "result_slot1": "cookingcraft:straw",
         }
     },
     "minecraft:flour": {
@@ -59,12 +47,8 @@ millRecipes = {
             }
         },
         "results": {
-            "result_slot0": {
-                "newItemName": "cookingcraft:flour"
-            },
-            "result_slot1": {
-                "newItemName": "cookingcraft:straw",
-            }
+            "result_slot0": "cookingcraft:flour",
+            "result_slot1": "cookingcraft:straw"
         }
     },
     "cookingcraft:corn_pieces": {
@@ -75,23 +59,15 @@ millRecipes = {
             }
         },
         "results": {
-            "result_slot0": {
-                "newItemName": "cookingcraft:corn_pieces"
-            }
+            "result_slot0": "cookingcraft:corn_pieces"
         }
     },
     "cookingcraft:chill_powder": {
         "materials": {
-            "material_slot0": {
-                "newItemName": "cookingcraft:pepper",
-            }
+            "material_slot0": "cookingcraft:pepper"
         },
         "results": {
-            "result_slot0": {
-                "newItemName": "cookingcraft:chill_powder"
-            }
+            "result_slot0": "cookingcraft:chill_powder"
         }
     }
 }
-
-millFuels = {"minecraft:gold_nugget": 40, "minecraft:gold_ingot": 400}

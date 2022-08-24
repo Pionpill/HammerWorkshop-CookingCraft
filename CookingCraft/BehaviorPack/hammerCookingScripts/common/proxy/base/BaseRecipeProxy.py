@@ -4,18 +4,44 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-21 23:26:14
-LastEditTime: 2022-08-02 21:20:22
+LastEditTime: 2022-08-25 01:03:49
 '''
 from abc import abstractmethod
+from hammerCookingScripts import logger
 from hammerCookingScripts.common.entity import Recipe
+from hammerCookingScripts.common.utils import workbenchUtils
+from hammerCookingScripts.common.data.recipe import *
 
 
 class BaseRecipeProxy(object):
-    def __init__(self, recipes):
-        # type: (dict) -> None
+
+    def __init__(self, blockName):
+        # type: (dict, str) -> None
         """传入配方字典与对应的调试器"""
         object.__init__(self)
-        self._recipe = Recipe(recipes)
+        self._blockName = blockName
+        if blockName == "cookingcraft:cooking_table":
+            self._recipe = Recipe(cookingRecipes)
+        elif blockName == "cookingcraft:butcher_table":
+            self._recipe = Recipe(butcherRecipes)
+        elif blockName == "cookingcraft:baking_furnace":
+            self._recipe = Recipe(bakingRecipes)
+        elif blockName == "cookingcraft:fryer":
+            self._recipe = Recipe(fryerRecipes)
+        elif blockName in ["cookingcraft:grill", "cookingcraft:simple_grill"]:
+            self._recipe = Recipe(grillRecipes)
+        elif blockName == "cookingcraft:mill":
+            self._recipe = Recipe(millRecipes)
+        elif blockName == "cookingcraft:pan":
+            self._recipe = Recipe(panRecipes)
+        elif blockName == "cookingcraft:squeezer":
+            self._recipe = Recipe(squeezerRecipes)
+        elif blockName == "cookingcraft:food_steamer":
+            self._recipe = Recipe(steamerRecipes)
+        elif blockName in [
+                "cookingcraft:stew_pot", "cookingcraft:simple_stew_pot"
+        ]:
+            self._recipe = Recipe(stewRecipes)
         self._lastUsedRecipeName = None
 
     def _GetRecipeResults(self, recipeName):
@@ -41,7 +67,6 @@ class BaseRecipeProxy(object):
         return None
 
     def _IsSameMaterialItem(self, recipeItem, blockItem):
-        # type: (dict, dict) -> bool
         """比较两个配方物品是否相同"""
         if not recipeItem and not blockItem:
             return True
@@ -51,22 +76,47 @@ class BaseRecipeProxy(object):
             return False
         if recipeItem.get("newAuxValue") != blockItem.get("newAuxValue"):
             return False
-        if recipeItem.get("count") < blockItem.get("count"):
-            return False
-        return True
+        return recipeItem.get("count") >= blockItem.get("count")
+
+    def MatchRecipe(self, blockItems):
+        # type: (dict, int) -> dict
+        """获取配方结果，默认的只有一个材料槽，如果有多个原材料槽需要重写该方法"""
+        # logger.debug(self._recipe.GetAllRecipeName())
+        matchNum = workbenchUtils.GetMaterialsSlotNum(self._blockName)
+        for recipeName in self._recipe.GetAllRecipeName():
+            materials = self._GetRecipeMaterials(recipeName)
+            # logger.debug(materials)
+            matchCount = 0
+            flexibleSlotNum = workbenchUtils.GetFlexibleMaterialsSlotNum(
+                self._blockName)
+            # logger.debug(flexibleSlotNum)
+            for slotName, materialItem in materials.items():
+                matchCount += 1
+                blockItem = blockItems.get(slotName)
+                if workbenchUtils.GetMaterialSlotIndex(
+                        slotName) >= flexibleSlotNum and materialItem is None:
+                    if matchCount == matchNum:
+                        self._lastUsedRecipeName = recipeName
+                        return self._GetRecipeResults(recipeName)
+                    continue
+                if not self._IsSameMaterialItem(blockItem, materialItem):
+                    break
+                # logger.debug(matchCount)
+                if matchCount == matchNum:
+                    self._lastUsedRecipeName = recipeName
+                    return self._GetRecipeResults(recipeName)
+        self._lastUsedRecipeName = None
+        return {
+            workbenchUtils.GetResultSlotPrefix() + str(id): None
+            for id in range(self.GetResultsSlotNum())
+        }
 
     @abstractmethod
     def GetMaterialsSlotNum(self):
         # type: () -> int
-        raise NotImplementedError
+        return workbenchUtils.GetMaterialsSlotNum(self._blockName)
 
     @abstractmethod
     def GetResultsSlotNum(self):
         # type: () -> int
-        raise NotImplementedError
-
-    @abstractmethod
-    def MatchRecipe(self, blockItems, matchNum=1):
-        # type: (dict, int) -> dict
-        """通过方块 UI 界面的物品匹配合成物"""
-        raise NotImplementedError
+        return workbenchUtils.GetResultsSlotNum(self._blockName)

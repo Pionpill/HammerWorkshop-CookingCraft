@@ -9,6 +9,5 @@ LastEditTime: 2022-08-16 20:57:25
 from hammerCookingScripts.common.entity.adapter.recipeAdapter import *
 
 __all__ = [
-    'CookingTableRecipeAdapter', 'BakingFurnaceRecipeAdapter',
-    'MillRecipeAdapter'
+    'CookingTableRecipeAdapter', 'BakingRecipeAdapter', 'MillRecipeAdapter'
 ]

@@ -1146,7 +1146,7 @@
         }
       },
       {
-        "material_slot10@hammerCommonUI.item_slot_bowl": {
+        "material_slot6@hammerCommonUI.item_slot_bowl": {
           "anchor_from": "bottom_right",
           "anchor_to": "bottom_right",
           "offset": [-68.0, 0.0]

@@ -4,62 +4,30 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-22 16:00:57
-LastEditTime: 2022-08-14 00:09:38
+LastEditTime: 2022-08-24 22:51:20
 '''
 from hammerCookingScripts.common.proxy.base.BaseRecipeProxy import \
     BaseRecipeProxy
+from hammerCookingScripts.common.data.recipe import coalFuels, goldFuels
 from hammerCookingScripts import logger
 from hammerCookingScripts.common.utils import workbenchUtils
 
 
 class BaseFurnaceRecipeProxy(BaseRecipeProxy):
 
-    def __init__(self, recipes, fuelDict):
-        BaseRecipeProxy.__init__(self, recipes)
-        self._fuelDict = fuelDict
+    def __init__(self, blockName):
+        BaseRecipeProxy.__init__(self, blockName)
+        if blockName in ["cookingcraft:mill", "cookingcraft:squeezer"]:
+            self._fuelDict = goldFuels
+        else:
+            self._fuelDict = coalFuels
 
     def GetBurnDuration(self, itemName):
         # type: (str) -> int
         """获取燃料耐久度"""
-        if self.__IsFuelItem(itemName):
-            return self._fuelDict.get(itemName, 0) * 20
-
-    def GetMaterialsSlotNum(self):
-        # type: () -> int
-        """烘焙炉有 1 个原料槽"""
-        return 1
-
-    def GetResultsSlotNum(self):
-        # type: () -> int
-        """烘焙炉有 1 个结果槽"""
-        return 1
+        return self._fuelDict.get(itemName, 0) * 20
 
     def GetFuelsSlotNum(self):
         # type: () -> int
         """烘焙炉有 1 个燃料槽"""
         return 1
-
-    def MatchRecipe(self, blockItems, matchNum=1):
-        # type: (dict, int) -> dict
-        """获取配方结果，默认的只有一个材料槽，如果有多个原材料槽需要重写该方法"""
-        for recipeName in self._recipe.GetAllRecipeName():
-            materials = self._GetRecipeMaterials(recipeName)
-            matchCount = 0
-            for slotName, materialItem in materials.items():
-                matchCount += 1
-                blockItem = blockItems.get(slotName)
-                if not self._IsSameMaterialItem(blockItem, materialItem):
-                    break
-                if matchCount == matchNum:
-                    self._lastUsedRecipeName = recipeName
-                    return self._GetRecipeResults(recipeName)
-        self._lastUsedRecipeName = None
-        return {
-            workbenchUtils.GetResultSlotPrefix() + str(id): None
-            for id in range(self.GetResultsSlotNum())
-        }
-
-    def __IsFuelItem(self, itemName):
-        # type: (str) -> bool
-        """判断物品是否是燃料"""
-        return itemName in self._fuelDict

@@ -329,7 +329,7 @@ class WorkbenchServerSystem(ServerSystem):
                                                    toItem, pos, dimensionId,
                                                    playerId):
                 return False
-        if blockName in modConfig.CraftingBlock:
+        if workbenchUtils.IsCraftingBlock(blockName):
             self.__MatchCraftingRecipe(playerId, blockName, dimensionId, pos)
         return True
 
