@@ -19,11 +19,13 @@ import mod.client.extraClientApi as clientApi
 from hammerCookingScripts.client.ui.base.BaseInventoryScreen import BaseInventoryScreen
 from hammerCookingScripts.client.controller import SystemController
 from hammerCookingScripts.common import modConfig
+from hammerCookingScripts import logger
 
 compFactory = clientApi.GetEngineCompFactory()
 
 
 class BaseCraftingScreen(BaseInventoryScreen):
+
     def __init__(self, namespace, name, param):
         BaseInventoryScreen.__init__(self, namespace, name, param)
         self.craftingPanelPath = "/crafting_panel"

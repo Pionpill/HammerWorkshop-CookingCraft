@@ -4,11 +4,9 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-27 21:10:53
-LastEditTime: 2022-08-11 15:35:06
+LastEditTime: 2022-08-24 15:13:42
 '''
-from hammerCookingScripts import logger
-
-FURNACE_LIST = ["cookingcraft:baking_furnace","cookingcraft:mill"]
+FURNACE_LIST = ["cookingcraft:baking_furnace", "cookingcraft:mill"]
 CRAFTING_LIST = ["cookingcraft:cooking_table"]
 
 
@@ -41,6 +39,10 @@ def GetResultSlotPrefix():
 def GetFuelSlotPrefix():
     # type: () -> str
     return "fuel_slot"
+
+
+def GetMaterialSlotIndex(materialSlotName):
+    return int(materialSlotName[13:])
 
 
 def IsMaterialSlot(slotName):

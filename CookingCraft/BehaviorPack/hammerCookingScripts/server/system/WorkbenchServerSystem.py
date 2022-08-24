@@ -464,7 +464,7 @@ class WorkbenchServerSystem(ServerSystem):
         """
         blockKey = pos + (dimensionId, )
         WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(blockKey, blockName)
-        materialsItems = WorkbenchMgr.GetMaterialsItems()
+        materialsItems = WorkbenchMgr.GetMaterialsItems(part=True)
         WorkbenchMgr.Reset()
         itemComp = compFactory.CreateItem(playerId)
         for materialItem in materialsItems.values():

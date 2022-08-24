@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-26 19:15:11
-LastEditTime: 2022-08-14 00:14:43
+LastEditTime: 2022-08-24 14:40:33
 '''
 from abc import abstractmethod
 from copy import deepcopy
@@ -47,7 +47,7 @@ class BaseCraftingManager(BaseWorkbenchManager):
         return slotData
 
     def Reset(self):
-        # type: () -> dict
+        # type: () -> None
         """工作台重置，所有槽位返回原始状态，返回原材料操的所有物品作为掉落物"""
         self.materialsItems = {
             self.materialSlotPrefix + str(i): None

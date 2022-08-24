@@ -4,14 +4,12 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-02 15:57:46
-LastEditTime: 2022-08-14 00:11:55
+LastEditTime: 2022-08-24 15:15:45
 '''
 cookingRecipes = {
     "minecraft:apple": {
         "materials": {
-            "material_slot4": {
-                "newItemName": "minecraft:apple"
-            }
+            "material_slot4": "minecraft:apple"
         },
         "results": {
             "newItemName": "minecraft:apple"
@@ -34,27 +32,13 @@ cookingRecipes = {
     },
     "cookingcraft:raw_apple_pie": {
         "materials": {
-            "material_slot1": {
-                "newItemName": "cookingcraft:seasoning"
-            },
-            "material_slot3": {
-                "newItemName": "minecraft:apple"
-            },
-            "material_slot4": {
-                "newItemName": "minecraft:sugar"
-            },
-            "material_slot5": {
-                "newItemName": "minecraft:apple"
-            },
-            "material_slot6": {
-                "newItemName": "cookingcraft:flour"
-            },
-            "material_slot7": {
-                "newItemName": "cookingcraft:flour"
-            },
-            "material_slot8": {
-                "newItemName": "cookingcraft:flour"
-            }
+            "material_slot3": "minecraft:apple",
+            "material_slot5": "minecraft:apple",
+            "material_slot6": "cookingcraft:flour",
+            "material_slot7": "cookingcraft:flour",
+            "material_slot8": "cookingcraft:flour",
+            "material_slot10": "minecraft:sugar",
+            "material_slot12": "cookingcraft:seasoning"
         },
         "results": {
             "newItemName": "cookingcraft:raw_apple_pie",
@@ -64,30 +48,16 @@ cookingRecipes = {
     },
     "cookingcraft:raw_carrot_pie": {
         "materials": {
-            "material_slot0": None,
             "material_slot1": {
                 "newItemName": "minecraft:sugar",
                 "count": 3
             },
-            "material_slot2": None,
-            "material_slot3": {
-                "newItemName": "minecraft:carrot",
-            },
-            "material_slot4": {
-                "newItemName": "minecraft:carrot",
-            },
-            "material_slot5": {
-                "newItemName": "minecraft:carrot",
-            },
-            "material_slot6": {
-                "newItemName": "cookingcraft:flour",
-            },
-            "material_slot7": {
-                "newItemName": "cookingcraft:flour",
-            },
-            "material_slot8": {
-                "newItemName": "cookingcraft:flour",
-            }
+            "material_slot3": "minecraft:carrot",
+            "material_slot4": "minecraft:carrot",
+            "material_slot5": "minecraft:carrot",
+            "material_slot6": "cookingcraft:flour",
+            "material_slot7": "cookingcraft:flour",
+            "material_slot8": "cookingcraft:flour"
         },
         "results": {
             "newItemName": "cookingcraft:raw_carrot_pie",
@@ -96,34 +66,18 @@ cookingRecipes = {
     },
     "cookingcraft:raw_egg_pie": {
         "materials": {
-            "material_slot0": {
-                "newItemName": "cookingcraft:seasoning",
-            },
+            "material_slot0": "cookingcraft:seasoning",
             "material_slot1": {
                 "newItemName": "minecraft:sugar",
                 "count": 3
             },
-            "material_slot2": {
-                "newItemName": "cookingcraft:seasoning",
-            },
-            "material_slot3": {
-                "newItemName": "minecraft:egg",
-            },
-            "material_slot4": {
-                "newItemName": "minecraft:egg",
-            },
-            "material_slot5": {
-                "newItemName": "minecraft:egg",
-            },
-            "material_slot6": {
-                "newItemName": "cookingcraft:flour",
-            },
-            "material_slot7": {
-                "newItemName": "cookingcraft:flour",
-            },
-            "material_slot8": {
-                "newItemName": "cookingcraft:flour",
-            }
+            "material_slot2": "cookingcraft:seasoning",
+            "material_slot3": "minecraft:egg",
+            "material_slot4": "minecraft:egg",
+            "material_slot5": "minecraft:egg",
+            "material_slot6": "cookingcraft:flour",
+            "material_slot7": "cookingcraft:flour",
+            "material_slot8": "cookingcraft:flour"
         },
         "results": {
             "newItemName": "cookingcraft:raw_egg_pie",
@@ -132,25 +86,15 @@ cookingRecipes = {
     },
     "cookingcraft:raw_berry_pie": {
         "materials": {
-            "material_slot3": {
-                "newItemName": "minecraft:sweet_berries",
-            },
+            "material_slot3": "minecraft:sweet_berries",
             "material_slot4": {
                 "newItemName": "minecraft:glow_berries",
                 "count": 3
             },
-            "material_slot5": {
-                "newItemName": "minecraft:sweet_berries",
-            },
-            "material_slot6": {
-                "newItemName": "cookingcraft:flour",
-            },
-            "material_slot7": {
-                "newItemName": "cookingcraft:flour",
-            },
-            "material_slot8": {
-                "newItemName": "cookingcraft:flour",
-            }
+            "material_slot5": "minecraft:sweet_berries",
+            "material_slot6": "cookingcraft:flour",
+            "material_slot7": "cookingcraft:flour",
+            "material_slot8": "cookingcraft:flour",
         },
         "results": {
             "newItemName": "cookingcraft:raw_berry_pie",

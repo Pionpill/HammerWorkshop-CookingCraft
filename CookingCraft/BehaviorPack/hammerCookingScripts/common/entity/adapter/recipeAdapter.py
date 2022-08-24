@@ -5,7 +5,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-23 00:16:40
-LastEditTime: 2022-08-14 00:12:16
+LastEditTime: 2022-08-24 13:42:38
 '''
 from hammerCookingScripts import logger
 
@@ -13,7 +13,9 @@ from hammerCookingScripts import logger
 def CookingTableRecipeAdapter(recipeName, rawRecipeDict):
     # type: (str, dict) -> dict
     """cookingcraft:cooking_table 的配方调试器"""
-    return __CraftingRecipeAdapter(recipeName, rawRecipeDict)
+    return __CraftingRecipeAdapter(recipeName,
+                                   rawRecipeDict,
+                                   materialSlotNum=13)
 
 
 def BakingFurnaceRecipeAdapter(recipeName, rawRecipeDict):
@@ -88,6 +90,12 @@ def __FormNewItemDict(oldItemDict=None, recipeName=None):
     if oldItemDict is None:
         return {
             "newItemName": recipeName,
+            "newAuxValue": 0,
+            "count": 1,
+        }
+    elif isinstance(oldItemDict, str):
+        return {
+            "newItemName": oldItemDict,
             "newAuxValue": 0,
             "count": 1,
         }
