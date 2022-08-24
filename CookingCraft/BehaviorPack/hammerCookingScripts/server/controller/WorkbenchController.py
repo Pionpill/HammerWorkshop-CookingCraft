@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-27 22:54:59
-LastEditTime: 2022-08-12 01:43:06
+LastEditTime: 2022-08-24 14:39:26
 '''
 
 from copy import deepcopy
@@ -106,7 +106,7 @@ class WorkbenchController(object):
             burnDuration = burnDurationTuple[-1]
         isProducing = WorkbenchMgr.IsProducing()
         if WorkbenchMgr.IsUIInit():
-            WorkbenchMgr.UIInit()
+            WorkbenchMgr.clientUIInit()
             return WorkbenchController.FormWorkbenchData(
                 blockName,
                 pos,
@@ -136,7 +136,6 @@ class WorkbenchController(object):
 
     @classmethod
     def GetBlockSlotData(cls, blockName, pos, dimensionId, levelId):
-
         blockEntityData = blockUtils.GetBlockEntityData(pos, dimensionId,
                                                         levelId)
         return cls.ConvertBlockEntityDataToDict(blockName, blockEntityData,

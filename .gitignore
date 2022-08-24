@@ -289,5 +289,6 @@ out
 *.pyc
 __pycache__
 
+temp.*
 Temp.*
-books/
+cooking_table/

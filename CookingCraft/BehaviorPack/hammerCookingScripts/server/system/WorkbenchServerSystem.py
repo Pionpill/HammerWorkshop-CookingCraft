@@ -329,7 +329,7 @@ class WorkbenchServerSystem(ServerSystem):
                                                    toItem, pos, dimensionId,
                                                    playerId):
                 return False
-        if blockName in modConfig.CraftingBlock:
+        if workbenchUtils.IsCraftingBlock(blockName):
             self.__MatchCraftingRecipe(playerId, blockName, dimensionId, pos)
         return True
 
@@ -464,7 +464,7 @@ class WorkbenchServerSystem(ServerSystem):
         """
         blockKey = pos + (dimensionId, )
         WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(blockKey, blockName)
-        materialsItems = WorkbenchMgr.GetMaterialsItems()
+        materialsItems = WorkbenchMgr.GetMaterialsItems(part=True)
         WorkbenchMgr.Reset()
         itemComp = compFactory.CreateItem(playerId)
         for materialItem in materialsItems.values():

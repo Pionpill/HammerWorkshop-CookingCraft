@@ -1,11 +1,16 @@
 {
     "ui_defs": [
         "ui/baking_furnace_screen.json",
+        "ui/butcher_table_screen.json",
         "ui/cooking_table_screen.json",
+        "ui/food_steamer_screen.json",
+        "ui/fryer_screen.json",
+        "ui/grill_screen.json",
         "ui/hammerCommonUI.json",
         "ui/hammerPanelUI.json",
         "ui/mill_screen.json",
-        "ui/neteaseCommonUI.json",
-        "ui/squeeaer_screen.json"
+        "ui/pan_screen.json",
+        "ui/squeezer_screen.json",
+        "ui/stew_pot_screen.json"
     ]
 }

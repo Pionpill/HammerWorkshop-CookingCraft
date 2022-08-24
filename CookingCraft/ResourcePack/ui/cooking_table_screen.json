@@ -148,9 +148,9 @@
             }
          },
          {
-            "crafting_panel@hammerPanelUI.crafting_panel" : {
+            "crafting_panel@hammerPanelUI.cooking_panel" : {
                "layer" : 8,
-               "offset" : [ 0, -40 ]
+               "offset" : [ 0, -36 ]
             }
          }
       ],

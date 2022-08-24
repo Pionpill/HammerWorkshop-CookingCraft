@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-18 16:19:47
-LastEditTime: 2022-08-14 00:22:16
+LastEditTime: 2022-08-24 22:10:08
 '''
 bakingRecipes = {
     "cookingcraft:raw_apple_pie": {
@@ -28,10 +28,4 @@ bakingRecipes = {
     "cookingcraft:corn": {
         "newItemName": "cookingcraft:baking_corn"
     },
-}
-
-bakingFuels = {
-    "minecraft:coal": 40,
-    "minecraft:charcoal": 40,
-    "coal_block": 400
 }

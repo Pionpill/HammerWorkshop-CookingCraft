@@ -5,7 +5,7 @@
       "identifier": "cookingcraft:mill"
     },
     "tags": ["crafting_table"],
-    "pattern": ["AA ", "BB "],
+    "pattern": ["AA", "BB"],
     "key": {
       "A": {
         "item": "minecraft:stonebrick"

@@ -14,6 +14,7 @@ from hammerCookingScripts import logger
 
 
 class PlantProxy(object):
+
     def __init__(self, seedName):
         object.__init__(self)
         self.seedName = seedName

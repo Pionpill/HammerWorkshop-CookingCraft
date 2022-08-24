@@ -4,9 +4,9 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-31 16:58:49
-LastEditTime: 2022-08-11 16:22:43
+LastEditTime: 2022-08-24 20:02:25
 '''
-from hammerCookingScripts.common.data.recipe import bakingRecipes, cookingRecipes, millRecipes
+from hammerCookingScripts.common.data.recipe import *
 from hammerCookingScripts.common.entity.adapter import recipeAdapter
 from hammerCookingScripts import logger
 
@@ -21,11 +21,25 @@ class Recipe(object):
 
     def __InitRecipeAdapter(self):
         if self.__recipes == bakingRecipes:
-            self.__recipeAdapter = recipeAdapter.BakingFurnaceRecipeAdapter
+            self.__recipeAdapter = recipeAdapter.BakingRecipeAdapter
         elif self.__recipes == cookingRecipes:
             self.__recipeAdapter = recipeAdapter.CookingTableRecipeAdapter
         elif self.__recipes == millRecipes:
             self.__recipeAdapter = recipeAdapter.MillRecipeAdapter
+        elif self.__recipes == butcherRecipes:
+            self.__recipeAdapter = recipeAdapter.ButcherTableRecipeAdapter
+        elif self.__recipes == fryerRecipes:
+            self.__recipeAdapter = recipeAdapter.FryerRecipeAdapter
+        elif self.__recipes == grillRecipes:
+            self.__recipeAdapter = recipeAdapter.GrillRecipeAdapter
+        elif self.__recipes == panRecipes:
+            self.__recipeAdapter = recipeAdapter.PanRecipeAdapter
+        elif self.__recipes == squeezerRecipes:
+            self.__recipeAdapter = recipeAdapter.SqueezerRecipeAdapter
+        elif self.__recipes == steamerRecipes:
+            self.__recipeAdapter = recipeAdapter.SteamerRecipeAdapter
+        elif self.__recipes == stewRecipes:
+            self.__recipeAdapter = recipeAdapter.StewRecipeAdapter
         else:
             logger.error("{0} 没有对应的转换器".format(self.__recipes))
 

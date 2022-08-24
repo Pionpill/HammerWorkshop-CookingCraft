@@ -81,7 +81,7 @@
     "java": "cd $dir && javac -d. $fileName && java app.$fileNameWithoutExt"
   },
   "python.pythonPath": "C:\\Env\\Python\\Python2.7\\python.exe",
-  "cSpell.words": ["cookingcraft", "customtips", "sourcery"],
+  "cSpell.words": ["cookingcraft", "customtips", "molang", "sourcery"],
   "python.analysis.extraPaths": ["./CookingCraft/BehaviorPack"],
   "python.formatting.provider": "autopep8"
 }

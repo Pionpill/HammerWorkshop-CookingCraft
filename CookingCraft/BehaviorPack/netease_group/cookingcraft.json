@@ -41,6 +41,26 @@
         "cookingcraft:flour",
         "cookingcraft:rice_flour"
       ]
+    },
+    {
+      "group_name": "itemGroup.name.cookingcraft.workbench",
+      "icon": "cookingcraft:cooking_table",
+      "list": [
+        "cookingcraft:cooking_table",
+        "cookingcraft:baking_furnace",
+        "cookingcraft:butcher_table",
+        "cookingcraft:food_steamer",
+        "cookingcraft:fryer",
+        "cookingcraft:stove",
+        "cookingcraft:grill",
+        "cookingcraft:meal_shelf",
+        "cookingcraft:mill",
+        "cookingcraft:pan",
+        "cookingcraft:simple_grill",
+        "cookingcraft:simple_stew_pot",
+        "cookingcraft:squeezer",
+        "cookingcraft:stew_pot"
+      ]
     }
   ]
 }

@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-06-01 15:43:39
-LastEditTime: 2022-07-19 00:20:00
+LastEditTime: 2022-08-17 13:29:25
 '''
 from hammerCookingScripts.common.data.biome import PlantsBiomeForm as PlantsBF
 
@@ -156,5 +156,3 @@ SEEDS_INFO = {
         },
     },
 }
-
-__all__ = [SEEDS_INFO]

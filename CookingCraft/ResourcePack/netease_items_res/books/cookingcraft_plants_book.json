@@ -1,0 +1,11 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:plants_book"
+    },
+    "components": {
+      "minecraft:icon": "cookingcraft:plants_book"
+    }
+  }
+}

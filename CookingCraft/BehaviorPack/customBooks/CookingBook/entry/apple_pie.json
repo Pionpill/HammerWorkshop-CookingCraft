@@ -1,0 +1,19 @@
+{
+  "parent": "cooking_table",
+  "icon": "textures/items/apple_pie",
+  "title": "苹果派",
+  "pages": [
+    {
+      "type": "textPage",
+      "content": "§l品质: §r§c极佳 | ★★★§r\n§l饥饿: §r§c10   | ●●●●●§r\n§l饱食: §r§c12   | ●●●●●●§r\n§l效果: \n§r§5+ 回复微小的生命值§r\n§r§5- 不要生吃，可能会拉肚子§r\n§l描述: \n§r§8苹果派最早是一种起源于欧洲英格兰的食品，不过如今它称得上是一种典型的美式食品。§r"
+    },
+    {
+      "type": "imagePage",
+      "subtitle": "合成",
+      "image": "textures/books/cooking_table/apple_pie",
+      "imageSize": [40, 125],
+      "info": "苹果派的合成与加工配方",
+      "content": ""
+    }
+  ]
+}

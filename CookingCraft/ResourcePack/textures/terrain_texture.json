@@ -1,11 +1,8 @@
 {
   "resource_pack_name": "vanilla",
   "texture_data": {
-    "cookingcraft:baking_furnace": {
-      "textures": "textures/blocks/baking_furnace"
-    },
-    "cookingcraft:baking_furnace_icon": {
-      "textures": "textures/blocks/baking_furnace_icon"
+    "cookingcraft:anvil": {
+      "textures": "textures/blocks/anvil"
     },
     "cookingcraft:banana_stage_0": {
       "textures": "textures/blocks/banana_stage_0"
@@ -25,11 +22,23 @@
     "cookingcraft:banana_stage_5": {
       "textures": "textures/blocks/banana_stage_5"
     },
-    "cookingcraft:cooking_table": {
-      "textures": "textures/blocks/cooking_table"
+    "cookingcraft:barrel_bottom": {
+      "textures": "textures/blocks/barrel_bottom"
     },
-    "cookingcraft:cooking_table_icon": {
-      "textures": "textures/blocks/cooking_table_icon"
+    "cookingcraft:barrel_side": {
+      "textures": "textures/blocks/barrel_side"
+    },
+    "cookingcraft:bricks": {
+      "textures": "textures/blocks/bricks"
+    },
+    "cookingcraft:clay": {
+      "textures": "textures/blocks/clay"
+    },
+    "cookingcraft:cooking_table_above": {
+      "textures": "textures/blocks/cooking_table_above"
+    },
+    "cookingcraft:cooking_table_side": {
+      "textures": "textures/blocks/cooking_table_side"
     },
     "cookingcraft:corn_stage_0": {
       "textures": "textures/blocks/corn_stage_0"
@@ -49,6 +58,15 @@
     "cookingcraft:fence_post": {
       "textures": "textures/blocks/fence_post"
     },
+    "cookingcraft:stove_above": {
+      "textures": "textures/blocks/stove_above"
+    },
+    "cookingcraft:stove_front": {
+      "textures": "textures/blocks/stove_front"
+    },
+    "cookingcraft:stove_side": {
+      "textures": "textures/blocks/stove_side"
+    },
     "cookingcraft:herb_stage_0": {
       "textures": "textures/blocks/herb_stage_0"
     },
@@ -61,11 +79,20 @@
     "cookingcraft:herb_stage_3": {
       "textures": "textures/blocks/herb_stage_3"
     },
-    "cookingcraft:mill": {
-      "textures": "textures/blocks/mill"
+    "cookingcraft:mix_plank": {
+      "textures": "textures/blocks/mix_plank"
     },
-    "cookingcraft:mill_icon": {
-      "textures": "textures/blocks/mill_icon"
+    "cookingcraft:oak_log": {
+      "textures": "textures/blocks/oak_log"
+    },
+    "cookingcraft:oak_log_top": {
+      "textures": "textures/blocks/oak_log_top"
+    },
+    "cookingcraft:oak_planks": {
+      "textures": "textures/blocks/oak_planks"
+    },
+    "cookingcraft:oil": {
+      "textures": "textures/blocks/oil"
     },
     "cookingcraft:onion_stage_0": {
       "textures": "textures/blocks/onion_stage_0"
@@ -103,6 +130,21 @@
     "cookingcraft:rice_stage_3": {
       "textures": "textures/blocks/rice_stage_3"
     },
+    "cookingcraft:rope": {
+      "textures": "textures/blocks/rope"
+    },
+    "cookingcraft:smooth_stone": {
+      "textures": "textures/blocks/smooth_stone"
+    },
+    "cookingcraft:spruce_planks": {
+      "textures": "textures/blocks/spruce_planks"
+    },
+    "cookingcraft:steel_pan_side": {
+      "textures": "textures/blocks/steel_pan_side"
+    },
+    "cookingcraft:stone": {
+      "textures": "textures/blocks/stone"
+    },
     "cookingcraft:tomato_stage_0": {
       "textures": "textures/blocks/tomato_stage_0"
     },
@@ -114,6 +156,9 @@
     },
     "cookingcraft:tomato_stage_3": {
       "textures": "textures/blocks/tomato_stage_3"
+    },
+    "cookingcraft:water": {
+      "textures": "textures/blocks/water"
     }
   },
   "texture_name": "atlas.terrain"

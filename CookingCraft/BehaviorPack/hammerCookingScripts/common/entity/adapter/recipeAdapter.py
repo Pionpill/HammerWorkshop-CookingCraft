@@ -5,7 +5,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-23 00:16:40
-LastEditTime: 2022-08-14 00:12:16
+LastEditTime: 2022-08-25 00:38:29
 '''
 from hammerCookingScripts import logger
 
@@ -13,17 +13,65 @@ from hammerCookingScripts import logger
 def CookingTableRecipeAdapter(recipeName, rawRecipeDict):
     # type: (str, dict) -> dict
     """cookingcraft:cooking_table 的配方调试器"""
-    return __CraftingRecipeAdapter(recipeName, rawRecipeDict)
+    return __CraftingRecipeAdapter(recipeName,
+                                   rawRecipeDict,
+                                   materialSlotNum=13)
 
 
-def BakingFurnaceRecipeAdapter(recipeName, rawRecipeDict):
+def ButcherTableRecipeAdapter(recipeName, rawRecipeDict):
+    # type: (str, dict) -> dict
+    """cookingcraft:cooking_table 的配方调试器"""
+    return __CraftingRecipeAdapter(recipeName,
+                                   rawRecipeDict,
+                                   materialSlotNum=13)
+
+
+def BakingRecipeAdapter(recipeName, rawRecipeDict):
+    # type: (str,dict) -> dict
+    """cookingcraft:baking_furnace 的配方调试器"""
+    return __FurnaceRecipeAdapter(recipeName, rawRecipeDict)
+
+
+def FryerRecipeAdapter(recipeName, rawRecipeDict):
+    # type: (str,dict) -> dict
+    """cookingcraft:baking_furnace 的配方调试器"""
+    return __FurnaceRecipeAdapter(recipeName, rawRecipeDict)
+
+
+def GrillRecipeAdapter(recipeName, rawRecipeDict):
     # type: (str,dict) -> dict
     """cookingcraft:baking_furnace 的配方调试器"""
     return __FurnaceRecipeAdapter(recipeName, rawRecipeDict)
 
 
 def MillRecipeAdapter(recipeName, rawRecipeDict):
+    # type: (str,dict) -> dict
+    """cookingcraft:mill 的配方调试器"""
     return __FurnaceRecipeAdapter(recipeName, rawRecipeDict, 1, 2)
+
+
+def PanRecipeAdapter(recipeName, rawRecipeDict):
+    # type: (str,dict) -> dict
+    """cookingcraft:pan 的配方调试器"""
+    return __FurnaceRecipeAdapter(recipeName, rawRecipeDict, 11, 1)
+
+
+def SqueezerRecipeAdapter(recipeName, rawRecipeDict):
+    # type: (str,dict) -> dict
+    """cookingcraft:squeezer 的配方调试器"""
+    return __FurnaceRecipeAdapter(recipeName, rawRecipeDict, 3, 1)
+
+
+def SteamerRecipeAdapter(recipeName, rawRecipeDict):
+    # type: (str,dict) -> dict
+    """cookingcraft:food_steamer 的配方调试器"""
+    return __FurnaceRecipeAdapter(recipeName, rawRecipeDict)
+
+
+def StewRecipeAdapter(recipeName, rawRecipeDict):
+    # type: (str,dict) -> dict
+    """cookingcraft:stew_pot 的配方调试器"""
+    return __FurnaceRecipeAdapter(recipeName, rawRecipeDict, 7)
 
 
 def __CraftingRecipeAdapter(recipeName,
@@ -91,6 +139,12 @@ def __FormNewItemDict(oldItemDict=None, recipeName=None):
             "newAuxValue": 0,
             "count": 1,
         }
+    elif isinstance(oldItemDict, str):
+        return {
+            "newItemName": oldItemDict,
+            "newAuxValue": 0,
+            "count": 1,
+        }
     newItemName = oldItemDict.get("newItemName")
     if newItemName is None:
         logger.error("{0} 中存在丢失 newItemName 的情况".format(recipeName))
@@ -99,36 +153,3 @@ def __FormNewItemDict(oldItemDict=None, recipeName=None):
         "newAuxValue": oldItemDict.get("newAuxName", 0),
         "count": oldItemDict.get("count", 1),
     }
-
-
-if __name__ == "__main__":
-    testMillDict = {
-        "materials": {
-            "material_slot0": {
-                "newItemName": "minecraft:apple"
-            }
-        },
-        "results": {
-            "result_slot0": {
-                "newItemName": "minecraft:apple"
-            }
-        }
-    }
-    print(MillRecipeAdapter("cookingcraft:apple", testMillDict))
-
-    testCraftingDict = {
-        "materials": {
-            "material_slot3": {
-                "newItemName": "cookingcraft:spices",
-                "count": 2
-            },
-            "material_slot4": {
-                "newItemName": "cookingcraft:chill_powder"
-            }
-        },
-        "results": {
-            "newItemName": "cookingcraft:seasoning",
-            "count": 3
-        }
-    }
-    print(CookingTableRecipeAdapter("cookingcraft:seasoning", testCraftingDict))

@@ -1,0 +1,12 @@
+{
+  "item": "cookingcraft:cooking_book",
+  "title1": "§l烹饪指南",
+  "title2": "",
+  "content": "§l烹饪工艺-烹饪指南 \n§r这里提供了所有食物以及原材料的合成方式。\n相关书籍: 作物指南\n测试版尚有许多功能待完善，还请见谅\n欢迎玩家反馈\n群：§8712936357\n§e§o              beta测试版",
+  "titleArea": {
+    "offset": [0, 4],
+    "textSize1": 13,
+    "textSize2": 8,
+    "padding": 1
+  }
+}

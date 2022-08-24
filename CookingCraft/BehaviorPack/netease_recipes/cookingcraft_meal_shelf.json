@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "cookingcraft:meal_shelf"
+    },
+    "tags": ["crafting_table"],
+    "pattern": ["AAA", "ABA"],
+    "key": {
+      "A": {
+        "item": "minecraft:planks"
+      },
+      "B": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": {
+      "item": "cookingcraft:meal_shelf",
+      "count": 1
+    }
+  }
+}

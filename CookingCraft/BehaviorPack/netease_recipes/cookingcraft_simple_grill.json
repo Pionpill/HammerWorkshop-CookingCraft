@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "cookingcraft:simple_grill"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [" A ", "BAB"],
+    "key": {
+      "A": {
+        "item": "minecraft:log"
+      },
+      "B": {
+        "item": "minecraft:cobblestone"
+      }
+    },
+    "result": {
+      "item": "cookingcraft:simple_grill",
+      "count": 1
+    }
+  }
+}

@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-11 12:59:32
-LastEditTime: 2022-08-11 15:25:49
+LastEditTime: 2022-08-17 13:29:50
 '''
 from hammerCookingScripts.common.data.biome.BiomeForm import BiomeForm as BF
 
@@ -67,4 +67,4 @@ class PlantsBiomeForm(object):
     common = land["grass"] | altitude["medium"]
 
 
-__all__ = [PlantsBiomeForm]
+__all__ = ['PlantsBiomeForm']

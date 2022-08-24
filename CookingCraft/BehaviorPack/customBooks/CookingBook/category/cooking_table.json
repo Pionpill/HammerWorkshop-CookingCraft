@@ -1,0 +1,6 @@
+{
+  "title": "§l厨务台",
+  "content": "这里记录了所有厨务台的配方，若需要进一步烹饪也会给出相关过程。",
+  "isLocked": false,
+  "icon": "textures/blocks/cooking_table_icon"
+}

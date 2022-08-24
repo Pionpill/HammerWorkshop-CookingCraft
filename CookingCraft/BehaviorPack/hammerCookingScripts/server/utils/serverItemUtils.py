@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-17 15:46:43
-LastEditTime: 2022-07-31 00:39:14
+LastEditTime: 2022-08-16 14:41:28
 '''
 import mod.server.extraServerApi as serverApi
 
@@ -38,3 +38,13 @@ def GetPlayerInventoryItem(playerId, slotId):
     itemComp = compFactory.CreateItem(playerId)
     return itemComp.GetPlayerItem(minecraftEnum.ItemPosType.INVENTORY, slotId,
                                   True)
+
+
+def GenerateItemDict(newItemName, count=1, newAuxValue=0):
+    # type: (str,int,int) -> dict
+    """根据物品名生成物品字典"""
+    return {
+        "newItemName": newItemName,
+        "count": count,
+        "newAuxValue": newAuxValue,
+    }

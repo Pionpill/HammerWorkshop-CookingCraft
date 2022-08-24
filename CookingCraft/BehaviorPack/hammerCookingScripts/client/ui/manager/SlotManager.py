@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-08-02 19:57:53
-LastEditTime: 2022-08-05 22:08:52
+LastEditTime: 2022-08-24 14:43:33
 '''
 # -*- coding:utf-8 -*-
 from hammerCookingScripts import logger
@@ -12,6 +12,7 @@ from hammerCookingScripts.common.utils import workbenchUtils
 
 
 class SlotManager(object):
+
     def __init__(self):
         object.__init__(self)
         # key: slotName (str|int)  value: path, item
@@ -117,11 +118,3 @@ class SlotManager(object):
 
     def __str__(self):
         return self.__slotsInfo.__str__()
-
-
-if __name__ == "__main__":
-    testManager = SlotManager()
-    testManager.SetSlotInfo("result_slot0", info=("d:/", "1"))
-    testManager.SetSlotInfo("material_slot1", info=("d:/1", "2"))
-    testManager.SetSlotInfo(3, info=("d:/2", "3"))
-    print(testManager.GetSlotName("d:/1"))

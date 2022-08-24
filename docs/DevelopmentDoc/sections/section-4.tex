@@ -2,14 +2,15 @@
 
 功能设计主要涉及到工作台相关的设计以及交互式方块设计，这里只对功能进行说明，详细的设计逻辑参考详细设计说明书。工作台大致可分为以下几类:
 \begin{itemize}
-    \item 合成台: UI 界面，无需保存 BlockEntity 数据。
-    \item 熔炉: UI 界面，需要保持 BlockEntity 数据。
-    \item 响应方块: 无 UI，需要保存 BlockEntity 数据。
+    \item 工作台: UI 界面，保存部分 BlockEntity 数据，无燃料。
+    \item 材料熔炉: UI 界面，保存所有 BlockEntity 数据，产物为中间产品。
+    \item 产品熔炉: UI 界面，保存所有 BlockEntity 数据，产物为最终产品。
+    \item 响应方块: 无 UI，需要保存 BlockEntity 数据，利用外观进行区分。
 \end{itemize}
 
-\subsection{合成台}
+\subsection{工作台}
 
-合成台，需要复杂的合成配方，一般不需要保持 BlockEntity 数据。
+工作台，需要复杂的合成配方，一般不需要保持 BlockEntity 数据。
 
 \subsubsection{厨务台}
 
@@ -24,12 +25,12 @@
         \node (1) at (0.5,2.5) {};
         \node (2) at (1.5,2.5) {};
         \node (3) at (2.5,2.5) {};
-        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
         \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
-        \node (6) at (2.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (6) at (2.5,1.5)  {};
         \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
         \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
-        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/stone_bricks.png}};
+        \node (9) at (2.5,0.5) {};
         \draw [recipe grid] (6,1) grid (7,2);
         \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/cooking_table_icon.png}};
         \begin{scope}
@@ -40,7 +41,7 @@
     \caption{面粉}
 \end{figure}
 
-厨务台和原版合成台类似，模组食物仅能在厨务台上合成。在此工作台上可以合成两种食物:
+厨务台和原版工作台类似，模组食物仅能在厨务台上合成。在此工作台上可以合成两种食物:
 \begin{itemize}
     \item 生食(unfinished\_food): 需要进一步加工的食物，可以直接食用，但有负面buff
     \item 熟食(finished\_food): 可以直接使用的食物。
@@ -54,20 +55,13 @@
         \toprule
         \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
         \midrule
-        大小 & 3x2 & 作用 & 制作模组食物 \\
+        大小 & 1x1 & 作用 & 制作模组食物 \\
         $ER_{unfinished}$ & 0.4 & $ER_{finished}$ & 0.8 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
 对生食进一步烹饪的过程中，需要将其携带的饥饿值乘 2 ，即按照熟食的饥饿值进一步加工。
-
-完整的厨务台应该由以下三部分组成(其中前两项为必要部分):
-\begin{itemize}
-    \item 容器面板(container\_panel): 显示背包物品并进行实时更新。
-    \item 合成面板(crafting\-panel): 主要功能区，对原材料进行合成。
-    \item 清单面板(menu\_panel): 显示现有配方，起到一个辅助作用。
-\end{itemize}
 
 其合成面板应具有以下结构:
 
@@ -93,13 +87,79 @@
     \item 右侧：四个固定物品的调料槽，依次为盐，糖，油，香料。
 \end{itemize}
 
-其中，调料槽在 v0.2 测试版加入。
+\subsubsection{屠宰台}
 
-\subsection{熔炉}
+屠宰台 (butcher\_table) 负责对肉类食材进行加工。
 
-\subsubsection{烘焙炉}
+屠宰台的合成配方如下:
 
-烘焙炉(baking\_furnace) 对合成的生食进一步加工成烘焙食物(baking\_food)。
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (5) at (1.5,1.5)  {};
+        \node (6) at (2.5,1.5)  {};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_log.png}};
+        \node (8) at (1.5,0.5)  {};
+        \node (9) at (2.5,0.5) {};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/butcher_block_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{面粉}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \caption{屠宰台属性}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|c}
+        \toprule
+        \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        大小 & 1x1 & 作用 & 加工肉类食物 \\
+        $ER_{unfinished}$ & 0.4 & $ER_{finished}$ & 0.8 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+其合成面板应具有以下结构:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \draw [recipe grid](6,1) grid (7,2);
+        \begin{scope}[yshift=-0.5cm]
+            \draw [recipe grid](8,0) grid (9,4);
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{屠宰台 UI}
+\end{figure}
+
+\begin{itemize}
+    \item 左侧: 九宫格为九个原材料槽
+    \item 中间: 一个输出槽
+    \item 右侧：四个固定物品的调料槽，依次为盐，糖，油，香料。
+\end{itemize}
+
+\subsection{材料熔炉}
+
+\subsubsection{熔炉}
+
+烘焙炉 (furnace) 提供火力，需要在熔炉上增加其他方块构成完整的熔炉。
 
 烘焙炉的合成配方如下:
 
@@ -115,9 +175,38 @@
         \node (6) at (2.5,1.5)  {};
         \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
         \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (9) at (2.5,0.5) {};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/furnace_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{面粉}
+\end{figure}
+
+\subsubsection{烘焙炉}
+
+烘焙炉 (baking\_furnace) 用于将生食烘焙成熟。
+
+烘焙炉的合成配方如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (6) at (2.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (8) at (1.5,0.5)  {};
         \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
         \draw [recipe grid] (6,1) grid (7,2);
-        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/baking_furnace_icon.png}};
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/baking_clay_icon.png}};
         \begin{scope}
             \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
             \node (text) [font=\small] at (4.5,1.2) {工作台};
@@ -141,13 +230,6 @@
         \bottomrule
     \end{tabular}
 \end{table}
-
-完整的烘焙炉应该由以下三部分组成(其中前两项为必要部分):
-\begin{itemize}
-    \item 容器面板(container\_panel): 显示背包物品并进行实时更新。
-    \item 熔炉面板(crafting\-panel): 主要功能区，对原材料进行合成。
-    \item 清单面板(menu\_panel): 显示现有配方，起到一个辅助作用。
-\end{itemize}
 
 其熔炉面板应具有以下结构:
 
@@ -183,8 +265,8 @@
         \node (1) at (0.5,2.5) {};
         \node (2) at (1.5,2.5) {};
         \node (3) at (2.5,2.5) {};
-        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/smooth_stone.png}};
-        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/smooth_stone.png}};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/stone_bricks.png}};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/stone_bricks.png}};
         \node (6) at (2.5,1.5)  {};
         \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
         \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
@@ -215,13 +297,6 @@
     \end{tabular}
 \end{table}
 
-完整的研磨机应该由以下三部分组成(其中前两项为必要部分):
-\begin{itemize}
-    \item 容器面板(container\_panel): 显示背包物品并进行实时更新。
-    \item 熔炉面板(crafting\-panel): 主要功能区，对原材料进行合成。
-    \item 清单面板(menu\_panel): 显示现有配方，起到一个辅助作用。
-\end{itemize}
-
 其熔炉面板应具有以下结构:
 
 \begin{figure}[H]
@@ -245,7 +320,7 @@
 
 \subsubsection{压榨机}
 
-压榨机(squeezer) 对原材料加工成食物调料。
+压榨机(squeezer) 对原材料压制。
 
 压榨机的合成配方如下:
 
@@ -256,14 +331,14 @@
         \node (1) at (0.5,2.5) {};
         \node (2) at (1.5,2.5) {};
         \node (3) at (2.5,2.5) {};
-        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/clay_ball.png}};
-        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/clay_ball.png}};
+        \node (4) at (0.5,1.5)  {};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/barrel_side.png}};
         \node (6) at (2.5,1.5)  {};
-        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
-        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
-        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
         \draw [recipe grid] (6,1) grid (7,2);
-        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/baking_furnace_icon.png}};
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/squeezer_icon.png}};
         \begin{scope}
             \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
             \node (text) [font=\small] at (4.5,1.2) {工作台};
@@ -282,18 +357,11 @@
         \toprule
         \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
         \midrule
-        大小 & 1x2 & 作用 & 压榨原材料 \\
+        大小 & 1x1.2 & 作用 & 压榨原材料 \\
         饥饿度增量 & - & 经验 & 0.35 \\
         \bottomrule
     \end{tabular}
 \end{table}
-
-完整的压榨机应该由以下三部分组成(其中前两项为必要部分):
-\begin{itemize}
-    \item 容器面板(container\_panel): 显示背包物品并进行实时更新。
-    \item 熔炉面板(furnace\_panel): 主要功能区，对原材料进行合成。
-    \item 清单面板(menu\_panel): 显示现有配方，起到一个辅助作用。
-\end{itemize}
 
 其熔炉面板应具有以下结构:
 
@@ -314,11 +382,130 @@
     \item 右侧：输出槽
 \end{itemize}
 
-\subsection{响应方块}
+\subsection{产品熔炉}
+
+\subsubsection{炸锅}
+
+炸锅 (fryer) 用于油炸食品，炸锅需要放在熔炉上面使用。
+
+炸锅的合成配方如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (6) at (2.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (7) at (0.5,0.5) {};
+        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/fryer_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{面粉}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{炸锅属性}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|c}
+        \toprule
+        \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        大小 & 1x1 & 作用 & 油炸食物 \\
+        饥饿度增量 & 3-7 & 经验 & 0.35 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+其熔炉面板应具有以下结构:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](-4,-1) grid (-3,0);
+        \draw [recipe grid](-4,1) grid (-3,2);
+        \draw [] (-2,-1) rectangle (-1.5,2);
+        \draw [recipe grid](0,1) grid (1,2);
+        \draw [recipe grid](4,1) grid (5,2);
+        \draw [recipe grid](2,-1) grid (3,0);
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,1.5) -- (3.5,1.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{炸锅 UI}
+\end{figure}
+
+\begin{itemize}
+    \item 左侧: 油量表与进油出油桶
+    \item 右侧: 炸锅本体
+\end{itemize}
+
+\subsubsection{平底锅}
+
+平底锅 (pan) 用于炒饭。
+
+平底锅的合成配方如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (6) at (2.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (7) at (0.5,0.5) {};
+        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/pan_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{平底锅}
+\end{figure}
+
+其熔炉面板应具有以下结构:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}[yshift=-0.5cm]
+            \draw [recipe grid](-2,1) grid (1,3);
+        \end{scope}
+        \draw [recipe grid](4,1) grid (5,2);
+        \draw [recipe grid](-1,-1) grid (0,-0);
+        \draw [recipe grid](2,-1) grid (3,0);
+        \draw [recipe grid](6,-1) grid (7,3);
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,1.5) -- (3.5,1.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{平底锅 UI}
+\end{figure}
+
+\begin{itemize}
+    \item 左侧: 油量表与进油出油桶
+    \item 右侧: 平底锅本体
+\end{itemize}
 
 \subsubsection{烧烤架}
 
-烧烤架(grill) 可以制成烧烤类食物。
+烧烤架 (grill) 用于烧烤食品，烧烤架需要放在熔炉上面使用。
 
 烧烤架的合成配方如下:
 
@@ -329,14 +516,256 @@
         \node (1) at (0.5,2.5) {};
         \node (2) at (1.5,2.5) {};
         \node (3) at (2.5,2.5) {};
-        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/clay_ball.png}};
-        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/clay_ball.png}};
-        \node (6) at (2.5,1.5)  {};
-        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
-        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
-        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (6) at (2.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (8) at (1.5,0.5)  {};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
         \draw [recipe grid] (6,1) grid (7,2);
-        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/baking_furnace_icon.png}};
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/grill_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{烤架}
+\end{figure}
+
+此外，还有一种简易烧烤架(simple\_grill)，仅能制作三星及以下食物。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_log.png}};
+        \node (6) at (2.5,1.5)  {};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/cobblestone.png}};
+        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_log.png}};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/cobblestone.png}};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/simple_grill_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{简易烤架}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \caption{烧烤架属性}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|c}
+        \toprule
+        \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        大小 & 1x1 & 作用 & 油炸食物 \\
+        饥饿度增量 & 3-7 & 经验 & 0.35 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+其熔炉面板应具有以下结构:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,1) grid (1,2);
+        \draw [recipe grid](4,1) grid (5,2);
+        \draw [recipe grid](2,-1) grid (3,0);
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,1.5) -- (3.5,1.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{烧烤架 UI}
+\end{figure}
+
+\subsubsection{炖锅}
+
+炖锅 (stew\_pot) 用于炖制食品。
+
+炖锅的合成配方如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (5) at (1.5,1.5)  {};
+        \node (6) at (2.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/iron_ingot.png}};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/stew_pot_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{烤架}
+\end{figure}
+
+此外，还有一种简易炖锅(simple\_stew\_pot)，仅能制作三星及以下食物。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/stew_pot_icon.png}};
+        \node (6) at (2.5,1.5)  {};
+        \node (7) at (0.5,0.5) {};
+        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_log.png}};
+        \node (9) at (2.5,0.5) {};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/simple_stew_pot_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{简易烤架}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \caption{炖锅属性}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|c}
+        \toprule
+        \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        大小 & 1x1 & 作用 & 油炸食物 \\
+        饥饿度增量 & 1-2 & 经验 & 0.35 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+其熔炉面板应具有以下结构:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}[yshift=0.5cm]
+            \draw [recipe grid](-5,-1) grid (-4,0);
+            \draw [recipe grid](-5,1) grid (-4,2);
+            \draw [] (-3,-1) rectangle (-2.5,2);
+        \end{scope}
+        \begin{scope}[yshift=-0.5cm]
+            \draw [recipe grid](-2,1) grid (1,3);
+        \end{scope}
+        \draw [recipe grid](4,1) grid (5,2);
+        \draw [recipe grid](-1,-1) grid (0,-0);
+        \draw [recipe grid](2,-1) grid (3,0);
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,1.5) -- (3.5,1.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{炖锅 UI}
+\end{figure}
+
+炖锅的 UI 比较复杂，其中左侧为水表，中间为本体，右下角为汤碗槽。
+
+\subsubsection{蒸笼}
+
+蒸笼 (food\_steamer) 用于烧烤食品，蒸笼需要放在熔炉上面使用。
+
+蒸笼的合成配方如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (5) at (1.5,1.5)  {};
+        \node (6) at (2.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (8) at (1.5,0.5)  {};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/food_steamer_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{烤架}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{蒸笼属性}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|c}
+        \toprule
+        \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        大小 & 1x1 & 作用 & 蒸制食物 \\
+        饥饿度增量 & 0 & 经验 & 0.35 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+其熔炉面板应具有以下结构:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](-4,-1) grid (-3,0);
+        \draw [recipe grid](-4,1) grid (-3,2);
+        \draw [] (-2,-1) rectangle (-1.5,2);
+        \draw [recipe grid](0,1) grid (1,2);
+        \draw [recipe grid](4,1) grid (5,2);
+        \draw [recipe grid](2,-1) grid (3,0);
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,1.5) -- (3.5,1.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{蒸笼 UI}
+\end{figure}
+
+\subsection{响应方块}
+
+\subsubsection{晾肉架}
+
+晾肉架(fence) 可以制成烧烤类食物。
+
+晾肉架的合成配方如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (6) at (2.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \node (8) at (1.5,0.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/string.png}};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/oak_planks.png}};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/meal_shelf_icon.png}};
         \begin{scope}
             \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
             \node (text) [font=\small] at (4.5,1.2) {工作台};
@@ -345,11 +774,11 @@
     \caption{面粉}
 \end{figure}
 
-烧烤架不通过 UI 合成物品，而是通过交互获得新物品。
+晾肉架不通过 UI 合成物品，而是通过交互获得新物品。
 
 \begin{table}[H]
     \centering
-    \caption{烧烤架属性}
+    \caption{晾肉架属性}
     \setlength{\tabcolsep}{4mm}
     \begin{tabular}{c|cc|c}
         \toprule
@@ -361,10 +790,10 @@
     \end{tabular}
 \end{table}
 
-烧烤架需要以下两种物品:
+晾肉架需要以下两种物品:
 \begin{itemize}
-    \item 燃料: 使用后烧烤架开启燃烧状态。
-    \item 食物: 可以在烧烤架上烤制。
+    \item 燃料: 使用后晾肉架开启燃烧状态。
+    \item 食物: 可以在晾肉架上烤制。
 \end{itemize}
 
 \newpage

@@ -1,0 +1,11 @@
+{
+  "parent": "mill",
+  "icon": "textures/items/flour",
+  "title": "面粉",
+  "pages": [
+    {
+      "type": "textPage",
+      "content": "§l品质: §r§c常见 | ★★\n§r§l材料: §r§2小麦x3\n§r§l产物: §r§2面粉x1, 桔梗x1§r\n§l作用: \n§r§8主食之一§r\n§l描述: \n§r§8中国北方的主要食物原材料§r"
+    }
+  ]
+}

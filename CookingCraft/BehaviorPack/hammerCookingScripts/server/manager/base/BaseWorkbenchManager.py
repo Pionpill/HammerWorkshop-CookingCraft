@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-25 22:40:39
-LastEditTime: 2022-08-06 14:12:50
+LastEditTime: 2022-08-24 14:57:11
 '''
 from abc import abstractmethod
 from copy import deepcopy
@@ -16,6 +16,7 @@ from hammerCookingScripts.common.utils import itemUtils, workbenchUtils
 
 
 class BaseWorkbenchManager(object):
+
     def __init__(self, blockName):
         object.__init__(self)
         self._blockName = blockName

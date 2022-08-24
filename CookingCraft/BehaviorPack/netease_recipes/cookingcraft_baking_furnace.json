@@ -5,12 +5,9 @@
       "identifier": "cookingcraft:baking_furnace"
     },
     "tags": ["crafting_table"],
-    "pattern": ["AA ", "BBB"],
+    "pattern": ["AAA", "A A"],
     "key": {
       "A": {
-        "item": "minecraft:clay_ball"
-      },
-      "B": {
         "item": "minecraft:brick"
       }
     },

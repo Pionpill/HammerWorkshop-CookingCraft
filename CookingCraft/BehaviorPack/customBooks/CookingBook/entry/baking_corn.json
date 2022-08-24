@@ -1,0 +1,11 @@
+{
+  "parent": "baking_furnace",
+  "icon": "textures/items/baking_corn",
+  "title": "烤玉米",
+  "pages": [
+    {
+      "type": "textPage",
+      "content": "§l品质: §r§c常见 | ★★§r\n§l饥饿: §r§c4    | ●●§r\n§l饱食: §r§c5   | ●●○\n§r§l材料: §r§2玉米x1\n§r§l产物: §r§2烤玉米x1§r\n§l描述: \n§r§8你喜欢吃煮玉米还是烤玉米？§r"
+    }
+  ]
+}
