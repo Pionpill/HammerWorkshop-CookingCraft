@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-25 00:04:11
-LastEditTime: 2022-08-25 00:06:01
+LastEditTime: 2022-08-25 14:34:18
 '''
 
 from hammerCookingScripts import logger
@@ -19,7 +19,7 @@ class CraftingManager(BaseCraftingManager):
 
     def Reset(self):
         # type: () -> None
-        """厨务台重置时，四个调料原材料槽(9-12)无需重置"""
+        """厨务台重置时，调料原材料槽无需重置"""
         for i in range(
                 workbenchUtils.GetFlexibleMaterialsSlotNum(self._blockName)):
             self.materialsItems[self.materialSlotPrefix + str(i)] = None

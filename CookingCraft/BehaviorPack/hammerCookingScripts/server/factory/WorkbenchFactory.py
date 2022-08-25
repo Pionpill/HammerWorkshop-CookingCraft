@@ -4,12 +4,13 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-27 15:53:27
-LastEditTime: 2022-08-24 18:55:46
+LastEditTime: 2022-08-25 16:00:46
 '''
 from hammerCookingScripts import logger
 from hammerCookingScripts.common.utils import workbenchUtils
 from hammerCookingScripts.server.manager import CraftingManager
 from hammerCookingScripts.server.manager import FurnaceManager
+from hammerCookingScripts.server.manager import MeterFurnaceManager
 
 
 class WorkbenchFactory(object):
@@ -28,7 +29,9 @@ class WorkbenchFactory(object):
         if not blockName:
             logger.info("缺少 blockName, 无法创建新的管理类")
             return
-        if workbenchUtils.IsFurnaceBlock(blockName):
+        if workbenchUtils.IsMeterFurnaceBlock(blockName):
+            cls.managerDict[exaPos] = MeterFurnaceManager(blockName)
+        elif workbenchUtils.IsFurnaceBlock(blockName):
             cls.managerDict[exaPos] = FurnaceManager(blockName)
         elif workbenchUtils.IsCraftingBlock(blockName):
             cls.managerDict[exaPos] = CraftingManager(blockName)

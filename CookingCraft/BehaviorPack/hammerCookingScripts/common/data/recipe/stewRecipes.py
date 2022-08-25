@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-05-02 15:57:46
-LastEditTime: 2022-08-24 22:11:00
+LastEditTime: 2022-08-25 18:21:23
 '''
 stewRecipes = {
     "minecraft:apple": {
@@ -12,7 +12,7 @@ stewRecipes = {
             "material_slot1": "minecraft:apple"
         },
         "results": {
-            "newItemName": "minecraft:apple"
+            "result_slot0": "minecraft:apple"
         }
     }
 }

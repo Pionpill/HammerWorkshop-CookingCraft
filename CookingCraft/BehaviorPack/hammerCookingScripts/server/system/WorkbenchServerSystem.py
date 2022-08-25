@@ -78,12 +78,16 @@ class WorkbenchServerSystem(ServerSystem):
                 blockName) or WorkbenchController.IsPlayerOpeningBlock(
                     playerId):
             return
-
+        if workbenchUtils.IsFurnaceNeedWorkbench(blockName):
+            belowPos = (event["x"], event["y"] - 1, event["z"])
+            belowBlockName = blockUtils.GetBlockName(self.levelId, belowPos,
+                                                     dimensionId)
+            if belowBlockName != "cookingcraft:stove":
+                return
         workbenchData = WorkbenchController.FormWorkbenchData(
             blockName, pos, dimensionId, self.levelId)
         WorkbenchController.SetCurOpenedBlock(playerId, blockName, pos,
                                               dimensionId)
-
         self.NotifyToClient(playerId, modConfig.WorkbenchOpenEvent,
                             workbenchData)
         self.__UpdateWorkbenchUI(playerId, blockName, pos, dimensionId)

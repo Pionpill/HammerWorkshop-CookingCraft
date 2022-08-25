@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-21 23:26:14
-LastEditTime: 2022-08-25 01:03:49
+LastEditTime: 2022-08-25 13:25:36
 '''
 from abc import abstractmethod
 from hammerCookingScripts import logger
@@ -81,15 +81,12 @@ class BaseRecipeProxy(object):
     def MatchRecipe(self, blockItems):
         # type: (dict, int) -> dict
         """获取配方结果，默认的只有一个材料槽，如果有多个原材料槽需要重写该方法"""
-        # logger.debug(self._recipe.GetAllRecipeName())
         matchNum = workbenchUtils.GetMaterialsSlotNum(self._blockName)
         for recipeName in self._recipe.GetAllRecipeName():
             materials = self._GetRecipeMaterials(recipeName)
-            # logger.debug(materials)
             matchCount = 0
             flexibleSlotNum = workbenchUtils.GetFlexibleMaterialsSlotNum(
                 self._blockName)
-            # logger.debug(flexibleSlotNum)
             for slotName, materialItem in materials.items():
                 matchCount += 1
                 blockItem = blockItems.get(slotName)
@@ -101,7 +98,6 @@ class BaseRecipeProxy(object):
                     continue
                 if not self._IsSameMaterialItem(blockItem, materialItem):
                     break
-                # logger.debug(matchCount)
                 if matchCount == matchNum:
                     self._lastUsedRecipeName = recipeName
                     return self._GetRecipeResults(recipeName)

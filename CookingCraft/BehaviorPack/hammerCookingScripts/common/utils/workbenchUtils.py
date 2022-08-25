@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-27 21:10:53
-LastEditTime: 2022-08-24 21:49:06
+LastEditTime: 2022-08-25 18:43:53
 '''
 from hammerCookingScripts import logger
 
@@ -15,12 +15,32 @@ FURNACE_LIST = [
     "cookingcraft:simple_stew_pot", "cookingcraft:food_steamer"
 ]
 CRAFTING_LIST = ["cookingcraft:cooking_table", "cookingcraft:butcher_table"]
+METER_FURNACE_LIST = [
+    "cookingcraft:fryer", "cookingcraft:stew_pot",
+    "cookingcraft:simple_stew_pot", "cookingcraft:food_steamer"
+]
+FURNACE_NEED_WORKBENCH = [
+    "cookingcraft:baking_furnace", "cookingcraft:fryer", "cookingcraft:pan",
+    "cookingcraft:grill", "cookingcraft:stew_pot", "cookingcraft:food_steamer"
+]
+
+
+def IsFurnaceNeedWorkbench(blockName):
+    # type: (str) -> bool
+    """判断是否需要生火"""
+    return blockName in FURNACE_NEED_WORKBENCH
 
 
 def IsFurnaceBlock(blockName):
     # type: (str) -> bool
     """判断方块是否是熔炉"""
     return blockName in FURNACE_LIST
+
+
+def IsMeterFurnaceBlock(blockName):
+    # type: (str) -> bool
+    """判断方块是否是带计量器熔炉"""
+    return blockName in METER_FURNACE_LIST
 
 
 def IsCraftingBlock(blockName):
@@ -64,7 +84,7 @@ def IsFuelSlot(slotName):
 
 def IsResultSlot(slotName):
     return False if isinstance(slotName,
-                               int) else GetResultSlotPrefix() in slotName
+                               int) else slotName.startswith("result_slot")
 
 
 def GetFlexibleMaterialsSlotNum(blockName):

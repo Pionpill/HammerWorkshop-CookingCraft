@@ -4,10 +4,9 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-27 22:54:59
-LastEditTime: 2022-08-24 14:39:26
+LastEditTime: 2022-08-25 17:06:14
 '''
-
-from copy import deepcopy
+from hammerCookingScripts.common.utils import workbenchUtils
 from hammerCookingScripts.common import modConfig
 from hammerCookingScripts.server.factory import WorkbenchFactory
 from hammerCookingScripts.server.utils import serverBlockUtils as blockUtils
@@ -100,10 +99,14 @@ class WorkbenchController(object):
         WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(exaPos)
         isBurning = WorkbenchMgr.IsBurning()
         burnDurationTuple = WorkbenchMgr.GetFuelBurnDuration()
+        burnDuration = None
         if not burnDurationTuple:
             burnDuration = 0
         else:
             burnDuration = burnDurationTuple[-1]
+        liquidAmount = None
+        if workbenchUtils.IsMeterFurnaceBlock(blockName):
+            liquidAmount = WorkbenchMgr.GetLiquidAmount()
         isProducing = WorkbenchMgr.IsProducing()
         if WorkbenchMgr.IsUIInit():
             WorkbenchMgr.clientUIInit()
@@ -114,6 +117,7 @@ class WorkbenchController(object):
                 levelId,
                 isBurning=isBurning,
                 burnDuration=burnDuration,
+                liquidAmount=liquidAmount,
                 isProducing=isProducing)
         return WorkbenchController.FormWorkbenchData(
             blockName,
@@ -123,6 +127,7 @@ class WorkbenchController(object):
             isBurning=isBurning,
             burnDuration=burnDuration,
             isProducing=isProducing,
+            liquidAmount=liquidAmount,
             burnProgress=WorkbenchMgr.GetUIBurnProgress(),
             produceProgress=WorkbenchMgr.GetUIProducingProgress())
 

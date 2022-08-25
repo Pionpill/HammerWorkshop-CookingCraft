@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-26 16:32:09
-LastEditTime: 2022-08-24 22:52:55
+LastEditTime: 2022-08-25 18:25:38
 '''
 from copy import deepcopy
 
@@ -64,7 +64,7 @@ class BaseFurnaceManager(BaseWorkbenchManager):
             self.burnTime -= 1
         # 可烧炼且燃烧时间为0时尝试 消耗燃料获取燃烧时间
         if self.burnTime == 0 and self._CanProduce():
-            shouldRefresh = self.__BurnNewFuel()
+            shouldRefresh = self._BurnNewFuel()
         # 燃烧中并且可烧炼增加烧炼进度
         if self.IsProducing():
             self.producingProgress += 1
@@ -108,7 +108,7 @@ class BaseFurnaceManager(BaseWorkbenchManager):
         """是否正在生产物品"""
         return self.IsBurning() and self._CanProduce()
 
-    def __BurnNewFuel(self):
+    def _BurnNewFuel(self):
         # type: () -> bool
         """Tick: 燃烧燃料"""
         shouldRefresh = False

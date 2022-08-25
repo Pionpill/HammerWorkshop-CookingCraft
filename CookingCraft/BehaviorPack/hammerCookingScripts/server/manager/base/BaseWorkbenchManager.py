@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-25 22:40:39
-LastEditTime: 2022-08-24 14:57:11
+LastEditTime: 2022-08-25 18:22:23
 '''
 from abc import abstractmethod
 from copy import deepcopy
@@ -64,7 +64,6 @@ class BaseWorkbenchManager(object):
         """判断槽位是否可以放置物品"""
         raise NotImplementedError
 
-    @abstractmethod
     def ConvertFromBlockEntityData(self, entityDict):
         # type: (dict) -> None
         """将 BlockEntity 各槽位的数据存入管理类"""
@@ -197,8 +196,3 @@ class BaseWorkbenchManager(object):
                 self.resultsItems[slotName] = itemDict
             else:
                 self.resultsItems[slotName]["count"] += 1
-
-    def __str__(self):
-        strDict = deepcopy(self.materialsItems)
-        strDict.update(self.resultsItems)
-        return strDict.__str__()

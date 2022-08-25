@@ -11,13 +11,14 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-08-03 14:36:13
-LastEditTime: 2022-08-17 13:23:15
+LastEditTime: 2022-08-25 13:19:57
 '''
 import mod.client.extraClientApi as clientApi
 from hammerCookingScripts.client.ui.base.BaseInventoryScreen import BaseInventoryScreen
 from hammerCookingScripts.client.controller import SystemController
 from hammerCookingScripts.client.utils import pathUtils
 from hammerCookingScripts.common import modConfig
+from hammerCookingScripts import logger
 
 compFactory = clientApi.GetEngineCompFactory()
 
