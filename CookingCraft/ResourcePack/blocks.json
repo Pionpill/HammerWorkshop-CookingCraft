@@ -35,6 +35,54 @@
     "netease_model": "cookingcraft:cooking_table",
     "sound": "wood"
   },
+  "cookingcraft:highland_wheat_stage_0": {
+    "netease_model": "cookingcraft:highland_wheat_stage_0",
+    "sound": "grass"
+  },
+  "cookingcraft:highland_wheat_stage_1": {
+    "netease_model": "cookingcraft:highland_wheat_stage_1",
+    "sound": "grass"
+  },
+  "cookingcraft:highland_wheat_stage_2": {
+    "netease_model": "cookingcraft:highland_wheat_stage_2",
+    "sound": "grass"
+  },
+  "cookingcraft:highland_wheat_stage_3": {
+    "netease_model": "cookingcraft:highland_wheat_stage_3",
+    "sound": "grass"
+  },
+  "cookingcraft:rye_stage_0": {
+    "netease_model": "cookingcraft:rye_stage_0",
+    "sound": "grass"
+  },
+  "cookingcraft:rye_stage_1": {
+    "netease_model": "cookingcraft:rye_stage_1",
+    "sound": "grass"
+  },
+  "cookingcraft:rye_stage_2": {
+    "netease_model": "cookingcraft:rye_stage_2",
+    "sound": "grass"
+  },
+  "cookingcraft:rye_stage_3": {
+    "netease_model": "cookingcraft:rye_stage_3",
+    "sound": "grass"
+  },
+  "cookingcraft:oats_stage_0": {
+    "netease_model": "cookingcraft:oats_stage_0",
+    "sound": "grass"
+  },
+  "cookingcraft:oats_stage_1": {
+    "netease_model": "cookingcraft:oats_stage_1",
+    "sound": "grass"
+  },
+  "cookingcraft:oats_stage_2": {
+    "netease_model": "cookingcraft:oats_stage_2",
+    "sound": "grass"
+  },
+  "cookingcraft:oats_stage_3": {
+    "netease_model": "cookingcraft:oats_stage_3",
+    "sound": "grass"
+  },
   "cookingcraft:corn_stage_0": {
     "netease_model": "cookingcraft:corn_stage_0",
     "sound": "grass"

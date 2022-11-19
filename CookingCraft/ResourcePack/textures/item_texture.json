@@ -3,121 +3,139 @@
   "texture_name": "atlas.items",
   "texture_data": {
     "cookingcraft:apple_pie": {
-      "textures": "textures/items/apple_pie"
+      "textures": "textures/items/foods/apple_pie"
     },
     "cookingcraft:baking_corn": {
-      "textures": "textures/items/baking_corn"
+      "textures": "textures/items/foods/baking_corn"
     },
     "cookingcraft:chill_powder": {
-      "textures": "textures/items/chill_powder"
+      "textures": "textures/items/materials/chill_powder"
     },
     "cookingcraft:banana": {
-      "textures": "textures/items/banana"
+      "textures": "textures/items/plants/banana"
+    },
+    "cookingcraft:highland_wheat": {
+      "textures": "textures/items/plants/highland_wheat"
+    },
+    "cookingcraft:highland_wheat_seeds": {
+      "textures": "textures/items/plants/highland_wheat_seeds"
+    },
+    "cookingcraft:oats": {
+      "textures": "textures/items/plants/oats"
+    },
+    "cookingcraft:oats_seeds": {
+      "textures": "textures/items/plants/oats_seeds"
+    },
+    "cookingcraft:rye": {
+      "textures": "textures/items/plants/rye"
+    },
+    "cookingcraft:rye_seeds": {
+      "textures": "textures/items/plants/rye_seeds"
     },
     "cookingcraft:berry_pie": {
-      "textures": "textures/items/berry_pie"
+      "textures": "textures/items/foods/berry_pie"
     },
     "cookingcraft:butter": {
-      "textures": "textures/items/butter"
+      "textures": "textures/items/materials/butter"
     },
     "cookingcraft:carrot_pie": {
-      "textures": "textures/items/carrot_pie"
+      "textures": "textures/items/foods/carrot_pie"
     },
     "cookingcraft:cheese_pie": {
-      "textures": "textures/items/cheese_pie"
+      "textures": "textures/items/foods/cheese_pie"
     },
     "cookingcraft:chill_power": {
-      "textures": "textures/items/chill_power"
+      "textures": "textures/items/materials/chill_power"
     },
     "cookingcraft:corn": {
-      "textures": "textures/items/corn"
+      "textures": "textures/items/plants/corn"
     },
     "cookingcraft:corn_flour": {
-      "textures": "textures/items/corn_flour"
+      "textures": "textures/items/materials/corn_flour"
     },
     "cookingcraft:corn_pie": {
-      "textures": "textures/items/corn_pie"
+      "textures": "textures/items/foods/corn_pie"
     },
     "cookingcraft:corn_pieces": {
-      "textures": "textures/items/corn_pieces"
+      "textures": "textures/items/materials/corn_pieces"
     },
     "cookingcraft:egg_pie": {
-      "textures": "textures/items/egg_pie"
+      "textures": "textures/items/foods/egg_pie"
     },
     "cookingcraft:flour": {
-      "textures": "textures/items/flour"
+      "textures": "textures/items/materials/flour"
     },
     "cookingcraft:herb": {
-      "textures": "textures/items/herb"
+      "textures": "textures/items/plants/herb"
     },
     "cookingcraft:herb_seeds": {
-      "textures": "textures/items/herb_seeds"
+      "textures": "textures/items/plants/herb_seeds"
     },
     "cookingcraft:onion": {
-      "textures": "textures/items/onion"
+      "textures": "textures/items/plants/onion"
     },
     "cookingcraft:pepper": {
-      "textures": "textures/items/pepper"
+      "textures": "textures/items/plants/pepper"
     },
     "cookingcraft:pumpkin_pie": {
-      "textures": "textures/items/pumpkin_pie"
+      "textures": "textures/items/foods/pumpkin_pie"
     },
     "cookingcraft:raw_apple_pie": {
-      "textures": "textures/items/raw_apple_pie"
+      "textures": "textures/items/foods/raw_apple_pie"
     },
     "cookingcraft:raw_berry_pie": {
-      "textures": "textures/items/raw_berry_pie"
+      "textures": "textures/items/foods/raw_berry_pie"
     },
     "cookingcraft:raw_carrot_pie": {
-      "textures": "textures/items/raw_carrot_pie"
+      "textures": "textures/items/foods/raw_carrot_pie"
     },
     "cookingcraft:raw_corn_pie": {
-      "textures": "textures/items/raw_corn_pie"
+      "textures": "textures/items/foods/raw_corn_pie"
     },
     "cookingcraft:raw_egg_pie": {
-      "textures": "textures/items/raw_egg_pie"
+      "textures": "textures/items/foods/raw_egg_pie"
     },
     "cookingcraft:raw_pumpkin_pie": {
-      "textures": "textures/items/raw_pumpkin_pie"
+      "textures": "textures/items/foods/raw_pumpkin_pie"
     },
     "cookingcraft:raw_cheese_pie": {
-      "textures": "textures/items/raw_cheese_pie"
+      "textures": "textures/items/foods/raw_cheese_pie"
     },
     "cookingcraft:rice": {
-      "textures": "textures/items/rice"
+      "textures": "textures/items/plants/rice"
     },
     "cookingcraft:rice_flour": {
-      "textures": "textures/items/rice_flour"
+      "textures": "textures/items/materials/rice_flour"
     },
     "cookingcraft:rice_pieces": {
-      "textures": "textures/items/rice_pieces"
+      "textures": "textures/items/materials/rice_pieces"
     },
     "cookingcraft:salt": {
-      "textures": "textures/items/salt"
+      "textures": "textures/items/materials/salt"
     },
     "cookingcraft:seasoning": {
-      "textures": "textures/items/seasoning"
+      "textures": "textures/items/materials/seasoning"
     },
     "cookingcraft:spices": {
-      "textures": "textures/items/spices"
+      "textures": "textures/items/materials/spices"
     },
     "cookingcraft:straw": {
-      "textures": "textures/items/straw"
+      "textures": "textures/items/materials/straw"
     },
     "cookingcraft:tomato": {
-      "textures": "textures/items/tomato"
+      "textures": "textures/items/plants/tomato"
     },
     "cookingcraft:cooking_book": {
-      "textures": "textures/items/cooking_book"
+      "textures": "textures/items/books/cooking_book"
     },
     "cookingcraft:plants_book": {
-      "textures": "textures/items/plants_book"
+      "textures": "textures/items/books/plants_book"
     },
     "cookingcraft:author_book": {
-      "textures": "textures/items/author_book"
+      "textures": "textures/items/books/author_book"
     },
     "cookingcraft:tomato_seeds": {
-      "textures": "textures/items/tomato_seeds"
+      "textures": "textures/items/books/tomato_seeds"
     }
   }
 }

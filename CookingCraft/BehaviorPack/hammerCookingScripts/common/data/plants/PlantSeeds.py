@@ -26,6 +26,56 @@ SEEDS_INFO = {
             "sprout": None,  # 可填写 "rain", "thunder"
         },
     },
+    # "cookingcraft:highland_wheat_seeds": { 
+    #     "tickList": [3, 4, 4],
+    #     "harvestCount": 1,
+    #     "harvestBlock": None,
+    #     "plantConditions": {
+    #         "plantLandList": ["minecraft:farmland"],
+    #         "plantBiome":
+    #         (PlantsBF.altitude["high"] | PlantsBF.altitude["medium"]) & PlantsBF.temperature["low"]
+    #     },
+    #     "growthConditions": {
+    #         "brightness": (9, 15),
+    #         "altitude": (128, 256),
+    #         "weather": None,  # 可填写 "rain", "thunder"
+    #         "sprout": None,  # 可填写 "rain", "thunder"
+    #     },
+    # },
+    # "cookingcraft:oats_seeds": {
+    #     "tickList": [2, 3, 3],
+    #     "harvestCount": 1,
+    #     "harvestBlock": None,
+    #     "plantConditions": {
+    #         "plantLandList": ["minecraft:farmland"],
+    #         "plantBiome":
+    #         PlantsBF.common & (PlantsBF.temperature["low"] | PlantsBF.temperature["medium"])
+    #         & (PlantsBF.rainfall["medium"] | PlantsBF.rainfall["low"])
+    #     },
+    #     "growthConditions": {
+    #         "brightness": (9, 15),
+    #         "altitude": (64, 194),
+    #         "weather": None,  # 可填写 "rain", "thunder"
+    #         "sprout": None,  # 可填写 "rain", "thunder"
+    #     },
+    # },
+    # "cookingcraft:rye_seeds": {
+    #     "tickList": [2, 3, 3],
+    #     "harvestCount": 1,
+    #     "harvestBlock": None,
+    #     "plantConditions": {
+    #         "plantLandList": ["minecraft:farmland"],
+    #         "plantBiome":
+    #         PlantsBF.common & PlantsBF.temperature["high"]
+    #         & PlantsBF.rainfall["low"]
+    #     },
+    #     "growthConditions": {
+    #         "brightness": (11, 15),
+    #         "altitude": (64, 128),
+    #         "weather": None,  # 可填写 "rain", "thunder"
+    #         "sprout": None,  # 可填写 "rain", "thunder"
+    #     },
+    # },
     "cookingcraft:pepper": {
         "tickList": [2, 2, 3],
         "harvestCount": 1,

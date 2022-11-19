@@ -1,0 +1,13 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:oats"
+    },
+    "components": {
+      "minecraft:icon": "cookingcraft:oats",
+      "minecraft:render_offsets": "seeds",
+      "minecraft:use_animation": "eat"
+    }
+  }
+}

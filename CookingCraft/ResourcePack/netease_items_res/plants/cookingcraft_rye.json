@@ -1,0 +1,13 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:rye"
+    },
+    "components": {
+      "minecraft:icon": "cookingcraft:rye",
+      "minecraft:render_offsets": "seeds",
+      "minecraft:use_animation": "eat"
+    }
+  }
+}

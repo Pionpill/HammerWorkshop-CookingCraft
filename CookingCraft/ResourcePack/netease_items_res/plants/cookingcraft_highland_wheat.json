@@ -1,0 +1,13 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:highland_wheat"
+    },
+    "components": {
+      "minecraft:icon": "cookingcraft:highland_wheat",
+      "minecraft:render_offsets": "seeds",
+      "minecraft:use_animation": "eat"
+    }
+  }
+}

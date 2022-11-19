@@ -1,0 +1,16 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:highland_wheat",
+      "register_to_create_menu": true,
+      "category": "cooking_craft"
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      "netease:customtips": {
+        "value": "§f--------------------\n§6§l材料\n§2【描述】\n§r进加工后变成青稞粒\n麦子的一种，多产于高海拔寒冷地区"
+      }
+    }
+  }
+}
