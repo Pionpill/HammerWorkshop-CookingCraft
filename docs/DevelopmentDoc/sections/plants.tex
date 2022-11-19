@@ -53,54 +53,55 @@
 
 在我们的模组中，设计的所有植物如下:
 
-\begin{table}[H]
-    \centering
-    \caption{模组植物}
-    \label{table:模组植物}
+\begin{center}
     \setlength{\tabcolsep}{4mm}
-    \begin{tabular}{l|ll|ll|cl}
+    \begin{longtable}{c|cc|ccccc}
+        \caption{植物列表} \\
         \toprule
         \textbf{类别} &\textbf{植物名} &  \textbf{种别} & \textbf{获取难度}  & \textbf{种植难度}  & \textbf{实装} & \textbf{备注} \\
         \midrule
         \multirow{7}{*}{\textbf{粮食}}& 水稻   & 草本  & +++    & ++ & √ &         \\
-        & 青稞 & 草本 & & & & \\
+        & 青稞 & 草本 & ++ & +++ & - & \\
+        & 燕麦 & 草本 & ++ & ++ & - & \\
+        & 黑麦 & 草本 & ++ & ++ & - & \\
         & 玉米   & 禾本  & ++    & + & √ &         \\
         & 黄豆   & 草本  & ++    & ++ & - &         \\
         & 红豆   & 草本  & ++    & ++ & - &         \\
         & 绿豆   & 草本  & ++    & ++ & - &         \\
-        & 红薯   & 草本  & +    & + &  &         \\
+        & 红薯   & 草本  & +    & + & - &         \\
         \midrule
-        \multirow{9}{*}{\textbf{蔬菜}}& 番茄   & 藤蔓  & +++    & + &  √ &  需要修正  \\
+        \multirow{9}{*}{\textbf{蔬菜}}& 番茄   & 藤蔓  & +++    & + &  √ &  下版本修正  \\
         & 洋葱   & 草本  & ++    & + & √ &         \\
         & 菜椒   & 草本  & ++    & + & -  &        \\
-        & 豌豆   & 草本  & ++    & + &   &        \\
-        & 茄子   & 草本  & ++    & + & - &         \\
-        & 白菜   & 草本  & +++    & ++ &   &        \\
-        & 白萝卜   & 草本  &    &  & - &        \\
-        & 卷心菜   & 草本  & +++    & +++ &   &        \\
-        & 雪莲   & 草本  & +++++    & +++++ &  &         \\
+        & 豌豆   & 藤蔓  & ++    & + & $\times$ &  下版本上线  \\
+        & 生菜   & 草本  & +++   & + & - &        \\
+        & 大葱   & 草本  & ++    & + & - &        \\
+        & 茄子   & 草本  & ++    & + & - &        \\
+        & 白菜   & 草本  & +++    & ++ & - &      \\
+        & 白萝卜   & 草本  & +++ & + & - &        \\
+        & 卷心菜   & 草本  & +++    & +++ & - &        \\
+        & 雪莲   & 草本  & +++++    & +++++ & - &         \\
         \midrule
         \multirow{6}{*}{\textbf{菌类}}& 口菇   & 菌类  & +++    & ++ & - &   \\
         & 香菇   & 菌类  & +++    & +++ & - &        \\
         & 金针菇   & 菌类  & ++    & ++ & - &        \\
         & 松茸   & 菌类  & ++++    & ++++ & -  &       \\
-        & 松露   & 菌类  & ++++    & +++++ &  & 无法养殖    \\
-        & 黑松露   & 菌类  & +++++    & +++++ &  & 无法养殖   \\
+        & 黑松露   & 菌类  & +++++    & +++++ & - & 无法养殖   \\
         \midrule
         \multirow{6}{*}{\textbf{水果}}& 香蕉 & 大型草本 & +++ & +++ & √ & \\
-        & 菠萝 & 大型草本 &  &  &  & \\
-        & 火龙果 & 多肉 &  &  &  & \\
-        & 哈密瓜 & 草本 &  &  &  & \\
-        & 雪莲果 & 草本 &  &  &  & \\
-        & 百香果 & 藤蔓 &  &  &  & \\
+        & 菠萝 & 大型草本 &  &  & $\times$ & 下版本上线 \\
+        & 火龙果 & 多肉 &  &  & $\times$ & 下版本上线 \\
+        & 哈密瓜 & 草本 &  &  & $\times$ & 下版本上线 \\
+        & 雪莲果 & 草本 &  &  & $\times$ & 下版本上线 \\
+        & 百香果 & 藤蔓 &  &  & $\times$ & 下版本上线 \\
         \midrule
-        \multirow{4}{*}{\textbf{调料}}& 香草 & 草本 & + & + & √ &\\
-        & 辣椒 & 草本  & ++ & + & √ &\\
-        & 油菜花 & 草本 & + & + &  &\\
-        & 薄荷 & 草本 &  &  &  &\\
+        \multirow{4}{*}{\textbf{调料}}& 香草 & 草本 & + & + & √ & \\
+        & 辣椒 & 草本  & ++ & + & √ & \\
+        & 油菜花 & 草本 & + & + & - & \\
+        & 薄荷 & 草本 & + & + & - & \\
         \bottomrule
-    \end{tabular}
-\end{table}
+    \end{longtable}
+\end{center}
 
 \subsection{粮食}
 
@@ -151,6 +152,156 @@
         \textbf{生长速度}                  & 速度          & 快(7tick)       & 阶段tick      & [2,2,3]       \\
         \midrule
         \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1               & 掉落物        & 水稻:3-7      \\
+                                           & 饥饿度        & 2               & 营养值        & 0.4           \\
+                                           & 种子          & 果实分离        & 生吃          & 不可          \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{青稞}
+
+青稞的获取难度被设计为\textbf{中等}，其特征如下:
+\begin{table}[H]
+    \centering
+    \caption{青稞特征}
+    \label{table:青稞特征}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{模型特征}                  & 模型高度 & 1      & 模型形状 & 井字形 \\
+        \midrule
+        \textbf{单方块特征}                & 生长方块 & 草方块 & 替换方块 & 空气   \\
+        \midrule
+        \textbf{散植特征}                  & 生成几率 & 0.1    & 生成次数 & 1      \\
+        \midrule
+        \multirow{1}{*}{\textbf{特征规则}} & 生成地   & 地表   & 生态     & 高原   \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+青稞的种植难度被设计为\textbf{中等}，其种植信息如下:
+
+\begin{table}[H]
+    \centering
+    \caption{青稞种植信息}
+    \label{table:青稞种植信息}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+                                           & \textbf{属性} & \textbf{说明}   & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        \multirow{4}{*}{\textbf{种植条件}} & 土地          & 农田            & 生态(温度)    & 亚寒带，寒带    \\
+                                           & 生态(降雨)    & 中，低          & 生态(海拔)    & 中高，高       \\
+                                           & 生态(土地)    & 草地            & 生态(特殊)    & 无            \\
+                                           & 特殊          & -                                \\
+        \midrule
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]         & 海拔          & [128,256]      \\
+                                           & 天气          & -              & 特殊          & -      \\
+        \midrule
+        \textbf{生长速度}                  & 速度          & 中等(11tick)       & 阶段tick      & [3,4,4]       \\
+        \midrule
+        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1               & 掉落物        & 青稞:2-4      \\
+                                           & 饥饿度        & 2               & 营养值        & 0.4           \\
+                                           & 种子          & 果实分离        & 生吃          & 不可          \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{燕麦}
+
+燕麦的获取难度被设计为\textbf{困难}，其特征如下:
+\begin{table}[H]
+    \centering
+    \caption{燕麦特征}
+    \label{table:燕麦特征}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{模型特征}                  & 模型高度 & 1      & 模型形状 & 井字形 \\
+        \midrule
+        \textbf{单方块特征}                & 生长方块 & 草方块 & 替换方块 & 空气   \\
+        \midrule
+        \textbf{散植特征}                  & 生成几率 & 0.1    & 生成次数 & 1      \\
+        \midrule
+        \multirow{1}{*}{\textbf{特征规则}} & 生成地   & 地表   & 生态     & 草原，森林   \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+燕麦的种植难度被设计为\textbf{中等}，其种植信息如下:
+
+\begin{table}[H]
+    \centering
+    \caption{燕麦种植信息}
+    \label{table:燕麦种植信息}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+                                           & \textbf{属性} & \textbf{说明}   & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        \multirow{4}{*}{\textbf{种植条件}} & 土地          & 农田            & 生态(温度)    & 温带，亚寒带    \\
+                                           & 生态(降雨)    & 中，高          & 生态(海拔)    & 中，中高       \\
+                                           & 生态(土地)    & 草地            & 生态(特殊)    & 无            \\
+                                           & 特殊          & -                                \\
+        \midrule
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]         & 海拔          & [64,194]      \\
+                                           & 天气          & -              & 特殊          & -      \\
+        \midrule
+        \textbf{生长速度}                  & 速度          & 块(8tick)       & 阶段tick      & [2,3,3]       \\
+        \midrule
+        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1               & 掉落物        & 燕麦:3-5      \\
+                                           & 饥饿度        & 2               & 营养值        & 0.4           \\
+                                           & 种子          & 果实分离        & 生吃          & 不可          \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{黑麦}
+
+黑麦的获取难度被设计为\textbf{中等}，其特征如下:
+\begin{table}[H]
+    \centering
+    \caption{黑麦特征}
+    \label{table:黑麦特征}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{模型特征}                  & 模型高度 & 1      & 模型形状 & 井字形 \\
+        \midrule
+        \textbf{单方块特征}                & 生长方块 & 草方块 & 替换方块 & 空气   \\
+        \midrule
+        \textbf{散植特征}                  & 生成几率 & 0.1    & 生成次数 & 1      \\
+        \midrule
+        \multirow{1}{*}{\textbf{特征规则}} & 生成地   & 地表   & 生态     & 平原，恶地   \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+黑麦的种植难度被设计为\textbf{中等}，其种植信息如下:
+
+\begin{table}[H]
+    \centering
+    \caption{黑麦种植信息}
+    \label{table:黑麦种植信息}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+                                           & \textbf{属性} & \textbf{说明}   & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        \multirow{4}{*}{\textbf{种植条件}} & 土地          & 农田            & 生态(温度)    & 温带，热带    \\
+                                           & 生态(降雨)    & 中，低          & 生态(海拔)    & 中       \\
+                                           & 生态(土地)    & 草地            & 生态(特殊)    & 无            \\
+                                           & 特殊          & -                                \\
+        \midrule
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [11,15]         & 海拔          & [64,128]      \\
+                                           & 天气          & -              & 特殊          & -      \\
+        \midrule
+        \textbf{生长速度}                  & 速度          & 块(8tick)       & 阶段tick      & [2,3,3]       \\
+        \midrule
+        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1               & 掉落物        & 黑麦:3-5      \\
                                            & 饥饿度        & 2               & 营养值        & 0.4           \\
                                            & 种子          & 果实分离        & 生吃          & 不可          \\
         \bottomrule
@@ -615,6 +766,106 @@
     \end{tabular}
 \end{table}
 
+\subsubsection{生菜}
+
+生菜的获取难度被设计为\textbf{困难}，其特征如下:
+\begin{table}[H]
+    \centering
+    \caption{生菜特征}
+    \label{table:生菜特征}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{模型特征}   & 模型高度 & 1      & 模型形状 & 井字     \\
+        \midrule
+        \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气     \\
+        \midrule
+        \textbf{散植特征}   & 生成几率 & 0.05   & 生成次数 & 2        \\
+        \midrule
+        \textbf{特征规则}   & 生成地   & 地表   & 生态     & 亚寒带森林 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+生菜的种植难度被设计为\textbf{简单}，其种植信息如下:
+
+\begin{table}[H]
+    \centering
+    \caption{生菜种植信息}
+    \label{table:生菜种植信息}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+                                           & \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        \multirow{4}{*}{\textbf{种植条件}} & 土地          & 农田          & 生态(温度)    & 温带，亚寒带    \\
+                                           & 生态(降雨)    & 中，高        & 生态(海拔)    & 中，中高            \\
+                                           & 生态(土地)    & 草地          & 生态(特殊)    & -             \\
+                                           & 特殊          & -                                             \\
+        \midrule
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]        & 海拔          & [64,192]      \\
+                                           & 天气          & 无            & 特殊          & -             \\
+        \midrule
+        \textbf{生长速度}                  & 速度          & 很快(6tick)     & 阶段tick      & [2,2,2]       \\
+        \midrule
+        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1             & 掉落物        & 生菜:3-5      \\
+                                           & 饥饿度        & 1             & 营养值        & 0.4           \\
+                                           & 种子          & 果实即种子  & 生吃          & 可   \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{大葱}
+
+大葱的获取难度被设计为\textbf{中等}，其特征如下:
+\begin{table}[H]
+    \centering
+    \caption{大葱特征}
+    \label{table:大葱特征}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{模型特征}   & 模型高度 & 1      & 模型形状 & 井字     \\
+        \midrule
+        \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气     \\
+        \midrule
+        \textbf{散植特征}   & 生成几率 & 0.05   & 生成次数 & 3        \\
+        \midrule
+        \textbf{特征规则}   & 生成地   & 地表   & 生态     & 温带森林 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+大葱的种植难度被设计为\textbf{简单}，其种植信息如下:
+
+\begin{table}[H]
+    \centering
+    \caption{大葱种植信息}
+    \label{table:大葱种植信息}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+                                           & \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        \multirow{4}{*}{\textbf{种植条件}} & 土地          & 农田          & 生态(温度)    & 热带，温带，亚寒带    \\
+                                           & 生态(降雨)    & 中，高        & 生态(海拔)    & 中，中高            \\
+                                           & 生态(土地)    & 草地          & 生态(特殊)    & -             \\
+                                           & 特殊          & -                                             \\
+        \midrule
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]        & 海拔          & [64,192]      \\
+                                           & 天气          & 无            & 特殊          & -             \\
+        \midrule
+        \textbf{生长速度}                  & 速度          & 极快(5tick)     & 阶段tick      & [1,2,2]       \\
+        \midrule
+        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1           & 掉落物        & 大葱:3-4      \\
+                                           & 饥饿度        & 0          & 营养值        & 0.2           \\
+                                           & 种子          & 果实即种子  & 生吃          & 可   \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 \subsubsection{茄子}
 
 茄子的获取难度被设计为\textbf{中等}，其特征如下:
@@ -709,6 +960,56 @@
         \textbf{生长速度}                  & 速度          & 较慢(16tick)     & 阶段tick      & [5,5,6]       \\
         \midrule
         \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1             & 掉落物        & 白菜:2-5      \\
+                                           & 饥饿度        & 3             & 营养值        & 0.4           \\
+                                           & 种子          & 果实即为种子  & 生吃          & 可 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{白萝卜}
+
+白萝卜的获取难度被设计为\textbf{困难}，其特征如下:
+\begin{table}[H]
+    \centering
+    \caption{白萝卜特征}
+    \label{table:白萝卜特征}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{模型特征}   & 模型高度 & 1      & 模型形状 & 井字     \\
+        \midrule
+        \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气     \\
+        \midrule
+        \textbf{散植特征}   & 生成几率 & 0.02   & 生成次数 & 3        \\
+        \midrule
+        \textbf{特征规则}   & 生成地   & 地表/雪下   & 生态   & 亚寒带，寒带 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+白萝卜的种植难度被设计为\textbf{简单}，其种植信息如下:
+
+\begin{table}[H]
+    \centering
+    \caption{白萝卜种植信息}
+    \label{table:白萝卜种植信息}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+                                           & \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        \multirow{4}{*}{\textbf{种植条件}} & 土地          & 农田          & 生态(温度)    & 温带，寒带，亚寒带    \\
+                                           & 生态(降雨)    & 中，低        & 生态(海拔)    & 中            \\
+                                           & 生态(土地)    & 草地          & 生态(特殊)    & -             \\
+                                           & 特殊          & -         \\
+        \midrule
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]        & 海拔          & [64,256]      \\
+                                           & 天气          & 无           & 特殊          & -             \\
+        \midrule
+        \textbf{生长速度}                  & 速度          & 较慢(12tick)     & 阶段tick      & [4,4,4]       \\
+        \midrule
+        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1             & 掉落物        & 白萝卜:3-5      \\
                                            & 饥饿度        & 3             & 营养值        & 0.4           \\
                                            & 种子          & 果实即为种子  & 生吃          & 可 \\
         \bottomrule
@@ -1019,46 +1320,6 @@
     \end{tabular}
 \end{table}
 
-\subsubsection{松露}
-
-松露的获取难度被设计为\textbf{极难}，其特征如下:
-\begin{table}[H]
-    \centering
-    \caption{松露特征}
-    \label{table:松露特征}
-    \setlength{\tabcolsep}{4mm}
-    \begin{tabular}{c|cc|cc}
-        \toprule
-        \textbf{模型特征}   & 模型高度 & 0.5      & 模型形状 & 几何     \\
-        \midrule
-        \textbf{单方块特征} & 生长方块 & 灰化土/菌丝 & 替换方块 & 空气     \\
-        \midrule
-        \textbf{散植特征}   & 生成几率 & 0.1   & 生成次数 & 1        \\
-        \midrule
-        \textbf{特征规则}   & 生成地   & 地表   & 生态     & 寒带森林/蘑菇岛 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-
-松露的种植难度被设计为\textbf{传奇}，也即不可种植:
-
-\begin{table}[H]
-    \centering
-    \caption{松露种植信息}
-    \label{table:松露种植信息}
-    \setlength{\tabcolsep}{4mm}
-    \begin{tabular}{c|cc|cc}
-        \toprule
-                                           & \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
-        \midrule
-        \multirow{3}{*}{\textbf{收获}}     & 收获次数      & 1             & 掉落物        & 松露:1-3      \\
-                                           & 饥饿度        & 0             & 营养值        & 0.4           \\
-                                           & 种子          & 无  & 生吃          & 不可   \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
 \subsubsection{黑松露}
 
 黑松露的获取难度被设计为\textbf{传奇}，其特征如下:
@@ -1309,5 +1570,54 @@
     \end{tabular}
 \end{table}
 
+\subsubsection{薄荷}
+
+薄荷的获取难度被设计为\textbf{简单}，其特征如下:
+\begin{table}[H]
+    \centering
+    \caption{薄荷特征}
+    \label{table:薄荷特征}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{模型特征}   & 模型高度 & 1      & 模型形状 & 井字形     \\
+        \midrule
+        \textbf{单方块特征} & 生长方块 & 草方块 & 替换方块 & 空气       \\
+        \midrule
+        \textbf{散植特征}   & 生成几率 & 0.02   & 生成次数 & 3          \\
+        \midrule
+        \textbf{特征规则}   & 生成地   & 地表   & 生态     & 温带，亚寒带森林 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+薄荷的种植难度被设计为\textbf{简单}，其种植信息如下:
+
+\begin{table}[H]
+    \centering
+    \caption{薄荷种植信息}
+    \label{table:薄荷种植信息}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+                                           & \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明}    \\
+        \midrule
+        \multirow{4}{*}{\textbf{种植条件}} & 土地         & 农田，草方块  &   生态(温度)   & 热带，温带，亚寒带，寒带\\
+                                           & 生态(降雨)    & 高，中            & 生态(海拔)    & 中，中高，高         \\
+                                           & 生态(土地)    & 草地          & 生态(特殊)    & -                \\
+                                           & 特殊          & -                                                \\
+        \midrule
+        \multirow{2}{*}{\textbf{生长条件}} & 光照          & [9,15]        & 海拔          & [64,256]         \\
+                                           & 天气          & 无            & 特殊          & -                \\
+        \midrule
+        \textbf{生长速度}                  & 速度          & 快(7tick)  & 阶段tick      & [2,2,3]          \\
+        \midrule
+        \multirow{2}{*}{\textbf{收获}}     & 收获次数      & 1             & 掉落物        & 薄荷3-5 \\
+                                           & 饥饿度        & 0             & 营养值        & 0                \\
+                                           & 种子          & -  & 生吃          & 不可       \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \newpage

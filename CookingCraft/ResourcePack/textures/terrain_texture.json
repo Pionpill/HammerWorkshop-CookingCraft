@@ -5,28 +5,28 @@
       "textures": "textures/blocks/anvil"
     },
     "cookingcraft:banana_stage_0": {
-      "textures": "textures/blocks/banana_stage_0"
+      "textures": "textures/blocks/plants/banana_stage_0"
     },
     "cookingcraft:banana_stage_1": {
-      "textures": "textures/blocks/banana_stage_1"
+      "textures": "textures/blocks/plants/banana_stage_1"
     },
     "cookingcraft:banana_stage_2": {
-      "textures": "textures/blocks/banana_stage_2"
+      "textures": "textures/blocks/plants/banana_stage_2"
     },
     "cookingcraft:banana_stage_3": {
-      "textures": "textures/blocks/banana_stage_3"
+      "textures": "textures/blocks/plants/banana_stage_3"
     },
     "cookingcraft:banana_stage_4": {
-      "textures": "textures/blocks/banana_stage_4"
+      "textures": "textures/blocks/plants/banana_stage_4"
     },
     "cookingcraft:banana_stage_5": {
-      "textures": "textures/blocks/banana_stage_5"
+      "textures": "textures/blocks/plants/banana_stage_5"
     },
     "cookingcraft:barrel_bottom": {
-      "textures": "textures/blocks/barrel_bottom"
+      "textures": "textures/blocks/workbenches/barrel_bottom"
     },
     "cookingcraft:barrel_side": {
-      "textures": "textures/blocks/barrel_side"
+      "textures": "textures/blocks/workbenches/barrel_side"
     },
     "cookingcraft:bricks": {
       "textures": "textures/blocks/bricks"
@@ -35,52 +35,88 @@
       "textures": "textures/blocks/clay"
     },
     "cookingcraft:cooking_table_above": {
-      "textures": "textures/blocks/cooking_table_above"
+      "textures": "textures/blocks/workbenches/cooking_table_above"
     },
     "cookingcraft:cooking_table_side": {
-      "textures": "textures/blocks/cooking_table_side"
+      "textures": "textures/blocks/workbenches/cooking_table_side"
     },
     "cookingcraft:corn_stage_0": {
-      "textures": "textures/blocks/corn_stage_0"
+      "textures": "textures/blocks/plants/corn_stage_0"
     },
     "cookingcraft:corn_stage_1": {
-      "textures": "textures/blocks/corn_stage_1"
+      "textures": "textures/blocks/plants/corn_stage_1"
     },
     "cookingcraft:corn_stage_2": {
-      "textures": "textures/blocks/corn_stage_2"
+      "textures": "textures/blocks/plants/corn_stage_2"
     },
     "cookingcraft:corn_stage_3": {
-      "textures": "textures/blocks/corn_stage_3"
+      "textures": "textures/blocks/plants/corn_stage_3"
     },
     "cookingcraft:corn_stage_4": {
-      "textures": "textures/blocks/corn_stage_4"
+      "textures": "textures/blocks/plants/corn_stage_4"
     },
     "cookingcraft:fence_post": {
       "textures": "textures/blocks/fence_post"
     },
     "cookingcraft:stove_above": {
-      "textures": "textures/blocks/stove_above"
+      "textures": "textures/blocks/workbenches/stove_above"
     },
     "cookingcraft:stove_front": {
-      "textures": "textures/blocks/stove_front"
+      "textures": "textures/blocks/workbenches/stove_front"
     },
     "cookingcraft:stove_side": {
-      "textures": "textures/blocks/stove_side"
+      "textures": "textures/blocks/workbenches/stove_side"
     },
     "cookingcraft:herb_stage_0": {
-      "textures": "textures/blocks/herb_stage_0"
+      "textures": "textures/blocks/plants/herb_stage_0"
     },
     "cookingcraft:herb_stage_1": {
-      "textures": "textures/blocks/herb_stage_1"
+      "textures": "textures/blocks/plants/herb_stage_1"
     },
     "cookingcraft:herb_stage_2": {
-      "textures": "textures/blocks/herb_stage_2"
+      "textures": "textures/blocks/plants/herb_stage_2"
     },
     "cookingcraft:herb_stage_3": {
-      "textures": "textures/blocks/herb_stage_3"
+      "textures": "textures/blocks/plants/herb_stage_3"
+    },
+    "cookingcraft:highland_wheat_stage_0": {
+      "textures": "textures/blocks/plants/highland_wheat_stage_0"
+    },
+    "cookingcraft:highland_wheat_stage_1": {
+      "textures": "textures/blocks/plants/highland_wheat_stage_1"
+    },
+    "cookingcraft:highland_wheat_stage_2": {
+      "textures": "textures/blocks/plants/highland_wheat_stage_2"
+    },
+    "cookingcraft:highland_wheat_stage_3": {
+      "textures": "textures/blocks/plants/highland_wheat_stage_3"
+    },
+    "cookingcraft:rye_stage_0": {
+      "textures": "textures/blocks/plants/rye_stage_0"
+    },
+    "cookingcraft:rye_stage_1": {
+      "textures": "textures/blocks/plants/rye_stage_1"
+    },
+    "cookingcraft:rye_stage_2": {
+      "textures": "textures/blocks/plants/rye_stage_2"
+    },
+    "cookingcraft:rye_stage_3": {
+      "textures": "textures/blocks/plants/rye_stage_3"
+    },
+    "cookingcraft:oats_stage_0": {
+      "textures": "textures/blocks/plants/oats_stage_0"
+    },
+    "cookingcraft:oats_stage_1": {
+      "textures": "textures/blocks/plants/oats_stage_1"
+    },
+    "cookingcraft:oats_stage_2": {
+      "textures": "textures/blocks/plants/oats_stage_2"
+    },
+    "cookingcraft:oats_stage_3": {
+      "textures": "textures/blocks/plants/oats_stage_3"
     },
     "cookingcraft:mix_plank": {
-      "textures": "textures/blocks/mix_plank"
+      "textures": "textures/blocks/workbenches/mix_plank"
     },
     "cookingcraft:oak_log": {
       "textures": "textures/blocks/oak_log"
@@ -95,43 +131,43 @@
       "textures": "textures/blocks/oil"
     },
     "cookingcraft:onion_stage_0": {
-      "textures": "textures/blocks/onion_stage_0"
+      "textures": "textures/blocks/plants/onion_stage_0"
     },
     "cookingcraft:onion_stage_1": {
-      "textures": "textures/blocks/onion_stage_1"
+      "textures": "textures/blocks/plants/onion_stage_1"
     },
     "cookingcraft:onion_stage_2": {
-      "textures": "textures/blocks/onion_stage_2"
+      "textures": "textures/blocks/plants/onion_stage_2"
     },
     "cookingcraft:onion_stage_3": {
-      "textures": "textures/blocks/onion_stage_3"
+      "textures": "textures/blocks/plants/onion_stage_3"
     },
     "cookingcraft:pepper_stage_0": {
-      "textures": "textures/blocks/pepper_stage_0"
+      "textures": "textures/blocks/plants/pepper_stage_0"
     },
     "cookingcraft:pepper_stage_1": {
-      "textures": "textures/blocks/pepper_stage_1"
+      "textures": "textures/blocks/plants/pepper_stage_1"
     },
     "cookingcraft:pepper_stage_2": {
-      "textures": "textures/blocks/pepper_stage_2"
+      "textures": "textures/blocks/plants/pepper_stage_2"
     },
     "cookingcraft:pepper_stage_3": {
-      "textures": "textures/blocks/pepper_stage_3"
+      "textures": "textures/blocks/plants/pepper_stage_3"
     },
     "cookingcraft:rice_stage_0": {
-      "textures": "textures/blocks/rice_stage_0"
+      "textures": "textures/blocks/plants/rice_stage_0"
     },
     "cookingcraft:rice_stage_1": {
-      "textures": "textures/blocks/rice_stage_1"
+      "textures": "textures/blocks/plants/rice_stage_1"
     },
     "cookingcraft:rice_stage_2": {
-      "textures": "textures/blocks/rice_stage_2"
+      "textures": "textures/blocks/plants/rice_stage_2"
     },
     "cookingcraft:rice_stage_3": {
-      "textures": "textures/blocks/rice_stage_3"
+      "textures": "textures/blocks/plants/rice_stage_3"
     },
     "cookingcraft:rope": {
-      "textures": "textures/blocks/rope"
+      "textures": "textures/blocks/workbenches/rope"
     },
     "cookingcraft:smooth_stone": {
       "textures": "textures/blocks/smooth_stone"
@@ -140,22 +176,22 @@
       "textures": "textures/blocks/spruce_planks"
     },
     "cookingcraft:steel_pan_side": {
-      "textures": "textures/blocks/steel_pan_side"
+      "textures": "textures/blocks/workbenches/steel_pan_side"
     },
     "cookingcraft:stone": {
       "textures": "textures/blocks/stone"
     },
     "cookingcraft:tomato_stage_0": {
-      "textures": "textures/blocks/tomato_stage_0"
+      "textures": "textures/blocks/plants/tomato_stage_0"
     },
     "cookingcraft:tomato_stage_1": {
-      "textures": "textures/blocks/tomato_stage_1"
+      "textures": "textures/blocks/plants/tomato_stage_1"
     },
     "cookingcraft:tomato_stage_2": {
-      "textures": "textures/blocks/tomato_stage_2"
+      "textures": "textures/blocks/plants/tomato_stage_2"
     },
     "cookingcraft:tomato_stage_3": {
-      "textures": "textures/blocks/tomato_stage_3"
+      "textures": "textures/blocks/plants/tomato_stage_3"
     },
     "cookingcraft:water": {
       "textures": "textures/blocks/water"

@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-07-26 19:15:11
-LastEditTime: 2022-08-25 00:14:50
+LastEditTime: 2022-08-27 19:25:19
 '''
 from abc import abstractmethod
 from copy import deepcopy
@@ -72,6 +72,29 @@ class BaseCraftingManager(BaseWorkbenchManager):
             self.resultSlotPrefix + str(i): None
             for i in range(self.slotNum.get(self.resultSlotPrefix))
         }
+
+    def GetRecipeContainerItems(self):
+        # type: () -> dict
+        """获取配方中需要返回的物品: 铁桶，玻璃瓶"""
+        recipeMaterialsItems = self.proxy.GetLastUsedRecipeMaterials()
+        containerItems = {}
+        for key, itemDict in recipeMaterialsItems.items():
+            if itemDict is None:
+                continue
+            itemName = itemDict.get("newItemName")
+            if itemName == "minecraft:milk_bucket":
+                containerItems[key] = {
+                    "newItemName": "minecraft:bucket",
+                    "newAuxValue": itemDict.get("newAuxValue"),
+                    "count": itemDict.get("count")
+                }
+            elif itemName == "minecraft:honey_bottle":
+                containerItems[key] = {
+                    "newItemName": "minecraft:glass_bottle",
+                    "newAuxValue": itemDict.get("newAuxValue"),
+                    "count": itemDict.get("count")
+                }
+        return containerItems
 
     def GetAllSlotName(self):
         # type: () -> list

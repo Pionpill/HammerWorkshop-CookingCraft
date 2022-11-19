@@ -1,0 +1,20 @@
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}
+            \node (1) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/corn.png}};
+            \node (2) at (10.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/baking_corn.png}};
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub)  at (6.5,1.5) [font=\scriptsize] {};
+            \node (2sub)  at (10.5,1.5) [font=\scriptsize] {};
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (7.5,1.5) -- (9.5,1.5);
+            \draw [recipe grid] (6,1) grid (7,2);
+            \draw [recipe grid] (10,1) grid (11,2);
+            \node (text) [font=\small] at (8.5,1.2) {烘焙炉};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{熟玉米}
+\end{figure}

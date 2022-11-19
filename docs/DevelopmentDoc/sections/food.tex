@@ -1,0 +1,131 @@
+\section{食物设计}
+
+\subsection{简易食物}
+
+\subsubsection{熟玉米}
+
+熟玉米品质为良好，在多个工作台上均可合成，合成表如下:
+
+\import{../tikz/recipes/baking_furnace}{cooked_corn.tex}
+\import{../tikz/recipes/food_steamer}{cooked_corn.tex}
+\import{../tikz/recipes/grill}{cooked_corn.tex}
+\import{../tikz/recipes/stew_pot}{cooked_corn.tex}
+
+类似的，其他简易食物若能烹饪，则在配方如上所示。
+
+熟玉米数值设计：
+
+经过加工与烘焙，可确定生成物携带的饥饿值与营养值。
+\begin{equation}
+    \begin{aligned}
+        H_{\text{熟玉米}} & = 3 \times 0.8 + 2 = 4.5 \nonumber
+    \end{aligned}
+\end{equation}
+
+\begin{table}[H]
+    \centering
+    \caption{熟玉米配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc|cc}
+        \toprule
+        \textbf{物品} & \textbf{品质} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        熟玉米 & $\bigstar \bigstar$ & 4 & 1.2 & 是 & - \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\subsection{烘焙食物}
+
+烘焙食物营养值设定为 1.2。烘焙食物都必须经过烘焙炉获取最终产品。
+
+\subsubsection{苹果派}
+
+苹果派品质为:大师，合成表如下:
+
+\import{../tikz/recipes/cooking_table}{apple_pie.tex}
+
+苹果派数值如下：
+
+\begin{table}[H]
+    \centering
+    \caption{苹果派配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc|cc}
+        \toprule
+        \textbf{物品} & \textbf{品质} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        生苹果派 & $\bigstar$ & 5 & 0.6 & 是 & 反胃 30\% 5s \\
+        苹果派 & $\bigstar \bigstar \bigstar \bigstar$ & 12 & 1.2 & 是 & 生命恢复II 10s(8生命) \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{胡萝卜派}
+
+胡萝卜派合成表如下:
+
+\import{../tikz/recipes/cooking_table}{carrot_pie.tex}
+
+胡萝卜派数值设计：
+
+\begin{table}[H]
+    \centering
+    \caption{胡萝卜派配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc|cc}
+        \toprule
+        \textbf{物品} & \textbf{品质} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        生胡萝卜派 & $\bigstar$ &4 & 0.6 & 是 & 反胃 30\% 5s \\
+        胡萝卜派 & $\bigstar \bigstar \bigstar$ & 10 & 1.2 & 是 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{鸡蛋派}
+
+鸡蛋派合成表如下:
+
+\import{../tikz/recipes/cooking_table}{egg_pie.tex}
+
+鸡蛋派数值设计：
+
+\begin{table}[H]
+    \centering
+    \caption{鸡蛋派配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc|cc}
+        \toprule
+        \textbf{物品} & \textbf{品质} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        生鸡蛋派 & $\bigstar$ & 3 & 0.6 & 是 & 反胃 100\% 10s, 中毒1 50\% 5s \\
+        鸡蛋派 & $\bigstar \bigstar \bigstar$ & 9 & 1.2 & 是 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{浆果派}
+
+浆果派合成表如下:
+
+\import{../tikz/recipes/cooking_table}{berry_pie.tex}
+
+浆果派数值设计：
+
+\begin{table}[H]
+    \centering
+    \caption{浆果派配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|ccc|cc}
+        \toprule
+        \textbf{物品} & \textbf{品质} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        生浆果派 & $\bigstar$ & 5 & 0.6 & 是 & 反胃 50\% 8s, 中毒1 10\% 5s \\
+        浆果派 & $\bigstar \bigstar \bigstar \bigstar$ & 12 & 1.2 & 是 & 夜视，2min \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage

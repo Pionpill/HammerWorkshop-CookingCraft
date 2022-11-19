@@ -493,16 +493,24 @@ class WorkbenchServerSystem(ServerSystem):
         blockName = blockInfo.get("blockName")
         if workbenchUtils.IsCraftingBlock(blockName):
             WorkbenchMgr.Produce()
-        if workbenchUtils.IsFurnaceBlock(blockName):
+            extraPos = pos + (dimensionId, )
+            self.__ReturnContainerItems(extraPos, playerId)
+        elif workbenchUtils.IsFurnaceBlock(blockName):
             slot = event["slot"]
             WorkbenchMgr.UpdateItemData(slot, None)
         itemComp = compFactory.CreateItem(playerId)
         itemComp.SpawnItemToPlayerInv(event["item"], playerId)
-        if blockInfo:
-            self.__UpdateBlockEntitySlotData(pos, dimensionId, blockName)
-            self.__UpdateInventoryUI(playerId, blockName)
+        self.__UpdateBlockEntitySlotData(pos, dimensionId, blockName)
+        self.__UpdateInventoryUI(playerId, blockName)
         if workbenchUtils.IsCraftingBlock(blockName):
             self.__MatchCraftingRecipe(playerId, blockName, dimensionId, pos)
+
+    def __ReturnContainerItems(self, extraPos, playerId):
+        WorkbenchMgr = WorkbenchFactory.GetWorkbenchManager(extraPos)
+        returnItems = WorkbenchMgr.GetRecipeContainerItems()
+        for item in returnItems.values():
+            itemComp = compFactory.CreateItem(playerId)
+            itemComp.SpawnItemToPlayerInv(item, playerId)
 
     def __UpdateBlockEntitySlotData(self, pos, dimensionId, blockName=None):
         # type: (tuple, int, str) -> None

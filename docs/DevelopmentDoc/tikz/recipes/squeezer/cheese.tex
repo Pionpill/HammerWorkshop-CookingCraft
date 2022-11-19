@@ -1,0 +1,24 @@
+\begin{figure}[H]
+   \centering
+   \begin{tikzpicture}
+       \begin{scope}
+            \node (1) at (4.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/milk.png}};
+            \node (2) at (5.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/milk.png}};
+            \node (3) at (6.5,1.5) {};
+            \node (4) at (10.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/cheese.png}};
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub)  at (4.5,1.5) [font=\scriptsize] {};
+            \node (2sub)  at (5.5,1.5) [font=\scriptsize] {};
+            \node (3sub)  at (6.5,1.5) [font=\scriptsize] {};
+            \node (4sub)  at (10.5,1.5) [font=\scriptsize] {};
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (7.5,1.5) -- (9.5,1.5);
+            \node (text) [font=\small] at (8.5,1.2) {压制机};
+            \draw [recipe grid] (4,1) grid (7,2);
+            \draw [recipe grid] (10,1) grid (11,2);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{奶酪配方}
+\end{figure}

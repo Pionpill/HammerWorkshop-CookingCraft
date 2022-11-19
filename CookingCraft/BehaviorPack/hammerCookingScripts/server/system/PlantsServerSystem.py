@@ -4,7 +4,7 @@ version: 1.0
 Author: Pionpill
 LastEditors: Pionpill
 Date: 2022-04-25 16:15:57
-LastEditTime: 2022-08-16 15:32:39
+LastEditTime: 2022-08-26 10:39:22
 '''
 import time
 
@@ -246,7 +246,6 @@ class PlantsServerSystem(ServerSystem):
             newBlockPos, blockDict, dimensionId=dimensionId)
         serverItemUtils.UseItem(playerId)
 
-    # FIXME 没有办法阻止放置栅栏
     def __ModFenceUse(self, itemName, pos, dimensionId):
         # type: (str, tuple, int) -> None
         """放置篱笆"""

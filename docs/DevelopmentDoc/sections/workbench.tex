@@ -186,71 +186,6 @@
     \caption{面粉}
 \end{figure}
 
-\subsubsection{烘焙炉}
-
-烘焙炉 (baking\_furnace) 用于将生食烘焙成熟。
-
-烘焙炉的合成配方如下:
-
-\begin{figure}[H]
-    \centering
-    \begin{tikzpicture}
-        \draw [recipe grid](0,0) grid (3,3);
-        \node (1) at (0.5,2.5) {};
-        \node (2) at (1.5,2.5) {};
-        \node (3) at (2.5,2.5) {};
-        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
-        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
-        \node (6) at (2.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
-        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
-        \node (8) at (1.5,0.5)  {};
-        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
-        \draw [recipe grid] (6,1) grid (7,2);
-        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/baking_clay_icon.png}};
-        \begin{scope}
-            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
-            \node (text) [font=\small] at (4.5,1.2) {工作台};
-        \end{scope}
-    \end{tikzpicture}
-    \caption{面粉}
-\end{figure}
-
-烘焙炉与原版熔炉功能相同，配方不同，在烘焙炉上可以将生的烘焙食物烤熟。
-
-\begin{table}[H]
-    \centering
-    \caption{厨务台属性}
-    \setlength{\tabcolsep}{4mm}
-    \begin{tabular}{c|cc|c}
-        \toprule
-        \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
-        \midrule
-        大小 & 2x2 & 作用 & 烘焙食物 \\
-        饥饿度增量 & 2-5 & 经验 & 0.35 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-其熔炉面板应具有以下结构:
-
-\begin{figure}[H]
-    \centering
-    \begin{tikzpicture}
-        \draw [recipe grid](0,1) grid (1,2);
-        \draw [recipe grid](4,0) grid (5,1);
-        \draw [recipe grid](0,-1) grid (1,0);
-        \begin{scope}
-            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
-        \end{scope}
-    \end{tikzpicture}
-    \caption{烘焙炉 UI}
-\end{figure}
-
-\begin{itemize}
-    \item 左上方: 原材料槽
-    \item 左下方: 燃料槽
-    \item 右侧：输出槽
-\end{itemize}
 
 \subsubsection{研磨机}
 
@@ -383,6 +318,73 @@
 \end{itemize}
 
 \subsection{产品熔炉}
+
+\subsubsection{烘焙炉}
+
+烘焙炉 (baking\_furnace) 用于将生食烘焙成熟。
+
+烘焙炉的合成配方如下:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \node (1) at (0.5,2.5) {};
+        \node (2) at (1.5,2.5) {};
+        \node (3) at (2.5,2.5) {};
+        \node (4) at (0.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (5) at (1.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (6) at (2.5,1.5)  {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (7) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \node (8) at (1.5,0.5)  {};
+        \node (9) at (2.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/brick.png}};
+        \draw [recipe grid] (6,1) grid (7,2);
+        \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/baking_clay_icon.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \node (text) [font=\small] at (4.5,1.2) {工作台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{面粉}
+\end{figure}
+
+烘焙炉与原版熔炉功能相同，配方不同，在烘焙炉上可以将生的烘焙食物烤熟。
+
+\begin{table}[H]
+    \centering
+    \caption{厨务台属性}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|c}
+        \toprule
+        \textbf{属性} & \textbf{说明} & \textbf{属性} & \textbf{说明} \\
+        \midrule
+        大小 & 2x2 & 作用 & 烘焙食物 \\
+        饥饿度增量 & 2-5 & 经验 & 0.35 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+其熔炉面板应具有以下结构:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,1) grid (1,2);
+        \draw [recipe grid](4,0) grid (5,1);
+        \draw [recipe grid](0,-1) grid (1,0);
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{烘焙炉 UI}
+\end{figure}
+
+\begin{itemize}
+    \item 左上方: 原材料槽
+    \item 左下方: 燃料槽
+    \item 右侧：输出槽
+\end{itemize}
+
 
 \subsubsection{炸锅}
 

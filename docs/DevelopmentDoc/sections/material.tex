@@ -1,0 +1,461 @@
+\section{材料设计}
+
+\subsection{厨务台}
+
+\subsubsection{调料}
+
+调料，使用厨务台合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \begin{scope}
+            \node (1) at (0.5,2.5) {};
+            \node (2) at (1.5,2.5) {};
+            \node (3) at (2.5,2.5) {};
+            \node (4) at (0.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/spices.png}};
+            \node (5) at (1.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/chill_powder.png}};
+            \node (6) at (2.5,1.5) {};
+            \node (7) at (0.5,0.5) {};
+            \node (8) at (1.5,0.5) {};
+            \node (9) at (2.5,0.5) {};
+            \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/seasoning.png}};
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub) at (0.5,1.5) [font=\scriptsize] {2};
+            \node (2sub)  at (6.5,1.5) [font=\scriptsize] {3};
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \draw [recipe grid] (6,1) grid (7,2);
+            \node (text) [font=\small] at (4.5,1.2) {厨务台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{调料}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{调料配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        调料 & - & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{牛奶}
+
+牛奶，使用厨务台合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \begin{scope}
+            \node (1) at (0.5,2.5) {};
+            \node (2) at (1.5,2.5) {};
+            \node (3) at (2.5,2.5) {};
+            \node (4) at (0.5,1.5) {};
+            \node (5) at (1.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/milk_bucket.png}};
+            \node (6) at (2.5,1.5) {};
+            \node (7) at (0.5,0.5) {};
+            \node (8) at (1.5,0.5) {};
+            \node (9) at (2.5,0.5) {};
+            \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/milk.png}};
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub) at (0.5,1.5) [font=\scriptsize] {};
+            \node (2sub)  at (6.5,1.5) [font=\scriptsize] {3};
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \draw [recipe grid] (6,1) grid (7,2);
+            \node (text) [font=\small] at (4.5,1.2) {厨务台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{牛奶}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{牛奶配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        牛奶 & 1 & 1.2 & 是 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{蜂蜜}
+
+蜂蜜，使用厨务台合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \begin{scope}
+            \node (1) at (0.5,2.5) {};
+            \node (2) at (1.5,2.5) {};
+            \node (3) at (2.5,2.5) {};
+            \node (4) at (0.5,1.5) {};
+            \node (5) at (1.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/honey_bottle.png}};
+            \node (6) at (2.5,1.5) {};
+            \node (7) at (0.5,0.5) {};
+            \node (8) at (1.5,0.5) {};
+            \node (9) at (2.5,0.5) {};
+            \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/honey.png}};
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub) at (0.5,1.5) [font=\scriptsize] {};
+            \node (2sub)  at (6.5,1.5) [font=\scriptsize] {};
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \draw [recipe grid] (6,1) grid (7,2);
+            \node (text) [font=\small] at (4.5,1.2) {厨务台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{蜂蜜}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (3,3);
+        \begin{scope}
+            \node (1) at (0.5,2.5) {};
+            \node (2) at (1.5,2.5) {};
+            \node (3) at (2.5,2.5) {};
+            \node (4) at (0.5,1.5) {};
+            \node (5) at (1.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/honey_block.png}};
+            \node (6) at (2.5,1.5) {};
+            \node (7) at (0.5,0.5) {};
+            \node (8) at (1.5,0.5) {};
+            \node (9) at (2.5,0.5) {};
+            \node (10) at (6.5,1.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/honey.png}};
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub) at (0.5,1.5) [font=\scriptsize] {};
+            \node (2sub)  at (6.5,1.5) [font=\scriptsize] {4};
+        \end{scope}
+        \begin{scope}
+            \draw [-{Stealth},thick] (3.5,1.5) -- (5.5,1.5);
+            \draw [recipe grid] (6,1) grid (7,2);
+            \node (text) [font=\small] at (4.5,1.2) {厨务台};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{蜂蜜}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{蜂蜜配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        蜂蜜 & 1 & 1.2 & 是 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{石磨}
+
+\subsubsection{面粉}
+
+面粉，使用石磨合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/origin/wheat.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/flour.png}};
+        \node (3)  at (5.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/straw.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub) at (0.5,0.5) [font=\scriptsize] {3};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{面粉 UI}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{面粉配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        面粉 & 5 & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{大米}
+
+大米，使用石磨合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/rice.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/rice_pieces.png}};
+        \node (3)  at (5.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/straw.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub) at (0.5,0.5) [font=\scriptsize] {3};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{大米配方}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{大米配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        大米 & 5 & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{淀粉}
+
+淀粉，使用石磨合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/rice_pieces.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/rice_flour.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{淀粉配方}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{淀粉配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        淀粉 & 5 & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{玉米粒}
+
+玉米粒，使用石磨合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/corn.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/corn_pieces.png}};
+        \node (3)  at (5.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/straw.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub) at (0.5,0.5) [font=\scriptsize] {3};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{玉米粒配方}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{玉米粒配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        玉米粒 & 7 & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{玉米粉}
+
+玉米粉，使用石磨合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/corn_pieces.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/corn_flour.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{玉米粉配方}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{玉米粉配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        玉米粉 & 7 & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{香料}
+
+香料，使用石磨合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/herb.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/spices.png}};
+        \node (3)  at (5.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/straw.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+        \begin{scope}[xshift = 0.35cm, yshift = -0.35cm]
+            \node (1sub) at (0.5,0.5) [font=\scriptsize] {3};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{香料配方}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{香料配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        香料 & - & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{辣椒粉}
+
+辣椒粉(chill\_powder)，使用石磨合成。
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw [recipe grid](0,0) grid (1,1);
+        \draw [recipe grid](4,0) grid (6,1);
+        \node (1) at (0.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/pepper.png}};
+        \node (2)  at (4.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/chill_powder.png}};
+        \node (3)  at (5.5,0.5) {\includegraphics[width=0.8cm,height=0.8cm]{./images/mod/straw.png}};
+        \begin{scope}
+            \draw [-{Stealth},thick] (1.5,0.5) -- (3.5,0.5);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{辣椒粉配方}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{辣椒粉配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        辣椒粉 & - & 1.5 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{压制机}
+
+\subsubsection{黄油}
+
+\import{../tikz/recipes/squeezer}{butter.tex}
+
+\begin{table}[H]
+    \centering
+    \caption{黄油配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        黄油 & 3 & 1.2 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{奶酪}
+
+\import{../tikz/recipes/squeezer}{cheese.tex}
+
+\begin{table}[H]
+    \centering
+    \caption{奶酪配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        奶酪 & 2 & 1.2 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{食用油}
+
+\import{../tikz/recipes/squeezer}{cooking_oil.tex}
+
+\begin{table}[H]
+    \centering
+    \caption{食用油配方}
+    \setlength{\tabcolsep}{4mm}
+    \begin{tabular}{c|cc|cc}
+        \toprule
+        \textbf{物品} & \textbf{饥饿值} & \textbf{营养值} & \textbf{可食用} & \textbf{效果}\\
+        \midrule
+        食用油 & 3 & 1.2 & 否 & 无 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
