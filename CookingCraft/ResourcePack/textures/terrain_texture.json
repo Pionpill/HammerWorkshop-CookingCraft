@@ -115,6 +115,18 @@
     "cookingcraft:oats_stage_3": {
       "textures": "textures/blocks/plants/oats_stage_3"
     },
+    "cookingcraft:soy_bean_stage_0": {
+      "textures": "textures/blocks/plants/soy_bean_stage_0"
+    },
+    "cookingcraft:soy_bean_stage_1": {
+      "textures": "textures/blocks/plants/soy_bean_stage_1"
+    },
+    "cookingcraft:soy_bean_stage_2": {
+      "textures": "textures/blocks/plants/soy_bean_stage_2"
+    },
+    "cookingcraft:soy_bean_stage_3": {
+      "textures": "textures/blocks/plants/soy_bean_stage_3"
+    },
     "cookingcraft:mix_plank": {
       "textures": "textures/blocks/workbenches/mix_plank"
     },

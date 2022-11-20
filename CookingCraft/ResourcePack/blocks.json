@@ -83,6 +83,22 @@
     "netease_model": "cookingcraft:oats_stage_3",
     "sound": "grass"
   },
+  "cookingcraft:soy_bean_stage_0": {
+    "netease_model": "cookingcraft:soy_bean_stage_0",
+    "sound": "grass"
+  },
+  "cookingcraft:soy_bean_stage_1": {
+    "netease_model": "cookingcraft:soy_bean_stage_1",
+    "sound": "grass"
+  },
+  "cookingcraft:soy_bean_stage_2": {
+    "netease_model": "cookingcraft:soy_bean_stage_2",
+    "sound": "grass"
+  },
+  "cookingcraft:soy_bean_stage_3": {
+    "netease_model": "cookingcraft:soy_bean_stage_3",
+    "sound": "grass"
+  },
   "cookingcraft:corn_stage_0": {
     "netease_model": "cookingcraft:corn_stage_0",
     "sound": "grass"

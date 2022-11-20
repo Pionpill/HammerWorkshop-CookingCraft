@@ -20,6 +20,15 @@
     "cookingcraft:highland_wheat_seeds": {
       "textures": "textures/items/plants/highland_wheat_seeds"
     },
+    "cookingcraft:soy_bean": {
+      "textures": "textures/items/plants/soy_bean"
+    },
+    "cookingcraft:mung_bean": {
+      "textures": "textures/items/plants/mung_bean"
+    },
+    "cookingcraft:red_bean": {
+      "textures": "textures/items/plants/red_bean"
+    },
     "cookingcraft:oats": {
       "textures": "textures/items/plants/oats"
     },

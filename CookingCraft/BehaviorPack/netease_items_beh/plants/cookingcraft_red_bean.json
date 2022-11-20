@@ -1,0 +1,16 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:red_bean",
+      "register_to_create_menu": true,
+      "category": "cooking_craft"
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      "netease:customtips": {
+        "value": "§f--------------------\n§6§l种子\n§r§3‖气候‖:§e温带，热带\n§3‖土地‖:§e耕地\n--------------------\n§2【描述】\n§r红豆在温带森林少量分布\n在温带，热带都可生长"
+      }
+    }
+  }
+}
