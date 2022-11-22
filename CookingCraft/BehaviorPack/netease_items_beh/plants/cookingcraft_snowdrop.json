@@ -1,0 +1,16 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:snowdrop",
+      "register_to_create_menu": true,
+      "category": "cooking_craft"
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      "netease:customtips": {
+        "value": "§f--------------------\n§6§l种子\n§r§3‖品质‖:§e传奇\n§r§3‖气候‖:§e温带\n§3‖土地‖:§e耕地\n--------------------\n§2【描述】\n§r雪莲，极其珍贵的食材\n只在寒带生长，生长极其缓慢"
+      }
+    }
+  }
+}

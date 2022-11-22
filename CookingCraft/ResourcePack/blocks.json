@@ -231,6 +231,10 @@
     "netease_model": "cookingcraft:mint_stage_3",
     "sound": "grass"
   },
+  "cookingcraft:mushroom_wood": {
+    "netease_model": "cookingcraft:mushroom_wood",
+    "sound": "wood"
+  },
   "cookingcraft:needle_mushroom_stage_0": {
     "netease_model": "cookingcraft:needle_mushroom_stage_0",
     "sound": "grass"

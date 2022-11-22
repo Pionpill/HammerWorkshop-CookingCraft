@@ -6,8 +6,7 @@
     },
     "components": {
       "minecraft:icon": "cookingcraft:mung_bean",
-      "minecraft:render_offsets": "seeds",
-      "minecraft:use_animation": "eat"
+      "minecraft:render_offsets": "seeds"
     }
   }
 }

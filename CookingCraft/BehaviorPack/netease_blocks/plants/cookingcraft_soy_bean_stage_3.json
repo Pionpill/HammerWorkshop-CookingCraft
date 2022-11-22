@@ -9,7 +9,7 @@
     "components": {
       "minecraft:block_light_absorption": 0,
       "minecraft:block_light_emission": 0,
-      "minecraft:loot": "loot_tables/blocks/cookingcraft_soy_bean.json",
+      "minecraft:loot": "loot_tables/blocks/plants/cookingcraft_soy_bean.json",
       "netease:render_layer": {
         "value": "alpha"
       },

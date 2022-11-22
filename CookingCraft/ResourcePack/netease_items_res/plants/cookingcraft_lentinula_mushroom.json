@@ -1,0 +1,12 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:lentinula_mushroom"
+    },
+    "components": {
+      "minecraft:icon": "cookingcraft:lentinula_mushroom",
+      "minecraft:render_offsets": "seeds"
+    }
+  }
+}

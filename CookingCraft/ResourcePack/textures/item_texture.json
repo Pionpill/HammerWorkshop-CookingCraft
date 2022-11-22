@@ -73,8 +73,8 @@
     "cookingcraft:highland_wheat": {
       "textures": "textures/items/plants/highland_wheat"
     },
-    "cookingcraft:highland_wheat_seeds": {
-      "textures": "textures/items/plants/highland_wheat_seeds"
+    "cookingcraft:highland_wheat_pieces": {
+      "textures": "textures/items/plants/highland_wheat_pieces"
     },
     "cookingcraft:lentinula_mushroom": {
       "textures": "textures/items/plants/lentinula_mushroom"
@@ -94,8 +94,8 @@
     "cookingcraft:oats": {
       "textures": "textures/items/plants/oats"
     },
-    "cookingcraft:oats_seeds": {
-      "textures": "textures/items/plants/oats_seeds"
+    "cookingcraft:oats_pieces": {
+      "textures": "textures/items/plants/oats_pieces"
     },
     "cookingcraft:onion": {
       "textures": "textures/items/plants/onion"
@@ -148,8 +148,8 @@
     "cookingcraft:rye": {
       "textures": "textures/items/plants/rye"
     },
-    "cookingcraft:rye_seeds": {
-      "textures": "textures/items/plants/rye_seeds"
+    "cookingcraft:rye_pieces": {
+      "textures": "textures/items/plants/rye_pieces"
     },
     "cookingcraft:salt": {
       "textures": "textures/items/materials/salt"
@@ -184,8 +184,8 @@
     "cookingcraft:tricholoma_matsutake": {
       "textures": "textures/items/plants/tricholoma_matsutake"
     },
-    "cookingcraft:truffles": {
-      "textures": "textures/items/plants/truffles"
+    "cookingcraft:truffle": {
+      "textures": "textures/items/plants/truffle"
     },
     "cookingcraft:white_cabbage": {
       "textures": "textures/items/plants/white_cabbage"

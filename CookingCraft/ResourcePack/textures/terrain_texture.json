@@ -160,6 +160,9 @@
     "cookingcraft:mushroom_white": {
       "textures": "textures/blocks/mushroom_white"
     },
+    "cookingcraft:mushroom_wood": {
+      "textures": "textures/blocks/workbenches/mushroom_wood"
+    },
     "cookingcraft:needle_mushroom_stage_0": {
       "textures": "textures/blocks/plants/needle_mushroom_stage_0"
     },
@@ -360,6 +363,9 @@
     },
     "cookingcraft:white_cabbage_stage_3": {
       "textures": "textures/blocks/plants/white_cabbage_stage_3"
+    },
+    "cookingcraft:truffles": {
+      "textures": "textures/blocks/plants/truffles"
     },
     "cookingcraft:white_cabbage_top": {
       "textures": "textures/blocks/plants/white_cabbage_top"

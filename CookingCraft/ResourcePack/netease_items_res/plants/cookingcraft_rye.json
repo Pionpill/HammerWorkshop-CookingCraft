@@ -5,9 +5,7 @@
       "identifier": "cookingcraft:rye"
     },
     "components": {
-      "minecraft:icon": "cookingcraft:rye",
-      "minecraft:render_offsets": "seeds",
-      "minecraft:use_animation": "eat"
+      "minecraft:icon": "cookingcraft:rye"
     }
   }
 }

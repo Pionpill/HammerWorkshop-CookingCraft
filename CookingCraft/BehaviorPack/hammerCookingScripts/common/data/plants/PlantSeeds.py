@@ -26,7 +26,7 @@ SEEDS_INFO = {
             "sprout": None,  # 可填写 "rain", "thunder"
         },
     },
-    # "cookingcraft:highland_wheat_seeds": { 
+    # "cookingcraft:highland_wheat_pieces": { 
     #     "tickList": [3, 4, 4],
     #     "harvestCount": 1,
     #     "harvestBlock": None,
@@ -42,7 +42,7 @@ SEEDS_INFO = {
     #         "sprout": None,  # 可填写 "rain", "thunder"
     #     },
     # },
-    # "cookingcraft:oats_seeds": {
+    # "cookingcraft:oats_pieces": {
     #     "tickList": [2, 3, 3],
     #     "harvestCount": 1,
     #     "harvestBlock": None,
@@ -59,7 +59,7 @@ SEEDS_INFO = {
     #         "sprout": None,  # 可填写 "rain", "thunder"
     #     },
     # },
-    # "cookingcraft:rye_seeds": {
+    # "cookingcraft:rye_pieces": {
     #     "tickList": [2, 3, 3],
     #     "harvestCount": 1,
     #     "harvestBlock": None,

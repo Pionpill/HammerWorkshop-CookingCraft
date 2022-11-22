@@ -1,0 +1,12 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:green_pepper"
+    },
+    "components": {
+      "minecraft:icon": "cookingcraft:green_pepper",
+      "minecraft:render_offsets": "seeds"
+    }
+  }
+}

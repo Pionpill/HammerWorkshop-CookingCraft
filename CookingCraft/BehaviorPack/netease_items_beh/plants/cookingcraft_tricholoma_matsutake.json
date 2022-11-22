@@ -1,0 +1,16 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:tricholoma_matsutake",
+      "register_to_create_menu": true,
+      "category": "cooking_craft"
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      "netease:customtips": {
+        "value": "§f--------------------\n§6§l种子\n§r§3‖气候‖:§e亚寒带，寒带\n§3‖土地‖:§e耕地\n--------------------\n§2【描述】\n§r松茸在寒带森林与蘑菇岛生长\n在亚寒带，寒带可种植"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cookingcraft:sweet_potato"
+    },
+    "components": {
+      "minecraft:icon": "cookingcraft:sweet_potato",
+      "minecraft:render_offsets": "seeds"
+    }
+  }
+}
