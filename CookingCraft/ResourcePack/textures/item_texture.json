@@ -1,45 +1,17 @@
 {
   "resource_pack_name": "vanilla",
-  "texture_name": "atlas.items",
   "texture_data": {
     "cookingcraft:apple_pie": {
       "textures": "textures/items/foods/apple_pie"
     },
+    "cookingcraft:author_book": {
+      "textures": "textures/items/books/author_book"
+    },
     "cookingcraft:baking_corn": {
       "textures": "textures/items/foods/baking_corn"
     },
-    "cookingcraft:chill_powder": {
-      "textures": "textures/items/materials/chill_powder"
-    },
     "cookingcraft:banana": {
       "textures": "textures/items/plants/banana"
-    },
-    "cookingcraft:highland_wheat": {
-      "textures": "textures/items/plants/highland_wheat"
-    },
-    "cookingcraft:highland_wheat_seeds": {
-      "textures": "textures/items/plants/highland_wheat_seeds"
-    },
-    "cookingcraft:soy_bean": {
-      "textures": "textures/items/plants/soy_bean"
-    },
-    "cookingcraft:mung_bean": {
-      "textures": "textures/items/plants/mung_bean"
-    },
-    "cookingcraft:red_bean": {
-      "textures": "textures/items/plants/red_bean"
-    },
-    "cookingcraft:oats": {
-      "textures": "textures/items/plants/oats"
-    },
-    "cookingcraft:oats_seeds": {
-      "textures": "textures/items/plants/oats_seeds"
-    },
-    "cookingcraft:rye": {
-      "textures": "textures/items/plants/rye"
-    },
-    "cookingcraft:rye_seeds": {
-      "textures": "textures/items/plants/rye_seeds"
     },
     "cookingcraft:berry_pie": {
       "textures": "textures/items/foods/berry_pie"
@@ -47,14 +19,26 @@
     "cookingcraft:butter": {
       "textures": "textures/items/materials/butter"
     },
+    "cookingcraft:button_mushroom": {
+      "textures": "textures/items/plants/button_mushroom"
+    },
+    "cookingcraft:cabbage": {
+      "textures": "textures/items/plants/cabbage"
+    },
     "cookingcraft:carrot_pie": {
       "textures": "textures/items/foods/carrot_pie"
     },
     "cookingcraft:cheese_pie": {
       "textures": "textures/items/foods/cheese_pie"
     },
+    "cookingcraft:chill_powder": {
+      "textures": "textures/items/materials/chill_powder"
+    },
     "cookingcraft:chill_power": {
       "textures": "textures/items/materials/chill_power"
+    },
+    "cookingcraft:cooking_book": {
+      "textures": "textures/items/books/cooking_book"
     },
     "cookingcraft:corn": {
       "textures": "textures/items/plants/corn"
@@ -71,8 +55,14 @@
     "cookingcraft:egg_pie": {
       "textures": "textures/items/foods/egg_pie"
     },
+    "cookingcraft:eggplant": {
+      "textures": "textures/items/plants/eggplant"
+    },
     "cookingcraft:flour": {
       "textures": "textures/items/materials/flour"
+    },
+    "cookingcraft:green_pepper": {
+      "textures": "textures/items/plants/green_pepper"
     },
     "cookingcraft:herb": {
       "textures": "textures/items/plants/herb"
@@ -80,14 +70,47 @@
     "cookingcraft:herb_seeds": {
       "textures": "textures/items/plants/herb_seeds"
     },
+    "cookingcraft:highland_wheat": {
+      "textures": "textures/items/plants/highland_wheat"
+    },
+    "cookingcraft:highland_wheat_seeds": {
+      "textures": "textures/items/plants/highland_wheat_seeds"
+    },
+    "cookingcraft:lentinula_mushroom": {
+      "textures": "textures/items/plants/lentinula_mushroom"
+    },
+    "cookingcraft:lettuce": {
+      "textures": "textures/items/plants/lettuce"
+    },
+    "cookingcraft:mint": {
+      "textures": "textures/items/plants/mint"
+    },
+    "cookingcraft:mung_bean": {
+      "textures": "textures/items/plants/mung_bean"
+    },
+    "cookingcraft:needle_mushroom": {
+      "textures": "textures/items/plants/needle_mushroom"
+    },
+    "cookingcraft:oats": {
+      "textures": "textures/items/plants/oats"
+    },
+    "cookingcraft:oats_seeds": {
+      "textures": "textures/items/plants/oats_seeds"
+    },
     "cookingcraft:onion": {
       "textures": "textures/items/plants/onion"
     },
     "cookingcraft:pepper": {
       "textures": "textures/items/plants/pepper"
     },
+    "cookingcraft:plants_book": {
+      "textures": "textures/items/books/plants_book"
+    },
     "cookingcraft:pumpkin_pie": {
       "textures": "textures/items/foods/pumpkin_pie"
+    },
+    "cookingcraft:rape_seeds": {
+      "textures": "textures/items/plants/rape_seeds"
     },
     "cookingcraft:raw_apple_pie": {
       "textures": "textures/items/foods/raw_apple_pie"
@@ -98,6 +121,9 @@
     "cookingcraft:raw_carrot_pie": {
       "textures": "textures/items/foods/raw_carrot_pie"
     },
+    "cookingcraft:raw_cheese_pie": {
+      "textures": "textures/items/foods/raw_cheese_pie"
+    },
     "cookingcraft:raw_corn_pie": {
       "textures": "textures/items/foods/raw_corn_pie"
     },
@@ -107,8 +133,8 @@
     "cookingcraft:raw_pumpkin_pie": {
       "textures": "textures/items/foods/raw_pumpkin_pie"
     },
-    "cookingcraft:raw_cheese_pie": {
-      "textures": "textures/items/foods/raw_cheese_pie"
+    "cookingcraft:red_bean": {
+      "textures": "textures/items/plants/red_bean"
     },
     "cookingcraft:rice": {
       "textures": "textures/items/plants/rice"
@@ -119,11 +145,26 @@
     "cookingcraft:rice_pieces": {
       "textures": "textures/items/materials/rice_pieces"
     },
+    "cookingcraft:rye": {
+      "textures": "textures/items/plants/rye"
+    },
+    "cookingcraft:rye_seeds": {
+      "textures": "textures/items/plants/rye_seeds"
+    },
     "cookingcraft:salt": {
       "textures": "textures/items/materials/salt"
     },
+    "cookingcraft:scallions": {
+      "textures": "textures/items/plants/scallions"
+    },
     "cookingcraft:seasoning": {
       "textures": "textures/items/materials/seasoning"
+    },
+    "cookingcraft:snowdrop": {
+      "textures": "textures/items/plants/snowdrop"
+    },
+    "cookingcraft:soy_bean": {
+      "textures": "textures/items/plants/soy_bean"
     },
     "cookingcraft:spices": {
       "textures": "textures/items/materials/spices"
@@ -131,20 +172,27 @@
     "cookingcraft:straw": {
       "textures": "textures/items/materials/straw"
     },
+    "cookingcraft:sweet_potato": {
+      "textures": "textures/items/plants/sweet_potato"
+    },
     "cookingcraft:tomato": {
       "textures": "textures/items/plants/tomato"
     },
-    "cookingcraft:cooking_book": {
-      "textures": "textures/items/books/cooking_book"
-    },
-    "cookingcraft:plants_book": {
-      "textures": "textures/items/books/plants_book"
-    },
-    "cookingcraft:author_book": {
-      "textures": "textures/items/books/author_book"
-    },
     "cookingcraft:tomato_seeds": {
       "textures": "textures/items/books/tomato_seeds"
+    },
+    "cookingcraft:tricholoma_matsutake": {
+      "textures": "textures/items/plants/tricholoma_matsutake"
+    },
+    "cookingcraft:truffles": {
+      "textures": "textures/items/plants/truffles"
+    },
+    "cookingcraft:white_cabbage": {
+      "textures": "textures/items/plants/white_cabbage"
+    },
+    "cookingcraft:white_radish": {
+      "textures": "textures/items/plants/white_radish"
     }
-  }
+  },
+  "texture_name": "atlas.items"
 }

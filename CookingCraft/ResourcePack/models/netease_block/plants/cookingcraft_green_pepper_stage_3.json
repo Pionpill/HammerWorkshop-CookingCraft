@@ -1,0 +1,379 @@
+{
+  "format_version": "1.13.0",
+  "netease:block_geometry": {
+    "bones": [
+      {
+        "name": "bone7",
+        "pivot": [8, 0, -8],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [9, 4, -4.3999999999999995],
+            "pivot": [11, 4, -4],
+            "rotation": [0, -30, 0],
+            "size": [2, 2, 1.9999999999999973],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [4, 30],
+                "uv_size": [-2, 2]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [1.9999999999999973, 2]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 30],
+                "uv_size": [2, 2]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [1.9999999999999973, 2]
+              }
+            }
+          },
+          {
+            "origin": [11, 5, -7.5],
+            "pivot": [12, 5, -6],
+            "rotation": [0, 50, 0],
+            "size": [2, 2, 2.0],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [4, 30],
+                "uv_size": [-2, 2]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [1.9999999999999996, 2]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 30],
+                "uv_size": [2, 2]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [1.9999999999999996, 2]
+              }
+            }
+          },
+          {
+            "origin": [8, 7, -12],
+            "pivot": [10, 7, -11],
+            "rotation": [0, -42.5, 0],
+            "size": [2, 2, 2],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [4, 30],
+                "uv_size": [-2, 2]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 30],
+                "uv_size": [2, 2]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              }
+            }
+          },
+          {
+            "origin": [11.5, 9, -14],
+            "pivot": [12, 9, -13],
+            "rotation": [0, -22.5, 0],
+            "size": [1.9999999999999964, 2, 2],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [4, 30],
+                "uv_size": [-2, 2]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [1.999999999999996, 2]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [1.999999999999996, 2]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 30],
+                "uv_size": [2, 2]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              }
+            }
+          },
+          {
+            "origin": [1, 7, -11.900000000000002],
+            "pivot": [3, 7, -12],
+            "rotation": [0, 15, 0],
+            "size": [2, 2, 2.0000000000000036],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [4, 30],
+                "uv_size": [-2, 2]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2.0000000000000027, 2]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 30],
+                "uv_size": [2, 2]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2.0000000000000027, 2]
+              }
+            }
+          },
+          {
+            "origin": [1, 8, -15],
+            "pivot": [3, 8, -14],
+            "rotation": [0, -40, 0],
+            "size": [2, 2, 2],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [4, 30],
+                "uv_size": [-2, 2]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 30],
+                "uv_size": [2, 2]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              }
+            }
+          },
+          {
+            "origin": [1, 5, -7],
+            "pivot": [3, 5, -6],
+            "rotation": [0, -50, 0],
+            "size": [2, 2, 2],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [4, 30],
+                "uv_size": [-2, 2]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 30],
+                "uv_size": [2, 2]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              }
+            }
+          },
+          {
+            "origin": [2, 6, -4],
+            "pivot": [4, 6, -3],
+            "rotation": [0, 47.5, 0],
+            "size": [2, 2, 2],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [4, 30],
+                "uv_size": [-2, 2]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [2, 30],
+                "uv_size": [2, 2]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 30],
+                "uv_size": [2, 2]
+              }
+            }
+          }
+        ],
+        "name": "fruit",
+        "parent": "bone7",
+        "pivot": [8, 0, -8],
+        "rotation": [0, 0, 0]
+      },
+      {
+        "cubes": [
+          {
+            "origin": [0, 0, -11],
+            "pivot": [8, 0, -8],
+            "rotation": [0, -90, 0],
+            "size": [16, 16, 8],
+            "uv": {
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [16, 16]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [16, 16]
+              }
+            }
+          },
+          {
+            "origin": [-1, 0, -12],
+            "pivot": [8, 0, -8],
+            "rotation": [0, 0, 0],
+            "size": [16, 16, 8],
+            "uv": {
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [16, 16]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [16, 16]
+              }
+            }
+          }
+        ],
+        "name": "bone",
+        "parent": "bone7",
+        "pivot": [8, 0, -8],
+        "rotation": [0, 0, 0]
+      }
+    ],
+    "description": {
+      "identifier": "cookingcraft:green_pepper_stage_3",
+      "textures": ["cookingcraft:green_pepper_stage_3"],
+      "textures_descriptions": [
+        {
+          "length": 64,
+          "width": 64
+        }
+      ],
+      "use_ao": true
+    }
+  }
+}

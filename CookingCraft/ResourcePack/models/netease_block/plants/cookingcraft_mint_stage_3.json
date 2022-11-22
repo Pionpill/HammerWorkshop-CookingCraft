@@ -1,0 +1,96 @@
+{
+  "format_version": "1.13.0",
+  "netease:block_geometry": {
+    "bones": [
+      {
+        "cubes": [
+          {
+            "origin": [-16, -1, 8],
+            "pivot": [-8, -1, 8],
+            "rotation": [0, -90, 0],
+            "size": [16, 16, 8],
+            "uv": {
+              "down": {
+                "texture": 2,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "east": {
+                "texture": 2,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "north": {
+                "texture": 2,
+                "uv": [0, 0],
+                "uv_size": [16, 16]
+              },
+              "south": {
+                "texture": 2,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "up": {
+                "texture": 2,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "west": {
+                "texture": 2,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              }
+            }
+          },
+          {
+            "origin": [-16, -1, 8],
+            "pivot": [-8, -1, 8],
+            "rotation": [0, 0, 0],
+            "size": [16, 16, 8],
+            "uv": {
+              "down": {
+                "texture": 2,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "east": {
+                "texture": 2,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "north": {
+                "texture": 2,
+                "uv": [0, 0],
+                "uv_size": [16, 16]
+              },
+              "south": {
+                "texture": 2,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "up": {
+                "texture": 2,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "west": {
+                "texture": 2,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              }
+            }
+          }
+        ],
+        "name": "bone",
+        "pivot": [-8, -1, 8],
+        "rotation": [0, -45, 0]
+      }
+    ],
+    "description": {
+      "identifier": "cookingcraft:mint_stage_3",
+      "item_texture": "cookingcraft:mint_stage_3",
+      "textures": ["cookingcraft:mint_stage_3"],
+      "use_ao": false
+    }
+  }
+}

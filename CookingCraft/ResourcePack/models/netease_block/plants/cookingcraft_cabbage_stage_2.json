@@ -1,0 +1,151 @@
+{
+  "format_version": "1.13.0",
+  "netease:block_geometry": {
+    "bones": [
+      {
+        "cubes": [
+          {
+            "origin": [-16, -1, 8],
+            "pivot": [-8, -1, 8],
+            "rotation": [0, -90, 0],
+            "size": [16, 16, 8],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [16, 16]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              }
+            }
+          },
+          {
+            "origin": [-16, -1, 8],
+            "pivot": [-8, -1, 8],
+            "rotation": [0, 0, 0],
+            "size": [16, 16, 8],
+            "uv": {
+              "down": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "east": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "north": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [16, 16]
+              },
+              "south": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "up": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              },
+              "west": {
+                "texture": 0,
+                "uv": [0, 0],
+                "uv_size": [0, 0]
+              }
+            }
+          },
+          {
+            "origin": [-10, -1, 6],
+            "pivot": [-8, -1, 8],
+            "rotation": [0, 0, 0],
+            "size": [4, 4, 4],
+            "uv": {
+              "down": {
+                "texture": 2,
+                "uv": [4, 8],
+                "uv_size": [8, 8]
+              },
+              "east": {
+                "texture": 1,
+                "uv": [4, 8],
+                "uv_size": [8, 8]
+              },
+              "north": {
+                "texture": 1,
+                "uv": [4, 8],
+                "uv_size": [8, 8]
+              },
+              "south": {
+                "texture": 1,
+                "uv": [4, 8],
+                "uv_size": [8, 8]
+              },
+              "up": {
+                "texture": 2,
+                "uv": [12, 16],
+                "uv_size": [-8, -8]
+              },
+              "west": {
+                "texture": 1,
+                "uv": [4, 8],
+                "uv_size": [8, 8]
+              }
+            }
+          }
+        ],
+        "name": "bone",
+        "pivot": [-8, -1, 8],
+        "rotation": [0, -45, 0]
+      }
+    ],
+    "description": {
+      "identifier": "cookingcraft:cabbage_stage_2",
+      "textures": [
+        "cookingcraft:cabbage_stage_2",
+        "cookingcraft:cabbage_side",
+        "cookingcraft:cabbage_top"
+      ],
+      "textures_descriptions": [
+        {
+          "length": 32,
+          "width": 32
+        },
+        {
+          "length": 16,
+          "width": 16
+        },
+        {
+          "length": 16,
+          "width": 16
+        }
+      ],
+      "use_ao": false
+    }
+  }
+}
