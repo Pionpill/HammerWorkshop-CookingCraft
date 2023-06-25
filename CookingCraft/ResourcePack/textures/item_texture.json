@@ -178,8 +178,17 @@
     "cookingcraft:tomato": {
       "textures": "textures/items/plants/tomato"
     },
-    "cookingcraft:tomato_seeds": {
-      "textures": "textures/items/books/tomato_seeds"
+    "cookingcraft:cabbage_seeds": {
+      "textures": "textures/items/books/cabbage_seeds"
+    },
+    "cookingcraft:white_cabbage_seeds": {
+      "textures": "textures/items/books/white_cabbage_seeds"
+    },
+    "cookingcraft:mint_seeds": {
+      "textures": "textures/items/books/mint_seeds"
+    },
+    "cookingcraft:snowdrop_seeds": {
+      "textures": "textures/items/books/snowdrop_seeds"
     },
     "cookingcraft:tricholoma_matsutake": {
       "textures": "textures/items/plants/tricholoma_matsutake"
