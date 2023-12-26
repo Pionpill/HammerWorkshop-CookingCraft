@@ -6,6 +6,9 @@
  * @Date: 2022-05-23 10:14:04
  * @LastEditTime: 2022-05-23 10:15:47
 -->
+
+该项目由于写的太烂已废弃，最新的仓库仓库为: [https://github.com/HammerWorkshop/ecology-netease](https://github.com/HammerWorkshop/ecology-netease)
+
 # 锤子工坊-烹饪工艺
 保留所有权利 - 我的艺术作品和代码都不能在您的游戏中免费使用(无论是否盈利)。如果您想使用，请与我联系。谢谢。此代码仅供人们学习并帮助我查找错误。
 
